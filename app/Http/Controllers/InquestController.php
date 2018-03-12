@@ -35,8 +35,12 @@ class InquestController extends Controller
     }
     public function inquestreg(Request $request)
     {
-        // $inquest = new Inquest;
-        // $inquest = 
+    	
+        $inquest = new Inquest;
+        $inquest -> natureofcalls = $request->natureofcalls;
+        $inquest -> location = $request->location;
+        $inquest -> actiontaken = $request->actiontaken;
+
     }
     public function showinquesttable()
     {
