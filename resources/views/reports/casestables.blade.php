@@ -14,170 +14,149 @@
 
 					
 						<div id="criminal" class="tab-content">
-							<div class="card1">
-							<div class="container"><br>
+							<div class="panel-body">
 							
-										<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+							<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
 								<thead>
 									<tr>
-										<th>Full Name</th>
-										<th>Nature of Request</th>
-										<th>Case Transfer</th>
-										<th>View</th>
+										<th>ITEM NO.</th>
+										<th>CONTROL NO.</th>
+										<th>PARTY REPRESENTED</th>
+										<th>GENDER/SEX</th>
+										<th>TITLE OF THE CASE</th>
+										<th>COURT/BODY</th>
+										<th>CASE NO.</th>
+										<th>CAUSE OF ACTION</th>
+										<th>STATUS OF THE CASE</th>
 									</tr>
 								</thead>
 				
 								<tbody>
-								
 									<tr>
-									
-										<td>
-											
-											 
-										</td>
-										<td>
-											
-										</td>
-										<td>
-											<a class = "btn btn-green" href="">
-											Case Transfer </a>
-										</td>
-										
-										<td>
-											<a  class = "btn btn-info" href="">
-											View </a>
-										</td>
+										<th> </th>
+										<th> </th>
+										<th> </th>
+										<th> </th>
+										<th> </th>
+										<th> </th>
+										<th> </th>
+										<th> </th>
+										<th> </th>
 									</tr>
 								
 								</tbody>
 							</table>
 
-								
-							</div>
-							</div>								
+						</div>							
 						</div>
 
 						<div id="civil" class="tab-content">
-							<div class="card1">
-							<div class="container"><br>
+							<div class="panel-body">
 							
-										<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+							<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
 								<thead>
 									<tr>
-										<th>Full Name</th>
-										<th>Nature of Request</th>
-										<th>Case Transfer</th>
-										<th>View</th>
+										<th>ITEM NO.</th>
+										<th>CONTROL NO.</th>
+										<th>PARTY REPRESENTED</th>
+										<th>GENDER/SEX</th>
+										<th>TITLE OF THE CASE</th>
+										<th>COURT/BODY</th>
+										<th>CASE NO.</th>
+										<th>CAUSE OF ACTION</th>
+										<th>STATUS OF THE CASE</th>
 									</tr>
 								</thead>
 				
 								<tbody>
-								
 									<tr>
-									
-										<td>
-											
-											 
-										</td>
-										<td> 
-										</td>
-										<td>
-											<a class = "btn btn-green" href="">
-											Case Transfer </a>
-										</td>
-										
-										<td>
-											<a  class = "btn btn-info" href="">
-											View </a>
-										</td>
+										<th> </th>
+										<th> </th>
+										<th> </th>
+										<th> </th>
+										<th> </th>
+										<th> </th>
+										<th> </th>
+										<th> </th>
+										<th> </th>
 									</tr>
 								
 								</tbody>
 							</table>
 
-								
-							</div>
-							</div>								
+						</div>							
 						</div>
 						<div id="labor" class="tab-content">
-							<div class="card1">
-							<div class="container"><br>
-										<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+							<div class="panel-body">
+							
+							<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
 								<thead>
 									<tr>
-										<th>Full Name</th>
-										<th>Nature of Request</th>
-										<th>Case Transfer</th>
-										<th>View</th>
+										<th>ITEM NO.</th>
+										<th>CONTROL NO.</th>
+										<th>PARTY REPRESENTED</th>
+										<th>GENDER/SEX</th>
+										<th>TITLE OF THE CASE</th>
+										<th>COURT/BODY</th>
+										<th>CASE NO.</th>
+										<th>CAUSE OF ACTION</th>
+										<th>STATUS OF THE CASE</th>
 									</tr>
 								</thead>
 				
 								<tbody>
-								
 									<tr>
-									
-										<td>
-											 
-											 
-										</td>
-										<td>
-											  
-										</td>
-										<td>
-											<a class = "btn btn-green" href="">
-											Case Transfer </a>
-										</td>
-										
-										<td>
-											<a  class = "btn btn-info" href="">
-											View </a>
-										</td>
+										<th> </th>
+										<th> </th>
+										<th> </th>
+										<th> </th>
+										<th> </th>
+										<th> </th>
+										<th> </th>
+										<th> </th>
+										<th> </th>
 									</tr>
 								
 								</tbody>
 							</table>
 
-							</div>
-							</div>								
+						</div>							
 						</div>
 						<div id="administrative" class="tab-content">
-							<div class="card1">
-							<div class="container"><br>
-									<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+							<div class="panel-body">
+							
+							<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
 								<thead>
 									<tr>
-										<th>Full Name</th>
-										<th>Nature of Request</th>
-										<th>Case Transfer</th>
-										<th>View</th>
+										<th>ITEM NO.</th>
+										<th>CONTROL NO.</th>
+										<th>PARTY REPRESENTED</th>
+										<th>GENDER/SEX</th>
+										<th>TITLE OF THE CASE</th>
+										<th>COURT/BODY</th>
+										<th>CASE NO.</th>
+										<th>CAUSE OF ACTION</th>
+										<th>STATUS OF THE CASE</th>
 									</tr>
 								</thead>
 				
 								<tbody>
 									<tr>
-									
-										<td>
-											 
-										</td>
-										<td>
-											  
-										</td>
-										<td>
-											<a class = "btn btn-green" href="">
-											Case Transfer </a>
-										</td>
-										
-										<td>
-											<a  class = "btn btn-info" href="">
-											View </a>
-										</td>
+										<th> </th>
+										<th> </th>
+										<th> </th>
+										<th> </th>
+										<th> </th>
+										<th> </th>
+										<th> </th>
+										<th> </th>
+										<th> </th>
 									</tr>
 								
 								</tbody>
 							</table>
 
-							</div>
-							</div>								
+						</div>							
 						</div>
 					</div>
 				
