@@ -32,13 +32,7 @@
 
                                 <li class="divider"></li>
                                 <li><!-- logout -->
-                                     <form id="logout" action="{{ route('logout') }}" method="POST">
-                                {{ csrf_field() }}
-                                    <a href="javascript:{}" class="nav-link logout" onclick="document.getElementById('logout').submit(); return false;">
-                                        Logout
-                                    <i class="fa fa-sign-out" aria-hidden="true"></i>
-                                    </a>
-                                    </form>
+                                    
                                 </li>
                             </ul>
                         </li>
