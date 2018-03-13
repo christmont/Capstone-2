@@ -223,9 +223,7 @@ Route::resource('citizenships', 'CitizenshipController');
 Route::get('/home', function () {
     return view('home');
 });
-Route::get('/', function () {
-    return view('auth.login');
-});
+
 
 Route::get('/notaryupload', function () {
     return view('notaryupload');
@@ -234,7 +232,6 @@ Route::get('/notaryupload', function () {
 Route::post('upload', 'UploadController@upload');
 
 
-Auth::routes();
 Route::get('/Distribution', function () {
     return view('casedistribution');
 });

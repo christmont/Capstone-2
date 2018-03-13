@@ -96,7 +96,7 @@ class ReportController extends Controller
          $civilreport = DB::table('clients')
                       ->join('casetobehandleds','casetobehandleds.client_id','=','clients.id')
                       ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['casetobehandleds.nature_of_case','Civil']])
-                      ->orWhere('clients.nature_of_request','Mediation',['casetobehandleds.nature_of_case','Civil'])
+                      ->orWhere([['clients.nature_of_request','Mediation'],['casetobehandleds.nature_of_case','Civil']])
                       ->get();
                      
                       foreach($civilreport as $civilreports)
@@ -109,7 +109,7 @@ class ReportController extends Controller
               $laborreport = DB::table('clients')
                       ->join('casetobehandleds','casetobehandleds.client_id','=','clients.id')
                       ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['casetobehandleds.nature_of_case','Labor']])
-                      ->orWhere('clients.nature_of_request','Mediation',['casetobehandleds.nature_of_case','Labor'])
+                      ->orWhere([['clients.nature_of_request','Mediation'],['casetobehandleds.nature_of_case','Labor']])
                       ->get();
                      
                       foreach($laborreport as $laborreports)
@@ -123,7 +123,7 @@ class ReportController extends Controller
       $administrativereport = DB::table('clients')
                       ->join('casetobehandleds','casetobehandleds.client_id','=','clients.id')
                       ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['casetobehandleds.nature_of_case','Administrative']])
-                      ->orWhere('clients.nature_of_request','Mediation',['casetobehandleds.nature_of_case','Administrative'])
+                      ->orWhere([['clients.nature_of_request','Mediation'],['casetobehandleds.nature_of_case','Administrative']])
                       ->get();
                      
                       foreach($administrativereport as $administrativereports)
@@ -159,8 +159,8 @@ class ReportController extends Controller
                                                              ->withcriminalreport($criminalreport)
                                                              ->withcivilreport($civilreport) 
                                                              ->withlaborreport($laborreport)
-                                                             ->withlaborcourts($laborcourts)
-                                                             ->withcivilcourts($civilcourts)
+                                                             // ->withlaborcourts($laborcourts)
+                                                             // ->withcivilcourts($civilcourts)
                                                              ->withcriminalcourts($criminalcourts)
                                                             ;
 
@@ -239,12 +239,12 @@ class ReportController extends Controller
         $criminalcourts = DB::table('courts')
                              ->where('id',$criminalreports->court_id)
                              ->get();
-                           
+                      }     
                       
          $civilreport = DB::table('clients')
                       ->join('casetobehandleds','casetobehandleds.client_id','=','clients.id')
                       ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['casetobehandleds.nature_of_case','Civil']])
-                      ->orWhere('clients.nature_of_request','Mediation',['casetobehandleds.nature_of_case','Civil'])
+                      ->orWhere([['clients.nature_of_request','Mediation'],['casetobehandleds.nature_of_case','Civil']])
                       ->get();
                      
                       foreach($civilreport as $civilreports)
@@ -252,7 +252,7 @@ class ReportController extends Controller
         $civilcourts = DB::table('courts')
                              ->where('id',$civilreports->court_id)
                              ->get();
-                            
+                      }    
                       
               $laborreport = DB::table('clients')
                       ->join('casetobehandleds','casetobehandleds.client_id','=','clients.id')
@@ -265,15 +265,16 @@ class ReportController extends Controller
                 $laborcourts = DB::table('courts')
                              ->where('id',$laborreports->court_id)
                              ->get();
-                            
+                      }     
                             
 
       $administrativereport = DB::table('clients')
-                      ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['casetobehandleds.nature_of_case','Administrative']])
-                      ->orWhere('clients.nature_of_request','Mediation',['casetobehandleds.nature_of_case','Administrative'])
                       ->join('casetobehandleds','casetobehandleds.client_id','=','clients.id')
+                      ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['casetobehandleds.nature_of_case','Administrative']])
+                      ->orWhere([['clients.nature_of_request','Mediation'],['casetobehandleds.nature_of_case','Administrative']])
                       ->get();
-                     return $administrativereport;
+                      
+                     
                       foreach($administrativereport as $administrativereports)
                       {
         $administrativecourts = DB::table('courts')
@@ -281,28 +282,18 @@ class ReportController extends Controller
                              ->get();
                              
                       }
-                             foreach($criminalreport as $criminalreports)
-                      {
-        $criminalcourts = DB::table('courts')
-                             ->where('id',$criminalreports->court_id)
-                             ->get();
-                      }
+                            
                              foreach($laborreport as $laborreports)
                       {
         $laborcourts = DB::table('courts')
                              ->where('id',$laborreports->court_id)
                              ->get();
                       }
-                             foreach($civilreport as $civilreports)
-                      {
-        $civilcourts = DB::table('courts')
-                             ->where('id',$civilreports->court_id)
-                             ->get();
-                      }         
+                             
                       
-                   }
-                 }
-               }
+                   
+                 
+               
 
                       
       // $administrativereport = Client::where([['nature_of_request','Mediation'],['cl_status','Approved']])
@@ -346,14 +337,16 @@ class ReportController extends Controller
       $date = date('F j Y',strtotime(Carbon::now()));
       $year = date('Y',strtotime(Carbon::now()));
       $papersize = array(0, 0, 360, 360);
-       $pdf = PDF::loadView('reports.yearend', ['administrativeclients'=>$administrativereport,
-                                                'administrativecourts'=>$administrativecourts,
+       $pdf = PDF::loadView('reports.yearend', [
                                                 'criminalclients'=>$criminalreport,
                                                 'criminalcourts'=>$criminalcourts,
-                                                'laborclients'=>$laborreport,
-                                                'laborcourts'=>$laborcourts,
-                                                'civilclients'=>$civilreport,
-                                                'civilcourts'=>$civilcourts,
+                                                'administrativeclients'=>$administrativereport,
+                                                'administrativecourts'=>$administrativecourts,
+                                                // 'laborclients'=>$laborreport,
+                                                // 'laborcourts'=>$laborcourts,
+                                                // 'civilclients'=>$civilreport,
+                                                // 'civilcourts'=>$civilcourts,
+
 
         // 'administrativecases'=>$administrativecases,
         // 'criminalcontrolno' => $criminalcases->control_number,
