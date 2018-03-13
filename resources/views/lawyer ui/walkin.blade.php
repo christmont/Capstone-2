@@ -11,15 +11,11 @@
 					<h1>Legal Documentation TABLE</h1>
 					<ol class="breadcrumb">
 						<li><a href="#">Tables</a></li>
-<<<<<<< HEAD:resources/views/lawyer ui/walkin.blade.php
 						<li class="active">Request tables</li>
-						
-=======
 						<li class="active">Legal Documentation tables</li>
 						<div class="pull-right">
 							<a  class="btn btn-green" href="/client/register" ><i class="fa fa-plus"></i> New Request</a>
 						</div>
->>>>>>> 7f62be6cc67dacfec97543fc3a539bfe6ef80cad:resources/views/maintenance/walkin.blade.php
 					</ol>
 				</header>
 				<!-- /page title -->
