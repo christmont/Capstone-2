@@ -346,5 +346,22 @@ var strUser = e.options[e.selectedIndex].value;
    
 
    </script>
+       <script>
+$(document).ready(function () {
+  $('#increment').click(function(){
+      var width = $("#container_width");
+      var input;
+      var input = $("<input>").attr("type","text").attr("name","width[]").attr("class","form-control");
+      var br = $("<br>");
+      width.append(br);
+      width.append(input);
+
+  });
+  $("#exampleForm").submit(function () {
+      alert(JSON.stringify($(this).serialize()));
+      return false;
+  });
+});
+</script>
     </body>
 </html>
