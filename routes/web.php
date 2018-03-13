@@ -231,6 +231,8 @@ Route::get('/notaryupload', function () {
 
 Route::post('upload', 'UploadController@upload');
 
+Route::get('uploadview/{id}', 'UploadController@viewupload')->name('uploadview');
+
 
 Route::get('/Distribution', function () {
     return view('casedistribution');

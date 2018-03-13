@@ -37,7 +37,6 @@ use Carbon\Carbon;
 use PDF;
 use \Input as Input;
 
-
 class RegisterController extends Controller
 {
    

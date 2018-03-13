@@ -11,6 +11,7 @@ use App\Employee;
 use App\employeeclients;
 use Auth;
 use App\Schedule;
+use App\Notary;
 
 class LawyerSideController extends Controller
 {
@@ -37,10 +38,20 @@ class LawyerSideController extends Controller
          ->where([['nature_of_request','Administration of oath'],['id',$lawyerclient->client_id],['cl_status','Walkin']])
          ->orderBy('cllname','asc')
          ->get();
+
+
+        foreach($clients as $client){
+
+                $notaries = Notary::select('*')
+         ->where('client_id',$client->id)
+         ->orderBy('created_at','asc')
+         ->get();
+
+        }
         
        
       }
-         return view('lawyer ui.notary')->withClients($clients);
+         return view('lawyer ui.notary')->withClients($clients)->withNotaries($notaries);
     }
      public function showwalkintable()
     {

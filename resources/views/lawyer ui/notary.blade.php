@@ -69,6 +69,7 @@
 				
 								<tbody>
 								@foreach ($clients as $client)
+								@foreach ($notaries as $notary)
 									<tr>
 									
 										<td>
@@ -87,10 +88,11 @@
 											Upload </a>
 										</td>
 										<td>
-											<a  class = "btn btn-info" href="{{route('request.view',$client->id)}}">
+											<a  class = "btn btn-info" href="{{route('uploadview',$notary->id)}}">
 											View </a>
 										</td>
 									</tr>
+								@endforeach	
 								@endforeach	
 								</tbody>
 								
