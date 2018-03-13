@@ -53,7 +53,7 @@ class RequestController extends Controller
      $cases = casetobehandled::where('client_id',$approved->id)->get();
       foreach ($cases as $key => $case) {
         $number = $case->increment('count');
-         $con = date('Ym',strtotime($case->created_at)) . substr($case->nature_of_case, 0,2). sprintf('00').$number+=1;
+         $con = date('Ym',strtotime($case->created_at)) . substr($case->nature_of_case, 0,2). sprintf('00').$number;
                                         
      $case ->control_number = $con;
      $case ->save();

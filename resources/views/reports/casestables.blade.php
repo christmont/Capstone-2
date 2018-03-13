@@ -11,7 +11,6 @@
 						<li><a href="#labor"> Labor</a></li>
 						<li><a href="#administrative"> Administrative</a></li>
 					</ul>
-
 					
 						<div id="criminal" class="tab-content">
 							<div class="panel-body">
@@ -33,15 +32,7 @@
 				
 								<tbody>
 									<tr>
-										<th> </th>
-										<th> </th>
-										<th> </th>
-										<th> </th>
-										<th> </th>
-										<th> </th>
-										<th> </th>
-										<th> </th>
-										<th> </th>
+									
 									</tr>
 								
 								</tbody>
@@ -70,15 +61,7 @@
 				
 								<tbody>
 									<tr>
-										<th> </th>
-										<th> </th>
-										<th> </th>
-										<th> </th>
-										<th> </th>
-										<th> </th>
-										<th> </th>
-										<th> </th>
-										<th> </th>
+										
 									</tr>
 								
 								</tbody>
@@ -106,15 +89,7 @@
 				
 								<tbody>
 									<tr>
-										<th> </th>
-										<th> </th>
-										<th> </th>
-										<th> </th>
-										<th> </th>
-										<th> </th>
-										<th> </th>
-										<th> </th>
-										<th> </th>
+									
 									</tr>
 								
 								</tbody>
@@ -141,24 +116,34 @@
 								</thead>
 				
 								<tbody>
+									@foreach($administrativereport as $administrativereports)
+									 @foreach($administrativecourts as $administrativecourt)
+										
 									<tr>
-										<th> </th>
-										<th> </th>
-										<th> </th>
-										<th> </th>
-										<th> </th>
-										<th> </th>
-										<th> </th>
-										<th> </th>
-										<th> </th>
+									
+										<td></td>
+										<td>{{$administrativereports->control_number}}</td>
+										<td>{{$administrativereports->clfname}} {{$administrativereports->clmname}} {{$administrativereports->cllname}}</td>
+										<td>{{$administrativereports->clgender}}</td>
+										<td>{{$administrativereports->title}}</td>
+										<td>{{$administrativecourt->name}}</td>
+										<td>{{$administrativereports->caseno}}</td>
+										<td>{{$administrativereports->casename}}</td>
+										<td>{{$administrativereports->case_status}}</td>
+									    
 									</tr>
-								
-								</tbody>
+								     @endforeach
+								      @endforeach
+									     
 							</table>
-
+								
 						</div>							
 						</div>
+						<footer style="text-align:center">
+							<a class = "btn btn-green" href="/print/yearend">Print</a>
+						</footer>
 					</div>
 				
 			</section>
+			
 @stop

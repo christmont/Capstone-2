@@ -209,6 +209,7 @@ Route::get('/casehistory/show','CasehistoryController@showcasehistory');
 Route::get('/casehistory/view/{id}','CasehistoryController@view')->name('casehistory.view');
 
 Route::get('/show/yearendreport','ReportController@yearendreport');
+Route::get('/print/yearend','ReportController@reportprint');
 
 Route::get('/show/inquestform','InquestController@showinquestform');
 Route::get('/show/inquesttable','InquestController@showinquesttable');
