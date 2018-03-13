@@ -445,7 +445,7 @@ class RegisterController extends Controller
               
               
         //         ));
-          $clients = Client::select('id')->orderBy('id','desc')->take(1)->get();
+          $clients = Client::select('id')->orderBy('created_at','desc')->take(1)->get();
         foreach ($clients as $key => $client) 
         {
             $employeeclients = employeeclients::where('client_id',$client->id)->get();
