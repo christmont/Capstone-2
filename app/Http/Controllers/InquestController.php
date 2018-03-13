@@ -49,8 +49,8 @@ class InquestController extends Controller
     }
     public function showinquesttable()
     {
-        $inquest = Inquest()
-        return view('inquest.table');
+        $inquest = Inquest::all();
+        return view('inquest.table')->withInquest($inquest);
     }
     public function printinquest()
     {
