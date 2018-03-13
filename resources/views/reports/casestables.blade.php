@@ -31,10 +31,28 @@
 								</thead>
 				
 								<tbody>
+									@foreach($criminalreport as $criminalreports)
+									 @foreach($criminalcourts as $criminalcourt)
 									<tr>
 									
+										
+									
+									
+										<td></td>
+										<td>{{$criminalreports->control_number}}</td>
+										<td>{{$criminalreports->clfname}} {{$criminalreports->clmname}} {{$criminalreports->cllname}}</td>
+										<td>{{$criminalreports->clgender}}</td>
+										<td>{{$criminalreports->title}}</td>
+										<td>{{$criminalcourt->name}}</td>
+										<td>{{$criminalreports->caseno}}</td>
+										<td>{{$criminalreports->casename}}</td>
+										<td>{{$criminalreports->case_status}}</td>
+									    
+									
+								     
 									</tr>
-								
+								     @endforeach
+								      @endforeach
 								</tbody>
 							</table>
 
@@ -61,7 +79,24 @@
 				
 								<tbody>
 									<tr>
+									@foreach($civilreport as $civilreports)
+									 @foreach($civilcourts as $civilcourt)
 										
+									
+									
+										<td></td>
+										<td>{{$civilreports->control_number}}</td>
+										<td>{{$civilreports->clfname}} {{$civilreports->clmname}} {{$civilreports->cllname}}</td>
+										<td>{{$civilreports->clgender}}</td>
+										<td>{{$civilreports->title}}</td>
+										<td>{{$civilcourt->name}}</td>
+										<td>{{$civilreports->caseno}}</td>
+										<td>{{$civilreports->casename}}</td>
+										<td>{{$civilreports->case_status}}</td>
+									    
+									
+								     @endforeach
+								      @endforeach
 									</tr>
 								
 								</tbody>
@@ -89,7 +124,24 @@
 				
 								<tbody>
 									<tr>
+									@foreach($laborreport as $laborreports)
+									 @foreach($laborcourts as $laborcourt)
+										
 									
+									
+										<td></td>
+										<td>{{$laborreports->control_number}}</td>
+										<td>{{$laborreports->clfname}} {{$laborreports->clmname}} {{$laborreports->cllname}}</td>
+										<td>{{$laborreports->clgender}}</td>
+										<td>{{$laborreports->title}}</td>
+										<td>{{$laborcourt->name}}</td>
+										<td>{{$laborreports->caseno}}</td>
+										<td>{{$laborreports->casename}}</td>
+										<td>{{$laborreports->case_status}}</td>
+									    
+									
+								     @endforeach
+								      @endforeach
 									</tr>
 								
 								</tbody>

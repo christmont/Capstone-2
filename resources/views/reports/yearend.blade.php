@@ -51,61 +51,23 @@ tr:nth-child(even) {
 			<th>CAUSE OF ACTION</th>
 			<th>STATUS OF THE CASE</th>
 		</tr>
+		@foreach($criminalclients as $criminalclient)
+		 @foreach($criminalcourts as $criminalcourt )
 		<tr>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
+            
+			<td>{{$criminalclient->count}}</td>
+			<td>{{$criminalclient->control_number}}</td>
+			<td>{{$criminalclient->clfname}} {{$criminalclient->clmname}} {{$criminalclient->cllname}}</td>
+			<td>{{$criminalclient->clgender}}</td>
+			<td>{{$criminalclient->title}}</td>
+			<td> {{$criminalcourt->name}}</td>
+			<td>{{$criminalclient->caseno}}</td>
+			<td>{{$criminalclient->casename}}</td>
+			<td>{{$criminalclient->case_status}}</td>
 		</tr>
-		<tr>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-		</tr>
+		@endforeach
+		 @endforeach
+		
 	</table>
 	<br><br>
 		<h5>B. CIVIL</h5>
@@ -121,61 +83,23 @@ tr:nth-child(even) {
 			<th>CAUSE OF ACTION</th>
 			<th>STATUS OF THE CASE</th>
 		</tr>
+		@foreach($civilclients as $civilclient)
+		 @foreach($civilcourts as $civilcourt )
 		<tr>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
+            
+			<td>{{$civilclient->count}}</td>
+			<td>{{$civilclient->control_number}}</td>
+			<td>{{$civilclient->clfname}} {{$civilclient->clmname}} {{$civilclient->cllname}}</td>
+			<td>{{$civilclient->clgender}}</td>
+			<td>{{$civilclient->title}}</td>
+			<td> {{$civilcourt->name}}</td>
+			<td>{{$civilclient->caseno}}</td>
+			<td>{{$civilclient->casename}}</td>
+			<td>{{$civilclient->case_status}}</td>
 		</tr>
-		<tr>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-		</tr>
+		@endforeach
+		 @endforeach
+		
 	</table><br><br>
 		<h5>C. LABOR</h5>
 	<table>
@@ -190,61 +114,23 @@ tr:nth-child(even) {
 			<th>CAUSE OF ACTION</th>
 			<th>STATUS OF THE CASE</th>
 		</tr>
+		@foreach($laborclients as $laborclient)
+		 @foreach($laborcourts as $laborcourt )
 		<tr>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
+            
+			<td>{{$laborclient->count}}</td>
+			<td>{{$laborclient->control_number}}</td>
+			<td>{{$laborclient->clfname}} {{$laborclient->clmname}} {{$laborclient->cllname}}</td>
+			<td>{{$laborclient->clgender}}</td>
+			<td>{{$laborclient->title}}</td>
+			<td> {{$laborcourt->name}}</td>
+			<td>{{$laborclient->caseno}}</td>
+			<td>{{$laborclient->casename}}</td>
+			<td>{{$laborclient->case_status}}</td>
 		</tr>
-		<tr>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-		</tr>
+		@endforeach
+		 @endforeach
+		
 	</table><br><br>
 		<h5>D. ADMINISTRATIVE</h5>
 	<table>
