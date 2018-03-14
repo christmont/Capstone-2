@@ -111,6 +111,7 @@ class ReportController extends Controller
                       ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['casetobehandleds.nature_of_case','Labor']])
                       ->orWhere([['clients.nature_of_request','Mediation'],['casetobehandleds.nature_of_case','Labor']])
                       ->get();
+                   
                      
                       foreach($laborreport as $laborreports)
                       {
@@ -159,8 +160,8 @@ class ReportController extends Controller
                                                              ->withcriminalreport($criminalreport)
                                                              ->withcivilreport($civilreport) 
                                                              ->withlaborreport($laborreport)
-                                                             // ->withlaborcourts($laborcourts)
-                                                             // ->withcivilcourts($civilcourts)
+                                                             ->withlaborcourts($laborcourts)
+                                                             ->withcivilcourts($civilcourts)
                                                              ->withcriminalcourts($criminalcourts)
                                                             ;
 
@@ -254,18 +255,20 @@ class ReportController extends Controller
                              ->get();
                       }    
                       
-              $laborreport = DB::table('clients')
+               $laborreport = DB::table('clients')
                       ->join('casetobehandleds','casetobehandleds.client_id','=','clients.id')
                       ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['casetobehandleds.nature_of_case','Labor']])
-                      ->orWhere('clients.nature_of_request','Mediation',['casetobehandleds.nature_of_case','Labor'])
+                      ->orWhere([['clients.nature_of_request','Mediation'],['casetobehandleds.nature_of_case','Labor']])
                       ->get();
+                   
                      
                       foreach($laborreport as $laborreports)
                       {
                 $laborcourts = DB::table('courts')
                              ->where('id',$laborreports->court_id)
                              ->get();
-                      }     
+                            
+                      }         
                             
 
       $administrativereport = DB::table('clients')
@@ -342,10 +345,10 @@ class ReportController extends Controller
                                                 'criminalcourts'=>$criminalcourts,
                                                 'administrativeclients'=>$administrativereport,
                                                 'administrativecourts'=>$administrativecourts,
-                                                // 'laborclients'=>$laborreport,
-                                                // 'laborcourts'=>$laborcourts,
-                                                // 'civilclients'=>$civilreport,
-                                                // 'civilcourts'=>$civilcourts,
+                                                'laborclients'=>$laborreport,
+                                                'laborcourts'=>$laborcourts,
+                                                'civilclients'=>$civilreport,
+                                                'civilcourts'=>$civilcourts,
 
 
         // 'administrativecases'=>$administrativecases,

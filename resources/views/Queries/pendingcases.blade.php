@@ -32,7 +32,7 @@
 					<div id="panel-1" class="panel panel-default">
 						<div class="panel-heading">
 							<span class="title elipsis">
-								<strong>Court </strong> <!-- panel title -->
+								<strong>Cases </strong> <!-- panel title -->
 							</span>
 
 							<!-- right options -->
@@ -57,6 +57,7 @@
 						<div class="panel-body">
 							<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
 								<thead>
+
 									<tr>
 										<th>Client Name</th>
 										<th>Case Title</th>
@@ -65,12 +66,16 @@
 									</tr>
 								</thead>
 								<tbody>
+									@foreach($pending as $pendings)
+									
 									<tr>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
+										<td>{{$pendings->clfname}} {{$pendings->clmname}} {{$pendings->cllname}}</td>
+										<td>{{$pendings->title}}</td>
+										<td>{{$pendings->casename}}</td>
+										<td>{{$pendings->case_status}}</td>
 									</tr>
+									
+									@endforeach
 								</tbody>
 							</table>
 

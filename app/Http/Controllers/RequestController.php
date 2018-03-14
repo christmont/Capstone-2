@@ -47,6 +47,9 @@ class RequestController extends Controller
       $approved = Client::find($id);
         $con = "";
         $date = date('F j Y ');
+         $day =date('j');
+        $year = date('y');
+        $month = date('F');
         $approved->cl_status = 'Approved';
         $approved->save();
         
@@ -123,7 +126,10 @@ class RequestController extends Controller
         'advname' => $advname,
         'advaddr' => $advaddr,
         'lawyer' =>  $lawyer->efname . ' ' . $lawyer->emname . ' ' . $lawyer->elname,
-        'date'=> $date
+        'date'=> $date,
+        'day'=>$day,
+        'year'=>$year,
+        'month'=>$month
         ));
 
       }
@@ -144,6 +150,7 @@ class RequestController extends Controller
         $denied = Client::find($id);
         $denied->cl_status = 'Denied';
         $date = date('F j Y ');
+
         $papersize = array(0, 0, 360, 360);
         $pdf = PDF::loadView('forms.deny', array(
         'name' => $denied->clfname . ' ' . $denied->clmname . ' ' . $denied->cllname,

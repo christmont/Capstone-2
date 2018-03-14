@@ -12,8 +12,8 @@
                             </a>
                             <ul><!-- submenus -->
                                 <li><a href="/client/show">New Request</a></li>
-                                <li><a href="/walkin/show">Legal Documentation</a></li>
-                                <li><a href="/notary/show">Administration of oath</a></li>
+                              {{--   <li><a href="/walkin/show">Legal Documentation</a></li>
+                                <li><a href="/notary/show">Administration of oath</a></li> --}}
                                 <li><a href="/approve/show">Approved Requests</a></li>
                                </ul>
                         </li>
@@ -76,24 +76,21 @@
                         <li>
                         <li>
                             <a href="/casehistory/show">
-                                <i class="main-icon fa fa-calendar"></i> <span>Case History</span>
+                                <i class="main-icon fa fa-history"></i> <span>Case History</span>
                             </a>
                         </li>
-                        <li>
+                          <li>
                             <a href="#">
-                                <i class="main-icon fa fa-database"></i> <span>Queries</span>
+                                <i class="fa fa-menu-arrow pull-right"></i>
+                                <i class="main-icon fa fa-database"></i> <span>Queries </span>
                             </a>
+                            <ul><!-- submenus -->
+                                <li><a href="/show/mostcasetype">Most cases handled by case type</a></li>
+                                <li><a href="/managecase">Most cases handled by lawyer</a></li>
+                                <li><a href="/show/pendingcase">Pending Cases</a></li>
+                               </ul>
                         </li>
-                        <li>
-                            <a href="/show/inquestform">
-                                <i class="main-icon fa fa-database"></i> <span>Inquest Form</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/show/inquesttable">
-                                <i class="main-icon fa fa-database"></i> <span>Inquest Table</span>
-                            </a>
-                        </li>
+                      
                         <li>
                             <a href="#">
                                 <i class="fa fa-menu-arrow pull-right"></i>
@@ -101,7 +98,7 @@
                             </a>
                             <ul><!-- submenus -->
                                 <li><a href="/show/yearendreport">Year End Inventory of Cases</a></li>
-                                <li><a href="/show/inquest">Inquest Report</a></li>
+                                
                                </ul>
                         </li>
                               

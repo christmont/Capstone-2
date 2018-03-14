@@ -125,7 +125,7 @@
 
 								<div class="col-md-6 col-sm-6 text-right">
 									<div class="col-md-3">
-										<h5> Age: ________</h5>
+										<h5> Age: </h5>
 									</div>
 									<div class="col-md-3">
 										<h5> Gender: {{$gender}}</h5>
@@ -344,7 +344,7 @@
 									<h5>{{$name}}</h5>
 									<h5>Signature of Affiant&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
 								</div>
-								<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUBSCRIBED AND SWORN to before me this _________ day of ____________________________ 20______ in ______________________________________________________________, Philippines, and I have read and translated the foregoing Affidavit to a dialect understood by the affiliant.<br><br><br><br><br><br></h5>
+								<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUBSCRIBED AND SWORN to before me this {{$day}}th day of {{$month}} 20{{$year}} in ______________________________________________________________, Philippines, and I have read and translated the foregoing Affidavit to a dialect understood by the affiliant.<br><br><br><br><br><br></h5>
 							</div>	
 						</div>
 					</div>

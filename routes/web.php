@@ -214,6 +214,9 @@ Route::get('/print/yearend','ReportController@reportprint');
 Route::get('/show/inquestform','InquestController@showinquestform');
 Route::get('/show/inquesttable','InquestController@showinquesttable');
 
+Route::get('show/mostcasetype','QueriesController@mostcasetype');
+Route::get('show/pendingcase','QueriesController@pendingcase');
+
 //Route::resource('clients', 'ClientController');
 Route::resource('interviewees', 'IntervieweeController');
 Route::resource('religions', 'ReligionController');

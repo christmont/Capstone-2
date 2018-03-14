@@ -32,7 +32,7 @@
 					<div id="panel-1" class="panel panel-default">
 						<div class="panel-heading">
 							<span class="title elipsis">
-								<strong>Court </strong> <!-- panel title -->
+								<strong>Cases </strong> <!-- panel title -->
 							</span>
 
 							<!-- right options -->
@@ -63,10 +63,12 @@
 									</tr>
 								</thead>
 								<tbody>
+									@foreach($mostcasetype as $mostcasetypes)
 									<tr>
-										<td></td>
-										<td></td>
+										<td>{{$mostcasetypes->nature_of_case}}</td>
+										<td>{{$mostcasetypes->casename}}</td>
 									</tr>
+									@endforeach
 								</tbody>
 							</table>
 

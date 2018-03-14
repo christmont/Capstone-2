@@ -83,6 +83,22 @@ tr:nth-child(even) {
 			<th>CAUSE OF ACTION</th>
 			<th>STATUS OF THE CASE</th>
 		</tr>
+		@foreach($civilclients as $civilclient)
+		 @foreach($civilcourts as $civilcourt )
+		<tr>
+            
+			<td>{{$civilclient->count}}</td>
+			<td>{{$civilclient->control_number}}</td>
+			<td>{{$civilclient->clfname}} {{$civilclient->clmname}} {{$civilclient->cllname}}</td>
+			<td>{{$civilclient->clgender}}</td>
+			<td>{{$civilclient->title}}</td>
+			<td> {{$civilcourt->name}}</td>
+			<td>{{$civilclient->caseno}}</td>
+			<td>{{$civilclient->casename}}</td>
+			<td>{{$civilclient->case_status}}</td>
+		</tr>
+		@endforeach
+		 @endforeach
 		
 		
 	</table><br><br>
@@ -99,6 +115,22 @@ tr:nth-child(even) {
 			<th>CAUSE OF ACTION</th>
 			<th>STATUS OF THE CASE</th>
 		</tr>
+		@foreach($laborclients as $laborclient)
+		 @foreach($laborcourts as $laborcourt )
+		<tr>
+            
+			<td>{{$laborclient->count}}</td>
+			<td>{{$laborclient->control_number}}</td>
+			<td>{{$laborclient->clfname}} {{$laborclient->clmname}} {{$laborclient->cllname}}</td>
+			<td>{{$laborclient->clgender}}</td>
+			<td>{{$laborclient->title}}</td>
+			<td> {{$laborcourt->name}}</td>
+			<td>{{$laborclient->caseno}}</td>
+			<td>{{$laborclient->casename}}</td>
+			<td>{{$laborclient->case_status}}</td>
+		</tr>
+		@endforeach
+		 @endforeach
 		
 		
 	</table><br><br>
