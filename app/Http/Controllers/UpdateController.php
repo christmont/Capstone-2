@@ -353,18 +353,21 @@ class UpdateController extends Controller
     }
     public function showschededit($id)
     {
-        $sched = Schedule::find($id);
-        return view('maintenance.schedule_edit')->withSchedules($sched);
+        $lawyer = Employee::where('position','Lawyer');
+        $scheduletype = scheduletype::all();
+        $sched = Employee::find($id)->with('schedule');
+        return view('reschedule')->withsched($sched)
+                                 ->withscheduletype($scheduletype)
+                                 ->withlawyer($lawyer);
     }
       public function schededit($id, Request $request)
     {
-        $this->validate($request, [
-           
-        ]);
+       
  
         $sched = Schedule::find($id);
 
-        $sched-> name = $request->name;
+        $sched-> employee_id = $request->lawyer;
+        $sched-> type = $request->type;
         $sched-> start = $request->start;
         $sched-> end = $request->end;
         $sched->save();

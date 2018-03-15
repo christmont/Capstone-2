@@ -85,7 +85,7 @@
 										</td>
 									    
 										<td>
-											  <button type="submit" data-target=".bs-example-modal-update{{ $lawyers->id }}" class="btn btn-sm btn-warning update-button" data-toggle="modal" ><i class="fa fa-pencil"></i> Edit</a>
+											   <a class ="btn btn-warning" href="{{ route('showsched',$lawyers->id) }}">Reschedule</a>
 										</td>
 										<td>
 											<form action="{{ route('deletesched',$lawyers->id) }}" method = "post">

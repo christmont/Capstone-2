@@ -87,7 +87,7 @@ Route::post('/adverse2/register','RegisterController@adverseregister2');
 Route::get('/schedule/show','RegisterController@schedule');
 Route::get('/schedule/register','RegisterController@showschedule');
 Route::post('/schedule/register','RegisterController@scheduleregister');
-Route::get('/schedule/edit/{id}','UpdateController@showscheduleedit')->name('showsched');
+Route::get('/schedule/edit/{id}','UpdateController@showschededit')->name('showsched');
 Route::put('/schedule/edit/{id}','UpdateController@schededit')->name('schededit');
 Route::delete('/schedule/delete/{id}','DeleteController@scheddelete')->name('deletesched');
 

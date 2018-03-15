@@ -18,6 +18,9 @@ class CasehistoryController extends Controller
     {
         $casehistory = DB::table('clients')
                       ->whereNotNull('decision')
+                      ->where([['casetobehandleds.case_status','Promulgation'],['clients.cl_status','Approved'],['clients.nature_of_request','Mediation']])
+                      ->orWhere([['casetobehandleds.case_status','Promulgation'],['clients.cl_status','Approved'],['clients.nature_of_request','Representation of quasi-judicial bodies
+                      ']])
                       ->join('casetobehandleds','casetobehandleds.client_id','=','clients.id')
                       ->get();
           

@@ -951,6 +951,7 @@ class RegisterController extends Controller
                       ->where('position','Lawyer')
                       ->join('schedules','employees.id','=','schedules.employee_id')
                       ->get();
+                      return $lawyer;
          return view('maintenance.schedules')->withLawyer($lawyer);
       
         
