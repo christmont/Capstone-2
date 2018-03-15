@@ -24,25 +24,23 @@ class LawyerSideController extends Controller
      public function shownotarytable()
     {
       
-      $lawyerclients = employeeclients::select('*')
-                         ->where('employee_id',Auth::user()->id)->get();
+      $lawyerclients = employeeclients::select('*')->where('employee_id',Auth::user()->id)->get();
       
         foreach ($lawyerclients as $key => $lawyerclient) 
         {
          
-      
-     
-      
-      
-       $clients = Client::select('*')
+
+         $clients = Client::select('*')
          ->where([['nature_of_request','Administration of oath'],['id',$lawyerclient->client_id],['cl_status','Walkin']])
          ->orderBy('cllname','asc')
          ->get();
 
+         
 
-        foreach($clients as $client){
+        foreach($clients as $client)
+        {
 
-                $notaries = Notary::select('*')
+          $notaries = Notary::select('*')
          ->where('client_id',$client->id)
          ->orderBy('created_at','asc')
          ->get();
@@ -51,7 +49,9 @@ class LawyerSideController extends Controller
         
        
       }
-         return view('lawyer ui.notary')->withClients($clients)->withNotaries($notaries);
+      return view('lawyer ui.notary')->withClients($clients)
+                                     ->withNotaries($notaries);
+         
     }
      public function showwalkintable()
     {
@@ -63,7 +63,7 @@ class LawyerSideController extends Controller
      public function showreqtable()
     {
        $lawyerclients = Auth::user()->id;
-      $employeeclients = 
+      
       $clients = Client::where('cl_status','Pending')->orderBy('cllname','asc')
         ->with('casetobehandled')
         ->get();

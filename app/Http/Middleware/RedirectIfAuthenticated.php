@@ -24,10 +24,17 @@ class RedirectIfAuthenticated
            
 
    
-             
+            if (   Auth::user()->position == 'Administrative Staff' ) 
+            {
+                return redirect('/home');
+            }
+            elseif( Auth::user()->position == 'Lawyer')
+            {
+                return redirect('/lawyerside/show');
+            }
             
            
-                return redirect('/home');
+                
           
 
             

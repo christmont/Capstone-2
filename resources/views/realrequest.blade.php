@@ -15,6 +15,7 @@
 	<div class="container-fluid">
 		<ul class="nav nav-tabs">
 			<li><a href="#nature">Nature of Request</a></li>
+			
 			<li><a href="#clientinfo">Client Info</a></li>
 			<li id="ifMarried" style="display:none;"><a href="#clientmarital">Client Marital Info</a></li>
 			<li id="ifYes" style="display:none;" ><a href="#detention">Client Detention</a></li>
@@ -38,7 +39,7 @@
 								<label>
 									Nature of Request*
 								</label>
-								<select id="nor" name="nor" class="form-control "required onchange="if (this.value=='others'){this.form['others'].style.visibility='visible'}else {this.form['others'].style.visibility='hidden'};">
+								<select id="nor" name="nor" class="form-control "required onchange="getval(this);">
 								<option value="" selected="selected"></option>
 								@foreach($services as $requestt)
       							<option id="" value="{{$requestt->name}}">{{$requestt->name}}</option>
@@ -57,6 +58,9 @@
 				    </footer>
 			</div>
 		</div>
+		
+
+
 
 		<div id="clientinfo" class="tab-content">
 			<div class="card1">
@@ -355,6 +359,15 @@ var strUser = e.options[e.selectedIndex].value;
 
    
 
+   </script>
+   <script>
+   function getval(nor)
+{
+    if(nor.value == 'Administration of oath')
+    {
+    	
+    }
+}
    </script>
    <script type ="text/javascript">
 	    window.onload = function() {

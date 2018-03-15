@@ -81,8 +81,8 @@ class ReportController extends Controller
     //                      $civilcourts = Court::where('id',$civil->court_id)->get();
     //                    } 
      $criminalreport = DB::table('clients')
-                      ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['casetobehandleds.nature_of_case','Criminal']])
-                      ->orWhere([['clients.nature_of_request','Mediation'],['casetobehandleds.nature_of_case','Criminal']])
+                      ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['casetobehandleds.nature_of_case','Criminal'],['clients.cl_status','Approved']])
+                      ->orWhere([['clients.nature_of_request','Mediation'],['casetobehandleds.nature_of_case','Criminal'],['clients.cl_status','Approved']])
                       ->join('casetobehandleds','casetobehandleds.client_id','=','clients.id')
                       ->get();
                     
@@ -95,10 +95,10 @@ class ReportController extends Controller
                       }
          $civilreport = DB::table('clients')
                       ->join('casetobehandleds','casetobehandleds.client_id','=','clients.id')
-                      ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['casetobehandleds.nature_of_case','Civil']])
-                      ->orWhere([['clients.nature_of_request','Mediation'],['casetobehandleds.nature_of_case','Civil']])
+                      ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['casetobehandleds.nature_of_case','Civil'],['clients.cl_status','Approved']])
+                      ->orWhere([['clients.nature_of_request','Mediation'],['casetobehandleds.nature_of_case','Civil'],['clients.cl_status','Approved']])
                       ->get();
-                     
+                    
                       foreach($civilreport as $civilreports)
                       {
         $civilcourts = DB::table('courts')
@@ -108,8 +108,8 @@ class ReportController extends Controller
                       }
               $laborreport = DB::table('clients')
                       ->join('casetobehandleds','casetobehandleds.client_id','=','clients.id')
-                      ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['casetobehandleds.nature_of_case','Labor']])
-                      ->orWhere([['clients.nature_of_request','Mediation'],['casetobehandleds.nature_of_case','Labor']])
+                      ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['casetobehandleds.nature_of_case','Labor'],['clients.cl_status','Approved']])
+                      ->orWhere([['clients.nature_of_request','Mediation'],['casetobehandleds.nature_of_case','Labor'],['clients.cl_status','Approved']])
                       ->get();
                    
                      
@@ -123,8 +123,8 @@ class ReportController extends Controller
 
       $administrativereport = DB::table('clients')
                       ->join('casetobehandleds','casetobehandleds.client_id','=','clients.id')
-                      ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['casetobehandleds.nature_of_case','Administrative']])
-                      ->orWhere([['clients.nature_of_request','Mediation'],['casetobehandleds.nature_of_case','Administrative']])
+                      ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['casetobehandleds.nature_of_case','Administrative'],['clients.cl_status','Approved']])
+                      ->orWhere([['clients.nature_of_request','Mediation'],['casetobehandleds.nature_of_case','Administrative'],['clients.cl_status','Approved']])
                       ->get();
                      
                       foreach($administrativereport as $administrativereports)
@@ -230,8 +230,8 @@ class ReportController extends Controller
       //                  }
              $criminalreport = DB::table('clients')
                       ->join('casetobehandleds','casetobehandleds.client_id','=','clients.id')
-                      ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['casetobehandleds.nature_of_case','Criminal']])
-                      ->orWhere([['clients.nature_of_request','Mediation'],['casetobehandleds.nature_of_case','Criminal']])
+                      ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['casetobehandleds.nature_of_case','Criminal'],['clients.cl_status','Approved']])
+                      ->orWhere([['clients.nature_of_request','Mediation'],['casetobehandleds.nature_of_case','Criminal'],['clients.cl_status','Approved']])
                       ->get();
                       
                      
@@ -244,8 +244,8 @@ class ReportController extends Controller
                       
          $civilreport = DB::table('clients')
                       ->join('casetobehandleds','casetobehandleds.client_id','=','clients.id')
-                      ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['casetobehandleds.nature_of_case','Civil']])
-                      ->orWhere([['clients.nature_of_request','Mediation'],['casetobehandleds.nature_of_case','Civil']])
+                      ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['casetobehandleds.nature_of_case','Civil'],['clients.cl_status','Approved']])
+                      ->orWhere([['clients.nature_of_request','Mediation'],['casetobehandleds.nature_of_case','Civil'],['clients.cl_status','Approved']])
                       ->get();
                      
                       foreach($civilreport as $civilreports)
@@ -257,8 +257,8 @@ class ReportController extends Controller
                       
                $laborreport = DB::table('clients')
                       ->join('casetobehandleds','casetobehandleds.client_id','=','clients.id')
-                      ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['casetobehandleds.nature_of_case','Labor']])
-                      ->orWhere([['clients.nature_of_request','Mediation'],['casetobehandleds.nature_of_case','Labor']])
+                      ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['casetobehandleds.nature_of_case','Labor'],['clients.cl_status','Approved']])
+                      ->orWhere([['clients.nature_of_request','Mediation'],['casetobehandleds.nature_of_case','Labor'],['clients.cl_status','Approved']])
                       ->get();
                    
                      
@@ -273,8 +273,8 @@ class ReportController extends Controller
 
       $administrativereport = DB::table('clients')
                       ->join('casetobehandleds','casetobehandleds.client_id','=','clients.id')
-                      ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['casetobehandleds.nature_of_case','Administrative']])
-                      ->orWhere([['clients.nature_of_request','Mediation'],['casetobehandleds.nature_of_case','Administrative']])
+                      ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['casetobehandleds.nature_of_case','Administrative'],['clients.cl_status','Approved']])
+                      ->orWhere([['clients.nature_of_request','Mediation'],['casetobehandleds.nature_of_case','Administrative'],['clients.cl_status','Approved']])
                       ->get();
                       
                      
@@ -339,7 +339,7 @@ class ReportController extends Controller
 
       $date = date('F j Y',strtotime(Carbon::now()));
       $year = date('Y',strtotime(Carbon::now()));
-      $papersize = array(0, 0, 360, 360);
+      
        $pdf = PDF::loadView('reports.yearend', [
                                                 'criminalclients'=>$criminalreport,
                                                 'criminalcourts'=>$criminalcourts,
@@ -401,6 +401,110 @@ class ReportController extends Controller
        return $pdf->stream();
 
     }
-     
+    public function courtcase()
+    {
+      $mtccase = DB::table('clients')
+                      ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['clients.cl_status','Approved'],['casetobehandleds.court_id','2']])
+                      ->orWhere([['clients.nature_of_request','Mediation'],['clients.cl_status','Approved'],['casetobehandleds.court_id','2']])
+                      ->join('casetobehandleds','casetobehandleds.client_id','=','clients.id')
+                     ->get();
+                     
+                      foreach($mtccase as $mtccases)
+                      {
+        $mtc = DB::table('courts')
+                             ->where([['id',$mtccases->court_id]])
+                             ->get();
+                            
+                      }
+       $rtccase = DB::table('clients')
+                      ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['clients.cl_status','Approved'],['casetobehandleds.court_id','3']])
+                      ->orWhere([['clients.nature_of_request','Mediation'],['clients.cl_status','Approved'],['casetobehandleds.court_id','3']])
+                      ->join('casetobehandleds','casetobehandleds.client_id','=','clients.id')
+                     ->get();
+                     
+                      foreach($rtccase as $rtccases)
+                      {
+        $rtc = DB::table('courts')
+                             ->where([['id',$rtccases->court_id]])
+                             ->get();
+                            
+                      }
 
+         $sbcase = DB::table('clients')
+                      ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['clients.cl_status','Approved'],['casetobehandleds.court_id','1']])
+                      ->orWhere([['clients.nature_of_request','Mediation'],['clients.cl_status','Approved'],['casetobehandleds.court_id','1']])
+                      ->join('casetobehandleds','casetobehandleds.client_id','=','clients.id')
+                     ->get();
+                     
+                      foreach($sbcase as $sbcases)
+                      {
+        $sb = DB::table('courts')
+                             ->where([['id',$sbcases->court_id]])
+                             ->get();
+                            
+                      }
+   
+     
+        return view('reports.bycourt')->withmtccase($mtccase)
+                                      ->withmtc($mtc)
+                                      ->withsbcase($sbcase)
+                                      ->withsb($sb);
+    }
+    public function printcasecourt()
+    {
+      $mtccase = DB::table('clients')
+                      ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['clients.cl_status','Approved'],['casetobehandleds.court_id','2']])
+                      ->orWhere([['clients.nature_of_request','Mediation'],['clients.cl_status','Approved'],['casetobehandleds.court_id','2']])
+                      ->join('casetobehandleds','casetobehandleds.client_id','=','clients.id')
+                     ->get();
+                     
+                      foreach($mtccase as $mtccases)
+                      {
+        $mtc = DB::table('courts')
+                             ->where([['id',$mtccases->court_id]])
+                             ->get();
+                            
+                      }
+       $rtccase = DB::table('clients')
+                      ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['clients.cl_status','Approved'],['casetobehandleds.court_id','3']])
+                      ->orWhere([['clients.nature_of_request','Mediation'],['clients.cl_status','Approved'],['casetobehandleds.court_id','3']])
+                      ->join('casetobehandleds','casetobehandleds.client_id','=','clients.id')
+                     ->get();
+                     
+                      foreach($rtccase as $rtccases)
+                      {
+        $rtc = DB::table('courts')
+                             ->where([['id',$rtccases->court_id]])
+                             ->get();
+                            
+                      }
+
+         $sbcase = DB::table('clients')
+                      ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['clients.cl_status','Approved'],['casetobehandleds.court_id','1']])
+                      ->orWhere([['clients.nature_of_request','Mediation'],['clients.cl_status','Approved'],['casetobehandleds.court_id','1']])
+                      ->join('casetobehandleds','casetobehandleds.client_id','=','clients.id')
+                     ->get();
+                     
+                      foreach($sbcase as $sbcases)
+                      {
+        $sb = DB::table('courts')
+                             ->where([['id',$sbcases->court_id]])
+                             ->get();
+                            
+                      }
+                      $date = date('F j Y',strtotime(Carbon::now()));
+      $year = date('Y',strtotime(Carbon::now()));
+      
+       $pdf = PDF::loadView('reports.casecourt', [
+                                                'mtccase'=>$mtccase,
+                                                'mtc'=>$mtc,
+                                                'sbcase'=>$sbcase,
+                                                'sb'=>$sb,
+                                                // 'rtccase'=>$rtccase,
+                                                // 'rtc'=>$rtc,
+                                                'date'=>$date,
+                                                'year'=>$year,
+       ]);
+        return $pdf->stream();
+    }
 }
