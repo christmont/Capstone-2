@@ -19,7 +19,7 @@
                                 <img class="user-avatar" alt="" src="assets/images/noavatar.jpg" height="34" /> 
                                 <span class="user-name">
                                     <span class="hidden-xs">
-                                      {{--  {{ ucwords(Auth::user()->efname) . '  ' . ucwords(Auth::user()->emname) . '  ' . ucwords(Auth::user()->elname) }} --}}<i class="fa fa-angle-down"></i>
+                                       {{ ucwords(Auth::user()->efname) . '  ' . ucwords(Auth::user()->emname) . '  ' . ucwords(Auth::user()->elname) }}<i class="fa fa-angle-down"></i>
                                     </span>
                                 </span>
                             </a>
@@ -32,7 +32,10 @@
 
                                 <li class="divider"></li>
                                 <li><!-- logout -->
-                                   
+                                    <form id="logout" action="{{ route('logout') }}" method="POST">
+                                {{ csrf_field() }}
+                                    <a onclick="document.getElementById('logout').submit(); return false;"><i class="fa fa-power-off"></i> Log Out</a>
+                                    </form>
                                 </li>
                             </ul>
                         </li>

@@ -210,6 +210,8 @@ Route::get('/casehistory/view/{id}','CasehistoryController@view')->name('casehis
 
 Route::get('/show/yearendreport','ReportController@yearendreport');
 Route::get('/print/yearend','ReportController@reportprint');
+Route::get('/show/bycourt','ReportController@courtcase');
+Route::get('/print/bycourt','ReportController@printcasecourt');
 
 Route::get('/show/inquestform','InquestController@showinquestform');
 Route::get('/show/inquesttable','InquestController@showinquesttable');
@@ -250,3 +252,6 @@ Route::get('/lawyers', function () {
 Route::get('casess', function () {
     return view('casedistribution');
 });
+Auth::routes();
+
+

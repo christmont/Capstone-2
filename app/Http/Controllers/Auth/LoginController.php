@@ -29,7 +29,7 @@ class LoginController extends Controller
    
     
     
-    protected $redirectTo = '/' || '/lawyerside/show';
+    protected $redirectTo = '/home' || '/lawyerside/show';
 
     /**
      * Create a new controller instance.

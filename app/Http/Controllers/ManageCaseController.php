@@ -13,6 +13,7 @@ use App\Http\Controllers\Controller;
 use App\employeeclients;
 use App\Employee;
 use App\Decision;
+use Carbon\Carbon;
 class ManageCaseController extends Controller
 {
     public function showmanagecase()
@@ -94,7 +95,7 @@ class ManageCaseController extends Controller
             $client ->save();
       
        $clientid = $client->id;
-    
+    $date = Carbon::now();
       $updatecase = casetobehandled::where('client_id',$clientid)->get(); 
         
       foreach ($updatecase as $key => $value) 
@@ -109,7 +110,35 @@ class ManageCaseController extends Controller
       $value-> nature_of_case = $request->casetype;
       $value-> clcase_involvement = $request->involvement;
       $value-> case_status = $request->casestatus;
-      $value-> decision = $request->decision; 
+      $value-> decision = $request->decision;
+      if($request->casestatus == 'Arraignment')
+      {
+      $value-> arraignmentDate = $date;
+      }
+      elseif ($request->casestatus == 'Preliminary Conference') 
+      {
+      $value-> prelimconfDate = $date;
+      }
+      elseif ($request->casestatus == 'Pre-trial') 
+      {
+      $value-> pretrialDate = $date;
+      }
+       elseif ($request->casestatus == 'Initial Trial') 
+      {
+      $value-> inittrialdate = $date;
+      }
+       elseif ($request->casestatus == 'Trial Proper(Prosecution Evidence)') 
+      {
+      $value-> prosecevidence = $date;
+      }
+      elseif ($request->casestatus == 'Trial Proper(Defense Evidence)') 
+      {
+      $value-> defevidence = $date;
+      }
+      elseif ($request->casestatus == 'Promulgation') 
+      {
+      $value-> promulgation = $date;
+      }
       $value ->save();
       }
       $clientadverse = clientadverse::where('client_id',$clientid)->get();

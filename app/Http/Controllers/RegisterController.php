@@ -947,8 +947,10 @@ class RegisterController extends Controller
     }
      public function schedule()
     {   
-        $lawyer = Employee::where('position','Lawyer')->with('schedules')->get();
-
+       $lawyer = DB::table('employees')
+                      ->where('position','Lawyer')
+                      ->join('schedules','employees.id','=','schedules.employee_id')
+                      ->get();
          return view('maintenance.schedules')->withLawyer($lawyer);
       
         
@@ -956,10 +958,9 @@ class RegisterController extends Controller
      public function showschedule()
     {
        $lawyer = Employee::where('position','Lawyer')->get();
-        $schedules = Schedule::all();
+       
         $scheduletype = scheduletype::all();
-               return view('createschedule')->withSchedules($schedules)
-                                            ->withLawyer($lawyer)
+               return view('createschedule')->withLawyer($lawyer)
                                             ->withscheduletype($scheduletype);
     }
 
@@ -975,7 +976,7 @@ class RegisterController extends Controller
             $sched= new Schedule;
      
        
-        $sched-> name = $request->name;
+       
         $sched-> type = $request->schedtype;
         $sched-> start =$request->start;
         $sched-> end =$request->end;

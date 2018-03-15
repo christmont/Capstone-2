@@ -27,6 +27,8 @@
 										<th>CASE NO.</th>
 										<th>CAUSE OF ACTION</th>
 										<th>STATUS OF THE CASE</th>
+										<th>STATUS DATE</th>
+										<th>DECISION</th>
 									</tr>
 								</thead>
 				
@@ -47,6 +49,38 @@
 										<td>{{$criminalreports->caseno}}</td>
 										<td>{{$criminalreports->casename}}</td>
 										<td>{{$criminalreports->case_status}}</td>
+										<td>
+											@if($criminalreports->case_status == 'Arraignment') 
+											
+											{{$criminalreports->arraignmentDate}} 
+										    
+											@elseif ($criminalreports->case_status == 'Preliminary Conference') 
+											
+											{{$criminalreports->prelimconfDate}}
+											
+											@elseif ($criminalreports->case_status == 'Pre-trial') 
+											
+											{{$criminalreports->pretrailDate}}
+											
+											@elseif ($criminalreports->case_status == 'Initial Trial') 
+											
+											{{$criminalreports->inittrialdate}}
+											
+											@elseif ($criminalreports->case_status == 'Trial Proper(Prosecution Evidence)') 
+											
+											{{$criminalreports->prosecevidence}}
+											
+											@elseif ($criminalreports->case_status == 'Trial Proper(Defense Evidence)') 
+											
+											{{$criminalreports->defevidence}}
+											
+											@elseif ($criminalreports->case_status == 'Promulgation') 
+											
+											{{$criminalreports->promulgation}}
+											
+											@endif
+										</td>
+										<td>{{$criminalreports->decision}}</td>
 									    
 									
 								     
@@ -74,6 +108,8 @@
 										<th>CASE NO.</th>
 										<th>CAUSE OF ACTION</th>
 										<th>STATUS OF THE CASE</th>
+										<th>STATUS DATE</th>
+										<th>DECISION</th>
 									</tr>
 								</thead>
 				
@@ -93,6 +129,38 @@
 										<td>{{$civilreports->caseno}}</td>
 										<td>{{$civilreports->casename}}</td>
 										<td>{{$civilreports->case_status}}</td>
+										<td>
+											@if($civilreports->case_status == 'Arraignment') 
+											
+											{{$civilreports->arraignmentDate}} 
+										    
+											@elseif ($civilreports->case_status == 'Preliminary Conference') 
+											
+											{{$civilreports->prelimconfDate}}
+											
+											@elseif ($civilreports->case_status == 'Pre-trial') 
+											
+											{{$civilreports->pretrailDate}}
+											
+											@elseif ($civilreports->case_status == 'Initial Trial') 
+											
+											{{$civilreports->inittrialdate}}
+											
+											@elseif ($civilreports->case_status == 'Trial Proper(Prosecution Evidence)') 
+											
+											{{$civilreports->prosecevidence}}
+											
+											@elseif ($civilreports->case_status == 'Trial Proper(Defense Evidence)') 
+											
+											{{$civilreports->defevidence}}
+											
+											@elseif ($civilreports->case_status == 'Promulgation') 
+											
+											{{$civilreports->promulgation}}
+											
+											@endif
+										</td>
+										<td>{{$civilreports->decision}}</td>
 									    
 									
 								     @endforeach
@@ -119,6 +187,8 @@
 										<th>CASE NO.</th>
 										<th>CAUSE OF ACTION</th>
 										<th>STATUS OF THE CASE</th>
+									    <th>STATUS DATE</th>
+										<th>DECISION</th>
 									</tr>
 								</thead>
 				
@@ -138,6 +208,38 @@
 										<td>{{$laborreports->caseno}}</td>
 										<td>{{$laborreports->casename}}</td>
 										<td>{{$laborreports->case_status}}</td>
+										<td>
+											@if($laborreports->case_status == 'Arraignment') 
+											
+											{{$laborreports->arraignmentDate}} 
+										    
+											@elseif ($laborreports->case_status == 'Preliminary Conference') 
+											
+											{{$laborreports->prelimconfDate}}
+											
+											@elseif ($laborreports->case_status == 'Pre-trial') 
+											
+											{{$laborreports->pretrailDate}}
+											
+											@elseif ($laborreports->case_status == 'Initial Trial') 
+											
+											{{$laborreports->inittrialdate}}
+											
+											@elseif ($laborreports->case_status == 'Trial Proper(Prosecution Evidence)') 
+											
+											{{$laborreports->prosecevidence}}
+											
+											@elseif ($laborreports->case_status == 'Trial Proper(Defense Evidence)') 
+											
+											{{$laborreports->defevidence}}
+											
+											@elseif ($laborreports->case_status == 'Promulgation') 
+											
+											{{$laborreports->promulgation}}
+											
+											@endif
+										</td>
+										<td>{{$laborreports->decision}}</td>
 									    
 									
 								     @endforeach
@@ -164,6 +266,8 @@
 										<th>CASE NO.</th>
 										<th>CAUSE OF ACTION</th>
 										<th>STATUS OF THE CASE</th>
+										<th>STATUS DATE</th>
+										<th>DECISION</th>
 									</tr>
 								</thead>
 				
@@ -182,6 +286,38 @@
 										<td>{{$administrativereports->caseno}}</td>
 										<td>{{$administrativereports->casename}}</td>
 										<td>{{$administrativereports->case_status}}</td>
+										<td>
+											@if($administrativereports->case_status == 'Arraignment') 
+											
+											{{$administrativereports->arraignmentDate}} 
+										    
+											@elseif ($administrativereports->case_status == 'Preliminary Conference') 
+											
+											{{$administrativereports->prelimconfDate}}
+											
+											@elseif ($administrativereports->case_status == 'Pre-trial') 
+											
+											{{$administrativereports->pretrailDate}}
+											
+											@elseif ($administrativereports->case_status == 'Initial Trial') 
+											
+											{{$administrativereports->inittrialdate}}
+											
+											@elseif ($administrativereports->case_status == 'Trial Proper(Prosecution Evidence)') 
+											
+											{{$administrativereports->prosecevidence}}
+											
+											@elseif ($administrativereports->case_status == 'Trial Proper(Defense Evidence)') 
+											
+											{{$administrativereports->defevidence}}
+											
+											@elseif ($administrativereports->case_status == 'Promulgation') 
+											
+											{{$administrativereports->promulgation}}
+											
+											@endif
+										</td>
+										<td>{{$administrativereports->decision}}</td>
 									    
 									</tr>
 								     @endforeach

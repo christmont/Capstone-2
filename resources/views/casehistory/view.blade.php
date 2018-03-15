@@ -15,69 +15,69 @@
 						<div id="client" class="tab-content">
 							<div class="card1">
 							<div class="container"><br>
-							
+							@foreach($casehistory as $casehistories)
 										<div class="form-group">
 										<strong>First Name :</strong>
-										<label>{{ $clients->clfname }}</label>
+										<label>{{ $casehistories->clfname }}</label>
 										</div>
 										<div class="form-group">
 										<strong>Middle Name :</strong>
-										<label>{{ $clients->clmname }}</label>
+										<label>{{ $casehistories->clmname }}</label>
 										</div>
 										<div class="form-group">
 										<strong>Last Name :</strong>
-										<label>{{ $clients->cllname }}</label>
+										<label>{{ $casehistories->cllname }}</label>
 										</div>
 										<div class="form-group">
 										<strong>Religion :</strong>
-										<label>{{ $clients->clreligion }}</label>
+										<label>{{ $casehistories->clreligion }}</label>
 										</div>
 										<div class="form-group">
 										<strong>Citizenship :</strong>
-										<label>{{ $clients->clcitizenship }}</label>
+										<label>{{ $casehistories->clcitizenship }}</label>
 										</div>
 										<div class="form-group">
 										<strong>Address :</strong>
-										<label>{{ $clients->claddress }}</label>
+										<label>{{ $casehistories->claddress }}</label>
 										</div>
 										<div class="form-group">
 										<strong>Email :</strong>
-										<label>{{ $clients->clemail }}</label>
+										<label>{{ $casehistories->clemail }}</label>
 										</div>
 										<div class="form-group">
 										<strong>Birthday :</strong>
-										<label>{{ $clients->clbdate }}</label>
+										<label>{{ $casehistories->clbdate }}</label>
 										</div>
 										<div class="form-group">
 										<strong>Contact Number :</strong>
-										<label>{{ $clients->clcontact_no }}</label>
+										<label>{{ $casehistories->clcontact_no }}</label>
 										</div>
 										<div class="form-group">
 										<strong>Monthly Income :</strong>
-										<label>{{ $clients->clmonthly_net_income }}</label>
+										<label>{{ $casehistories->clmonthly_net_income }}</label>
 										</div><div class="form-group">
 										<strong>Language Spoken :</strong>
-										<label>{{ $clients->cllanguage }}</label>
+										<label>{{ $casehistories->cllanguage }}</label>
 										</div>
 										<div class="form-group">
 										<strong>Educational Attainment :</strong>
-										<label>{{ $clients->cleducational_attainment }}</label>
+										<label>{{ $casehistories->cleducational_attainment }}</label>
 										</div>
 										<div class="form-group">
 										<strong>Gender :</strong>
-										<label>{{ $clients->clgender }}</label>
+										<label>{{ $casehistories->clgender }}</label>
 										</div>
 										<div class="form-group">
 										<strong>Detained(?) :</strong>
-										<label>{{ $clients->cldetained }}</label>
+										<label>{{ $casehistories->cldetained }}</label>
 										</div>
 										<div class="form-group">
 										<strong>Civil Status :</strong>
-										<label>{{ $clients->clcivil_status }}</label>
+										<label>{{ $casehistories->clcivil_status }}</label>
 										</div>
 										<div class="form-group">
 										<strong>Nature of Request :</strong>
-										<label>{{ $clients->nature_of_request }}</label>
+										<label>{{ $casehistories->nature_of_request }}</label>
 										</div><br>
 								
 							</div>
@@ -89,27 +89,27 @@
 							<div class="container"><br>
 								        <div class="form-group">
 										<strong>Case Number :<strong>
-										<label>{{$case->caseno}}</label>
+										<label>{{$casehistories->caseno}}</label>
 										</div>
 								        <div class="form-group">
 										<strong>Case Title :<strong>
-										<label>{{$case->title}}</label>
+										<label>{{$casehistories->title}}</label>
 										</div>
 										<div class="form-group">
 										<strong>Interviewer :<strong>
-										<label>{{$case->interviewer}}</label>
+										<label>{{$casehistories->interviewer}}</label>
 										</div>
 										<div class="form-group">
 										<strong>Case Category :<strong>
-										<label>{{$case->clcomplainant_victim_of}}</label>
+										<label>{{$casehistories->clcomplainant_victim_of}}</label>
 										</div>
 										<div class="form-group">
 										<strong>Nature of Case :<strong>
-										<label>{{$case->nature_of_case}}</label>
+										<label>{{$casehistories->nature_of_case}}</label>
 										</div>
 										<div class="form-group">
 										<strong>Case Involvement :<strong>
-										<label>{{$case->clcase_involvement}}</label>
+										<label>{{$casehistories->clcase_involvement}}</label>
 										</div>
 										@foreach($court as $courts)
 										<div class="form-group">

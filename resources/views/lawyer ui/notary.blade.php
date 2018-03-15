@@ -66,10 +66,10 @@
 										<th>View</th>
 									</tr>
 								</thead>
-				
+				                    @foreach ($clients as $client)
+								   @foreach ($notaries as $notary)
 								<tbody>
-								@foreach ($clients as $client)
-								@foreach ($notaries as $notary)
+								
 									<tr>
 									
 										<td>
@@ -91,13 +91,14 @@
 											<a  class = "btn btn-info" href="{{route('uploadview',$notary->id)}}">
 											View </a>
 										</td>
+										
 									</tr>
-								@endforeach	
-								@endforeach	
+								
 								</tbody>
 								
 							</table>
-
+                                        @endforeach	
+								        @endforeach	
 						</div>
 						<!-- /panel content -->
 

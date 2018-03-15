@@ -66,7 +66,7 @@
 									@foreach($mostcasetype as $mostcasetypes)
 									<tr>
 										<td>{{$mostcasetypes->nature_of_case}}</td>
-										<td>{{$mostcasetypes->casename}}</td>
+										<td>{{$mostcasetypes->count}}</td>
 									</tr>
 									@endforeach
 								</tbody>

@@ -59,6 +59,7 @@
 								<thead>
 
 									<tr>
+										<th>Date</th>
 										<th>Client Name</th>
 										<th>Case Title</th>
 										<th>Case Name</th>
@@ -69,6 +70,7 @@
 									@foreach($pending as $pendings)
 									
 									<tr>
+										<td>{{date('F j Y',strtotime($pendings->updated_at))}}</td>
 										<td>{{$pendings->clfname}} {{$pendings->clmname}} {{$pendings->cllname}}</td>
 										<td>{{$pendings->title}}</td>
 										<td>{{$pendings->casename}}</td>

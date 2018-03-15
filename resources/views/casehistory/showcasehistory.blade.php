@@ -64,40 +64,40 @@
 									</tr>
 								</thead>
 								<tbody>
-								@foreach ($clients as $client)
+								@foreach ($casehistory as $client)
 									<tr>
-										@foreach($client->casetobehandled as $case)
+										
 										<td>
-											{{$case->control_number}}
+											{{$client->control_number}}
 										</td>
 										<td>
 											 {{$client->clfname}} {{$client->clmname}} {{$client->cllname}}
 										</td>
 										
 										<td>
-											 {{$case->caseno}}
+											 {{$client->caseno}}
 										</td>
-									@foreach($adverse as $adverses)
+									
 										<td>
-											{{$client->clfname}} {{$client->clmname}} {{$client->cllname}} VS {{$adverses->advprtyfname}} {{$adverses->advprtymname}} {{$adverses->advprtylname}}
+											{{$client->title}}
 										</td>
-									@endforeach
+									
 										
 										<td>
-											 {{$case->casename}} 
+											 {{$client->casename}} 
 										</td>
-										  @foreach($lawyers as $lawyer)
+										 @foreach($lawyer as $lawyers) 
 										<td>
-											Atty. {{$lawyer->efname}} {{$lawyer->emname}} {{$lawyer->elname}}
+											Atty. {{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}
 										</td>
-										  @endforeach
-										    @foreach($court as $courts)
+										 @endforeach
+							   @foreach($court as $courts)    
 										<td>
 											 {{$courts->name}}
 										</td>
-											@endforeach
+											
 										<td>
-											 {{$case->decision}} 
+											 {{$client->decision}} 
 										</td>
 							   @endforeach
 										<td>

@@ -244,7 +244,7 @@
 				</div>
 					    <div class="col-md-4">
 					<label> Case Decision</label>
-					<select name="decision" class="form-control " required onchange="if (this.value=='edu'){this.form['edu'].style.visibility='visible'}else {this.form['edu'].style.visibility='hidden'};">
+					<select name="decision" class="form-control "  onchange="if (this.value=='edu'){this.form['edu'].style.visibility='visible'}else {this.form['edu'].style.visibility='hidden'};">
 					<option value="" selected="selected"></option>
 					@foreach($decision as $dec)
       <option value="{{$dec->name}}">{{$dec->name}}</option>
