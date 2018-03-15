@@ -40,33 +40,39 @@ tr:nth-child(even) {
 	</center>
 	<div class="pull-left">
 		<h5>A. Metropolitan Trial Court</h5>
-		<table class="table table-striped table-hover table-bordered" id="sample_editable_1"  style="font-size: 10px">
-			<thead>
-				<tr>
-					<th>ITEM NO.</th>
-					<th>CONTROL NO.</th>
-					<th>PARTY REPRESENTED</th>
-					<th>GENDER/SEX</th>
-					<th>TITLE OF THE CASE</th>
-					<th>CASE NO.</th>
-					<th>CAUSE OF ACTION</th>
-					<th>STATUS OF THE CASE</th>
-					<th>STATUS DATE</th>
-					<th>DECISION</th>
-				</tr>
-			</thead>
-				<tbody>
-				@foreach($mtccase as $mtccases)
-					<tr>
-						<td></td>
-						<td>{{$mtccases->control_number}}</td>
-						<td>{{$mtccases->clfname}} {{$mtccases->clmname}} {{$mtccases->cllname}}</td>
-						<td>{{$mtccases->clgender}}</td>
-						<td>{{$mtccases->title}}</td>
-						<td>{{$mtccases->caseno}}</td>
-						<td>{{$mtccases->casename}}</td>
-						<td>{{$mtccases->case_status}}</td>
-						<td>@if($mtccases->case_status == 'Arraignment') 				
+	<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+								<thead>
+									<tr>
+										<th>ITEM NO.</th>
+										<th>CONTROL NO.</th>
+										<th>PARTY REPRESENTED</th>
+										<th>GENDER/SEX</th>
+										<th>TITLE OF THE CASE</th>
+										<th>CASE NO.</th>
+										<th>CAUSE OF ACTION</th>
+										<th>STATUS OF THE CASE</th>
+										<th>STATUS DATE</th>
+										<th>DECISION</th>
+									</tr>
+								</thead>
+				
+								<tbody>
+									@foreach($mtccase as $mtccases)
+									
+									<tr>
+									
+										
+									
+									
+										<td></td>
+										<td>{{$mtccases->control_number}}</td>
+										<td>{{$mtccases->clfname}} {{$mtccases->clmname}} {{$mtccases->cllname}}</td>
+										<td>{{$mtccases->clgender}}</td>
+										<td>{{$mtccases->title}}</td>
+										<td>{{$mtccases->caseno}}</td>
+										<td>{{$mtccases->casename}}</td>
+										<td>{{$mtccases->case_status}}</td>
+										<td>@if($mtccases->case_status == 'Arraignment') 
 											
 											{{$mtccases->arraignmentDate}} 
 										    
@@ -99,12 +105,18 @@ tr:nth-child(even) {
 									    
 									
 								     
-					</tr>
+									</tr>
 								     @endforeach
-				</tbody>
-			</table>
-		<h5>B. RTC(Regional Trial Court)</h5>	
-		{{--<table class="table table-striped table-hover table-bordered" id="sample_editable_1"  style="font-size: 10px">
+								     
+								</tbody>
+							</table>
+
+						</div>							
+						</div>
+						{{-- <div id="rtc" class="tab-content">
+							<div class="panel-body">
+							
+							<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
 								<thead>
 									<tr>
 										<th>ITEM NO.</th>
@@ -122,7 +134,12 @@ tr:nth-child(even) {
 				
 								<tbody>
 									@foreach($rtccase as $rtccases)
+									
 									<tr>
+									
+										
+									
+									
 										<td></td>
 										<td>{{$rtccases->control_number}}</td>
 										<td>{{$rtccases->clfname}} {{$rtccases->clmname}} {{$rtccases->cllname}}</td>
@@ -140,9 +157,14 @@ tr:nth-child(even) {
 								     @endforeach
 								     
 								</tbody>
-							</table>--}}
-	<h5>C. Sandigan Bayan</h5>
-	<table class="table table-striped table-hover table-bordered" id="sample_editable_1"  style="font-size: 10px">
+							</table>
+
+						</div>							
+						</div> --}}
+						<div id="sandiganbayan" class="tab-content">
+							<div class="panel-body">
+							
+							<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
 								<thead>
 									<tr>
 										<th>ITEM NO.</th>
@@ -214,7 +236,11 @@ tr:nth-child(even) {
 								     
 								</tbody>
 							</table>
-<div class="col-md-6 col-sm-6 text-left">
+
+						</div>							
+						</div>
+	
+	<div class="col-md-6 col-sm-6 text-left">
 		<h5>Submitted by:</h5>
 		<br><br><br>
 		<h5><b>RAMON ANTONIO C. SABINORIO</b></h5>

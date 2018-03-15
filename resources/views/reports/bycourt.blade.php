@@ -21,12 +21,12 @@
 										<th>ITEM NO.</th>
 										<th>CONTROL NO.</th>
 										<th>PARTY REPRESENTED</th>
-										<th>GENDER/SEX</th>
-										<th>TITLE OF THE CASE</th>
+										<th>SEX</th>
+										<th>CASE TITLE</th>
 										<th>CASE NO.</th>
 										<th>CAUSE OF ACTION</th>
-										<th>STATUS OF THE CASE</th>
-										<th>STATUS DATE</th>
+										<th>CASE STATUS</th>
+										<th>DATE</th>
 										<th>DECISION</th>
 									</tr>
 								</thead>
@@ -97,12 +97,12 @@
 										<th>ITEM NO.</th>
 										<th>CONTROL NO.</th>
 										<th>PARTY REPRESENTED</th>
-										<th>GENDER/SEX</th>
-										<th>TITLE OF THE CASE</th>
+										<th>SEX</th>
+										<th>CASE TITLE</th>
 										<th>CASE NO.</th>
 										<th>CAUSE OF ACTION</th>
-										<th>STATUS OF THE CASE</th>
-										<th>STATUS DATE</th>
+										<th>CASE STATUS</th>
+										<th>DATE</th>
 										<th>DECISION</th>
 									</tr>
 								</thead>
@@ -145,12 +145,12 @@
 										<th>ITEM NO.</th>
 										<th>CONTROL NO.</th>
 										<th>PARTY REPRESENTED</th>
-										<th>GENDER/SEX</th>
-										<th>TITLE OF THE CASE</th>
+										<th>SEX</th>
+										<th>CASE TITLE</th>
 										<th>CASE NO.</th>
 										<th>CAUSE OF ACTION</th>
-										<th>STATUS OF THE CASE</th>
-										<th>STATUS DATE</th>
+										<th>CASE STATUS</th>
+										<th>DATE</th>
 										<th>DECISION</th>
 									</tr>
 								</thead>
