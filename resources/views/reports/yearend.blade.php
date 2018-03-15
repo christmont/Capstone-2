@@ -40,18 +40,18 @@ tr:nth-child(even) {
 	</center>
 	<div class="pull-left">
 		<h5>A. CRIMINAL</h5>
-	<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+	<table class="table table-striped table-hover table-bordered" id="sample_editable_1" style="font-size: 10px">
 		<tr>
 			<th>ITEM NO.</th>
-			<th>CONTROL NO.</th>
+			<th>CTRL NO.</th>
 			<th>PARTY REPRESENTED</th>
-			<th>GENDER</th>
-			<th>TITLE OF THE CASE</th>
+			<th>SEX</th>
+			<th>TITLE</th>
 			<th>COURT</th>
 			<th>CASE NO.</th>
 			<th>CAUSE OF ACTION</th>
-			<th>STATUS OF THE CASE</th>
-			<th>STATUS DATE</th>
+			<th>STATUS</th>
+			<th>DATE</th>
 			<th>DECISION</th>
 		</tr>
 		@foreach($criminalclients as $criminalclient)
@@ -107,18 +107,18 @@ tr:nth-child(even) {
 	</table>
 	
 		<h5>B. CIVIL</h5>
-	<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+	<table class="table table-striped table-hover table-bordered" id="sample_editable_1" style="font-size: 10px">
 		<tr>
 			<th>ITEM NO.</th>
-			<th>CONTROL NO.</th>
+			<th>CTRL NO.</th>
 			<th>PARTY REPRESENTED</th>
-			<th>GENDER</th>
-			<th>TITLE OF THE CASE</th>
+			<th>SEX</th>
+			<th>TITLE</th>
 			<th>COURT</th>
 			<th>CASE NO.</th>
 			<th>CAUSE OF ACTION</th>
-			<th>STATUS OF THE CASE</th>
-			<th>STATUS DATE</th>
+			<th>STATUS</th>
+			<th>DATE</th>
 			<th>DECISION</th>
 		</tr>
 		@foreach($civilclients as $civilclient)
@@ -173,18 +173,18 @@ tr:nth-child(even) {
 		
 	</table>
 		<h5>C. LABOR</h5>
-	<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+	<table class="table table-striped table-hover table-bordered" id="sample_editable_1" style="font-size: 10px">
 		<tr>
 			<th>ITEM NO.</th>
-			<th>CONTROL NO.</th>
+			<th>CTRL NO.</th>
 			<th>PARTY REPRESENTED</th>
-			<th>GENDER</th>
-			<th>TITLE OF THE CASE</th>
+			<th>SEX</th>
+			<th>TITLE</th>
 			<th>COURT</th>
 			<th>CASE NO.</th>
 			<th>CAUSE OF ACTION</th>
-			<th>STATUS OF THE CASE</th>
-			<th>STATUS DATE</th>
+			<th>STATUS</th>
+			<th>DATE</th>
 			<th>DECISION</th>
 
 		</tr>
@@ -237,25 +237,21 @@ tr:nth-child(even) {
 		@endforeach
 		 @endforeach
 		
-		
-<<<<<<< HEAD
 	</table><br>
-=======
 	</table>
->>>>>>> 8685d68483caef6df48f5c48bb30ea6f74a42a8d
 		<h5>D. ADMINISTRATIVE</h5>
-	<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+	<table class="table table-striped table-hover table-bordered" id="sample_editable_1" style="font-size: 10px">
 		<tr>
 			<th>ITEM NO.</th>
-			<th>CONTROL NO.</th>
+			<th>CTRL NO.</th>
 			<th>PARTY REPRESENTED</th>
-			<th>GENDER</th>
-			<th>TITLE OF THE CASE</th>
+			<th>SEX</th>
+			<th>TITLE</th>
 			<th>COURT</th>
 			<th>CASE NO.</th>
 			<th>CAUSE OF ACTION</th>
-			<th>STATUS OF THE CASE</th>
-			<th>STATUS DATE</th>
+			<th>STATUS</th>
+			<th>DATE</th>
 			<th>DECISION</th>
 		</tr>
 		@foreach($administrativeclients as $administrativeclient)
