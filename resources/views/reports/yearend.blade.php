@@ -26,6 +26,7 @@ tr:nth-child(even) {
 </head>
 <body>
 	<div class="container">
+		<div class="row">
 	<center>
 		<h5>Republika ng Pilipinas<br>
 			Kagawaran ng Katarungan<b></h5>
@@ -35,18 +36,18 @@ tr:nth-child(even) {
 		QUEZON CITY District Office</h5>
 		<br>
 		<h4><b>YEAR-END INVENTORY OF CASES</b></h4>
-		<h5>For the year {{$year}}</h5><br><br>
+		<h5>For the year {{$year}}</h5><br>
 	</center>
 	<div class="pull-left">
 		<h5>A. CRIMINAL</h5>
-	<table>
+	<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
 		<tr>
 			<th>ITEM NO.</th>
 			<th>CONTROL NO.</th>
 			<th>PARTY REPRESENTED</th>
-			<th>GENDER/SEX</th>
+			<th>GENDER</th>
 			<th>TITLE OF THE CASE</th>
-			<th>COURT/BODY</th>
+			<th>COURT</th>
 			<th>CASE NO.</th>
 			<th>CAUSE OF ACTION</th>
 			<th>STATUS OF THE CASE</th>
@@ -69,16 +70,16 @@ tr:nth-child(even) {
 		 @endforeach
 		
 	</table>
-	<br><br>
+	
 		<h5>B. CIVIL</h5>
-	<table>
+	<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
 		<tr>
 			<th>ITEM NO.</th>
 			<th>CONTROL NO.</th>
 			<th>PARTY REPRESENTED</th>
-			<th>GENDER/SEX</th>
+			<th>GENDER</th>
 			<th>TITLE OF THE CASE</th>
-			<th>COURT/BODY</th>
+			<th>COURT</th>
 			<th>CASE NO.</th>
 			<th>CAUSE OF ACTION</th>
 			<th>STATUS OF THE CASE</th>
@@ -101,16 +102,16 @@ tr:nth-child(even) {
 		 @endforeach
 		
 		
-	</table><br><br>
+	</table>
 		<h5>C. LABOR</h5>
-	<table>
+	<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
 		<tr>
 			<th>ITEM NO.</th>
 			<th>CONTROL NO.</th>
 			<th>PARTY REPRESENTED</th>
-			<th>GENDER/SEX</th>
+			<th>GENDER</th>
 			<th>TITLE OF THE CASE</th>
-			<th>COURT/BODY</th>
+			<th>COURT</th>
 			<th>CASE NO.</th>
 			<th>CAUSE OF ACTION</th>
 			<th>STATUS OF THE CASE</th>
@@ -133,16 +134,16 @@ tr:nth-child(even) {
 		 @endforeach
 		
 		
-	</table><br><br>
+	</table><br>
 		<h5>D. ADMINISTRATIVE</h5>
-	<table>
+	<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
 		<tr>
 			<th>ITEM NO.</th>
 			<th>CONTROL NO.</th>
 			<th>PARTY REPRESENTED</th>
-			<th>GENDER/SEX</th>
+			<th>GENDER</th>
 			<th>TITLE OF THE CASE</th>
-			<th>COURT/BODY</th>
+			<th>COURT</th>
 			<th>CASE NO.</th>
 			<th>CAUSE OF ACTION</th>
 			<th>STATUS OF THE CASE</th>
@@ -164,7 +165,8 @@ tr:nth-child(even) {
 		@endforeach
 		 @endforeach
 		
-	</table><br><br>
+	</table ><br><br>
+	
 	<div class="col-md-6 col-sm-6 text-left">
 		<h5>Submitted by:</h5>
 		<br><br><br>
@@ -172,12 +174,13 @@ tr:nth-child(even) {
 		<h5><b>PUBLIC ATTORNEY III</b></h5><br>
 		<h5>___________________________________<br>{{$date}}</h5>
 	</div>
-	<div class="col-md-6 col-sm-6">
+	<div class="col-md-6 col-sm-6 text-right">
 		<h5>Noted by:</h5>
-		<br><br><br>
+		<br><br>
 		<h5><b>ERIC C. ALAJAR</b></h5>
 		<h5><b>PUBLIC ATTORNEY III Officer-in-Charge</b></h5><br>
 		<h5>___________________________________<br>{{$date}}</h5><br><br><br>
+	</div>
 	</div>
 	</div>
 	
