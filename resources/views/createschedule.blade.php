@@ -25,24 +25,26 @@
             @endforeach
 		    </select><br>
         </div>
+        
         <div class="col-md-6">
             <label> Control Number</label>
-            <select name="lawyer" class="form-control">
-            <option value="" selected="selected"></option>
-            @foreach($lawyer as $lawyers)
-            <option value="{{$lawyers->id}}">{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}</option>
+            @foreach($controlno as $con)
+            <input id = "controlno" type="text" readonly value = "{{$con->control_number}}">
             @endforeach
-            </select><br>
+       
+           <br>
         </div>
+        
         <div class="col-md-6">
             <label> Client Name</label>
-            <select name="lawyer" class="form-control">
+            <select name="lawyer" class="form-control" id= "client">
             <option value="" selected="selected"></option>
-            @foreach($lawyer as $lawyers)
-            <option value="{{$lawyers->id}}">{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}</option>
+            @foreach($client as $clients)
+            <option value="{{$clients->id}}">{{$clients->clfname}} {{$clients->clmname}} {{$clients->cllname}}</option>
             @endforeach
             </select><br>
         </div>
+        
         <div class="col-md-6">
             <label>Schedule Type</label>
             <select name="schedtype" class="form-control " required onchange="if (this.value=='edu'){this.form['edu'].style.visibility='visible'}else {this.form['edu'].style.visibility='hidden'};">
@@ -83,6 +85,25 @@
 <footer style="text-align: center;" ><br>
     <button type="submit" class="btn btn-green">New Schedule</button><br><br>
     </footer>
-</form></div>
+</form>
+</div>
+ <script>
+   function getval(nor)
+{
+    if(client.value !== null)
+    {
+         
+            document.getElementById('controlno').style.display = 'block';
+            
+
+         
+    }
+    else
+    {
+        document.getElementById('controlno').style.display = 'none';
+        
+    }
+}
+   </script>
 </section>
 @stop

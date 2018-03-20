@@ -954,36 +954,55 @@ class RegisterController extends Controller
     }
      public function schedule()
     {   
-      $schedule = Schedule::all();
-      foreach ($schedule as $key => $sched)
-      {
-        $lawyer = Employee::where([['position','Lawyer'],['id',$sched->employee_id]])
+      
+     
+        $lawyer = Employee::where('position','Lawyer')
+                          ->with('schedules')
                           ->get();
-                      foreach($lawyer as $lawyers)
-                      {
-        $lawyersched = Schedule::where('employee_id',$lawyers->id)->get();
-                      }
-      }
+       
+        foreach($lawyer as $lawyers)
+        {
+          foreach($lawyers->schedules as $sched)
+          {
+
+        $schedules = Schedule::where($sched->id,'id')->get();
+        
+          }
+      
+
       $client = Client::where([['nature_of_request','Mediation'],['cl_status','Approved']])
                         ->orwhere([['nature_of_request','Representation of quasi-judicial bodies '],['cl_status','Approved']])
                         ->with('casetobehandled')
                         ->get();
-
-       
-                      
+          
+        
+        }    
+          
          return view('maintenance.schedules')->withLawyer($lawyer)
-                                            ->withlawyersched($lawyersched)
+                                            // ->withschedules($schedules)
                                             ->withClient($client);
+       
+       
       
         
     }
      public function showschedule()
     {
        $lawyer = Employee::where('position','Lawyer')->get();
-       
-        $scheduletype = scheduletype::all();
+       $scheduletype = scheduletype::all();
+       $client = Client::where([['nature_of_request','Mediation'],['cl_status','Approved']])
+                        ->orwhere([['nature_of_request','Representation of quasi-judicial bodies '],['cl_status','Approved']])
+                        ->get();
+
+      foreach($client as $clients)
+      {
+        $controlno = casetobehandled::where('client_id',$clients->id)->get();
+        
+      }
                return view('createschedule')->withLawyer($lawyer)
-                                            ->withscheduletype($scheduletype);
+                                            ->withscheduletype($scheduletype)
+                                            ->withclient($client)
+                                            ->withcontrolno($controlno);
     }
 
     public function scheduleregister(Request $request)
