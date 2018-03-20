@@ -448,7 +448,10 @@ class ReportController extends Controller
         return view('reports.bycourt')->withmtccase($mtccase)
                                       ->withmtc($mtc)
                                       ->withsbcase($sbcase)
-                                      ->withsb($sb);
+                                      ->withsb($sb)
+                                      ->withrtccase($rtccase)
+                                      ->withrtc($rtc);
+
     }
     public function printcasecourt()
     {
@@ -500,8 +503,8 @@ class ReportController extends Controller
                                                 'mtc'=>$mtc,
                                                 'sbcase'=>$sbcase,
                                                 'sb'=>$sb,
-                                                // 'rtccase'=>$rtccase,
-                                                // 'rtc'=>$rtc,
+                                                'rtccase'=>$rtccase,
+                                                'rtc'=>$rtc,
                                                 'date'=>$date,
                                                 'year'=>$year,
        ]);

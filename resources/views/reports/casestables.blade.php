@@ -112,11 +112,11 @@
 										<th>DECISION</th>
 									</tr>
 								</thead>
-				
+				@foreach($civilreport as $civilreports)
+									 @foreach($civilcourts as $civilcourt)
 								<tbody>
 									<tr>
-									@foreach($civilreport as $civilreports)
-									 @foreach($civilcourts as $civilcourt)
+									
 										
 									
 									
@@ -191,11 +191,11 @@
 										<th>DECISION</th>
 									</tr>
 								</thead>
-				
+				@foreach($laborreport as $laborreports)
+									 @foreach($laborcourts as $laborcourt)
 								<tbody>
 									<tr>
-									@foreach($laborreport as $laborreports)
-									 @foreach($laborcourts as $laborcourt)
+									
 										
 									
 									
@@ -242,10 +242,10 @@
 										<td>{{$laborreports->decision}}</td>
 									    
 									
-								     @endforeach
-								      @endforeach
+								    
 									</tr>
-								
+								 @endforeach
+								      @endforeach
 								</tbody>
 							</table>
 

@@ -62,14 +62,14 @@
 									<tr>
 										<th>Full Name</th>
 										<th>Nature of Request</th>
-										<th>Print</th>
+										<th>Upload</th>
 										<th>View</th>
 									</tr>
 								</thead>
-				                    @foreach ($clients as $client)
-								   @foreach ($notaries as $notary)
+				                    
 								<tbody>
-								
+								@foreach ($clientnotary as $client)
+								   
 									<tr>
 									
 										<td>
@@ -87,18 +87,21 @@
 											<a  class = "btn btn-info" href="/notaryupload">
 											Upload </a>
 										</td>
+										
 										<td>
-											<a  class = "btn btn-info" href="{{route('uploadview',$notary->id)}}">
+											@foreach($clientnotaryview as $clientnotaryviews)
+											<a  class = "btn btn-info" href="{{route('uploadview',$clientnotaryviews->notaryid)}}">
 											View </a>
+											@endforeach
 										</td>
 										
 									</tr>
-								
+								 @endforeach	
+								        
 								</tbody>
 								
 							</table>
-                                        @endforeach	
-								        @endforeach	
+                                       
 						</div>
 						<!-- /panel content -->
 

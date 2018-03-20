@@ -149,32 +149,59 @@ class RequestController extends Controller
 
         $denied = Client::find($id);
         $denied->cl_status = 'Denied';
-        $date = date('F j Y ');
+        $dates = date('F j Y ');
+        $denied->save();
+        $reason = Reason::all();
 
-        $papersize = array(0, 0, 360, 360);
-        $pdf = PDF::loadView('forms.deny', array(
+        return view('forms.deny')->withDenied($denied)
+                                 ->withReason($reason)
+                                 ->withDate($dates);
+        // $papersize = array(0, 0, 360, 360);
+        // $pdf = PDF::loadView('forms.deny', array(
+        // 'name' => $denied->clfname . ' ' . $denied->clmname . ' ' . $denied->cllname,
+        // 'address' =>$denied->claddress,
+        // 'reason' =>$denied->reason,
+        // 'date'=>$date
+        
+        // ));
+        
+        
+        
+        
+
+        
+        // return $pdf->download($denied->firstname . '_' . $denied->lastname . '_denied.pdf');
+      
+
+        
+
+
+    }
+    public function denysubmit($id, Request $request)
+    {
+      $date = date('F j Y ');
+      $denied = Client::find($id);
+      $denied->reason = $request->reason_id;
+      $denied->save();
+
+      $papersize = array(0, 0, 360, 360);
+        $pdf = PDF::loadView('forms.deny2', array(
         'name' => $denied->clfname . ' ' . $denied->clmname . ' ' . $denied->cllname,
         'address' =>$denied->claddress,
         'reason' =>$denied->reason,
         'date'=>$date
         
         ));
-        $denied->save();
+        
         
         
         
 
         
         return $pdf->download($denied->firstname . '_' . $denied->lastname . '_denied.pdf');
-        return view('pdf.deny');
-
-        $approved = Client::find($id);
-        $approved->cl_status = 'Denied';
-        $approved->save();
-        return view('deny');
-
 
     }
+
 
 
     public function print($id)

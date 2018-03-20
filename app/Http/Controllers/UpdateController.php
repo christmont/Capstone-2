@@ -353,12 +353,18 @@ class UpdateController extends Controller
     }
     public function showschededit($id)
     {
+        
+        
+        $sched = Employee::find($id);
+
+     
         $lawyer = Employee::where('position','Lawyer');
         $scheduletype = scheduletype::all();
-        $sched = Employee::find($id)->with('schedule');
+        $schedule = Schedule::where('employee_id',$id);
         return view('reschedule')->withsched($sched)
                                  ->withscheduletype($scheduletype)
-                                 ->withlawyer($lawyer);
+                                 ->withlawyer($lawyer)
+                                 ->withSchedule($schedule);
     }
       public function schededit($id, Request $request)
     {
@@ -451,7 +457,6 @@ class UpdateController extends Controller
         //Flashy::success('Succesfully edited guest', '#');
        return redirect('/reason/show');
     }
-
 
 
 

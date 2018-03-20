@@ -12,6 +12,7 @@ use App\employeeclients;
 use Auth;
 use App\Schedule;
 use App\Notary;
+use DB;
 
 class LawyerSideController extends Controller
 {
@@ -24,40 +25,44 @@ class LawyerSideController extends Controller
      public function shownotarytable()
     {
       
-      $lawyerclients = employeeclients::select('*')->where('employee_id',Auth::user()->id)->get();
-      
-        foreach ($lawyerclients as $key => $lawyerclient) 
-        {
+     $clientnotary = DB::table('employeeclients')
+                      ->where([['employees.id',Auth::user()->id],['clients.nature_of_request','Administration of oath']])
+                      ->join('employees','employees.id','=','employeeclients.employee_id')
+                      ->join('clients','clients.id','=','employeeclients.client_id')
+                      // ->join('notaries','notaries.client_id','=','employeeclients.client_id')
+                      ->get();
+         $clientnotaryview = DB::table('employeeclients')
+                      ->select('notaries.id as notaryid')
+                      ->where([['employees.id',Auth::user()->id],['clients.nature_of_request','Administration of oath']])
+                      ->join('employees','employees.id','=','employeeclients.employee_id')
+                      ->join('clients','clients.id','=','employeeclients.client_id')
+                      ->join('notaries','notaries.client_id','=','employeeclients.client_id')
+                      ->get();
+               
          
 
-         $clients = Client::select('*')
-         ->where([['nature_of_request','Administration of oath'],['id',$lawyerclient->client_id],['cl_status','Walkin']])
-         ->orderBy('cllname','asc')
-         ->get();
-
-         
-
-        foreach($clients as $client)
+        foreach($clientnotary as $client)
         {
 
-          $notaries = Notary::select('*')
-         ->where('client_id',$client->id)
+          $notaries = Notary::where('client_id',$client->id)
          ->orderBy('created_at','asc')
          ->get();
-
+          
         }
         
        
-      }
-      return view('lawyer ui.notary')->withClients($clients)
-                                     ->withNotaries($notaries);
+      
+      return view('lawyer ui.notary')->withclientnotary($clientnotary)
+                                     ->withclientnotaryview($clientnotaryview);
          
     }
      public function showwalkintable()
     {
-      $clients = Client::where('nature_of_request','Legal Documentation')->orderBy('cllname','asc')
-      ->get();
-  
+     $clients = DB::table('employeeclients')
+                      ->where([['employees.id',Auth::user()->id],['clients.nature_of_request','Legal Documentation']])
+                      ->join('employees','employees.id','=','employeeclients.employee_id')
+                      ->join('clients','clients.id','=','employeeclients.client_id')
+                      ->get();  
       return view('lawyer ui.walkin')->withClients($clients);
     }
      public function showreqtable()

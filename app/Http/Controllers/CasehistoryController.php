@@ -17,64 +17,76 @@ class CasehistoryController extends Controller
     public function showcasehistory()
     {
         $casehistory = DB::table('clients')
-                      ->whereNotNull('decision')
-                      ->where([['casetobehandleds.case_status','Promulgation'],['clients.cl_status','Approved'],['clients.nature_of_request','Mediation']])
-                      ->orWhere([['casetobehandleds.case_status','Promulgation'],['clients.cl_status','Approved'],['clients.nature_of_request','Representation of quasi-judicial bodies
-                      ']])
-                      ->join('casetobehandleds','casetobehandleds.client_id','=','clients.id')
+                      ->select('clients.*')
+                      ->where([['clients.cl_status','Approved'],['clients.nature_of_request','Mediation']])
+                      ->orWhere([['clients.cl_status','Approved'],['clients.nature_of_request','Representation of quasi-judicial bodies']])
                       ->get();
-          
-    					  	foreach($casehistory as $case)
+                      foreach ($casehistory as $key => $casehist) 
+                      {
+                       
+                      
+                    $case = DB::table('casetobehandleds')
+                      ->whereNotNull('decision')
+                      ->where([['casetobehandleds.case_status','Promulgation'],['casetobehandleds.client_id','=',$casehist->id]])
+                      ->orWhere([['casetobehandleds.case_status','Promulgation'],['casetobehandleds.client_id','=',$casehist->id]])
+                      ->get(); 
+                     
+                      
+                
+    					  	foreach($case as $caseh)
     					  	{
-    					  		$court = Court::where('id',$case->court_id)->get();
-                                $employeeclient = employeeclients::where('client_id',$case->id)->get();
-    					  	}
+    					  		$court = Court::where('id',$caseh->court_id)->get();
+                    $employeeclient = employeeclients::where('client_id',$caseh->id)->get();
+
+
+    					  	
     				
     				  			foreach ($employeeclient as $key => $employeeclients) 
                                 {
                                     $lawyer = Employee::where([['position','Lawyer'],['id',$employeeclients->employee_id]])->get();
+                                    
                                 }
-    				
+                  }
+    				          }
     		return view('casehistory.showcasehistory')->withcasehistory($casehistory)
-    												  ->withCourt($court)
-                                                      ->withLawyer($lawyer);
+    												                      ->withCourt($court)
+                                                  ->withLawyer($lawyer);
     }
     
     public function view($id)
     {
-    	$clients = Client::find($id);
-
-    				$case = casetobehandled::where([['client_id',$clients->id],['decision','Acquited']])
-                                            ->orwhere('decision','Dismissed')
-                                            ->orwhere('decision','Conviction')
-                                            ->get();
-
-                   $employeeclient = employeeclients::where('client_id',$clients->id)->get();
-                                
-    					$clientadverse = clientadverse::where('client_id',$clients->id)->get();
-                      
-    					  foreach($clientadverse as $clientadverses)
-    					  {
-
-    					  	$adverse = Adverse::where('id',$clientadverses->adverse_id)->get();
-
+    	   $casehistory = DB::table('clients')
+                      ->whereNotNull('decision')
+                      ->where([['casetobehandleds.case_status','Promulgation'],['clients.cl_status','Approved'],['clients.nature_of_request','Mediation'],['clients.id',$id]])
+                      ->orWhere([['casetobehandleds.case_status','Promulgation'],['clients.cl_status','Approved'],['clients.nature_of_request','Representation of quasi-judicial bodies
+                      '],['clients.id',$id]])
+                      ->join('casetobehandleds','casetobehandleds.client_id','=','clients.id')
+                      ->get();
+                
+                            foreach($casehistory as $case)
+                            {
+                                $court = Court::where('id',$case->court_id)->get();
                                
-    					  			foreach($employeeclient as $employeeclients)
-    					  			{
-    					  				$lawyers = Employee::where([['id',$employeeclients->employee_id],['position','Lawyer']])->get();
-    					  			}
-    					  	foreach($clients->casetobehandled as $case)
-    					  	{
-    					  		$court = Court::where('id',$case->court_id)->get();
-    					  	}
-    					  }
+                                $employeeclient = employeeclients::where('client_id',$case->id)->get();
+                                return $employeeclient;
+
+                            
+                    
+                                foreach ($employeeclient as $key => $employeeclients) 
+                                {
+                                    $lawyer = Employee::where([['position','Lawyer'],['id',$employeeclients->employee_id]])->get();
+                                    return $lawyer;
+                                }
+                            }
+                    
+            return view('casehistory.view')->withcasehistory($casehistory)
+                                                      ->withCourt($court)
+                                                      ->withLawyer($lawyer);
+    }
     					  	
     				
-    		return view('casehistory.view')->withClients($clients)
-                                                      ->withCase($case)
-    												  ->withAdverse($adverse)
-    												  ->withLawyers($lawyers)
-    												  ->withCourt($court);
+    		
+
     }
     
 
@@ -82,4 +94,4 @@ class CasehistoryController extends Controller
 
 
 
-}
+

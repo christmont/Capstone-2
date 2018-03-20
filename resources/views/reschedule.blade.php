@@ -15,21 +15,25 @@
         <div class="row" style="height: 500px;">
         <form action="{{ url('schedule/register') }}" method= "post">
         {{csrf_field()}}
-
+           
         <div class="form-group">
         <div class="col-md-6">
+            
             <label> Lawyer Name</label>
+
            <select name="lawyer" class="form-control " required onchange="if (this.value=='edu'){this.form['edu'].style.visibility='visible'}else {this.form['edu'].style.visibility='hidden'};">
-                <option value="{{$sched->id}}" selected="selected">{{$sched->efname}} {{$sched->emname}} {{$sched->elname}}</option>
-                @foreach($lawyer as $lawyers)
+            @foreach($lawyer as $lawyers)
+                <option value="" selected="selected"></option>
+                
 
                 <option value="{{$lawyers->id}}">{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}</option>
-                @endforeach
+              
                 {{-- <option value="edu">Other</option> --}}
             </select><br>
+            @endforeach  
            <br>
         </div>
-        @foreach($sched->schedule as $schedule)
+        @foreach($schedule as $sched)
         <div class="col-md-6">
             <label>Schedule Type</label>
             <select name="type" class="form-control " required onchange="if (this.value=='edu'){this.form['edu'].style.visibility='visible'}else {this.form['edu'].style.visibility='hidden'};">
@@ -64,7 +68,7 @@
             </div>
     </div>
 
-        
+        @endforeach
 </div>
     
 </div>

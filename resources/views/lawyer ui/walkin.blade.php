@@ -14,7 +14,7 @@
 						<li class="active">Request tables</li>
 						<li class="active">Legal Documentation tables</li>
 						<div class="pull-right">
-							<a  class="btn btn-green" href="/client/register" ><i class="fa fa-plus"></i> New Request</a>
+							
 						</div>
 					</ol>
 				</header>

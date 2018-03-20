@@ -66,7 +66,7 @@
 							<div class="col-md-4">
 								<label>First Name *</label>
 								<input type="text" name="cfname" value="{{$client->clfname}}" class="form-control "required/>
-								{{\Carbon\Carbon::parse($client->clbdate)->diff(\Carbon\Carbon::now())->format('%y years old')}}
+								
 							</div>
 							<div class="col-md-4">
 								<label>Middle Name </label>

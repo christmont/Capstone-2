@@ -152,7 +152,7 @@ Route::get('/casestatus/register','RegisterController@showcasestatusregister');
 Route::post('/casestatus/register', 'RegisterController@casestatusregister');
 Route::get('/casestatus/edit{id}','UpdateController@showcasestatusedit')->name('showcs');
 Route::put('/casestatus/edit/{id}','UpdateController@casestatusedit')->name('editcs');
-Route::delete('/casestatus/delete/{id}','DeleteController@casestatusdelete')->name('delcs');
+Route::delete('/casestatus/delete/{id}','DeleteController@casestatusdelete')->name('delcst');
 
 Route::get('/court/show','RegisterController@showcourt');
 Route::get('/court/register','RegisterController@showcourtregister');
@@ -218,6 +218,9 @@ Route::get('/show/inquesttable','InquestController@showinquesttable');
 
 Route::get('show/mostcasetype','QueriesController@mostcasetype');
 Route::get('show/pendingcase','QueriesController@pendingcase');
+
+Route::get('/show/clientnotary','RegisterController@shownotaryclientreg');
+Route::post('/notary/register','RegisterController@notaryclientreg');
 
 //Route::resource('clients', 'ClientController');
 Route::resource('interviewees', 'IntervieweeController');

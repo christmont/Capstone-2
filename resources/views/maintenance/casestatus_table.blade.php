@@ -111,7 +111,7 @@
 									</div></div></div>
 										</td>
 										<td>
-											<form action="{{ route('delcs', $cs->id) }}" method = "post">
+											<form action="{{ route('delcst', $cs->id) }}" method = "post">
 												{{ csrf_field() }}
         {{ method_field('DELETE') }}
 											<button type ="submit" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?')" href="{{ route('delcs',$cs->id) }}"><i class="fa fa-trash"></i>

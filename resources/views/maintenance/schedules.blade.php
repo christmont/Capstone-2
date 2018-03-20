@@ -73,22 +73,22 @@
 								@foreach ($lawyer as $lawyers)
 									<tr>
 										<td>{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}</td>
-										
+										@foreach($lawyersched as $lawyerscheds)
 										<td>
-											 {{$lawyers->type}}
+											 {{$lawyerscheds->type}}
 										</td>
 										<td>
-											 {{$lawyers->start}}
+											 {{$lawyerscheds->start}}
 										</td>
 										<td>
-											 {{$lawyers->end}}
+											 {{$lawyerscheds->end}}
 										</td>
 									    
 										<td>
-											   <a class ="btn btn-warning" href="{{ route('showsched',$lawyers->id) }}">Reschedule</a>
+											   <a class ="btn btn-warning" href="{{ route('showsched',$lawyerscheds->id) }}">Reschedule</a>
 										</td>
 										<td>
-											<form action="{{ route('deletesched',$lawyers->id) }}" method = "post">
+											<form action="{{ route('deletesched',$lawyerscheds->id) }}" method = "post">
 												{{ csrf_field() }}
         {{ method_field('DELETE') }}
 											<button type ="submit" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?')" href="{{ route('deletesched',$lawyers->id) }}"><i class="fa fa-trash"></i>
@@ -97,6 +97,7 @@
 										</td>
 
 									</tr>
+										@endforeach
 									@endforeach	
 									
 								</tbody>

@@ -26,6 +26,24 @@
 		    </select><br>
         </div>
         <div class="col-md-6">
+            <label> Control Number</label>
+            <select name="lawyer" class="form-control">
+            <option value="" selected="selected"></option>
+            @foreach($lawyer as $lawyers)
+            <option value="{{$lawyers->id}}">{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}</option>
+            @endforeach
+            </select><br>
+        </div>
+        <div class="col-md-6">
+            <label> Client Name</label>
+            <select name="lawyer" class="form-control">
+            <option value="" selected="selected"></option>
+            @foreach($lawyer as $lawyers)
+            <option value="{{$lawyers->id}}">{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}</option>
+            @endforeach
+            </select><br>
+        </div>
+        <div class="col-md-6">
             <label>Schedule Type</label>
             <select name="schedtype" class="form-control " required onchange="if (this.value=='edu'){this.form['edu'].style.visibility='visible'}else {this.form['edu'].style.visibility='hidden'};">
                 <option value="" selected="selected"></option>

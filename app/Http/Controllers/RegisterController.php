@@ -260,30 +260,34 @@ class RegisterController extends Controller
                 //dd('gdgfgf'); 
         	// $this->validate($request, 
          //    [
-         //            'fname'=>'required||max:50',
-         //            'mname'=>'max:50',
-         //            'lname'=>'required||max:50',
-         //            'religion'=>'nullable||max:50',
-         //            'Citizenship'=>'required||max:50',
-         //            'Address'=>'required',
-         //            'Email'=>'required||max:50',
-         //            'Income'=>'integer',
-         //            'Detained'=>'required||max:5',
-         //            'cldetained_since'=>'required',
-         //            'Birthday'=>'required||date',
-         //            'gender'=>'max:10',
-         //            'civilstat'=>'required||max:30',
-         //            'Educational'=>'max:50',
-         //            'Language'=>'max:50',
-         //            'Contact'=>'required||integer',
-         //            'nor'=>'required||max:50',
-         //            'spouse_name'=>'max:50',
-         //            'spouse_addr'=>'max:200',
-         //            'spouse_con'=>'integer',
-         //            'detainedsince'=>'date',
-         //            'detention'=>'max:100',
+         //            'fname'=>'required|max:50',
+         //            'mname'=>'nullable|max:50',
+         //            'lname'=>'required|max:50',
+         //            'religion'=>'nullable|max:50',
+         //            'Citizenship'=>'required|max:50',
+         //            'Address'=>'required|max:200',
+         //            'Email'=>'nullable|max:50',
+         //            'Income'=>'nullable',
+         //            'Detained'=>'required|max:5',
+         //            'cldetained_since'=>'nullable|required',
+         //            'Birthday'=>'required|date',
+         //            'gender'=>'nullable|max:10',
+         //            'civilstat'=>'required|max:30',
+         //            'Educational'=>'nullable|max:50',
+         //            'Language'=>'nullable|max:50',
+         //            'Contact'=>'nullable',
+         //            'nor'=>'required|max:50',
+         //            'spouse_name'=>'nullable|max:50',
+         //            'spouse_addr'=>'nullable|max:200',
+         //            'spouse_con'=>'nullable|',
+         //            'detainedsince'=>'nullable|date',
+         //            'detention'=>'nullable|max:100',
                     
 
+         //    ],
+         //    [
+         //      'fname.required' => 'Walang pangalan',
+         //      'lname.required' => 'Walang apelyido',
          //    ]
          //          );
 
@@ -339,30 +343,7 @@ class RegisterController extends Controller
                 
 
             }
-            elseif ($request->nor == 'Administration of oath' ) 
-            {
-              $lawyer = Employee::where('position','Lawyer')->take(1)->InRandomOrder()->get();
-              $client->cl_status = "Walkin";
-              $client->save();
-              $lawyerclient = Client::orderBy('created_at','desc')->take(1)->get();
-              foreach ($lawyer as $key => $lawyers) 
-              {
-                 foreach ($lawyerclient as $key => $lawyerclients) 
-                 {
-                  
-                  $lawyercase = new employeeclients;
-                  $lawyercase->client_id = $lawyerclients->id;
-                  $lawyercase->employee_id = $lawyers->id;
-                  $lawyercase->save();
-                  return redirect('/lawyer/show');
-                 }
-
-                  
-              }
-
-             
-
-            }
+           
              elseif ($request->nor == 'Legal Documentation' ) 
             {
               $lawyer = Employee::where('position','Lawyer')->take(1)->InRandomOrder()->get();
@@ -418,14 +399,21 @@ class RegisterController extends Controller
 
           $clients = Client::select('id')->orderBy('id','desc')->get();
           $employees = Employee::where('position','Interviewer')->get();
-          $lawsuits = Lawsuit::orderBy('name','asc')->get();
+          $criminal = Lawsuit::where('casetype_id','1')->orderBy('name','asc')->get();
+          $civil = Lawsuit::where('casetype_id','2')->orderBy('name','asc')->get();
+          $administrative = Lawsuit::where('casetype_id','4')->orderBy('name','asc')->get();
+          $labor = Lawsuit::where('casetype_id','3')->orderBy('name','asc')->get();
+
           $category = Category::orderBy('name','asc')->get();
           $involvements = Involvement::orderBy('name','asc')->get();
           $casetypes = casetype::orderBy('name','asc')->get();
          
            
           return view('maintenance.casereg')->withClients($clients)
-          ->withLawsuits($lawsuits)
+          ->withcriminal($criminal)
+          ->withcivil($civil)
+          ->withadministrative($administrative)
+          ->withlabor($labor)
           ->withCategory($category)
           ->withInvolvements($involvements)
           ->withEmployees($employees)
@@ -467,9 +455,28 @@ class RegisterController extends Controller
         
             
             $casetobehandled = new casetobehandled;
-    
+         
        
-        $casetobehandled-> casename = $request->lawsuit;
+          if($request->casetype == 'Criminal')
+         {
+          
+         $casetobehandled-> casename = $request->criminal;
+         }
+        elseif($request->casetype == 'Civil')
+         {
+          
+          $casetobehandled-> casename = $request->civil ;
+         }
+        elseif($request->casetype == 'Labor')
+         {
+         
+          $casetobehandled-> casename = $request->labor ;
+         }
+         elseif($request->casetype == 'Administrative')
+         {
+          
+          $casetobehandled-> casename = $request->administrative;
+         };
         $casetobehandled-> interviewer = $request->employee;
          $casetobehandled-> nature_of_case =$request->casetype;
        
@@ -947,12 +954,26 @@ class RegisterController extends Controller
     }
      public function schedule()
     {   
-       $lawyer = DB::table('employees')
-                      ->where('position','Lawyer')
-                      ->join('schedules','employees.id','=','schedules.employee_id')
-                      ->get();
-                      return $lawyer;
-         return view('maintenance.schedules')->withLawyer($lawyer);
+      $schedule = Schedule::all();
+      foreach ($schedule as $key => $sched)
+      {
+        $lawyer = Employee::where([['position','Lawyer'],['id',$sched->employee_id]])
+                          ->get();
+                      foreach($lawyer as $lawyers)
+                      {
+        $lawyersched = Schedule::where('employee_id',$lawyers->id)->get();
+                      }
+      }
+      $client = Client::where([['nature_of_request','Mediation'],['cl_status','Approved']])
+                        ->orwhere([['nature_of_request','Representation of quasi-judicial bodies '],['cl_status','Approved']])
+                        ->with('casetobehandled')
+                        ->get();
+
+       
+                      
+         return view('maintenance.schedules')->withLawyer($lawyer)
+                                            ->withlawyersched($lawyersched)
+                                            ->withClient($client);
       
         
     }
@@ -981,11 +1002,10 @@ class RegisterController extends Controller
         $sched-> type = $request->schedtype;
         $sched-> start =$request->start;
         $sched-> end =$request->end;
-          $lawyers = Employee::where([['position','Lawyer'],['id',$request->lawyer]])->get();
-          foreach($lawyers as $lawyer)
-          {
-        $sched-> employee_id = $lawyer->id;
-          }
+          
+        $sched-> client_id =$request->client;
+        $sched-> employee_id = $request->lawyer;
+          
        
         $sched->save();
        
@@ -1196,6 +1216,43 @@ class RegisterController extends Controller
        return redirect('/decision/show');
 
     }
+    public function shownotaryclientreg()
+    {
+      return view('notaryform');
+    }
+     public function notaryclientreg(Request $request)
+    {
+      $date = Carbon::now();
+      $notary = new Client;
+      $notary-> nature_of_request = 'Administration of oath';
+      $notary-> clfname = $request->fname;
+      $notary-> clmname = $request->mname;
+      $notary-> cllname = $request->lname;
+      $notary-> claddress = $request->Address;
+      $notary-> clcity = $request->city;
+      $notary-> clctcno = $request->ctcno;
+      $notary-> clnotarydate = $date;
+      $notary->cl_status = "Walkin";
+      $notary->save();
+
+      $lawyer = Employee::where('position','Lawyer')->take(1)->InRandomOrder()->get();
+             
+              $lawyerclient = Client::orderBy('created_at','desc')->take(1)->get();
+              foreach ($lawyer as $key => $lawyers) 
+              {
+                 foreach ($lawyerclient as $key => $lawyerclients) 
+                 {
+                  
+                  $lawyercase = new employeeclients;
+                  $lawyercase->client_id = $lawyerclients->id;
+                  $lawyercase->employee_id = $lawyers->id;
+                  $lawyercase->save();
+                  return redirect('/lawyer/show');
+                 }
+              }
+
+    }
+
 
 
 

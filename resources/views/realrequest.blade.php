@@ -16,7 +16,7 @@
 		<ul class="nav nav-tabs">
 			<li><a href="#nature">Nature of Request</a></li>
 			
-			<li><a href="#clientinfo">Client Info</a></li>
+			<li id = "tab" style="display:none"><a href="#clientinfo">Client Info</a></li>
 			<li id="ifMarried" style="display:none;"><a href="#clientmarital">Client Marital Info</a></li>
 			<li id="ifYes" style="display:none;" ><a href="#detention">Client Detention</a></li>
 			{{-- <li><a href="#case">Case Details</a></li>
@@ -51,11 +51,16 @@
 					</div>
 					
 				</div>
+				
+
 				<footer style="margin-bottom: 80px; text-align: center;">
-					        <a class="btn btn-default btnPrevious" >Back</a>	
-					         <a class="btn btn-green btnNext" >Next</a>
+					        <a class="btn btn-default btnPrevious" >Back</a>
+
+					        <a id="notary" style="display:none" href="/show/clientnotary" class="btn btn-green">Next</a>	
+					         <a id="or" style = "display:none" class="btn btn-green btnNext" style = "display:none" >Next</a>
 					         <br><br>
 				    </footer>
+				 
 			</div>
 		</div>
 		
@@ -91,12 +96,8 @@
 							</div>
 							<div class="col-md-6">
 								<label>Birthday *</label>
-								<input type="date" name="Birthday" value="" class="form-control "required>
-								@if ($errors->has('Birthday'))
-                               <span class="help-block">
-                               <strong>{{ $errors->first('Birthday') }}</strong>
-                              </span>
-                                @endif
+								<input type="date"  name="Birthday" value="" class="form-control "required>
+								
 							</div>
 							<div class="col-md-6">
 								<label>Contact Number *</label>
@@ -104,7 +105,7 @@
 							</div>
 							<div class="col-md-6">
 								<label>Monthly Income(In Philippine Peso) *</label>
-								<input type="number" name="Income" value="" class="form-control "required>
+								<input type="number"  name="Income" value="" class="form-control "required>
 							</div>
 							<div class="col-md-6">
 								<label>Religion *</label>
@@ -365,7 +366,18 @@ var strUser = e.options[e.selectedIndex].value;
 {
     if(nor.value == 'Administration of oath')
     {
-    	
+    	 
+    	 	document.getElementById('notary').style.display = 'block';
+    	 	document.getElementById('or').style.display = 'none';
+    	 	document.getElementById('tab').style.display = 'none';
+
+    	 
+    }
+    else
+    {
+    	document.getElementById('or').style.display = 'block';
+    	document.getElementById('tab').style.display = 'block';
+    	document.getElementById('notary').style.display = 'none';
     }
 }
    </script>

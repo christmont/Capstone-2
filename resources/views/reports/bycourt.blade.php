@@ -88,7 +88,7 @@
 
 						</div>							
 						</div>
-						{{-- <div id="rtc" class="tab-content">
+						<div id="rtc" class="tab-content">
 							<div class="panel-body">
 							
 							<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
@@ -123,7 +123,37 @@
 										<td>{{$rtccases->caseno}}</td>
 										<td>{{$rtccases->casename}}</td>
 										<td>{{$rtccases->case_status}}</td>
-										<td></td>
+										<td>
+											@if($rtccases->case_status == 'Arraignment') 				
+											
+											{{$rtccases->arraignmentDate}} 
+										    
+											@elseif ($rtccases->case_status == 'Preliminary Conference') 
+											
+											{{$rtccases->prelimconfDate}}
+											
+											@elseif ($rtccases->case_status == 'Pre-trial') 
+											
+											{{$rtccases->pretrailDate}}
+											
+											@elseif ($rtccases->case_status == 'Initial Trial') 
+											
+											{{$rtccases->inittrialdate}}
+											
+											@elseif ($rtccases->case_status == 'Trial Proper(Prosecution Evidence)') 
+											
+											{{$rtccases->prosecevidence}}
+											
+											@elseif ($rtccases->case_status == 'Trial Proper(Defense Evidence)') 
+											
+											{{$rtccases->defevidence}}
+											
+											@elseif ($rtccases->case_status == 'Promulgation') 
+											
+											{{$rtccases->promulgation}}
+											
+											@endif</td>
+										</td>
 										<td>{{$rtccases->decision}}</td>
 									    
 									
@@ -135,7 +165,7 @@
 							</table>
 
 						</div>							
-						</div> --}}
+						</div>
 						<div id="sandiganbayan" class="tab-content">
 							<div class="panel-body">
 							
@@ -174,7 +204,7 @@
 										<td>
 											@if($sbcases->case_status == 'Arraignment') 
 											
-											{{$sbcases->arraignmentDate}} 
+											{{$sbcases->arraignmentDate}}
 										    
 											@elseif ($sbcases->case_status == 'Preliminary Conference') 
 											

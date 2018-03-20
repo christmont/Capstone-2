@@ -269,33 +269,33 @@ tr:nth-child(even) {
 			<td>{{$administrativeclient->case_status}}</td>
 			<td>
 				@if($administrativeclient->case_status == 'Arraignment') 
-											{
+											
 											{{$administrativeclient->arraignmentDate}} 
-										    }
+										    
 											@elseif ($administrativeclient->case_status == 'Preliminary Conference') 
-											{
+											
 											{{$administrativeclient->prelimconfDate}}
-											}
+											
 											@elseif ($administrativeclient->case_status == 'Pre-trial') 
-											{
+											
 											{{$administrativeclient->pretrailDate}}
-											}
+											
 											@elseif ($administrativeclient->case_status == 'Initial Trial') 
-											{
+											
 											{{$administrativeclient->inittrialdate}}
-											}
+											
 											@elseif ($administrativeclient->case_status == 'Trial Proper(Prosecution Evidence)') 
-											{
+											
 											{{$administrativeclient->prosecevidence}}
-											}
+											
 											@elseif ($administrativeclient->case_status == 'Trial Proper(Defense Evidence)') 
-											{
+											
 											{{$administrativeclient->defevidence}}
-											}
+											
 											@elseif ($administrativeclient->case_status == 'Promulgation') 
-											{
+											
 											{{$administrativeclient->promulgation}}
-											}
+											
 											@endif
 			</td>
 			<td>{{$criminalclient->decision}}</td>

@@ -64,7 +64,7 @@
 								<thead>
 									<tr>
 										<th>Name</th>
-										<th>Case To Be Handled</th>
+										
 										<th>Edit</th>
 										<th>Delete</th>
 									</tr>
@@ -76,9 +76,7 @@
 											 {{$lawsuit->name}}
 										</td>
 
-										<td>
-											 {{$lawsuit->casetobehandleds_id}}
-										</td>
+										
 										
 										<td>
 											   <button type="button" class="btn btn-primary" data-toggle="modal" href=".bs-example-modal-lg{{ $lawsuit->id }}">

@@ -33,6 +33,7 @@
   </div>
 </div>
 </form>
+{{\Carbon\Carbon::parse($client->clbdate)->diff(\Carbon\Carbon::now())->format('%y years old')}}
 </div>
 </section>
 @stop

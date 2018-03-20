@@ -24,7 +24,7 @@
 			<div class="form-group">
 				<div class="col-md-6">
 					<label>Nature of Case  *</label>
-					<select name="casetype" class="form-control "required onchange="if (this.value=='otherss'){this.form['otherss'].style.visibility='visible'}else {this.form['otherss'].style.visibility='hidden'};">
+					<select id ="ct"name="casetype" class="form-control "required onchange="getval(this);">
 					<option value="" selected="selected"></option>
 					@foreach($casetypes as $casetype)
       				<option value="{{$casetype->name}}">{{$casetype->name}}</option>
@@ -36,10 +36,47 @@
 				</div>
 				<div class="col-md-6">
 					<label>Case Name *</label>
-					<select name="lawsuit" class="form-control " onchange="if (this.value=='others'){this.form['others'].style.visibility='visible'}else {this.form['others'].style.visibility='hidden'};">
+					<select id = "criminal" style = "display:none" name="criminal" class="form-control " >
 					<option value="" selected="selected"></option>
-					@foreach($lawsuits as $lawsuit)
-                 <option value="{{$lawsuit->name}}">{{$lawsuit->name}}</option>
+
+					@foreach($criminal as $criminals)
+					
+                 <option value="{{$criminals->name}}">{{$criminals->name}}</option>
+                  
+
+    				@endforeach
+					{{-- <option value="others">Other</option> --}}
+					</select>
+					<select id = "civil" style = "display:none" name="civil" class="form-control " >
+					<option value="" selected="selected"></option>
+
+					@foreach($civil as $civils)
+					
+                 <option value="{{$civils->name}}">{{$civils->name}}</option>
+                  
+
+    				@endforeach
+					{{-- <option value="others">Other</option> --}}
+					</select>
+					<select id = "labor" style = "display:none" name="labor" class="form-control " >
+					<option value="" selected="selected"></option>
+
+					@foreach($labor as $labors)
+					
+                 <option value="{{$labors->name}}">{{$labors->name}}</option>
+                  
+
+    				@endforeach
+					{{-- <option value="others">Other</option> --}}
+					</select>
+					<select id = "administrative" style = "display:none" name="administrative" class="form-control " >
+					<option value="" selected="selected"></option>
+
+					@foreach($administrative as $administratives)
+					
+                 <option value="{{$administratives->name}}">{{$administratives->name}}</option>
+                  
+
     				@endforeach
 					{{-- <option value="others">Other</option> --}}
 					</select>
@@ -99,5 +136,47 @@
     </div>
   </div>
 </div>
+<script>
+   function getval(ct)
+{
+    
+
+    if(ct.value == 'Criminal')
+    {
+    	 
+    	 	document.getElementById('criminal').style.display = 'block';
+    	 	document.getElementById('administrative').style.display = 'none';
+    	 	document.getElementById('civil').style.display = 'none';
+    	 	document.getElementById('labor').style.display = 'none';
+
+    	 
+    }
+    else if(ct.value == 'Civil')
+    {
+    	document.getElementById('civil').style.display = 'block';
+    	document.getElementById('criminal').style.display = 'none';
+    	document.getElementById('administrative').style.display = 'none';
+    	document.getElementById('labor').style.display = 'none';
+    }
+      else if(ct.value == 'Labor')
+    {
+    	document.getElementById('labor').style.display = 'block';
+    	document.getElementById('criminal').style.display = 'none';
+    	document.getElementById('administrative').style.display = 'none';
+    	document.getElementById('civil').style.display = 'none';
+    }
+
+  else if(ct.value == 'Administrative')
+    {
+    	document.getElementById('administrative').style.display = 'block';
+    	document.getElementById('criminal').style.display = 'none';
+    	document.getElementById('civil').style.display = 'none';
+    	document.getElementById('labor').style.display = 'none';
+    }
+
+
+
+}
+</script>
 </section>		
 @stop
