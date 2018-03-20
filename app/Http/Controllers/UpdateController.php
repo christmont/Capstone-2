@@ -23,6 +23,7 @@ use App\Branch;
 use App\requeststat;
 use App\Decision;
 use Session;
+use App\Client;
 use App\Reason;
 use App\scheduletype;
 
@@ -354,17 +355,24 @@ class UpdateController extends Controller
     public function showschededit($id)
     {
         
-        
-        $sched = Employee::find($id);
+         $schedules = Schedule::find($id);
+          
+         $scheduletype = scheduletype::all();
 
      
-        $lawyer = Employee::where('position','Lawyer');
-        $scheduletype = scheduletype::all();
-        $schedule = Schedule::where('employee_id',$id);
-        return view('reschedule')->withsched($sched)
+         $lawyer = Employee::where('position','Lawyer')
+                          ->with('schedules')
+                          ->get();
+
+         $client = Client::where([['nature_of_request','Mediation'],['cl_status','Approved']])
+                        ->orwhere([['nature_of_request','Representation of quasi-judicial bodies '],['cl_status','Approved']])
+                        ->with('casetobehandled')
+                        ->get();
+                       
+        return view('reschedule')->withClient($client)
                                  ->withscheduletype($scheduletype)
                                  ->withlawyer($lawyer)
-                                 ->withSchedule($schedule);
+                                 ->withschedules($schedules);
     }
       public function schededit($id, Request $request)
     {
@@ -373,9 +381,11 @@ class UpdateController extends Controller
         $sched = Schedule::find($id);
 
         $sched-> employee_id = $request->lawyer;
-        $sched-> type = $request->type;
+        $sched-> type = $request->schedtype;
         $sched-> start = $request->start;
         $sched-> end = $request->end;
+        $sched-> client_id = $request->client;
+        $sched-> controlno =$request->con;
         $sched->save();
         
         //Flashy::success('Succesfully edited guest', '#');

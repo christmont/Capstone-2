@@ -28,16 +28,20 @@
         
         <div class="col-md-6">
             <label> Control Number</label>
-            @foreach($controlno as $con)
-            <input id = "controlno" type="text" readonly value = "{{$con->control_number}}">
+           <select name="con" class="form-control">
+            <option value="" selected="selected"></option>
+            @foreach($client as $clients)
+             @foreach($clients->casetobehandled as $con)
+            <option value="{{$con->control_number}}">{{$con->control_number}} </option>
+             @endforeach
             @endforeach
-       
+            </select>
            <br>
         </div>
         
         <div class="col-md-6">
             <label> Client Name</label>
-            <select name="lawyer" class="form-control" id= "client">
+            <select  name="client" class="form-control" id= "client" onchange="getval(this);">
             <option value="" selected="selected"></option>
             @foreach($client as $clients)
             <option value="{{$clients->id}}">{{$clients->clfname}} {{$clients->clmname}} {{$clients->cllname}}</option>
@@ -88,7 +92,7 @@
 </form>
 </div>
  <script>
-   function getval(nor)
+   function getval(client)
 {
     if(client.value !== null)
     {

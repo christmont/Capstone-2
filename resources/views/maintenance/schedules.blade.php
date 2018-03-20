@@ -71,11 +71,12 @@
 								</thead>
 <tbody>
 								@foreach ($lawyer as $lawyers)
+								      @foreach($lawyers->schedules as $schedules)
 									<tr>
-										@if(!empty($lawyers->schedule))
+										@if(!empty($schedules))
 										<td>{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}</td>
 										@endif
-										@foreach($lawyers->schedules as $schedules)
+										
 										<td>
 											 {{$schedules->type}}
 										</td>
@@ -93,7 +94,7 @@
 											<form action="{{ route('deletesched',$schedules->id) }}" method = "post">
 												{{ csrf_field() }}
         {{ method_field('DELETE') }}
-											<button type ="submit" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?')" href="{{ route('deletesched',$lawyers->id) }}"><i class="fa fa-trash"></i>
+											<button type ="submit" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?')" href="{{ route('deletesched',$schedules->id) }}"><i class="fa fa-trash"></i>
 											Delete </button>
 										</form>
 										</td>

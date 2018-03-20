@@ -965,7 +965,7 @@ class RegisterController extends Controller
           foreach($lawyers->schedules as $sched)
           {
 
-        $schedules = Schedule::where($sched->id,'id')->get();
+        $schedules = Schedule::where('id',$sched->id)->get();
         
           }
       
@@ -976,7 +976,7 @@ class RegisterController extends Controller
                         ->get();
           
         
-        }    
+  }    
           
          return view('maintenance.schedules')->withLawyer($lawyer)
                                             // ->withschedules($schedules)
@@ -990,8 +990,10 @@ class RegisterController extends Controller
     {
        $lawyer = Employee::where('position','Lawyer')->get();
        $scheduletype = scheduletype::all();
-       $client = Client::where([['nature_of_request','Mediation'],['cl_status','Approved']])
+       $client = Client::select('*')
+                        ->where([['nature_of_request','Mediation'],['cl_status','Approved']])
                         ->orwhere([['nature_of_request','Representation of quasi-judicial bodies '],['cl_status','Approved']])
+                        ->with('casetobehandled')
                         ->get();
 
       foreach($client as $clients)
@@ -1001,8 +1003,7 @@ class RegisterController extends Controller
       }
                return view('createschedule')->withLawyer($lawyer)
                                             ->withscheduletype($scheduletype)
-                                            ->withclient($client)
-                                            ->withcontrolno($controlno);
+                                            ->withclient($client);
     }
 
     public function scheduleregister(Request $request)
@@ -1024,7 +1025,7 @@ class RegisterController extends Controller
           
         $sched-> client_id =$request->client;
         $sched-> employee_id = $request->lawyer;
-          
+        $sched-> controlno = $request->con;
        
         $sched->save();
        
