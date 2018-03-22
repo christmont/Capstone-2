@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 
+
 trait AuthenticatesUsers
 {
     use RedirectsUsers, ThrottlesLogins;
@@ -114,7 +115,16 @@ trait AuthenticatesUsers
      */
     protected function authenticated(Request $request, $user)
     {
-        //
+         if(Auth::user()->position == 'Administrative Staff')
+        {
+         $redirectTo = '/home';   
+         return redirect($redirectTo);
+        }
+        elseif(Auth::user()->position == 'Lawyer')
+        {
+          $redirectTo = '/lawyerside/show';
+          return redirect($redirectTo);
+        }
     }
 
     /**

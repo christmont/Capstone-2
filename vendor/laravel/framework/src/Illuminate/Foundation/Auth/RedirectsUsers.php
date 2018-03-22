@@ -1,7 +1,7 @@
 <?php
 
 namespace Illuminate\Foundation\Auth;
-
+Use Auth;
 
 
 
@@ -18,7 +18,7 @@ use RegistersUsers;
     {
         if (method_exists($this, 'redirectTo')) {
             return $this->redirectTo();
-        }
+        
         if(Auth::user()->position == 'Administrative Staff')
         {
         return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
@@ -27,6 +27,6 @@ use RegistersUsers;
         {
         return property_exists($this, 'redirectTo') ? $this->redirectTo : '/lawyerside/show';
         }
-        
+                                                } 
     }
 }

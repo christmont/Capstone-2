@@ -28,7 +28,14 @@ class CreateCasetobehandledsTable extends Migration
             $table->integer('court_id')->unsigned();
             $table->string('case_status')->nullable()->default('Granted');
             $table->string('control_number',15)->nullable();
+            $table->date('arraignmentDate')->nullable();
+            $table->date('prelimconfDate')->nullable();
+            $table->date('pretrialDate')->nullable();
+            $table->date('inittrialdate')->nullable();
+            $table->date('prosecevidence')->nullable();
+            $table->date('defevidence')-nullable();
             $table->date('judgement date')->nullable();
+            $table->date('promulgation')->nullable();
             $table->integer('count')->default(0);
             $table->timestamps();
         });
