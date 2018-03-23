@@ -103,7 +103,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Appeal',
              
              ]);
-             
+
              DB::table('lawsuits')->insert([
             'name' => 'Bribery',
             'casetype_id' => '1',
@@ -335,34 +335,39 @@ class DatabaseSeeder extends Seeder
             ]);     
     
          DB::table('statuses')->insert([
-            'name' => 'Granted',
+            'name' => 'Arraignment',
              
              ]);
              
              DB::table('statuses')->insert([
-            'name' => 'Dismissed',
-             
-             ]);
-                 
-             DB::table('statuses')->insert([
-            'name' => 'Denied',
+            'name' => 'Preliminary Conference',
              
              ]);
                  
              DB::table('statuses')->insert([
-            'name' => 'Terminated',
+            'name' => 'Pre-trial',
+             
+             ]);
+                 
+             DB::table('statuses')->insert([
+            'name' => 'Initial Trial',
              
              ]); 
                  
              DB::table('statuses')->insert([
-            'name' => 'Closed',
+            'name' => 'Trial Proper(Prosecution Evidence)',
              
              ]);
                  
              DB::table('statuses')->insert([
-            'name' => 'Disposed',
+            'name' => 'Trial Proper(Defense Evidence)',
              
-             ]);      
+             ]);
+
+               DB::table('statuses')->insert([
+            'name' => 'Promulgation',
+             
+             ]);    
              
              
    
@@ -418,6 +423,17 @@ class DatabaseSeeder extends Seeder
             'name' => 'Regular court',
              
              ]);
+
+             DB::table('courttypes')->insert([
+            'name' => 'Trial court',
+             
+             ]);
+
+              DB::table('courttypes')->insert([
+            'name' => 'Special court',
+             
+             ]);
+
 
 
         DB::table('decisions')->insert([
@@ -491,6 +507,66 @@ class DatabaseSeeder extends Seeder
             'name' => 'QC BRANCH 98',
              
              ]);
+
+             DB::table('courts')->insert([
+            'name' => 'MTC(Metropolitan Trial Court)',
+            'branch' => 'QC BRANCH 98',
+            'court_type' => 'Trial Court',
+             ]);
+
+             DB::table('courts')->insert([
+            'name' => 'RTC(Regional Trial Court)',
+            'branch' => 'QC BRANCH 96',
+            'court_type' => 'Trial Court',
+             ]);
+
+            DB::table('courts')->insert([
+            'name' => 'Sandiganbayan',
+            'branch' => 'QC BRANCH 94',
+            'court_type' => 'Special Court',
+             ]);
+
+            DB::table('employees')->insert([
+                'efname' => 'Angela',
+                'emname' => '',
+                'elname' => 'Cabuenos',
+                'email'  => 'asc@gmail.com',
+                'password' => bcrypt('password'),
+                'contact' => '09123456789',
+                'position' => 'Lawyer',
+                'court_id' => '1',
+
+            ]);
+
+            DB::table('employees')->insert([
+                'efname' => 'Monica Kim',
+                'emname' => '',
+                'elname' => 'Fortea',
+                'email'  => 'mkf@gmail.com',
+                'password' => bcrypt('password'),
+                'contact' => '09123456789',
+                'position' => 'Lawyer',
+                'court_id' => '2',
+
+            ]);
+
+             DB::table('employees')->insert([
+                'efname' => 'Mairin',
+                'emname' => '',
+                'elname' => 'Manansala',
+                'email'  => 'mm@gmail.com',
+                'password' => bcrypt('password'),
+                'contact' => '09123456789',
+                'position' => 'Lawyer',
+                'court_id' => '3',
+
+            ]);
+
+
+
+
+
+
 
 
 

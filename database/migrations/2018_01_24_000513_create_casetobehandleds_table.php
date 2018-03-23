@@ -37,6 +37,7 @@ class CreateCasetobehandledsTable extends Migration
             $table->date('judgement date')->nullable();
             $table->date('promulgation')->nullable();
             $table->integer('count')->default(0);
+            $table->string('decision',50)->nullable();
             $table->timestamps();
         });
     }
