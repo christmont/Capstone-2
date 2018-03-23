@@ -33,11 +33,7 @@ class LawyerSideController extends Controller
                       ->get();
             foreach($clientnotary as $notary)
             {
-         $clientnotaryview = DB::table('clients')
-                      ->where([['id',$notary->client_id],['clients.nature_of_request','Administration of oath']])
-                      ->join('employeeclients','clients.id','=','employeeclients.client_id')
-                      ->join('notaries','notaries.client_id','=','employeeclients.client_id')
-                      ->get();
+         $clientnotaryview = Client::where('id',$notary->client_id)->get();
             }
                
          

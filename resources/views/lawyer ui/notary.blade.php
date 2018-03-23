@@ -90,7 +90,8 @@
 										
 										<td>
 											@foreach($clientnotaryview as $clientnotaryviews)
-											<a  class = "btn btn-info" href="{{route('uploadview',$clientnotaryviews->notaryid)}}">
+												
+											<a  class = "btn btn-info" href="{{route('uploadview',$client->id)}}">
 											View </a>
 											@endforeach
 										</td>

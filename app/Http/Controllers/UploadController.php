@@ -35,8 +35,10 @@ class UploadController extends Controller {
 
 	public function viewupload($id){
 
-			$notary = Notary::findorfail($id);
-			return view('uploadview')->withNotary($notary);
+   $notaries = Notary::where('client_id',$id)
+         ->orderBy('created_at','asc')
+         ->get();
+         return view('lawyer ui.notaryview')->withnotaries($notaries);
 
 	}
 

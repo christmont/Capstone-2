@@ -1264,7 +1264,7 @@ class RegisterController extends Controller
       $notary-> clcity = $request->city;
       $notary-> clctcno = $request->ctcno;
       $notary-> clnotarydate = $date;
-      $notary->cl_status = "Walkin";
+      $notary-> cl_status = "Walkin";
       $notary->save();
 
       $lawyer = Employee::where('position','Lawyer')->take(1)->InRandomOrder()->get();
