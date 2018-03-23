@@ -164,7 +164,7 @@ trait AuthenticatesUsers
 
         $request->session()->invalidate();
 
-        return redirect('/login');
+        return redirect('/');
     }
 
     /**

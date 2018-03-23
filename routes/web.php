@@ -227,6 +227,9 @@ Route::resource('interviewees', 'IntervieweeController');
 Route::resource('religions', 'ReligionController');
 Route::resource('citizenships', 'CitizenshipController');
 
+Route::get('/', function () {
+    return view('auth.login');
+});
 
 Route::get('/home', function () {
     return view('home');

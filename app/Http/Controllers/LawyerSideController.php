@@ -53,6 +53,7 @@ class LawyerSideController extends Controller
                                      ->withclientnotaryview($clientnotaryview);
          
     }
+  
      public function showwalkintable()
     {
      $clients = DB::table('employeeclients')
