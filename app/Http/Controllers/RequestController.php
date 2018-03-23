@@ -42,9 +42,8 @@ class RequestController extends Controller
   
 
        public function approve($id)
-    {
-
-      $approved = Client::find($id);
+  {
+          $approved = Client::find($id);
         $con = "";
         $date = date('F j Y ');
          $day =date('j');
@@ -64,13 +63,17 @@ class RequestController extends Controller
       $interviewsheet = Client::where('id',$approved->id)
                         ->with('casetobehandled')
                         ->get();
+
+
       $employeeclient = employeeclients::where('client_id',$approved->id)->get();
-      foreach ($employeeclient as $key => $employeeclients) {
+
+      foreach ($employeeclient as $key => $employeeclients) 
+      {
         $lawyers = Employee::where('id',$employeeclients->employee_id)->get();
                                                            
    foreach($lawyers as $lawyer)
     {
-
+      
    
 
      foreach ($interviewsheet as $key => $interviewsheets) 
@@ -84,17 +87,20 @@ class RequestController extends Controller
         $controlno = $case->control_number;
                                                            }
                                             $clientadverse = clientadverse::where('client_id',$approved->id)->get();
+                                            
                                                      foreach($clientadverse as $clientadverses)
                                                      {
-                                                     $adverse = Adverse::where('id',$clientadverses->id)->get();
+                                                     $adverse = Adverse::where('id',$clientadverses->adverse_id)->get();
+
                                                      }
+                                              
         foreach($adverse as $adverses)  
         {                                           
         $advtype = $adverses->advprtytype;
         $advname = $adverses->advprtyfname . ' ' . $adverses->advprtymname . ' ' .
         $adverses->advprtylname;
         $advaddr = $adverses->advprtyaddress;
-
+        
      
        $papersize = array(0, 0, 360, 360);
        $pdf = PDF::loadView('forms.interviewsheet', array(
@@ -130,13 +136,18 @@ class RequestController extends Controller
         'day'=>$day,
         'year'=>$year,
         'month'=>$month
-        ));
-
+        )); 
       }
-     }     
-     }  return $pdf->download($interviewsheets->clfname . '_' . $interviewsheets->cllname . '_complete_interview_sheet.pdf');                                                 
+       
+    }   
+     } return $pdf->download($interviewsheets->clfname . '_' . $interviewsheets->cllname . '_complete_interview_sheet.pdf');                                                  
     }
-    }
+   
+  }
+
+      
+  
+
 
       
 

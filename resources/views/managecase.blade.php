@@ -59,12 +59,13 @@
 									</tr>
 								</thead>
 								<tbody>
-								@foreach ($allcases as $allcase)
+								@foreach($cases as $case)
 									<tr>
+										@foreach($case->client as $allcase)
 										<td>
 											 {{$allcase->clfname}} {{$allcase->clmname}} {{$allcase->cllname}}
 										</td>
-										@foreach($cases as $case)
+										
 										<td>
 											 {{$case->casename}} 
 										</td>
@@ -73,7 +74,7 @@
 										</td>
 									    @endforeach
 										<td>
-											  	<a class="btn btn-primary"  href="{{route('showeditcase',$allcase->id)}}">
+											  	<a class="btn btn-primary"  href="{{route('showeditcase',$case->id)}}">
 											  	<i class="fa fa-pencil"></i> Edit</a>
 
 					<div class="modal fade bs-example-modal-lg{{$allcase->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">

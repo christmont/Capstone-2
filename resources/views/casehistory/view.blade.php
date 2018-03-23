@@ -18,68 +18,68 @@
 							@foreach($casehistory as $casehistories)
 										<div class="form-group">
 										<strong>First Name :</strong>
-										<label>{{ $casehistories->clfname }}</label>
+										<label>{{ $casehistories->client->clfname }}</label>
 										</div>
 										<div class="form-group">
 										<strong>Middle Name :</strong>
-										<label>{{ $casehistories->clmname }}</label>
+										<label>{{ $casehistories->client->clmname }}</label>
 										</div>
 										<div class="form-group">
 										<strong>Last Name :</strong>
-										<label>{{ $casehistories->cllname }}</label>
+										<label>{{ $casehistories->client->cllname }}</label>
 										</div>
 										<div class="form-group">
 										<strong>Religion :</strong>
-										<label>{{ $casehistories->clreligion }}</label>
+										<label>{{ $casehistories->client->clreligion }}</label>
 										</div>
 										<div class="form-group">
 										<strong>Citizenship :</strong>
-										<label>{{ $casehistories->clcitizenship }}</label>
+										<label>{{ $casehistories->client->clcitizenship }}</label>
 										</div>
 										<div class="form-group">
 										<strong>Address :</strong>
-										<label>{{ $casehistories->claddress }}</label>
+										<label>{{ $casehistories->client->claddress }}</label>
 										</div>
 										<div class="form-group">
 										<strong>Email :</strong>
-										<label>{{ $casehistories->clemail }}</label>
+										<label>{{ $casehistories->client->clemail }}</label>
 										</div>
 										<div class="form-group">
 										<strong>Birthday :</strong>
-										<label>{{ $casehistories->clbdate }}</label>
+										<label>{{ $casehistories->client->clbdate }}</label>
 										</div>
 										<div class="form-group">
 										<strong>Contact Number :</strong>
-										<label>{{ $casehistories->clcontact_no }}</label>
+										<label>{{ $casehistories->client->clcontact_no }}</label>
 										</div>
 										<div class="form-group">
 										<strong>Monthly Income :</strong>
-										<label>{{ $casehistories->clmonthly_net_income }}</label>
+										<label>{{ $casehistories->client->clmonthly_net_income }}</label>
 										</div><div class="form-group">
 										<strong>Language Spoken :</strong>
-										<label>{{ $casehistories->cllanguage }}</label>
+										<label>{{ $casehistories->client->cllanguage }}</label>
 										</div>
 										<div class="form-group">
 										<strong>Educational Attainment :</strong>
-										<label>{{ $casehistories->cleducational_attainment }}</label>
+										<label>{{ $casehistories->client->cleducational_attainment }}</label>
 										</div>
 										<div class="form-group">
 										<strong>Gender :</strong>
-										<label>{{ $casehistories->clgender }}</label>
+										<label>{{ $casehistories->client->clgender }}</label>
 										</div>
 										<div class="form-group">
 										<strong>Detained(?) :</strong>
-										<label>{{ $casehistories->cldetained }}</label>
+										<label>{{ $casehistories->client->cldetained }}</label>
 										</div>
 										<div class="form-group">
 										<strong>Civil Status :</strong>
-										<label>{{ $casehistories->clcivil_status }}</label>
+										<label>{{ $casehistories->client->clcivil_status }}</label>
 										</div>
 										<div class="form-group">
 										<strong>Nature of Request :</strong>
-										<label>{{ $casehistories->nature_of_request }}</label>
+										<label>{{ $casehistories->client->nature_of_request }}</label>
 										</div><br>
-								
+							@endforeach	
 							</div>
 							</div>								
 						</div>
@@ -117,10 +117,10 @@
 										<label>{{$courts->name}} {{$courts->branch}}</label>
 										</div>
 										@endforeach
-										@foreach($lawyers as $lawyer)
+										@foreach($lawyer as $lawyers)
 										<div class="form-group">
 										<strong>Lawyer :<strong>
-										<label>Atty.{{$lawyer->efname}} {{$lawyer->emname}} {{$lawyer->elname}} </label>
+										<label>Atty.{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}} </label>
 										</div>
 										@endforeach
 										<br>
@@ -159,4 +159,5 @@
 					</div>
 				
 			</section>
+
 @stop

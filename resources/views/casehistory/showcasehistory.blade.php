@@ -71,7 +71,7 @@
 											{{$client->control_number}}
 										</td>
 										<td>
-											 {{$client->clfname}} {{$client->clmname}} {{$client->cllname}}
+											 {{$client->client->clfname}} {{$client->client->clmname}} {{$client->client->cllname}}
 										</td>
 										
 										<td>
