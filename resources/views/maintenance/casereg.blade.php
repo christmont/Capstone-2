@@ -84,14 +84,8 @@
 				</div>
 				<div class="col-md-6">
 					<label>Interviewer *</label>
-					<select name="employee" class="form-control " onchange="if (this.value=='others'){this.form['others'].style.visibility='visible'}else {this.form['others'].style.visibility='hidden'};">
-					<option value="" selected="selected"></option>
-					@foreach($employees as $employee)
-      <option value="{{$employee->elname}} , {{$employee->efname}} {{$employee->emname}}">{{$employee->elname}} , {{$employee->efname}} {{$employee->emname}}</option>
-    @endforeach
-					{{-- <option value="others">Other</option> --}}
-					</select>
-					<input type="textbox" name="others" class="form-control required" style="visibility:hidden;"/>
+					
+					<input type="text" name="employee" class="form-control required" value =" {{ ucwords(Auth::user()->efname) . '  ' . ucwords(Auth::user()->emname) . '  ' . ucwords(Auth::user()->elname) }}" readonly/>
 				</div>
 				
 				
@@ -115,7 +109,7 @@
 					@foreach($involvements as $involvement)
 				      <option value="{{$involvement->name}}">{{$involvement->name}}</option>
 				    @endforeach
-					<option value="edu">Other</option>
+					
 					</select>
 					<input type="textbox" name="edu" class="form-control required" style="visibility:hidden;"/>
 				

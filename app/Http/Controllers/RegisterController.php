@@ -322,7 +322,7 @@ class RegisterController extends Controller
            
             if ($request->nor == 'Legal Advice' ) 
             {
-              $lawyer = Employee::where('position','Lawyer')->take(1)->InRandomOrder()->get();
+              $lawyer = Employee::where([['position','Lawyer'],['status','1']])->take(1)->InRandomOrder()->get();
               $client->cl_status = "Walkin";
               $client->save();
               $lawyerclient = Client::orderBy('created_at','desc')->take(1)->get();
@@ -346,7 +346,7 @@ class RegisterController extends Controller
            
              elseif ($request->nor == 'Legal Documentation' ) 
             {
-              $lawyer = Employee::where('position','Lawyer')->take(1)->InRandomOrder()->get();
+              $lawyer = Employee::where([['position','Lawyer'],['status','1']])->take(1)->InRandomOrder()->get();
               $client->cl_status = "Walkin";
               $client->save();
               $lawyerclient = Client::orderBy('created_at','desc')->take(1)->get();
@@ -374,7 +374,7 @@ class RegisterController extends Controller
               $client->cl_status = "Pending";
               $client->save();
               $lawyerclient = Client::orderBy('created_at','desc')->take(1)->get();
-               $lawyer = Employee::where('position','Lawyer')->take(1)->InRandomOrder()->get();
+               $lawyer = Employee::where([['position','Lawyer'],['status','1']])->take(1)->InRandomOrder()->get();
               foreach ($lawyer as $key => $lawyers) 
               {
                  foreach ($lawyerclient as $key => $lawyerclients) 
@@ -499,19 +499,22 @@ class RegisterController extends Controller
         
      public function showadverseregister()
     {
-        $clients = Client::orderBy('cllname','asc')->get();
-        
+        $casetbh = casetobehandled::orderBy('created_at','desc')->first();
+
         $religions = Religion::orderBy('name','asc')->get();
         $educations = Education::orderBy('name','asc')->get();
-        $involvements = Involvement::orderBy('name','asc')->get();
+        $accussed = Involvement::orderBy('name','asc')->where([['name','!=','Accused'],['name','!=','Defendant']])->get();
+        $attacker = Involvement::orderBy('name','asc')->where([['name','!=','Petitioner'],['name','!=','Plaintiff']])->get();
         $languages = Language::orderBy('name','asc')->get();
         $citizenships = Citizenship::orderBy('name','asc')->get();
-        return view('maintenance.adversereg')->withClients($clients)
+        return view('maintenance.adversereg')
         ->withReligions($religions)
         ->withEducations($educations)
-        ->withInvolvements($involvements)
+        ->withaccussed($accussed)
+        ->withattacker($attacker)
         ->withLanguages($languages)
-        ->withCitizenships($citizenships);
+        ->withCitizenships($citizenships)
+        ->withcasetbh($casetbh);
     }
    
         //return redirect()->route('interviewees.create');
@@ -534,17 +537,26 @@ class RegisterController extends Controller
 
                
                 $adverse = new Adverse;
-            
              $client = Client::orderBy('created_at','desc')->first();
+             $casetbh = casetobehandled::orderBy('created_at','desc')->first();
              $clientadverse = new clientadverse;
-
-         
+                       
            
               $adverse-> advprtyfname = $request->fname;
               $adverse-> advprtymname = $request->mname;
               $adverse-> advprtylname = $request->lname;
               $adverse-> advprtyaddress = $request->addr;
-              $adverse-> advprtytype = $request->atype;
+              
+              if($casetbh->clcase_involvement == 'Accused' || $casetbh->clcase_involvement == 'Defendant' ) 
+              {
+
+           
+                $adverse-> advprtytype = $request->accussed;
+              }
+              elseif($casetbh->clcase_involvement == 'Petitioner' || $casetbh->clcase_involvement == 'Plaintiff')
+              {
+               $adverse-> advprtytype = $request->attacker;
+              }
               
       
               $adverse->save();

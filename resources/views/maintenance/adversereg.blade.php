@@ -24,14 +24,23 @@
 			<div class="form-group">
 				<div class="col-md-12">
 					<label>Case Involvement *</label>
-					<select name="atype" class="form-control "required onchange="if (this.value=='others'){this.form['others'].style.visibility='visible'}else {this.form['others'].style.visibility='hidden'};">
+					@if($casetbh->clcase_involvement == 'Accused' || $casetbh->clcase_involvement == 'Defendant')
+					<select name="accussed" class="form-control " >
 					<option value="" selected="selected"></option>
-					@foreach($involvements as $involvement)
+					@foreach($accussed as $involvement)
 				      <option value="{{$involvement->name}}">{{$involvement->name}}</option>
 				    @endforeach
 					{{-- <option value="others">Other</option> --}}
 					</select>
-					<input type="textbox" name="others" class="form-control required" style="visibility:hidden;"/>
+					@elseif($casetbh->clcase_involvement == 'Petitioner' || $casetbh->clcase_involvement == 'Plaintiff')
+					<select name="attacker" class="form-control " >
+					<option value="" selected="selected"></option>
+					@foreach($attacker as $involvement)
+				      <option value="{{$involvement->name}}">{{$involvement->name}}</option>
+				    @endforeach
+
+					@endif
+					
 				</div>
 			<div class="col-md-4">
 					<label>First Name *</label>
