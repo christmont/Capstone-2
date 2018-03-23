@@ -64,7 +64,7 @@
 										<td>
 											 {{$allcase->clfname}} {{$allcase->clmname}} {{$allcase->cllname}}
 										</td>
-										@foreach($allcase->casetobehandled as $case)
+										@foreach($cases as $case)
 										<td>
 											 {{$case->casename}} 
 										</td>

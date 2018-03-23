@@ -320,7 +320,7 @@ class RegisterController extends Controller
             $client-> clplace_of_detention = $request->detention;
             $client-> nature_of_request = $request->nor;
            
-            if ($request->nor == 'Legal Advice' || $request->nor == 'Legal Assistance') 
+            if ($request->nor == 'Legal Advice' ) 
             {
               $lawyer = Employee::where('position','Lawyer')->take(1)->InRandomOrder()->get();
               $client->cl_status = "Walkin";
@@ -369,7 +369,7 @@ class RegisterController extends Controller
               
 
             }
-            elseif ($request->nor == 'Mediation' || $request->nor == 'Representation of quasi-judicial bodies') 
+            elseif ($request->nor == 'Mediation' || $request->nor == 'Representation of quasi-judicial bodies' || $request->nor == 'Legal Assistance') 
             {
               $client->cl_status = "Pending";
               $client->save();

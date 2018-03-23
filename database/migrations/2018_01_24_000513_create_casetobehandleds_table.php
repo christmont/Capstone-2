@@ -33,7 +33,7 @@ class CreateCasetobehandledsTable extends Migration
             $table->date('pretrialDate')->nullable();
             $table->date('inittrialdate')->nullable();
             $table->date('prosecevidence')->nullable();
-            $table->date('defevidence')-nullable();
+            $table->date('defevidence')->nullable();
             $table->date('judgement date')->nullable();
             $table->date('promulgation')->nullable();
             $table->integer('count')->default(0);

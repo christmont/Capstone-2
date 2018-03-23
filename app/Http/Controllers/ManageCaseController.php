@@ -21,9 +21,11 @@ class ManageCaseController extends Controller
       $allcases = Client::where('cl_status','Approved')
       ->with('casetobehandled')
       ->get();
+
+      
       foreach($allcases as $allcase)
       {
-
+      $cases = casetobehandled::where(['client_id',$allcase->id],['case_status','!=','Promulgation'])->get();
       $clientadverse = clientadverse::where('client_id',$allcase->id)->get();
       
       }
@@ -34,7 +36,8 @@ class ManageCaseController extends Controller
        }                                              
                                            
       return view('managecase')->withAllcases($allcases)
-                               ->withAdverses($adverses);
+                               ->withAdverses($adverses)
+                               ->withcases($cases);
     }
     
     public function editcase($id)

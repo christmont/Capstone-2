@@ -31,13 +31,14 @@ class LawyerSideController extends Controller
                       ->join('clients','clients.id','=','employeeclients.client_id')
                       // ->join('notaries','notaries.client_id','=','employeeclients.client_id')
                       ->get();
-         $clientnotaryview = DB::table('employeeclients')
-                      ->select('notaries.id as notaryid')
-                      ->where([['employees.id',Auth::user()->id],['clients.nature_of_request','Administration of oath']])
-                      ->join('employees','employees.id','=','employeeclients.employee_id')
-                      ->join('clients','clients.id','=','employeeclients.client_id')
+            foreach($clientnotary as $notary)
+            {
+         $clientnotaryview = DB::table('clients')
+                      ->where([['id',$notary->client_id],['clients.nature_of_request','Administration of oath']])
+                      ->join('employeeclients','clients.id','=','employeeclients.client_id')
                       ->join('notaries','notaries.client_id','=','employeeclients.client_id')
                       ->get();
+            }
                
          
 

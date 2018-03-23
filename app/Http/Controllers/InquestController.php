@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Client;
-use casetobehandled;
-use Employee;
-use Schedule;
+use App\Client;
+use App\casetobehandled;
+use App\Employee;
+use App\Schedule;
+use App\employeeclients;
 
 
 
@@ -45,6 +46,7 @@ class InquestController extends Controller
         $inquest -> staff = $request->staff;
         $inquest -> schedule_id = $request->schedule;
         $inquest->save();
+        return redirect('/lawyerside/show');
 
     }
     public function showinquesttable()

@@ -12,395 +12,390 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
               
-          
+          DB::table('employees')->insert([
+                'efname' => 'Persida',
+                'emname' => 'Rueda',
+                'elname' => 'Acosta',
+                'email'  => 'pra@gmail.com',
+                'password' => bcrypt('password'),
+                'contact' => '09123456789',
+                'position' => 'Administrative Staff',
+
+            ]);
    
-       //   DB::table('citizenships')->insert([
-       //      'name' => 'Filipino',
+         DB::table('citizenships')->insert([
+            'name' => 'Filipino',
              
-       //       ]);
+             ]);
              
-       //       DB::table('citizenships')->insert([
-       //      'name' => 'American',
+             DB::table('citizenships')->insert([
+            'name' => 'American',
              
-       //       ]);
+             ]);
                  
-       //       DB::table('citizenships')->insert([
-       //      'name' => 'Japanese',
+             DB::table('citizenships')->insert([
+            'name' => 'Japanese',
              
-       //       ]);
+             ]);
                  
-       //       DB::table('citizenships')->insert([
-       //      'name' => 'Brazilian',
+             DB::table('citizenships')->insert([
+            'name' => 'Brazilian',
              
-       //       ]);
+             ]);
                  
-       //       DB::table('citizenships')->insert([
-       //      'name' => 'African',
+             DB::table('citizenships')->insert([
+            'name' => 'African',
              
-       //       ]);
+             ]);
              
              
              
-       //       DB::table('citizenships')->insert([
-       //      'name' => 'Dutch',
+             DB::table('citizenships')->insert([
+            'name' => 'Dutch',
              
-       //       ]);    
+             ]);    
             
-       //       DB::table('citizenships')->insert([
-       //      'name' => 'Malaysian',
+             DB::table('citizenships')->insert([
+            'name' => 'Malaysian',
              
-       //       ]);
+             ]);
                  
-       //       DB::table('citizenships')->insert([
-       //      'name' => 'British',
+             DB::table('citizenships')->insert([
+            'name' => 'British',
                  
-       //       ]);    
+             ]);    
                  
-       //       DB::table('citizenships')->insert([
-       //      'name' => 'Colombian',
+             DB::table('citizenships')->insert([
+            'name' => 'Colombian',
              
-       //       ]);    
+             ]);    
              
-       //       DB::table('citizenships')->insert([
-       //      'name' => 'Dominican',
+             DB::table('citizenships')->insert([
+            'name' => 'Dominican',
              
-       //       ]);   
+             ]);   
       
-       //  DB::table('lawsuits')->insert([
-       //      'name' => 'Bribery'
-            
-      
-       //       ]);
-       //       DB::table('lawsuits')->insert([
-       //      'name' => 'Child Abuse'
-           
-      
-       //       ]);
-             
-       //       DB::table('lawsuits')->insert([
-       //      'name' => 'Child Pornography'
-          
-      
-       //       ]);
-             
-       //       DB::table('lawsuits')->insert([
-       //      'name' => 'Cyber Bullying'
-         
-      
-       //       ]);
-             
-       //       DB::table('lawsuits')->insert([
-       //      'name' => 'Forgery'
-            
-      
-       //       ]);
-             
-       //       DB::table('lawsuits')->insert([
-       //      'name' => 'Fraud'
-            
-      
-       //       ]);
-             
-       //       DB::table('lawsuits')->insert([
-       //      'name' => 'Harassment'
-           
-      
-       //       ]);
-             
-       //       DB::table('lawsuits')->insert([
-       //      'name' => 'Homicide'
-           
-      
-       //       ]);
-             
-       //       DB::table('lawsuits')->insert([
-       //      'name' => 'Kidnapping'
-           
-      
-       //       ]);
-             
-       //       DB::table('lawsuits')->insert([
-       //      'name' => 'Prostitution'
-         
-      
-       //       ]);
-             
-       //       DB::table('lawsuits')->insert([
-       //      'name' => 'Sexual Assault'
-            
-      
-       //       ]);
+        
              
         
    
-       //      DB::table('casetypes')->insert([
-       //      'name' => 'Criminal',
+            DB::table('casetypes')->insert([
+            'name' => 'Criminal',
              
-       //       ]);
+             ]);
              
-       //       DB::table('casetypes')->insert([
-       //      'name' => 'Civil',
+             DB::table('casetypes')->insert([
+            'name' => 'Civil',
              
-       //       ]);
+             ]);
              
-       //       DB::table('casetypes')->insert([
-       //      'name' => 'Labor',
+             DB::table('casetypes')->insert([
+            'name' => 'Labor',
              
-       //       ]);
+             ]);
                  
-       //       DB::table('casetypes')->insert([
-       //      'name' => 'Administrative',
+             DB::table('casetypes')->insert([
+            'name' => 'Administrative',
              
-       //       ]);
+             ]);
                   
-       //       DB::table('casetypes')->insert([
-       //      'name' => 'Appeal',
+             DB::table('casetypes')->insert([
+            'name' => 'Appeal',
              
-       //       ]);
+             ]);
+             
+             DB::table('lawsuits')->insert([
+            'name' => 'Bribery',
+            'casetype_id' => '1',
+            
+      
+             ]);
+             DB::table('lawsuits')->insert([
+            'name' => 'Child Abuse',
+            'casetype_id' => '1',
+           
+      
+             ]);
+             
+             DB::table('lawsuits')->insert([
+            'name' => 'Child Pornography',
+            'casetype_id' => '1',
+          
+      
+             ]);
+             
+             DB::table('lawsuits')->insert([
+            'name' => 'Cyber Bullying',
+            'casetype_id' => '1',
+         
+      
+             ]);
+             
+             DB::table('lawsuits')->insert([
+            'name' => 'Forgery',
+            'casetype_id' => '4',
+            
+      
+             ]);
+             
+             DB::table('lawsuits')->insert([
+            'name' => 'Fraud',
+            'casetype_id' => '4',
+            
+      
+             ]);
+             
+             DB::table('lawsuits')->insert([
+            'name' => 'Harassment',
+            'casetype_id' => '3' ,
+           
+      
+             ]);
+             
+             DB::table('lawsuits')->insert([
+            'name' => 'Homicide',
+            'casetype_id' => '1',
+           
+      
+             ]);
+             
+             DB::table('lawsuits')->insert([
+            'name' => 'Libel',
+            'casetype_id' => '2',
+
+           
+      
+             ]);
+             
+             DB::table('lawsuits')->insert([
+            'name' => 'Unpaid Overtime and Meal and Rest Breaks (telephone retail sales)',
+            'casetype_id' => '3',
+         
+      
+             ]);
+             
+             DB::table('lawsuits')->insert([
+            'name' => 'Plagiarism',
+            'casetype_id' => '2',
+            
+      
+             ]);
   
-       //   DB::table('categories')->insert([
-       //      'name' => 'VAWC',
+         DB::table('categories')->insert([
+            'name' => 'VAWC',
              
-       //     ]);
+           ]);
              
-       //   DB::table('categories')->insert([
-       //      'name' => 'CICL',
+         DB::table('categories')->insert([
+            'name' => 'CICL',
              
-       //     ]);
+           ]);
              
-       //   DB::table('categories')->insert([
-       //      'name' => 'Human Security Act',
+         DB::table('categories')->insert([
+            'name' => 'Human Security Act',
              
-       //     ]);
+           ]);
              
-       //   DB::table('categories')->insert([
-       //      'name' => 'Anti-Torture Law',
+         DB::table('categories')->insert([
+            'name' => 'Anti-Torture Law',
              
-       //     ]);  
+           ]);  
              
-       //   DB::table('categories')->insert([
-       //      'name' => 'Agrarian Case',
+         DB::table('categories')->insert([
+            'name' => 'Agrarian Case',
              
-       //     ]);    
+           ]);    
         
 
-       //   DB::table('education')->insert([
-       //      'name' => 'Elementary'
+         DB::table('education')->insert([
+            'name' => 'Elementary'
          
       
-       //       ]);
+             ]);
              
-       //       DB::table('education')->insert([
-       //      'name' => 'High School'
+             DB::table('education')->insert([
+            'name' => 'High School'
           
       
-       //       ]);
+             ]);
              
-       //       DB::table('education')->insert([
-       //      'name' => 'College'
+             DB::table('education')->insert([
+            'name' => 'College'
             
               
-       //       ]);
+             ]);
              
-       //       DB::table('education')->insert([
-       //      'name' => 'Graduate'
-       //       ]);
+             DB::table('education')->insert([
+            'name' => 'Graduate'
+             ]);
              
             
         
 
    
-       //   DB::table('involvements')->insert([
-       //      'name' => 'Plaintiff',
+         DB::table('involvements')->insert([
+            'name' => 'Plaintiff',
              
-       //       ]);
+             ]);
              
-       //    DB::table('involvements')->insert([
-       //      'name' => 'Petitioner',
+          DB::table('involvements')->insert([
+            'name' => 'Petitioner',
              
-       //       ]); 
+             ]); 
               
-       //     DB::table('involvements')->insert([
-       //      'name' => 'Defendant',
+           DB::table('involvements')->insert([
+            'name' => 'Defendant',
              
-       //       ]);
+             ]);
                
-       //      DB::table('involvements')->insert([
-       //      'name' => 'Respondent',
+            DB::table('involvements')->insert([
+            'name' => 'Respondent',
              
-       //       ]);  
+             ]);  
                 
-       //      DB::table('involvements')->insert([
-       //      'name' => 'Oppositor',
+            DB::table('involvements')->insert([
+            'name' => 'Oppositor',
              
-       //       ]);  
+             ]);  
                 
-       //       DB::table('involvements')->insert([
-       //      'name' => 'Accused',
+             DB::table('involvements')->insert([
+            'name' => 'Accused',
              
-       //       ]);     
+             ]);     
 
       
-       //   DB::table('languages')->insert([
-       //      'name' => 'Tagalog'
+         DB::table('languages')->insert([
+            'name' => 'Tagalog'
            
             
-       //      ]);
+            ]);
             
-       //       DB::table('languages')->insert([
-       //      'name' => 'English'
+             DB::table('languages')->insert([
+            'name' => 'English'
          
             
-       //      ]);
+            ]);
             
-       //      DB::table('languages')->insert([
-       //      'name' => 'Mandarin'
+            DB::table('languages')->insert([
+            'name' => 'Mandarin'
           
             
-       //      ]);
+            ]);
             
-       //      DB::table('languages')->insert([
-       //      'name' => 'Russian'
+            DB::table('languages')->insert([
+            'name' => 'Russian'
           
             
-       //      ]);
+            ]);
             
-       //      DB::table('languages')->insert([
-       //      'name' => 'Spanish'
+            DB::table('languages')->insert([
+            'name' => 'Spanish'
          
             
-       //      ]);
+            ]);
    
-       //   DB::table('positions')->insert([
-       //      'name' => 'Lawyer',
+         DB::table('positions')->insert([
+            'name' => 'Lawyer',
              
-       //       ]);
+             ]);
              
-       //    DB::table('positions')->insert([
-       //      'name' => 'Administrative Staff',
+          DB::table('positions')->insert([
+            'name' => 'Administrative Staff',
              
-       //       ]);   
+             ]);   
             
-       // DB::table('services')->insert([
-       //      'name' => 'Legal Advice',
+       DB::table('services')->insert([
+            'name' => 'Legal Advice',
              
-       //      ]);
+            ]);
              
-       //      DB::table('services')->insert([
-       //      'name' => 'Legal Assistance',
+            DB::table('services')->insert([
+            'name' => 'Legal Assistance',
              
-       //      ]);
+            ]);
                
-       //      DB::table('services')->insert([
-       //      'name' => 'Legal Documentation',
+            DB::table('services')->insert([
+            'name' => 'Legal Documentation',
              
-       //      ]);
+            ]);
                 
-       //      DB::table('services')->insert([
-       //      'name' => 'Administration of oath',
+            DB::table('services')->insert([
+            'name' => 'Administration of oath',
              
-       //      ]); 
+            ]); 
 
-       //      DB::table('services')->insert([
-       //      'name' => 'Mediation',
+            DB::table('services')->insert([
+            'name' => 'Mediation',
              
-       //      ]); 
+            ]); 
                 
-       //      DB::table('services')->insert([
-       //      'name' => 'Representation of quasi-judicial bodies',
+            DB::table('services')->insert([
+            'name' => 'Representation of quasi-judicial bodies',
              
-       //      ]);     
+            ]);     
     
-       //   DB::table('statuses')->insert([
-       //      'name' => 'Granted',
+         DB::table('statuses')->insert([
+            'name' => 'Granted',
              
-       //       ]);
+             ]);
              
-       //       DB::table('statuses')->insert([
-       //      'name' => 'Dismissed',
+             DB::table('statuses')->insert([
+            'name' => 'Dismissed',
              
-       //       ]);
+             ]);
                  
-       //       DB::table('statuses')->insert([
-       //      'name' => 'Denied',
+             DB::table('statuses')->insert([
+            'name' => 'Denied',
              
-       //       ]);
+             ]);
                  
-       //       DB::table('statuses')->insert([
-       //      'name' => 'Terminated',
+             DB::table('statuses')->insert([
+            'name' => 'Terminated',
              
-       //       ]); 
+             ]); 
                  
-       //       DB::table('statuses')->insert([
-       //      'name' => 'Closed',
+             DB::table('statuses')->insert([
+            'name' => 'Closed',
              
-       //       ]);
+             ]);
                  
-       //       DB::table('statuses')->insert([
-       //      'name' => 'Disposed',
+             DB::table('statuses')->insert([
+            'name' => 'Disposed',
              
-       //       ]);      
+             ]);      
              
              
    
-       //   DB::table('religions')->insert([
-       //      'name' => 'Roman Catholic'
+         DB::table('religions')->insert([
+            'name' => 'Roman Catholic'
              
             
-       //      ]);
+            ]);
             
-       //      DB::table('religions')->insert([
-       //      'name' => 'Seventh-day adventist'
+            DB::table('religions')->insert([
+            'name' => 'Seventh-day adventist'
             
             
-       //      ]);
+            ]);
             
-       //      DB::table('religions')->insert([
-       //      'name' => 'Buddhism'
+            DB::table('religions')->insert([
+            'name' => 'Buddhism'
              
             
-       //      ]);
+            ]);
                 
-       //      DB::table('religions')->insert([
-       //      'name' => 'islam'
+            DB::table('religions')->insert([
+            'name' => 'islam'
              
             
-       //      ]);
+            ]);
                 
-       //      DB::table('religions')->insert([
-       //      'name' => 'Hinduism'
+            DB::table('religions')->insert([
+            'name' => 'Hinduism'
          
             
-       //      ]);
-       //      DB::table('courts')->insert([
-       //      'name' => 'Supreme Court',
-             
-       //       ]);
-             
-       //       DB::table('courts')->insert([
-       //      'name' => 'Municipal Trial Court',
-             
-       //       ]);
-             
-       //       DB::table('courts')->insert([
-       //      'name' => 'Court of Appeals',
-             
-       //       ]);
-                 
-       //       DB::table('courts')->insert([
-       //      'name' => 'Metropolitan Trial Court',
-             
-       //       ]);
-                  
-       //       DB::table('courts')->insert([
-       //      'name' => 'Provincial Regional Trial Court',
-             
-       //       ]);
-
-       //       DB::table('courts')->insert([
-       //      'name' => 'Metro Manila Regional Trial Court',
-             
-       //       ]);
+            ]);
+         
 
 
 
@@ -499,15 +494,15 @@ class DatabaseSeeder extends Seeder
 
 
 
-         // DB::table('reasons')->insert([
-         //    'name' => 'Conflict of interest',
+         DB::table('reasons')->insert([
+            'name' => 'Conflict of interest',
              
-         //     ]);
+             ]);
              
-         //     DB::table('reasons')->insert([
-         //    'name' => 'Acceptance of case on provisional basis only',
+             DB::table('reasons')->insert([
+            'name' => 'Acceptance of case on provisional basis only',
              
-         //     ]);
+             ]);
 
              DB::table('reasons')->insert([
             'name' => 'Public attorneys do not act as Public or State Prosecutors in criminal cases
@@ -521,6 +516,18 @@ class DatabaseSeeder extends Seeder
 
              
              ]);
+             DB::table('documenttypes')->insert([
+                'name' => 'Affidavit'
+                ]);
+             DB::table('documenttypes')->insert([
+                'name' => 'Motion'
+                ]);
+             DB::table('documenttypes')->insert([
+                'name' => 'Pleading'
+                ]);
+             DB::table('documenttypes')->insert([
+                'name' => 'Petition'
+                ]);
                      
         }
 
