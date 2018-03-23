@@ -14,7 +14,7 @@ class CreateCountsTable extends Migration
     public function up()
     {
         Schema::create('counts', function (Blueprint $table) {
-            
+            $table->increment('id');
             $table->integer('criminalcount')->default('0');
             $table->integer('administrativecount')->default('0');
             $table->integer('civilcount')->default('0');

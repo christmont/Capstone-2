@@ -80,7 +80,7 @@
     				@endforeach
 					{{-- <option value="others">Other</option> --}}
 					</select>
-					<input type="textbox" name="others" class="form-control required" style="visibility:hidden;"/>
+					
 				</div>
 				<div class="col-md-6">
 					<label>Interviewer *</label>

@@ -27,7 +27,7 @@ class CreateCasetobehandledsTable extends Migration
             $table->foreign('court_id')->references('id')->on('courts')->onDelete('cascade');
             $table->integer('court_id')->unsigned();
             $table->string('case_status')->nullable()->default('Granted');
-            $table->string('control_number',15)->nullable();
+            $table->string('control_number',15)->nullable()->unique();
             $table->date('arraignmentDate')->nullable();
             $table->date('prelimconfDate')->nullable();
             $table->date('pretrialDate')->nullable();

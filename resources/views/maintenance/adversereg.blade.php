@@ -38,10 +38,11 @@
 					@foreach($attacker as $involvement)
 				      <option value="{{$involvement->name}}">{{$involvement->name}}</option>
 				    @endforeach
+				</select>
 
 					@endif
-					
-				</div>
+					</div>
+				
 			<div class="col-md-4">
 					<label>First Name *</label>
 					<input type="text" name="fname" value="" class="form-control "required>

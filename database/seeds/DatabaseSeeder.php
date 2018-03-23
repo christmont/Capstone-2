@@ -604,6 +604,14 @@ class DatabaseSeeder extends Seeder
              DB::table('documenttypes')->insert([
                 'name' => 'Petition'
                 ]);
+              DB::table('counts')->insert([
+                'id' => '1',
+                'criminalcount' => '0',
+                'civilcount' => '0',
+                'laborcount' => '0',
+                'administrativecount' => '0'
+                ]);
+                    
                      
         }
 

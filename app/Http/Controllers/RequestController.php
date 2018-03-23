@@ -31,6 +31,7 @@ use App\requeststat;
 use App\scheduletype;
 use App\employeeclients;
 use App\Reason;
+use App\Count;
 use App\clientadverse;
 use DB;
 use Carbon\Carbon;
@@ -54,11 +55,46 @@ class RequestController extends Controller
         
      $cases = casetobehandled::where('client_id',$approved->id)->get();
       foreach ($cases as $key => $case) {
-        $number = $case->increment('count');
-         $con = date('Ym',strtotime($case->created_at)) . substr($case->nature_of_case, 0,2). sprintf('00').$number;
+        if ($case->nature_of_case == 'Criminal') 
+        {
+         $count = Count::orderBy('created_at','asc')->first();
+         $number = $count->increment('criminalcount');
+
+         $con = date('Ym',strtotime($case->created_at)) . substr($case->nature_of_case, 0,2). sprintf('00').$count->criminalcount;
+         $case ->control_number = $con;
+         $case ->save();
+        }
+        elseif ($case->nature_of_case == 'Civil') 
+        {
+         $count = Count::orderBy('created_at','asc')->first();
+         $number = $count->increment('civilcount');
+        
+        
+        
+         $con = date('Ym',strtotime($case->created_at)) . substr($case->nature_of_case, 0,2). sprintf('00').$count->civilcount;
+         $case ->control_number = $con;
+         $case ->save();
+          
+        }
+        elseif ($case->nature_of_case == 'Labor') 
+        {
+         $count = Count::orderBy('created_at','asc')->first();
+         $number = $count->increment('laborcount');
+         $con = date('Ym',strtotime($case->created_at)) . substr($case->nature_of_case, 0,2). sprintf('00').$count->laborcount;
+         $case ->control_number = $con;
+         $case ->save();
+        }
+        elseif ($case->nature_of_case == 'Administrative') 
+        {
+         $count = Count::orderBy('created_at','asc')->first();
+         $number = $count->increment('administrativecount');
+         $con = date('Ym',strtotime($case->created_at)) . substr($case->nature_of_case, 0,2). sprintf('00').$count->administrativecount;
+         $case ->control_number = $con;
+         $case ->save();
+        }
+       
                                         
-     $case ->control_number = $con;
-     $case ->save();
+    
                                         }
       $interviewsheet = Client::where('id',$approved->id)
                         ->with('casetobehandled')
