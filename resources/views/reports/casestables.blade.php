@@ -31,16 +31,16 @@
 										<th>DECISION</th>
 									</tr>
 								</thead>
-				
+			
 								<tbody>
-									@foreach($criminalreport as $criminalreports)
+									@foreach($criminalreport as $key => $criminalreports)
 									 @foreach($criminalcourts as $criminalcourt)
 									<tr>
 									
 										
 									
 									
-										<td></td>
+										<td>{{$key+=1}}</td>
 										<td>{{$criminalreports->control_number}}</td>
 										<td>{{$criminalreports->clfname}} {{$criminalreports->clmname}} {{$criminalreports->cllname}}</td>
 										<td>{{$criminalreports->clgender}}</td>
@@ -112,15 +112,16 @@
 										<th>DECISION</th>
 									</tr>
 								</thead>
-				@foreach($civilreport as $civilreports)
+				@foreach($civilreport as $key =>  $civilreports)
 									 @foreach($civilcourts as $civilcourt)
+
 								<tbody>
 									<tr>
 									
 										
 									
 									
-										<td></td>
+										<td>{{$key+1}}</td>
 										<td>{{$civilreports->control_number}}</td>
 										<td>{{$civilreports->clfname}} {{$civilreports->clmname}} {{$civilreports->cllname}}</td>
 										<td>{{$civilreports->clgender}}</td>
@@ -191,7 +192,7 @@
 										<th>DECISION</th>
 									</tr>
 								</thead>
-				@foreach($laborreport as $laborreports)
+				@foreach($laborreport as $key => $laborreports)
 									 @foreach($laborcourts as $laborcourt)
 								<tbody>
 									<tr>
@@ -199,7 +200,7 @@
 										
 									
 									
-										<td></td>
+										<td>{{$key+1}}</td>
 										<td>{{$laborreports->control_number}}</td>
 										<td>{{$laborreports->clfname}} {{$laborreports->clmname}} {{$laborreports->cllname}}</td>
 										<td>{{$laborreports->clgender}}</td>
@@ -272,12 +273,12 @@
 								</thead>
 				
 								<tbody>
-									@foreach($administrativereport as $administrativereports)
+									@foreach($administrativereport as $key => $administrativereports)
 									 @foreach($administrativecourts as $administrativecourt)
 										
 									<tr>
 									
-										<td></td>
+										<td>{{$key +1}}</td>
 										<td>{{$administrativereports->control_number}}</td>
 										<td>{{$administrativereports->clfname}} {{$administrativereports->clmname}} {{$administrativereports->cllname}}</td>
 										<td>{{$administrativereports->clgender}}</td>

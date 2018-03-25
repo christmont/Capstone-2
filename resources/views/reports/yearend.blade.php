@@ -54,11 +54,11 @@ tr:nth-child(even) {
 			<th>DATE</th>
 			<th>DECISION</th>
 		</tr>
-		@foreach($criminalclients as $criminalclient)
+		@foreach($criminalclients as $key => $criminalclient)
 		 @foreach($criminalcourts as $criminalcourt )
 		<tr>
             
-			<td>{{$criminalclient->count}}</td>
+			<td>{{$key +1}}</td>
 			<td>{{$criminalclient->control_number}}</td>
 			<td>{{$criminalclient->clfname}} {{$criminalclient->clmname}} {{$criminalclient->cllname}}</td>
 			<td>{{$criminalclient->clgender}}</td>
@@ -121,11 +121,11 @@ tr:nth-child(even) {
 			<th>DATE</th>
 			<th>DECISION</th>
 		</tr>
-		@foreach($civilclients as $civilclient)
+		@foreach($civilclients as $key => $civilclient)
 		 @foreach($civilcourts as $civilcourt )
 		<tr>
             
-			<td>{{$civilclient->count}}</td>
+			<td>{{$key +1}}</td>
 			<td>{{$civilclient->control_number}}</td>
 			<td>{{$civilclient->clfname}} {{$civilclient->clmname}} {{$civilclient->cllname}}</td>
 			<td>{{$civilclient->clgender}}</td>
@@ -188,11 +188,11 @@ tr:nth-child(even) {
 			<th>DECISION</th>
 
 		</tr>
-		@foreach($laborclients as $laborclient)
+		@foreach($laborclients as $key => $laborclient)
 		 @foreach($laborcourts as $laborcourt )
 		<tr>
             
-			<td>{{$laborclient->count}}</td>
+			<td>{{$key +1}}</td>
 			<td>{{$laborclient->control_number}}</td>
 			<td>{{$laborclient->clfname}} {{$laborclient->clmname}} {{$laborclient->cllname}}</td>
 			<td>{{$laborclient->clgender}}</td>
@@ -254,11 +254,10 @@ tr:nth-child(even) {
 			<th>DATE</th>
 			<th>DECISION</th>
 		</tr>
-		@foreach($administrativeclients as $administrativeclient)
+		@foreach($administrativeclients as $key=> $administrativeclient)
 		 @foreach($administrativecourts as $administrativecourt )
 		<tr>
-            
-			<td>{{$administrativeclient->count}}</td>
+            <td>{{$key +1}}</td>
 			<td>{{$administrativeclient->control_number}}</td>
 			<td>{{$administrativeclient->clfname}} {{$administrativeclient->clmname}} {{$administrativeclient->cllname}}</td>
 			<td>{{$administrativeclient->clgender}}</td>

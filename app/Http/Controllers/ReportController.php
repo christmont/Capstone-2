@@ -83,6 +83,7 @@ class ReportController extends Controller
      $criminalreport = DB::table('clients')
                       ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['casetobehandleds.nature_of_case','Criminal'],['clients.cl_status','Approved']])
                       ->orWhere([['clients.nature_of_request','Mediation'],['casetobehandleds.nature_of_case','Criminal'],['clients.cl_status','Approved']])
+                      ->orWhere([['clients.nature_of_request','Legal Assistance'],['casetobehandleds.nature_of_case','Criminal'],['clients.cl_status','Approved']])
                       ->join('casetobehandleds','casetobehandleds.client_id','=','clients.id')
                       ->get();
                     
@@ -97,6 +98,7 @@ class ReportController extends Controller
                       ->join('casetobehandleds','casetobehandleds.client_id','=','clients.id')
                       ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['casetobehandleds.nature_of_case','Civil'],['clients.cl_status','Approved']])
                       ->orWhere([['clients.nature_of_request','Mediation'],['casetobehandleds.nature_of_case','Civil'],['clients.cl_status','Approved']])
+                      ->orWhere([['clients.nature_of_request','Legal Assistance'],['casetobehandleds.nature_of_case','Civil'],['clients.cl_status','Approved']])
                       ->get();
                     
                       foreach($civilreport as $civilreports)
@@ -110,6 +112,7 @@ class ReportController extends Controller
                       ->join('casetobehandleds','casetobehandleds.client_id','=','clients.id')
                       ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['casetobehandleds.nature_of_case','Labor'],['clients.cl_status','Approved']])
                       ->orWhere([['clients.nature_of_request','Mediation'],['casetobehandleds.nature_of_case','Labor'],['clients.cl_status','Approved']])
+                      ->orWhere([['clients.nature_of_request','Legal Assistance'],['casetobehandleds.nature_of_case','Labor'],['clients.cl_status','Approved']])
                       ->get();
                    
                      
@@ -125,8 +128,9 @@ class ReportController extends Controller
                       ->join('casetobehandleds','casetobehandleds.client_id','=','clients.id')
                       ->where([['clients.nature_of_request','Representation of quasi-judicial bodies'],['casetobehandleds.nature_of_case','Administrative'],['clients.cl_status','Approved']])
                       ->orWhere([['clients.nature_of_request','Mediation'],['casetobehandleds.nature_of_case','Administrative'],['clients.cl_status','Approved']])
+                      ->orWhere([['clients.nature_of_request','Legal Assistance'],['casetobehandleds.nature_of_case','Administrative'],['clients.cl_status','Approved']])
                       ->get();
-                     
+                  
                       foreach($administrativereport as $administrativereports)
                       {
         $administrativecourts = DB::table('courts')

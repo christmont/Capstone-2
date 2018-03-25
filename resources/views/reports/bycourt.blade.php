@@ -32,14 +32,14 @@
 								</thead>
 				
 								<tbody>
-									@foreach($mtccase as $mtccases)
+									@foreach($mtccase as $key => $mtccases)
 									
 									<tr>
 									
 										
 									
 									
-										<td></td>
+										<td>{{$key +1}}</td>
 										<td>{{$mtccases->control_number}}</td>
 										<td>{{$mtccases->clfname}} {{$mtccases->clmname}} {{$mtccases->cllname}}</td>
 										<td>{{$mtccases->clgender}}</td>
@@ -108,14 +108,14 @@
 								</thead>
 				
 								<tbody>
-									@foreach($rtccase as $rtccases)
+									@foreach($rtccase as $key => $rtccases)
 									
 									<tr>
 									
 										
 									
 									
-										<td></td>
+										<td>{{$key +1}}</td>
 										<td>{{$rtccases->control_number}}</td>
 										<td>{{$rtccases->clfname}} {{$rtccases->clmname}} {{$rtccases->cllname}}</td>
 										<td>{{$rtccases->clgender}}</td>
@@ -186,14 +186,14 @@
 								</thead>
 				
 								<tbody>
-									@foreach($sbcase as $sbcases)
+									@foreach($sbcase as $key => $sbcases)
 									
 									<tr>
 									
 										
 									
 									
-										<td></td>
+										<td>{{$key +1}}</td>
 										<td>{{$sbcases->control_number}}</td>
 										<td>{{$sbcases->clfname}} {{$sbcases->clmname}} {{$sbcases->cllname}}</td>
 										<td>{{$sbcases->clgender}}</td>
