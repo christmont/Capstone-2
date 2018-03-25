@@ -14,21 +14,23 @@ class QueriesController extends Controller
 {
     public function mostcasetype()
     {
-    $count =  $mostcasetype = DB::table('casetobehandleds')
-                 ->select('nature_of_case', DB::raw('count(casename) as count'))
-                 ->groupBy('nature_of_case')
-                 ->get();
-            return $count;
-        foreach ($max as $key => $value) 
-        {
-            $test = DB::table('casetobehandleds')
-            ->select('casename', 'nature_of_case')
-            ->where('casename',$value->count)
-            ->groupBy('casename','nature_of_case')
-            ->get();
+        // $test = DB::table('casetobehandleds')
+        //     ->select((DB::raw('count(casename)')),'nature_of_case','casename')
+            
+        //     ->groupBy('nature_of_case','casename')
+        //     ->get();
            
-            return $test;  
-        }
+        
+    $count =  $mostcasetype = DB::table('casetobehandleds')
+                 ->select(DB::raw('distinct(nature_of_case) as casetype'),'casename', DB::raw('count(casename) as count'))
+                 
+                 ->groupBy('casetype','casename')
+                 ->orderBy(Db::raw('count(casename)'),'casetype', 'desc')
+              
+                 ->get();
+          
+            return $count;
+       
            
     
      $mostcasetype = DB::table('casetobehandleds')

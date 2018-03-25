@@ -59,8 +59,10 @@
 							<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
 								<thead>
 									<tr>
-										<th>Lawyer Name</th>
-										<th>Name</th>
+										<th>Client Name</th>
+										<th>Schedule Name</th>
+										<th>Case Title</th>
+										<th>Case Name</th>
 										<th>Start date and time</th>
 										<th>End date and time</th>
 										<th>Edit</th>
@@ -69,21 +71,29 @@
 								</thead>
 <tbody>
 								@foreach ($schedules as $schedule)
+								 @foreach($client as $clients)
 									<tr>
-										<td>{{$schedule->efname}} {{$schedule->emname}} {{$schedule->elname}}</td>
-										@foreach($schedule->schedules as $employeesched )
+										<td>{{$clients->clfname}} {{$clients->clmname}} {{$clients->cllname}}</td>
+								 @endforeach
+										
 										<td>
-											 {{$employeesched->name}}
+											 {{$schedule->name}}
 										</td>
 										<td>
-											 {{$employeesched->start}}
+											{{$schedule->title}}
 										</td>
 										<td>
-											 {{$employeesched->end}}
+											{{$schedule->casename}}
 										</td>
-									    @endforeach
 										<td>
-											  <button type="submit" data-target=".bs-example-modal-update{{ $schedule->id }}" class="btn btn-sm btn-warning update-button" data-toggle="modal" ><i class="fa fa-pencil"></i> Edit</a>
+											 {{$schedule->start}}
+										</td>
+										<td>
+											 {{$schedule->end}}
+										</td>
+									    
+										<td>
+											  <a class ="btn btn-warning" href="{{ route('showsched',$schedules->id) }}">Reschedule</a>
 										</td>
 										<td>
 											<form action="{{ route('deletesched',$schedule->id) }}" method = "post">

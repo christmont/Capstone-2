@@ -200,6 +200,9 @@ Route::put('/updatecase/{id}','ManageCaseController@updatecase')->name('updateca
 Route::delete('/delete/case/{id}','ManageCaseController@deletecase')->name('deletecase');
 
 Route::get('/lawyerside/show','LawyerSideController@home');
+Route::get('lawyer/clientview/{id}','LawyerSideController@lawyerclientview')->name('lawyer.clientview');
+Route::get('/lawyer/edit/case/{id}','LawyerSideController@editcase')->name('lawyer.showeditcase');
+
 
 Route::get('/lawyer/show','RegisterController@showlawyer');
 Route::get('/transfer/show/{id}','ManageCaseController@showcasetransfer')->name('showcasetransfer');
@@ -221,6 +224,7 @@ Route::get('show/pendingcase','QueriesController@pendingcase');
 
 Route::get('/show/clientnotary','RegisterController@shownotaryclientreg');
 Route::post('/notary/register','RegisterController@notaryclientreg');
+
 
 //Route::resource('clients', 'ClientController');
 Route::resource('interviewees', 'IntervieweeController');

@@ -1,7 +1,7 @@
 @extends('lawyer ui/lawyer ui')
 @extends('lawyer ui/lawyer side-nav')
 @extends('lawyer ui/lawyer header-main')
-@section('content')
+@section('contents')
 				
 <section id="middle">
 				<header id="page-header">
@@ -66,7 +66,7 @@
 							<div class="col-md-4">
 								<label>First Name *</label>
 								<input type="text" name="cfname" value="{{$client->clfname}}" class="form-control "required/>
-								{{\Carbon\Carbon::parse($client->clbdate)->diff(\Carbon\Carbon::now())->format('%y years old')}}
+								
 							</div>
 							<div class="col-md-4">
 								<label>Middle Name </label>
@@ -192,14 +192,23 @@
 				    </footer>
 				</div>
 			</div>
-	
+	     @endforeach
+	      @foreach($client->casetobehandled as $case)
 		<div id="case" class="tab-content">
 			<div class="card1">
 				<div class="container">
 					<div class="row" style="height: 490px; width: 100%">
 						<div class="form-group"><br>
+							<div class="col-md-6">
+								<label>Case Number *</label>
+								<input type ="text" name="caseno" value ="{{$case->caseno}}" class="form-control " required >
+							</div>
+							<div class="col-md-6">
+								<label>Case Title *</label>
+								<input type ="text" name="casetitle" value ="{{$case->title}}" class="form-control " required >
+							</div>
 							<div class="col-md-12">
-								@foreach($client->casetobehandled as $case)
+								
 								<label>Case Name *</label><br>	
 								<input type ="text" name="lawsuit" value ="{{$case->casename}}" class="form-control " required >
 							</div>
@@ -219,19 +228,34 @@
 								<label>Case Involvement *</label>
 								<input type ="text" name="involvement" value ="{{$case->clcase_involvement}}" class="form-control " required >
 							</div>
-							<div class="col-md-4">
+			                   @endforeach
+				<div class="col-md-4">
 					<label> Case Status</label>
 					<select name="casestatus" class="form-control " required onchange="if (this.value=='edu'){this.form['edu'].style.visibility='visible'}else {this.form['edu'].style.visibility='hidden'};">
 					<option value="" selected="selected"></option>
 					@foreach($status as $stat)
       <option value="{{$stat->name}}">{{$stat->name}}</option>
-    @endforeach
+                    @endforeach
 					{{-- <option value="edu">Other</option> --}}
 					</select>
 					<input type="textbox" name="edu" class="form-control required" style="visibility:hidden;"/>
-				      @endforeach
+				     
+				</div>
+				</div>
+					    <div class="col-md-4">
+					<label> Case Decision</label>
+					<select name="decision" class="form-control "  onchange="if (this.value=='edu'){this.form['edu'].style.visibility='visible'}else {this.form['edu'].style.visibility='hidden'};">
+					<option value="" selected="selected"></option>
+					@foreach($decision as $dec)
+      <option value="{{$dec->name}}">{{$dec->name}}</option>
+                   @endforeach
+					{{-- <option value="edu">Other</option> --}}
+					</select>
+					<input type="textbox" name="edu" class="form-control required" style="visibility:hidden;"/>
+				      
 				</div>
 						</div>
+
 					</div>
 					<footer style="margin-bottom: 20px; text-align: center;">
 					        <a class="btn btn-default btnPrevious" >Back</a>
@@ -240,7 +264,7 @@
 				</div>
 			</div>
 		</div>
-
+     @foreach($adverses as $adverse)
 		<div id="adverse" class="tab-content">
 			<div class="card1">
 				<div class="container">
@@ -248,25 +272,26 @@
 						<div class="form-group"><br>
 						<div class="col-md-12">
 							<label>Adverse Type *</label>
-					<input type ="text" name="type" value ="{{$client->adverse->advprtytype}}" class="form-control " required >
+					<input type ="text" name="type" value ="{{$adverse->advprtytype}}" class="form-control " required >
 						</div>
 						<div class="col-md-4">
 						<label>Adverse First Name *</label>
-					<input type ="text" name="fname" value ="{{$client->adverse->advprtyfname}}" class="form-control " required >
+					<input type ="text" name="fname" value ="{{$adverse->advprtyfname}}" class="form-control " required >
 						</div>
 						<div class="col-md-4">
 							<label>Adverse Middle Name </label>
-					<input type ="text" name="mname" value ="{{$client->adverse->advprtymname}}" class="form-control "  >
+					<input type ="text" name="mname" value ="{{$adverse->advprtymname}}" class="form-control "  >
 						</div>
 						<div class="col-md-4">
 							<label>Adverse Last Name *</label>
-					<input type ="text" name="lname" value ="{{$client->adverse->advprtylname}}" class="form-control " required >
+					<input type ="text" name="lname" value ="{{$adverse->advprtylname}}" class="form-control " required >
 						</div>
 						<div class="col-md-12">
 							<label>Adverse Address *</label>
-					<input type ="text" name="addr" value ="{{$client->adverse->advprtyaddress}}" class="form-control " required >
+					<input type ="text" name="addr" value ="{{$adverse->advprtyaddress}}" class="form-control " required >
 						</div>
 						</div>
+	@endforeach
 					</div>
 					<footer style="margin-bottom: 20px; text-align: center;">
 					        <a class="btn btn-default btnPrevious" >Back</a>
@@ -276,8 +301,8 @@
 			</div>
 		</div> 	
 	</div>
-</form>@endforeach
-	<script type="text/javascript">
+</form>
+  <script type="text/javascript">
     window.onload = function() {
         document.getElementById('ifYes').style.display = 'none';
     }
@@ -291,7 +316,7 @@
         }
     }
 
-</script>
+   </script>
 
 <script type="text/javascript">
 var e = document.getElementById("ddlViewBy");
@@ -338,7 +363,7 @@ var strUser = e.options[e.selectedIndex].value;
 	})
    </script>
 
-   </script>>
+  
 
 </section>
 @stop

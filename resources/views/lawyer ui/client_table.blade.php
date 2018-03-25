@@ -1,20 +1,18 @@
 @extends('lawyer ui/lawyer ui')
 @extends('lawyer ui/lawyer side-nav')
 @extends('lawyer ui/lawyer header-main')
-@section('content')
+@section('contents')
 
 <section id="middle">
 
 
 				<!-- page title -->
 				<header id="page-header">
-					<h1>Request TABLE</h1>
+					<h1>Clients</h1>
 					<ol class="breadcrumb">
 						<li><a href="#">Tables</a></li>
-						<li class="active">Request tables</li>
-						<div class="pull-right">
-							<a  class="btn btn-green" href="/client/register" ><i class="fa fa-plus"></i> New Request</a>
-						</div>
+						<li class="active">Client</li>
+						
 					</ol>
 				</header>
 				<!-- /page title -->
@@ -63,40 +61,31 @@
 								<thead>
 									<tr>
 										<th>Full Name</th>
-										<th>Nature of Request</th>
-										<th>Monthly Income</th>
-										<th>Approve</th>
-										<th>Deny</th>
+										<th>Case Title</th>
+										<th>Case Name</th>
 										<th>View</th>
 									</tr>
 								</thead>
 				
 								<tbody>
-								@foreach ($clients as $client)
+								@foreach ($client as $clients)
 									<tr>
 									
 										<td>
-											 {{$client->cllname}}, {{$client->clfname}}  @if ( $client->clmname != "none" )
-											 ,{{$client->clmname}}
+											 {{$clients->cllname}}, {{$clients->clfname}}  @if ( $clients->clmname != "none" )
+											 ,{{$clients->clmname}}
 											 @endif
 											 
 										</td>
 										<td>
-											 {{$client->nature_of_request}}
+											 {{$clients->title}}
 										</td>
 										<td class="center">
-											 {{$client->clmonthly_net_income}}
+											 {{$clients->casename}}
 										</td>
+								
 										<td>
-											<a class = "btn btn-success" href="{{route('request.approve',$client->id)}}">
-											Approve </a>
-										</td>
-										<td>
-											<a  class = "btn btn-danger" href="{{route('request.deny',$client->id)}}">
-											Deny </a>
-										</td>
-										<td>
-											<a  class = "btn btn-info" href="{{route('request.view',$client->id)}}">
+											<a  class = "btn btn-info" href="{{route('lawyer.clientview',$clients->id)}}">
 											View </a>
 										</td>
 									</tr>

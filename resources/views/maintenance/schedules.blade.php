@@ -61,8 +61,11 @@
 							<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
 								<thead>
 									<tr>
-										<th>Lawyer</th>
-										<th>Name</th>
+										<th>Lawyer Name</th>
+										<th>Client Name</th>
+										<th>Schedule Name</th>
+										<th>Case Title</th>
+										<th>Case Name</th>
 										<th>Start date and time</th>
 										<th>End date and time</th>
 										<th>Edit</th>
@@ -76,10 +79,25 @@
 										@if(!empty($schedules))
 										<td>{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}</td>
 										@endif
+										@foreach($client as $clients)
+
+										<td>
+											{{$clients->clfname}} {{$clients->clmname}} {{$clients->cllname}}
+										</td>
 										
 										<td>
 											 {{$schedules->type}}
 										</td>
+										@foreach($clients->casetobehandled as $case)
+										<td>
+											{{$case->title}}
+										</td>
+											
+										<td>
+											{{$case->casename}}
+										</td>
+										@endforeach
+										@endforeach
 										<td>
 											 {{$schedules->start}}
 										</td>
