@@ -202,6 +202,7 @@ Route::delete('/delete/case/{id}','ManageCaseController@deletecase')->name('dele
 Route::get('/lawyerside/show','LawyerSideController@home');
 Route::get('lawyer/clientview/{id}','LawyerSideController@lawyerclientview')->name('lawyer.clientview');
 Route::get('/lawyer/edit/case/{id}','LawyerSideController@editcase')->name('lawyer.showeditcase');
+Route::get('/lawyer/edit/sched/{id}','LawyerSideController@lawyershowschededit')->name('lawyer.showeditsched');
 
 
 Route::get('/lawyer/show','RegisterController@showlawyer');

@@ -356,16 +356,17 @@ class UpdateController extends Controller
     {
         
          $schedules = Schedule::find($id);
-          
+         
          $scheduletype = scheduletype::all();
 
      
-         $lawyer = Employee::where('position','Lawyer')
+         $lawyer = Employee::where([['position','Lawyer'],['id',$schedules->employee_id]])
                           ->with('schedules')
                           ->get();
 
-         $client = Client::where([['nature_of_request','Mediation'],['cl_status','Approved']])
-                        ->orwhere([['nature_of_request','Representation of quasi-judicial bodies '],['cl_status','Approved']])
+         $client = Client::where([['nature_of_request','Mediation'],['cl_status','Approved'],['id',$schedules->client_id]])
+                        ->orwhere([['nature_of_request','Representation of quasi-judicial bodies '],['cl_status','Approved'],['id',$schedules->client_id]])
+                        ->orwhere([['nature_of_request','Legal Assistance '],['cl_status','Approved'],['id',$schedules->client_id]])
                         ->with('casetobehandled')
                         ->get();
                        

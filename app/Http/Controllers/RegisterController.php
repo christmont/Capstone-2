@@ -974,22 +974,21 @@ class RegisterController extends Controller
        
         foreach($lawyer as $lawyers)
         {
-          foreach($lawyers->schedules as $sched)
-          {
+        $employeeclients = employeeclients::where('employee_id',$lawyers->id)->get();
 
-        $schedules = Schedule::where('id',$sched->id)->get();
-        
-          }
+        foreach($employeeclients as $employeeclient)
+        {
       
-
-      $client = Client::where([['nature_of_request','Mediation'],['cl_status','Approved']])
-                        ->orwhere([['nature_of_request','Representation of quasi-judicial bodies '],['cl_status','Approved']])
+              }
+          
+        
+  }    $client = Client::where([['nature_of_request','Mediation'],['cl_status','Approved'],['id',$employeeclient->client_id]])
+                        ->orwhere([['nature_of_request','Representation of quasi-judicial bodies '],['cl_status','Approved'],['id',$employeeclient->client_id]])
+                        ->orwhere([['nature_of_request','Legal Assistance '],['cl_status','Approved'],['id',$employeeclient->client_id]])
                         ->with('casetobehandled')
                         ->get();
-          
+
         
-  }    
-          
          return view('maintenance.schedules')->withLawyer($lawyer)
                                             // ->withschedules($schedules)
                                             ->withClient($client);

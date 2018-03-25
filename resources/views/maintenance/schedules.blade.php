@@ -84,20 +84,20 @@
 										<td>
 											{{$clients->clfname}} {{$clients->clmname}} {{$clients->cllname}}
 										</td>
-										
+									
 										<td>
 											 {{$schedules->type}}
-										</td>
+										</td>											
 										@foreach($clients->casetobehandled as $case)
 										<td>
 											{{$case->title}}
 										</td>
-											
+
 										<td>
 											{{$case->casename}}
 										</td>
-										@endforeach
-										@endforeach
+											@endforeach
+											@endforeach
 										<td>
 											 {{$schedules->start}}
 										</td>

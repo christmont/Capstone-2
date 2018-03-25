@@ -15,6 +15,7 @@ use Auth;
 use App\Schedule;
 use App\Notary;
 use DB;
+use App\scheduletype;
 
 class LawyerSideController extends Controller
 {
@@ -101,9 +102,9 @@ class LawyerSideController extends Controller
     public function showmanagecase()
     {
       $allcases = DB::table('employeeclients')
-                      ->where([['employees.id',Auth::user()->id],['clients.nature_of_request','Representation of quasi-judicial bodies']])
-                      ->orwhere([['employees.id',Auth::user()->id],['nature_of_request','Legal Assistance']])
-                      ->orwhere([['employees.id',Auth::user()->id],['nature_of_request','Mediation']])
+                      ->where([['employees.id',Auth::user()->id],['clients.nature_of_request','Representation of quasi-judicial bodies'],['clients.cl_status','Approved']])
+                      ->orwhere([['employees.id',Auth::user()->id],['nature_of_request','Legal Assistance'],['clients.cl_status','Approved']])
+                      ->orwhere([['employees.id',Auth::user()->id],['nature_of_request','Mediation'],['clients.cl_status','Approved']])
                       ->join('employees','employees.id','=','employeeclients.employee_id')
                       ->join('clients','clients.id','=','employeeclients.client_id')
                       ->join('casetobehandleds','casetobehandleds.client_id','=','employeeclients.client_id')
@@ -141,14 +142,54 @@ class LawyerSideController extends Controller
     }
      public function showschedule()
     {
-        $schedules = DB::table('schedules')
-                      ->where('employees.id',Auth::user()->id)
-                      ->join('employees','employees.id','=','schedules.employee_id')
-                      ->join('clients','clients.id','=','schedules.client_id')
-                      ->join('casetobehandleds','casetobehandleds.client_id','=','schedules.client_id')
-                      ->get();
-                      
-              return view('lawyer ui.schedules')->withSchedules($schedules);
+       $lawyer = Employee::where('position','Lawyer')
+                          ->with('schedules')
+                          ->get();
+       
+        foreach($lawyer as $lawyers)
+        {
+        $employeeclients = employeeclients::where('employee_id',$lawyers->id)->get();
+
+        foreach($employeeclients as $employeeclient)
+        {
+      
+              }
+          
+        
+  }    $client = Client::where([['nature_of_request','Mediation'],['cl_status','Approved'],['id',$employeeclient->client_id]])
+                        ->orwhere([['nature_of_request','Representation of quasi-judicial bodies '],['cl_status','Approved'],['id',$employeeclient->client_id]])
+                        ->orwhere([['nature_of_request','Legal Assistance '],['cl_status','Approved'],['id',$employeeclient->client_id]])
+                        ->with('casetobehandled')
+                        ->get();
+
+        
+         return view('lawyer ui.schedules')->withLawyer($lawyer)
+                                            // ->withschedules($schedules)
+                                            ->withClient($client);      
+             
                                         
+    }
+    public function lawyershowschededit($id)
+    {
+        
+         $schedules = Schedule::find($id);
+         
+         $scheduletype = scheduletype::all();
+
+     
+         $lawyer = Employee::where([['position','Lawyer'],['id',$schedules->employee_id]])
+                          ->with('schedules')
+                          ->get();
+
+         $client = Client::where([['nature_of_request','Mediation'],['cl_status','Approved'],['id',$schedules->client_id]])
+                        ->orwhere([['nature_of_request','Representation of quasi-judicial bodies '],['cl_status','Approved'],['id',$schedules->client_id]])
+                        ->orwhere([['nature_of_request','Legal Assistance '],['cl_status','Approved'],['id',$schedules->client_id]])
+                        ->with('casetobehandled')
+                        ->get();
+                       
+        return view('lawyer ui.reschedule')->withClient($client)
+                                 ->withscheduletype($scheduletype)
+                                 ->withlawyer($lawyer)
+                                 ->withschedules($schedules);
     }
 }

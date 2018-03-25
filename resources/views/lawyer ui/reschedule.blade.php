@@ -1,7 +1,7 @@
-@extends('master')
-@extends('layout/side-nav')
-@extends('layout/header-main')  
-@section('content')
+@extends('lawyer ui/lawyer ui')
+@extends('lawyer ui/lawyer side-nav')
+@extends('lawyer ui/lawyer header-main')
+@section('contents')
 
 <section id="middle">
 

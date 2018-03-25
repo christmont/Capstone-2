@@ -70,79 +70,52 @@
 									</tr>
 								</thead>
 <tbody>
-								@foreach ($schedules as $schedule)
-								 @foreach($client as $clients)
+								@foreach ($lawyer as $lawyers)
+								      @foreach($lawyers->schedules as $schedules)
 									<tr>
-										<td>{{$clients->clfname}} {{$clients->clmname}} {{$clients->cllname}}</td>
-								 @endforeach
 										
+										@foreach($client as $clients)
+
 										<td>
-											 {{$schedule->name}}
+											{{$clients->clfname}} {{$clients->clmname}} {{$clients->cllname}}
+										</td>
+									
+										<td>
+											 {{$schedules->type}}
+										</td>											
+										@foreach($clients->casetobehandled as $case)
+										<td>
+											{{$case->title}}
+										</td>
+
+										<td>
+											{{$case->casename}}
+										</td>
+											@endforeach
+											@endforeach
+										<td>
+											 {{$schedules->start}}
 										</td>
 										<td>
-											{{$schedule->title}}
-										</td>
-										<td>
-											{{$schedule->casename}}
-										</td>
-										<td>
-											 {{$schedule->start}}
-										</td>
-										<td>
-											 {{$schedule->end}}
+											 {{$schedules->end}}
 										</td>
 									    
 										<td>
-											  <a class ="btn btn-warning" href="{{ route('showsched',$schedules->id) }}">Reschedule</a>
+											   <a class ="btn btn-warning" href="{{ route('lawyer.showeditsched',$schedules->id) }}">Reschedule</a>
 										</td>
 										<td>
-											<form action="{{ route('deletesched',$schedule->id) }}" method = "post">
+											<form action="{{ route('deletesched',$schedules->id) }}" method = "post">
 												{{ csrf_field() }}
         {{ method_field('DELETE') }}
-											<button type ="submit" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?')" href="{{ route('deletesched',$schedule->id) }}"><i class="fa fa-trash"></i>
+											<button type ="submit" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?')" href="{{ route('deletesched',$schedules->id) }}"><i class="fa fa-trash"></i>
 											Delete </button>
 										</form>
 										</td>
-<div class="modal fade bs-example-modal-update{{ $schedule->id }}" id =".bs-example-modal-update" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-full">
-    <div class="modal-content">
 
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Edit Schedule</h4>
-      </div>
-
-      <!-- Modal Body -->
-      <form id="update-language-form" action="{{ route('schededit',$schedule->id) }}" method="post">
-      {{ csrf_field() }}
-       <input type="hidden" name="_method" value="PUT">
-      <div class="modal-body">
-      	<div class="row">
-			<div class="form-group">
-				<div class="col-md-4">
-					<label>Name *</label>
-					<input type="text" name="name" value="{{$schedule->name}}" class="form-control ">
-				</div>
-				
-			</div>
-		</div>
-
- 
-      </div>
-
-      <!-- Modal Footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
-        <button type="submit" class="btn btn-green">Save changes</button>
-      </div>
-
-    </div>
-  </div>
-</div>
-</form>
 									</tr>
+										@endforeach
 									@endforeach	
+									
 								</tbody>
 							</table>
 
