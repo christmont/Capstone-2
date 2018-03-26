@@ -22,30 +22,15 @@ class ManageCaseController extends Controller
       ->with('casetobehandled')
       ->get();
 
-      
+     
       
       $cases = casetobehandled::where('decision','=',null)->with('client')->get();
     
-      foreach($cases as $case)
-      {
+
       
-        foreach($case->client as $client)
-        $clientadverse = clientadverse::where('client_id',$client->id)->get();
-     
-      
-      
-      
-      foreach($clientadverse as $clientadverses)
-        {
-      $adverses = Adverse::where('id',$clientadverses->adverse_id)->get();
-                                                
-                                                     
-        }
-      } 
-      
-      
+    
       return view('managecase') ->withcases($cases)
-                                ->withadverses($adverses);
+                                ;
                               
     
   }
