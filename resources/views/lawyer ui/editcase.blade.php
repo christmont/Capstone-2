@@ -14,12 +14,12 @@
 				</header>
 	<div class="container-fluid">
 		<ul class="nav nav-tabs">
-			<li><a href="#nature">Nature of Request</a></li>
-			<li><a href="#clientinfo">Client Info</a></li>
-			<li ><a href="#clientmarital">Client Marital Info</a></li>
-			<li   ><a href="#detention">Client Detention</a></li>
-			<li><a href="#case">Case Details</a></li>
-			<li><a href="#adverse">Case Adverse</a></li>
+			<li><a href="#nature" class="hoverable">Nature of Request</a></li>
+			<li><a href="#clientinfo" class="hoverable">Client Info</a></li>
+			<li ><a href="#clientmarital" class="hoverable">Client Marital Info</a></li>
+			<li><a href="#detention" class="hoverable">Client Detention</a></li>
+			<li><a href="#case" class="hoverable">Case Details</a></li>
+			<li><a href="#adverse" class="hoverable">Case Adverse</a></li>
 			
 		</ul>
 		@foreach($clients as $client)
@@ -229,7 +229,7 @@
 								<input type ="text" name="involvement" value ="{{$case->clcase_involvement}}" class="form-control " required >
 							</div>
 			                   @endforeach
-				<div class="col-md-4">
+				<div class="col-md-6">
 					<label> Case Status</label>
 					<select name="casestatus" class="form-control " required onchange="if (this.value=='edu'){this.form['edu'].style.visibility='visible'}else {this.form['edu'].style.visibility='hidden'};">
 					<option value="" selected="selected"></option>
@@ -242,7 +242,7 @@
 				     
 				</div>
 				</div>
-					    <div class="col-md-4">
+					    <div class="col-md-6">
 					<label> Case Decision</label>
 					<select name="decision" class="form-control "  onchange="if (this.value=='edu'){this.form['edu'].style.visibility='visible'}else {this.form['edu'].style.visibility='hidden'};">
 					<option value="" selected="selected"></option>

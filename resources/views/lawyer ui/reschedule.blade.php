@@ -24,7 +24,7 @@
             <label> Lawyer Name</label>
            
             @foreach($lawyer as $lawyers)
-            <input type="text" value="{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}" readonly>
+            <input type="text" value="{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}" readonly class="form-control">
             @endforeach
            <br>
         </div>
@@ -34,7 +34,7 @@
           
             @foreach($client as $clients)
              @foreach($clients->casetobehandled as $con)
-            <input type="text" value ="{{$con->control_number}}" readonly>
+            <input type="text" value ="{{$con->control_number}}" readonly class="form-control">
              @endforeach
             @endforeach
            
@@ -45,7 +45,7 @@
             <label> Client Name</label>
           
             @foreach($client as $clients)
-          <input type="text" value="{{$clients->clfname}} {{$clients->clmname}} {{$clients->cllname}}" readonly>  
+          <input type="text" value="{{$clients->clfname}} {{$clients->clmname}} {{$clients->cllname}}" readonly class="form-control">  
             @endforeach
           
         </div>
@@ -53,7 +53,7 @@
        
           <div class="col-md-6">
             <label>Schedule Type</label>
-           <input type="text" value ="{{$schedules->type}}" readonly>
+           <input type="text" value ="{{$schedules->type}}" readonly class="form-control">
             <br>
         </div>
        

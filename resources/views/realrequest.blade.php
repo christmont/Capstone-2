@@ -53,13 +53,14 @@
 				</div>
 				
 
-				<footer style="margin-bottom: 80px; text-align: center;">
+				<footer>
+					<center>
 					        <a class="btn btn-default btnPrevious" >Back</a>
-
 					        <a id="notary" style="display:none" href="/show/clientnotary" class="btn btn-green">Next</a>	
-					         <a id="or" style = "display:none" class="btn btn-green btnNext" style = "display:none" >Next</a>
-					         <br><br>
-				    </footer>
+					        <a id="or" class="btn btn-green btnNext" style = "display:none;">Next</a>
+					        <br><br>
+					</center>
+				</footer>
 				 
 			</div>
 		</div>
@@ -178,8 +179,6 @@
 				</div>
 			</div>
 			<footer style="margin-bottom: 80px; text-align: center;">
-
-					         <a class="btn btn-default btnPrevious" >Back</a>
                              <button type="submit" class="btn btn-green ">Submit</button>
                              <div id = "ifMarried"  style="display:none;">
 					         <a  class="btn btn-green btnNext" >Next</a><br><br><br>
