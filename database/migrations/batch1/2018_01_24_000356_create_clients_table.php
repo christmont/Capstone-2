@@ -41,6 +41,7 @@ class CreateClientsTable extends Migration
             $table->string('clcity',50)->nullable();
             $table->string('clctcno',50)->nullable();
             $table->string('clnotarydate',50)->nullable();
+            $table->string('documenttype',50)->nullable();
             $table->timestamps();
         });
     }

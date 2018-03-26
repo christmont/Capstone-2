@@ -13,7 +13,7 @@
 						<li><a href="#">Tables</a></li>
 						<li class="active">Client</li>
 						<div class="pull-right">
-							<a  class="btn btn-green" href="/lawyer/monthly/report" ><i class="fa fa-print"></i> Monthly  Case Inventory</a>
+							<a  class="btn btn-green" href="/print/monthly" ><i class="fa fa-print"></i> Monthly  Case Inventory</a>
 						</div>
 					</ol>
 				</header>

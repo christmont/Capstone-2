@@ -56,8 +56,9 @@
 				<footer>
 					<center>
 					        <a class="btn btn-default btnPrevious" >Back</a>
-					        <a id="notary" style="display:none" href="/show/clientnotary" class="btn btn-green">Next</a>	
-					        <a id="or" class="btn btn-green btnNext" style = "display:none;">Next</a>
+					        <a id="notary" style="display:none" href="/show/clientnotary" class="btn btn-green">Next</a>
+					        <a id="docu" style="display:none" href="/show/docu" class="btn btn-green">Next</a>
+							<a id="or" class="btn btn-green btnNext" style = "display:none;">Next</a>
 					        <br><br>
 					</center>
 				</footer>
@@ -369,14 +370,23 @@ var strUser = e.options[e.selectedIndex].value;
     	 	document.getElementById('notary').style.display = 'block';
     	 	document.getElementById('or').style.display = 'none';
     	 	document.getElementById('tab').style.display = 'none';
+    	 	document.getElementById('docu').style.display = 'none';
 
     	 
+    }
+    else if(nor.value == 'Legal Documentation')
+    {
+    		document.getElementById('docu').style.display = 'block';
+    	 	document.getElementById('or').style.display = 'none';
+    	 	document.getElementById('tab').style.display = 'none';
+    	 	document.getElementById('notary').style.display = 'none';
     }
     else
     {
     	document.getElementById('or').style.display = 'block';
     	document.getElementById('tab').style.display = 'block';
     	document.getElementById('notary').style.display = 'none';
+    	document.getElementById('docu').style.display = 'none';
     }
 }
    </script>

@@ -35,14 +35,14 @@ tr:nth-child(even) {
 		<h5>Regional Office No. NCR<br>
 		QUEZON CITY District Office</h5>
 		<br>
-		<h4><b>Monthly INVENTORY OF CASES</b></h4>
+		<h4><b>MONTHLY INVENTORY OF CASES</b></h4>
 		<h5>For the month {{$month}}</h5><br>
 	</center>
 	<div class="pull-left">
-		@foreach($client as $key => $clients)
-		<h4>{{$clients->efname}} {{$clients->emname}} {{$clients->elname}}</h4>
-		@endforeach
-		<h5>A. CRIMINAL</h5>
+		
+		<h4>{{$lawyer}}</h4>
+		
+	
 	<table class="table table-striped table-hover table-bordered" id="sample_editable_1" style="font-size: 10px">
 		<tr>
 			<th>ITEM NO.</th>
@@ -51,57 +51,59 @@ tr:nth-child(even) {
 			<th>SEX</th>
 			<th>TITLE</th>
 			<th>COURT</th>
+			<th>NATURE OF CASE</th>
 			<th>CASE NO.</th>
 			<th>CAUSE OF ACTION</th>
 			<th>STATUS</th>
 			<th>DATE</th>
 			<th>DECISION</th>
 		</tr>
-		@foreach($client as $key => $clients)
-		 @foreach($criminalcourts as $criminalcourt )
+		@foreach($monthlyreports as $key => $monthlyreport)
+		 @foreach($courts as $court )
 		<tr>
             
-			<td>{{$key +1}}</td>
-			<td>{{$clients->control_number}}</td>
-			<td>{{$clients->clfname}} {{$clients->clmname}} {{$clients->cllname}}</td>
-			<td>{{$clients->clgender}}</td>
-			<td>{{$clients->title}}</td>
-			<td> {{$criminalcourt->name}}</td>
-			<td>{{$clients->caseno}}</td>
-			<td>{{$clients->casename}}</td>
-			<td>{{$clients->case_status}}</td>
+			<td>{{$key + 1 }}</td>
+			<td>{{$monthlyreport->control_number}}</td>
+			<td>{{$monthlyreport->clfname}} {{$monthlyreport->clmname}} {{$monthlyreport->cllname}}</td>
+			<td>{{$monthlyreport->clgender}}</td>
+			<td>{{$monthlyreport->title}}</td>
+			<td> {{$court->name}}</td>
+			<td>{{$monthlyreport->nature_of_case}}</td>
+			<td>{{$monthlyreport->caseno}}</td>
+			<td>{{$monthlyreport->casename}}</td>
+			<td>{{$monthlyreport->case_status}}</td>
 			<td>
-				@if($client->case_status == 'Arraignment') 
+				@if($monthlyreport->case_status == 'Arraignment') 
 											
-											{{$client->arraignmentDate}} 
+											{{$monthlyreport->arraignmentDate}} 
 										    
-											@elseif ($client->case_status == 'Preliminary Conference') 
+											@elseif ($monthlyreport->case_status == 'Preliminary Conference') 
 											
-											{{$client->prelimconfDate}}
+											{{$monthlyreport->prelimconfDate}}
 											
-											@elseif ($client->case_status == 'Pre-trial') 
+											@elseif ($monthlyreport->case_status == 'Pre-trial') 
 											
-											{{$client->pretrailDate}}
+											{{$monthlyreport->pretrailDate}}
 											
-											@elseif ($client->case_status == 'Initial Trial') 
+											@elseif ($monthlyreport->case_status == 'Initial Trial') 
 											
-											{{$client->inittrialdate}}
+											{{$monthlyreport->inittrialdate}}
 											
-											@elseif ($client->case_status == 'Trial Proper(Prosecution Evidence)') 
+											@elseif ($monthlyreport->case_status == 'Trial Proper(Prosecution Evidence)') 
 											
-											{{$client->prosecevidence}}
+											{{$monthlyreport->prosecevidence}}
 											
-											@elseif ($client->case_status == 'Trial Proper(Defense Evidence)') 
+											@elseif ($monthlyreport->case_status == 'Trial Proper(Defense Evidence)') 
 											
-											{{$client->defevidence}}
+											{{$monthlyreport->defevidence}}
 											
-											@elseif ($client->case_status == 'Promulgation') 
+											@elseif ($monthlyreport->case_status == 'Promulgation') 
 											
-											{{$client->promulgation}}
+											{{$monthlyreport->promulgation}}
 											
 											@endif
 			</td>
-			<td>{{$client->decision}}</td>
+			<td>{{$monthlyreport->decision}}</td>
 
 		</tr>
 		@endforeach
@@ -109,203 +111,7 @@ tr:nth-child(even) {
 		
 	</table>
 	
-		<h5>B. CIVIL</h5>
-	<table class="table table-striped table-hover table-bordered" id="sample_editable_1" style="font-size: 10px">
-		<tr>
-			<th>ITEM NO.</th>
-			<th>CTRL NO.</th>
-			<th>PARTY REPRESENTED</th>
-			<th>SEX</th>
-			<th>TITLE</th>
-			<th>COURT</th>
-			<th>CASE NO.</th>
-			<th>CAUSE OF ACTION</th>
-			<th>STATUS</th>
-			<th>DATE</th>
-			<th>DECISION</th>
-		</tr>
-		@foreach($civilclients as $key => $civilclient)
-		 @foreach($civilcourts as $civilcourt )
-		<tr>
-            
-			<td>{{$key +1}}</td>
-			<td>{{$civilclient->control_number}}</td>
-			<td>{{$civilclient->clfname}} {{$civilclient->clmname}} {{$civilclient->cllname}}</td>
-			<td>{{$civilclient->clgender}}</td>
-			<td>{{$civilclient->title}}</td>
-			<td> {{$civilcourt->name}}</td>
-			<td>{{$civilclient->caseno}}</td>
-			<td>{{$civilclient->casename}}</td>
-			<td>{{$civilclient->case_status}}</td>
-			<td>
-				@if($civilclient->case_status == 'Arraignment') 
-											
-											{{$civilclient->arraignmentDate}} 
-										    
-											@elseif ($civilclient->case_status == 'Preliminary Conference') 
-											
-											{{$civilclient->prelimconfDate}}
-											
-											@elseif ($civilclient->case_status == 'Pre-trial') 
-											
-											{{$civilclient->pretrailDate}}
-											
-											@elseif ($civilclient->case_status == 'Initial Trial') 
-											
-											{{$civilclient->inittrialdate}}
-											
-											@elseif ($civilclient->case_status == 'Trial Proper(Prosecution Evidence)') 
-											
-											{{$civilclient->prosecevidence}}
-											
-											@elseif ($civilclient->case_status == 'Trial Proper(Defense Evidence)') 
-											
-											{{$civilclient->defevidence}}
-											
-											@elseif ($civilclient->case_status == 'Promulgation') 
-											
-											{{$civilclient->promulgation}}
-											
-											@endif
-			</td>
-			<td>{{$civilclient->decision}}</td>
-		</tr>
-		@endforeach
-		 @endforeach
-		
-		
-	</table>
-		<h5>C. LABOR</h5>
-	<table class="table table-striped table-hover table-bordered" id="sample_editable_1" style="font-size: 10px">
-		<tr>
-			<th>ITEM NO.</th>
-			<th>CTRL NO.</th>
-			<th>PARTY REPRESENTED</th>
-			<th>SEX</th>
-			<th>TITLE</th>
-			<th>COURT</th>
-			<th>CASE NO.</th>
-			<th>CAUSE OF ACTION</th>
-			<th>STATUS</th>
-			<th>DATE</th>
-			<th>DECISION</th>
-
-		</tr>
-		@foreach($laborclients as $key => $laborclient)
-		 @foreach($laborcourts as $laborcourt )
-		<tr>
-            
-			<td>{{$key +1}}</td>
-			<td>{{$laborclient->control_number}}</td>
-			<td>{{$laborclient->clfname}} {{$laborclient->clmname}} {{$laborclient->cllname}}</td>
-			<td>{{$laborclient->clgender}}</td>
-			<td>{{$laborclient->title}}</td>
-			<td> {{$laborcourt->name}}</td>
-			<td>{{$laborclient->caseno}}</td>
-			<td>{{$laborclient->casename}}</td>
-			<td>{{$laborclient->case_status}}</td>
-			<td>
-				@if($laborclient->case_status == 'Arraignment') 
-											
-											{{$laborclient->arraignmentDate}} 
-										    
-											@elseif ($laborclient->case_status == 'Preliminary Conference') 
-											
-											{{$laborclient->prelimconfDate}}
-											
-											@elseif ($laborclient->case_status == 'Pre-trial') 
-											
-											{{$laborclient->pretrailDate}}
-											
-											@elseif ($laborclient->case_status == 'Initial Trial') 
-											
-											{{$laborclient->inittrialdate}}
-											
-											@elseif ($laborclient->case_status == 'Trial Proper(Prosecution Evidence)') 
-											
-											{{$laborclient->prosecevidence}}
-											
-											@elseif ($laborclient->case_status == 'Trial Proper(Defense Evidence)') 
-											
-											{{$laborclient->defevidence}}
-											
-											@elseif ($laborclient->case_status == 'Promulgation') 
-											
-											{{$laborclient->promulgation}}
-											
-											@endif
-			</td>
-			<td>{{$laborclient->decision}}</td>
-		</tr>
-		@endforeach
-		 @endforeach
-		
-	</table><br>
-	</table>
-		<h5>D. ADMINISTRATIVE</h5>
-	<table class="table table-striped table-hover table-bordered" id="sample_editable_1" style="font-size: 10px">
-		<tr>
-			<th>ITEM NO.</th>
-			<th>CTRL NO.</th>
-			<th>PARTY REPRESENTED</th>
-			<th>SEX</th>
-			<th>TITLE</th>
-			<th>COURT</th>
-			<th>CASE NO.</th>
-			<th>CAUSE OF ACTION</th>
-			<th>STATUS</th>
-			<th>DATE</th>
-			<th>DECISION</th>
-		</tr>
-		@foreach($administrativeclients as $key=> $administrativeclient)
-		 @foreach($administrativecourts as $administrativecourt )
-		<tr>
-            <td>{{$key +1}}</td>
-			<td>{{$administrativeclient->control_number}}</td>
-			<td>{{$administrativeclient->clfname}} {{$administrativeclient->clmname}} {{$administrativeclient->cllname}}</td>
-			<td>{{$administrativeclient->clgender}}</td>
-			<td>{{$administrativeclient->title}}</td>
-			<td> {{$administrativecourt->name}}</td>
-			<td>{{$administrativeclient->caseno}}</td>
-			<td>{{$administrativeclient->casename}}</td>
-			<td>{{$administrativeclient->case_status}}</td>
-			<td>
-				@if($administrativeclient->case_status == 'Arraignment') 
-											
-											{{$administrativeclient->arraignmentDate}} 
-										    
-											@elseif ($administrativeclient->case_status == 'Preliminary Conference') 
-											
-											{{$administrativeclient->prelimconfDate}}
-											
-											@elseif ($administrativeclient->case_status == 'Pre-trial') 
-											
-											{{$administrativeclient->pretrailDate}}
-											
-											@elseif ($administrativeclient->case_status == 'Initial Trial') 
-											
-											{{$administrativeclient->inittrialdate}}
-											
-											@elseif ($administrativeclient->case_status == 'Trial Proper(Prosecution Evidence)') 
-											
-											{{$administrativeclient->prosecevidence}}
-											
-											@elseif ($administrativeclient->case_status == 'Trial Proper(Defense Evidence)') 
-											
-											{{$administrativeclient->defevidence}}
-											
-											@elseif ($administrativeclient->case_status == 'Promulgation') 
-											
-											{{$administrativeclient->promulgation}}
-											
-											@endif
-			</td>
-			<td>{{$criminalclient->decision}}</td>
-		</tr>
-		@endforeach
-		 @endforeach
-		
-	</table ><br><br>
+	<br><br>
 	
 	<div class="col-md-6 col-sm-6 text-left">
 		<h5>Submitted by:</h5>

@@ -86,7 +86,7 @@
                             </a>
                             <ul><!-- submenus -->
                                 <li><a href="/show/mostcasetype">Most cases handled by case type</a></li>
-                                <li><a href="/managecase">Most cases handled by lawyer</a></li>
+                                <li><a href="/show/lawyercases">Most cases handled by lawyer</a></li>
                                 <li><a href="/show/pendingcase">Pending Cases</a></li>
                                </ul>
                         </li>

@@ -8,7 +8,7 @@
 
 				<!-- page title -->
 				<header id="page-header">
-					<h1> Most Cases Handled by Case Type</h1>
+					<h1> Most Cases Handled by Lawyers</h1>
 					<ol class="breadcrumb">
 						<li><a href="#"> Queries</a></li>
 						<li class="active"> Case Type</li>
@@ -58,41 +58,19 @@
 							<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
 								<thead>
 									<tr>
-										<th>Case Type</th>
+										<th>Lawyer Name</th>
 										<th>Case Name</th>
 										<th>Count</th>
 									</tr>
 								</thead>
 								<tbody>
+									@foreach($lawyercase as $lawyercases)
 									<tr>
-									@foreach($criminalcount as $criminalcounts)
-									@foreach($civilcount as $civilcounts)
-									@foreach($laborcount as $laborcounts)
-									@foreach($administrativecount as $administrativecounts)
-									
-										<td>{{$criminalcounts->casetype}}</td>
-										<td>{{$criminalcounts->casename}}</td>
-										<td>{{$criminalcounts->count}}</td>
+										<td>{{$lawyercases->lawyer}}</td>
+										<td>{{$lawyercases->casename}}</td>
+										<td>{{$lawyercases->count}}</td>
 									</tr>
-									<tr>
-										<td>{{$civilcounts->casetype}}</td>
-										<td>{{$civilcounts->casename}}</td>
-										<td>{{$civilcounts->count}}</td>
-									</tr>
-									<tr>
-										<td>{{$laborcounts->casetype}}</td>
-										<td>{{$laborcounts->casename}}</td>
-										<td>{{$laborcounts->count}}</td>
-									</tr>
-										<td>{{$administrativecounts->casetype}}</td>
-										<td>{{$administrativecounts->casename}}</td>
-										<td>{{$administrativecounts->count}}</td>
-									
 									@endforeach
-									@endforeach
-									@endforeach
-									@endforeach
-
 								</tbody>
 							</table>
 

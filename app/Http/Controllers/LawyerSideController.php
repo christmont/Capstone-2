@@ -194,6 +194,39 @@ class LawyerSideController extends Controller
                                  ->withlawyer($lawyer)
                                  ->withschedules($schedules);
     }
+     public function monthly()
+    {
+      $lawyer = Auth::user()->efname . ' ' . Auth::user()->emname . ' ' . Auth::user()->elname;
+      
+        $monthlyreports = DB::table('employeeclients')
+                      ->where([['employees.id',Auth::user()->id],['clients.nature_of_request','Representation of quasi-judicial bodies']])
+                      ->orwhere([['employees.id',Auth::user()->id],['nature_of_request','Legal Assistance']])
+                      ->orwhere([['employees.id',Auth::user()->id],['nature_of_request','Mediation']])
+                      ->join('employees','employees.id','=','employeeclients.employee_id')
+                      ->join('clients','clients.id','=','employeeclients.client_id')
+                      ->join('casetobehandleds','casetobehandleds.client_id','=','employeeclients.client_id')
+                      ->get();
+         foreach($monthlyreports as $monthlyreport)
+                      {
+        $courts = DB::table('courts')
+                             ->where('id',$monthlyreport->court_id)
+                             ->get();
+                      }     
+
+       $date = date('F j Y',strtotime(Carbon::now()));
+      $month = date('F',strtotime(Carbon::now()));
+      
+       $pdf = PDF::loadView('reports.monthly', [
+                                                'monthlyreports'=>$monthlyreports,
+                                                'courts'=>$courts,
+                                                'month'=>$month,
+                                                 'date'=>$date,
+                                                 'lawyer' =>$lawyer,
+        
+       ]);
+        return $pdf->stream();
  
+
+}
 
 }

@@ -203,6 +203,7 @@ Route::get('/lawyerside/show','LawyerSideController@home');
 Route::get('lawyer/clientview/{id}','LawyerSideController@lawyerclientview')->name('lawyer.clientview');
 Route::get('/lawyer/edit/case/{id}','LawyerSideController@editcase')->name('lawyer.showeditcase');
 Route::get('/lawyer/edit/sched/{id}','LawyerSideController@lawyershowschededit')->name('lawyer.showeditsched');
+Route::get('/print/monthly','LawyerSideController@monthly');
 
 
 
@@ -218,14 +219,21 @@ Route::get('/print/yearend','ReportController@reportprint');
 Route::get('/show/bycourt','ReportController@courtcase');
 Route::get('/print/bycourt','ReportController@printcasecourt');
 
+
 Route::get('/show/inquestform','InquestController@showinquestform');
 Route::get('/show/inquesttable','InquestController@showinquesttable');
+Route::post('/register/inquest','InquestController@inquestreg');
 
+Route::get('show/lawyercases','QueriesController@lawyercase');
 Route::get('show/mostcasetype','QueriesController@mostcasetype');
 Route::get('show/pendingcase','QueriesController@pendingcase');
 
 Route::get('/show/clientnotary','RegisterController@shownotaryclientreg');
 Route::post('/notary/register','RegisterController@notaryclientreg');
+
+Route::get('/show/docu','DocumentController@showdocuclientreg');
+Route::post('/docu/register','DocumentController@docuclientreg');
+
 
 
 //Route::resource('clients', 'ClientController');
