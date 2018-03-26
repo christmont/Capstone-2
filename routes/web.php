@@ -205,6 +205,7 @@ Route::get('/lawyer/edit/case/{id}','LawyerSideController@editcase')->name('lawy
 Route::get('/lawyer/edit/sched/{id}','LawyerSideController@lawyershowschededit')->name('lawyer.showeditsched');
 
 
+
 Route::get('/lawyer/show','RegisterController@showlawyer');
 Route::get('/transfer/show/{id}','ManageCaseController@showcasetransfer')->name('showcasetransfer');
 Route::put('/case/transfer/{id}','ManageCaseController@casetransfer')->name('casetransfer');

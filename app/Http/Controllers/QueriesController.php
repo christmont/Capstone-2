@@ -52,4 +52,8 @@ class QueriesController extends Controller
       
       return view('Queries.pendingcases')->withpending($pending);
     }
+    public function lawyercase()
+    {
+        
+    }
 }

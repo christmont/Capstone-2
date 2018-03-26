@@ -16,6 +16,8 @@ use App\Schedule;
 use App\Notary;
 use DB;
 use App\scheduletype;
+use Carbon\Carbon;
+use PDF;
 
 class LawyerSideController extends Controller
 {
@@ -154,7 +156,7 @@ class LawyerSideController extends Controller
         {
       
               }
-          
+        
         
   }    $client = Client::where([['nature_of_request','Mediation'],['cl_status','Approved'],['id',$employeeclient->client_id]])
                         ->orwhere([['nature_of_request','Representation of quasi-judicial bodies '],['cl_status','Approved'],['id',$employeeclient->client_id]])
@@ -192,4 +194,6 @@ class LawyerSideController extends Controller
                                  ->withlawyer($lawyer)
                                  ->withschedules($schedules);
     }
+ 
+
 }

@@ -514,4 +514,27 @@ class ReportController extends Controller
        ]);
         return $pdf->stream();
     }
+    public function monthly()
+    {
+      $lawyerclients = Auth::user()->id;
+      
+        $client = DB::table('employeeclients')
+                      ->where([['employees.id',Auth::user()->id],['clients.nature_of_request','Representation of quasi-judicial bodies']])
+                      ->orwhere([['employees.id',Auth::user()->id],['nature_of_request','Legal Assistance']])
+                      ->orwhere([['employees.id',Auth::user()->id],['nature_of_request','Mediation']])
+                      ->join('employees','employees.id','=','employeeclients.employee_id')
+                      ->join('clients','clients.id','=','employeeclients.client_id')
+                      ->join('casetobehandleds','casetobehandleds.client_id','=','employeeclients.client_id')
+                      ->get();
+       $date = date('F j Y',strtotime(Carbon::now()));
+      $month = date('',strtotime(Carbon::now()));
+      
+       $pdf = PDF::loadView('reports.monthly', [
+                                                'client'=>$client,
+                                                'month'=>$month,
+                                                 'date'=>$date,
+        
+       ]);
+        return $pdf->stream();
+    }
 }
