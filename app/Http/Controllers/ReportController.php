@@ -519,7 +519,7 @@ class ReportController extends Controller
       $lawyerclients = Auth::user()->id;
       
         $client = DB::table('employeeclients')
-                      ->where([['employees.id',Auth::user()->id],['clients.nature_of_request','Representation of quasi-judicial bodies']])
+                      ->where([['employees.id',Auth::user()->id],['clients.nature_of_request','Representation of quasi-judicial bodies'],['nature_of_case','Criminal']])
                       ->orwhere([['employees.id',Auth::user()->id],['nature_of_request','Legal Assistance']])
                       ->orwhere([['employees.id',Auth::user()->id],['nature_of_request','Mediation']])
                       ->join('employees','employees.id','=','employeeclients.employee_id')
