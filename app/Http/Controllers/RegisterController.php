@@ -970,10 +970,21 @@ class RegisterController extends Controller
      
         $lawyer = Employee::where('position','Lawyer')
                           ->with('schedules')
+
                           ->get();
+
+    
+          
+        
        
         foreach($lawyer as $lawyers)
         {
+          // foreach($lawyers->schedules as $schedules)
+          // {
+          //     $schedule = Schedule::where('id',$schedules->id)
+          //                 ->orderBy('start','asc')
+          //                 ->get();
+          // }
         $employeeclients = employeeclients::where('employee_id',$lawyers->id)->get();
 
         foreach($employeeclients as $employeeclient)
@@ -988,7 +999,7 @@ class RegisterController extends Controller
                         ->with('casetobehandled')
                         ->get();
 
-        
+        // return $schedule;
          return view('maintenance.schedules')->withLawyer($lawyer)
                                             // ->withschedules($schedules)
                                             ->withClient($client);

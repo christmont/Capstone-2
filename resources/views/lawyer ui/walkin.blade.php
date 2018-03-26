@@ -64,7 +64,7 @@
 								<thead>
 									<tr>
 										<th>Full Name</th>
-										<th>Nature of Request</th>
+										<th>Document</th>
 										<th>Print</th>
 										<th>View</th>
 									</tr>
@@ -81,7 +81,7 @@
 											 
 										</td>
 										<td>
-											 {{$client->nature_of_request}}
+											 {{$client->documenttype}}
 										</td>
 										
 										
