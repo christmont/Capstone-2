@@ -114,7 +114,7 @@ class LawyerSideController extends Controller
       return view('lawyer ui.managecase')->withAllcases($allcases);
     }
     
-    public function editcase($id)
+    public function lawyereditcase($id)
     {
       $editcase = Client::find($id);
      
@@ -188,7 +188,7 @@ class LawyerSideController extends Controller
                         ->orwhere([['nature_of_request','Legal Assistance '],['cl_status','Approved'],['id',$schedules->client_id]])
                         ->with('casetobehandled')
                         ->get();
-                       
+                     
         return view('lawyer ui.reschedule')->withClient($client)
                                  ->withscheduletype($scheduletype)
                                  ->withlawyer($lawyer)
@@ -228,5 +228,128 @@ class LawyerSideController extends Controller
  
 
 }
+
+public function lawyerschededit($id, Request $request)
+    {
+       
+ 
+        $sched = Schedule::find($id);
+
+        $sched-> employee_id = $request->lawyer;
+        $sched-> type = $request->schedtype;
+        $sched-> start = $request->start;
+        $sched-> end = $request->end;
+        $sched-> client_id = $request->client;
+        $sched-> controlno =$request->con;
+        $sched->save();
+        
+        //Flashy::success('Succesfully edited guest', '#');
+       return redirect('/lawyerschedule/show');
+    }
+
+    public function lawyerupdatecase(Request $request,$id)
+    {
+     $client = Client::find($id);
+            $client-> clfname = $request->cfname;
+            $client-> clmname = $request->cmname;
+            $client-> cllname = $request->clname;
+      
+            $client-> clreligion = $request->religion;
+            $client-> clcitizenship = $request->citizenship;
+            $client-> claddress = $request->Address;
+            $client-> clemail = $request->Email;
+            $client-> clmonthly_net_income = $request->Income;
+
+            $client-> cldetained = $request->detain;
+            $client-> cldetained_since = $request->DetainedDate;
+            $client-> clbdate = $request->Birthday;
+            $client-> clgender = $request->gender;
+            $client-> clcivil_status = $request->cstat;
+            $client-> cleducational_attainment = $request->educ;
+            $client-> cllanguage = $request->language;
+            $client-> clcontact_no = $request->Contact;
+            $client-> clspouse = $request->clspouse;
+            $client-> claddress_of_spouse = $request->claddress_of_spouse;
+            $client-> clcontact_no_of_spouse = $request->clcontact_no_of_spouse;
+            $client-> clplace_of_detention = $request->DetainedPlace;
+            $client-> nature_of_request = $request->nor;
+
+            $client ->save();
+      
+       $clientid = $client->id;
+    $date = Carbon::now();
+      $updatecase = casetobehandled::where('client_id',$clientid)->get(); 
+        
+      foreach ($updatecase as $key => $value) 
+      {
+        
+      
+      $value-> caseno = $request->caseno;
+      $value-> title = $request->casetitle;
+      $value-> casename = $request->lawsuit;
+      $value-> interviewer = $request->interviewer;
+      $value-> clcomplainant_victim_of = $request->casecategory;
+      $value-> nature_of_case = $request->casetype;
+      $value-> clcase_involvement = $request->involvement;
+      $value-> case_status = $request->casestatus2;
+      $value-> decision = $request->decision;
+      if($request->casestatus2 == 'Arraignment')
+      {
+      $value-> arraignmentDate = $date;
+      }
+      elseif ($request->casestatus2 == 'Preliminary Conference') 
+      {
+      $value-> prelimconfDate = $date;
+      }
+      elseif ($request->casestatus2 == 'Pre-trial') 
+      {
+      $value-> pretrialDate = $date;
+      }
+       elseif ($request->casestatus2 == 'Initial Trial') 
+      {
+      $value-> inittrialdate = $date;
+      }
+       elseif ($request->casestatus2 == 'Trial Proper(Prosecution Evidence)') 
+      {
+      $value-> prosecevidence = $date;
+      }
+      elseif ($request->casestatus2 == 'Trial Proper(Defense Evidence)') 
+      {
+      $value-> defevidence = $date;
+      }
+      elseif ($request->casestatus2 == 'Promulgation') 
+      {
+      $value-> promulgation = $date;
+      }
+      $value ->save();
+      }
+      $clientadverse = clientadverse::where('client_id',$clientid)->get();
+                                        foreach($clientadverse as $clientadverses)
+                                        {
+                                        $updateadverses = Adverse::where('id',$clientadverses->id)->get();
+
+                                        }
+      
+      foreach ($updateadverses as $updateadverse) 
+      { 
+
+      $updateadverse->advprtytype = $request->type;
+      $updateadverse->advprtyfname = $request->fname;
+      if(!empty($request->mname)){
+      $updateadverse->advprtymname = $request->mname;
+                                }
+      $updateadverse->advprtylname = $request->lname;
+      $updateadverse->advprtyaddress = $request->addr;
+      $updateadverse->save();
+      }
+      
+      
+      
+      
+      return redirect('/lawyershow/managecase');
+         
+
+
+    }
 
 }

@@ -16,7 +16,7 @@
         
          
           
-        <form action="{{ route('schededit',$schedules->id) }}" method= "post">
+        <form action="{{ route('lawyer.editsched',$schedules->id) }}" method= "post">
         {{csrf_field()}}
         {{ method_field('PUT') }}
         <div class="form-group">
@@ -24,7 +24,8 @@
             <label> Lawyer Name</label>
            
             @foreach($lawyer as $lawyers)
-            <input type="text" value="{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}" readonly class="form-control">
+            <input type="hidden" name = "lawyer" value="{{$lawyers->id}}" >
+            <input type="text" value="{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}"  readonly class="form-control">
             @endforeach
            <br>
         </div>
@@ -32,11 +33,11 @@
         <div class="col-md-6">
             <label> Control Number</label>
           
-            @foreach($client as $clients)
-             @foreach($clients->casetobehandled as $con)
-            <input type="text" value ="{{$con->control_number}}" readonly class="form-control">
+             @foreach($client as $clients)
+             @foreach($clients->casetobehandled as $case)
+             <input type="text" value ="{{$case->control_number}}" name = "con" readonly class="form-control">
              @endforeach
-            @endforeach
+             @endforeach
            
            <br>
         </div>
@@ -45,6 +46,7 @@
             <label> Client Name</label>
           
             @foreach($client as $clients)
+             <input type="hidden" name = "client" value="{{$clients->id}}" >
           <input type="text" value="{{$clients->clfname}} {{$clients->clmname}} {{$clients->cllname}}" readonly class="form-control">  
             @endforeach
           
@@ -53,7 +55,7 @@
        
           <div class="col-md-6">
             <label>Schedule Type</label>
-           <input type="text" value ="{{$schedules->type}}" readonly class="form-control">
+           <input type="text" value ="{{$schedules->type}}" name= "schedtype" readonly class="form-control">
             <br>
         </div>
        

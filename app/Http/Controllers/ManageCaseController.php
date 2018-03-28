@@ -26,11 +26,12 @@ class ManageCaseController extends Controller
       
       $cases = casetobehandled::where('decision','=',null)->with('client')->get();
     
-
+      $client = Client::all();
       
     
       return view('managecase') ->withcases($cases)
-                                ;
+                                ->withallcases($allcases)
+                                ->withclient($client);
                               
     
   }

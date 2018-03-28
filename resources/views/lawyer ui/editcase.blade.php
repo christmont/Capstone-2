@@ -23,7 +23,7 @@
 			
 		</ul>
 		@foreach($clients as $client)
-		 <form action="{{ route('updatecase',$client->id) }}" id="client" method="post">  
+		 <form action="{{ route('lawyerupdatecase',$client->id) }}" id="client" method="post">  
       {{ csrf_field() }}
       {{ method_field('PUT') }}
 		<div id="nature" class="tab-content">
@@ -231,7 +231,7 @@
 			                   @endforeach
 				<div class="col-md-6">
 					<label> Case Status</label>
-					<select name="casestatus" class="form-control " required onchange="if (this.value=='edu'){this.form['edu'].style.visibility='visible'}else {this.form['edu'].style.visibility='hidden'};">
+					<select name="casestatus2" class="form-control " required onchange="if (this.value=='edu'){this.form['edu'].style.visibility='visible'}else {this.form['edu'].style.visibility='hidden'};">
 					<option value="" selected="selected"></option>
 					@foreach($status as $stat)
       <option value="{{$stat->name}}">{{$stat->name}}</option>

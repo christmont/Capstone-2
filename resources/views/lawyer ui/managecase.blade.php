@@ -73,7 +73,7 @@
 										</td>
 									    
 										<td>
-											  	<a class="btn btn-primary"  href="{{route('lawyer.showeditcase',$allcase->id)}}">
+											  	<a class="btn btn-primary"  href="{{route('lawyer.showeditcase',$allcase->client_id)}}">
 											  	<i class="fa fa-pencil"></i> Edit</a>
 										</td>
 
