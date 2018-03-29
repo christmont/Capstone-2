@@ -78,7 +78,6 @@
 									<tbody>
 									<tr>
 										<td>
-<<<<<<< HEAD
 											<div class="btn-group" role="group" aria-label="Basic example">
 			  								<a  class="btn btn-primary" href="{{ route('showsched',$schedules->id) }}">Reschedule</a>
 			  								<a  class="btn btn-warning" href="{{ route('showsched',$schedules->id) }}">Edit</a>
@@ -89,20 +88,6 @@
 														Delete </button>
 													</form>
 											</div>
-=======
-								<div class="btn-group" role="group" aria-label="Basic example">
-  							<a  class="btn btn-primary" href="{{ route('showsched',$schedules->id) }}">Reschedule</a>
-  							@foreach($inquest as $inquests)
-  							<a  class="btn btn-warning" href="{{ route('showsched',$inquests->id) }}">Edit</a>
-  							@endforeach
- 	 									<form action="{{ route('deletesched',$schedules->id) }}" method = "post">
-												{{ csrf_field() }}
-        									{{ method_field('DELETE') }}
-											<button type ="submit" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?')" href="{{ route('deletesched',$schedules->id) }}">
-											Delete </button>
-										</form>
-								</div>
->>>>>>> 70337c23dd96c9a589d12df548d21cb7163d7415
 										</td>
 										<td>{{date('j',strtotime($schedules->start))}}</td>
 										<td> {{date('l',strtotime($schedules->start))}} </td>
