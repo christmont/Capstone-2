@@ -1100,6 +1100,14 @@ class RegisterController extends Controller
         $inquest = new Inquest;
         $inquest-> location = $request->location;
         $inquest-> natureofcalls = $request->noc;
+        if($request->noc == 'Legal Advice')
+        {
+        $inquest-> actiontaken = "Adviced";
+        }
+        else
+        {
+        $inquest-> actiontaken = "Assisted";
+        }
         $inquest-> client_id = $request->inquest;
         $inquest-> employee_id =$request->lawyer;
         $inquest-> lawyer = $request->secondlawyer;

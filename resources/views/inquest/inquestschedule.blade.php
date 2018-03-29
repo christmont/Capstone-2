@@ -41,7 +41,9 @@
 										<td>
 								<div class="btn-group" role="group" aria-label="Basic example">
   							<a  class="btn btn-primary" href="{{ route('showsched',$schedules->id) }}">Reschedule</a>
-  							<a  class="btn btn-warning" href="{{ route('showsched',$schedules->id) }}">Edit</a>
+  							@foreach($inquest as $inquests)
+  							<a  class="btn btn-warning" href="{{ route('showsched',$inquests->id) }}">Edit</a>
+  							@endforeach
  	 									<form action="{{ route('deletesched',$schedules->id) }}" method = "post">
 												{{ csrf_field() }}
         									{{ method_field('DELETE') }}
