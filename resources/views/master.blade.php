@@ -75,16 +75,6 @@
 
         </div>
 
-                <footer class="footer">
-                        <div class="row">   <br>
-                    <STRONG><h7  class="pull-right">PUBLIC ATTORNEY'S OFFICE</h7></STRONG>
-                    </div>
-                </footer>
-
-    
-        <!-- JAVASCRIPT FILES -->
-
-       
         <!-- PAGE LEVEL SCRIPT -->
         <script type="text/javascript" src="{{URL::asset('js/scripts.js')}}"></script>
         <script type= "text/javascript" src="{{asset('js/jquery-3.3.1.min.js') }}"></script>   

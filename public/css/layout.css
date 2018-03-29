@@ -2624,16 +2624,21 @@ ul.easypiecharts li span.stat-title {
    text-align: center;
 }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
-	    color:#eeeeee;
+	color:#eeeeee;
     cursor: default;
-    background-color: #346635;
     border: 1px solid #ddd;
     border-bottom-color: transparent;
 }
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a.hoverable:hover{
-color:#eeeeee;
+.nav-tabs>li.active>a.hoverable:hover{
+	color:#eeeeee;
     cursor: default;
-    background-color: #182634;
     border: 1px solid #ddd;
     border-bottom-color: transparent;
+}
+.nav-tabs>li.active>a.hoverable{
+	background-color: #182634;
+	cursor: default;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a{
+    background-color: #204920;	
 }
