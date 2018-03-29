@@ -369,11 +369,13 @@ class UpdateController extends Controller
                         ->orwhere([['nature_of_request','Legal Assistance '],['cl_status','Approved'],['id',$schedules->client_id]])
                         ->with('casetobehandled')
                         ->get();
+         $inquest = Client::where('nature_of_request','Inquest')->get();
                        
         return view('reschedule')->withClient($client)
                                  ->withscheduletype($scheduletype)
                                  ->withlawyer($lawyer)
-                                 ->withschedules($schedules);
+                                 ->withschedules($schedules)
+                                 ->withInquest($inquest);
     }
       public function schededit($id, Request $request)
     {
@@ -385,7 +387,14 @@ class UpdateController extends Controller
         $sched-> type = $request->schedtype;
         $sched-> start = $request->start;
         $sched-> end = $request->end;
+        if($request->schedtype == 'Hearing')
+        {
         $sched-> client_id = $request->client;
+        }
+        elseif($request->schedtype == 'For Inquest')
+        {
+        $sched-> client_id = $request->inquest;    
+        }
         $sched-> controlno =$request->con;
         $sched->save();
         

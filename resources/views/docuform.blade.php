@@ -46,17 +46,7 @@
 								<input type="text" name="ctcno" value="" class="form-control "required>	
 							</div>
 							
-							<div class="col-md-6">
-								<label>Documents *</label>
-								<select  name="docutype" class="form-control "required >
-								<option value="" selected="selected"></option>
-								@foreach($type as $types)
-      							<option id="" value="{{$types->name}}">{{$types->name}}</option>
-    							@endforeach
-								{{-- <option value="others">Other</option> --}}
-								</select>
-							</div>
-
+							
 							<div class="col-md-6">
 								<label>Date *</label>
 								<input type="text" name="date" value="{{date('F j Y')}}" class="form-control "required readonly>

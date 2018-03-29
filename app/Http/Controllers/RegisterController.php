@@ -30,6 +30,7 @@ use App\Decision;
 use App\requeststat;
 use App\scheduletype;
 use App\employeeclients;
+use App\Inquest;
 use App\Reason;
 use App\clientadverse;
 use DB;
@@ -391,6 +392,12 @@ class RegisterController extends Controller
               }
 
                  return redirect('/casetbh/register');
+            }
+            elseif ($request->nor == 'Inquest') 
+            {
+              $client->cl_status = "For Inquest";
+              $client->save();
+              return redirect('/client/show');
             }
 
        }
@@ -979,12 +986,12 @@ class RegisterController extends Controller
        
         foreach($lawyer as $lawyers)
         {
-          // foreach($lawyers->schedules as $schedules)
-          // {
-          //     $schedule = Schedule::where('id',$schedules->id)
-          //                 ->orderBy('start','asc')
-          //                 ->get();
-          // }
+          
+          {
+              $schedule = Schedule::where('type','Hearing')
+                         ->with('employee')
+                          ->get();
+          }
         $employeeclients = employeeclients::where('employee_id',$lawyers->id)->get();
 
         foreach($employeeclients as $employeeclient)
@@ -998,11 +1005,20 @@ class RegisterController extends Controller
                         ->orwhere([['nature_of_request','Legal Assistance '],['cl_status','Approved'],['id',$employeeclient->client_id]])
                         ->with('casetobehandled')
                         ->get();
+        foreach($client as $clients)
+        {
+          foreach($clients->casetobehandled as $case)
+          {
 
-        // return $schedule;
+            $courts = Court::where('id',$case->court_id)->get();
+          }
+        }
+
+       
          return view('maintenance.schedules')->withLawyer($lawyer)
-                                            // ->withschedules($schedules)
-                                            ->withClient($client);
+                                           ->withschedule($schedule)
+                                            ->withClient($client)
+                                            ->withcourts($courts);
        
        
       
@@ -1011,6 +1027,10 @@ class RegisterController extends Controller
      public function showschedule()
     {
        $lawyer = Employee::where('position','Lawyer')->get();
+
+      $lawyer2 = Employee::where('position','Lawyer')->get();
+      $staff = Employee::where('position','Administrative Staff')->get();
+
        $scheduletype = scheduletype::all();
        $client = Client::select('*')
                         ->where([['nature_of_request','Mediation'],['cl_status','Approved']])
@@ -1018,14 +1038,26 @@ class RegisterController extends Controller
                         ->with('casetobehandled')
                         ->get();
 
-      foreach($client as $clients)
-      {
-        $controlno = casetobehandled::where('client_id',$clients->id)->get();
-        
-      }
+        foreach($client as $clients)
+        {
+          foreach($clients->casetobehandled as $case)
+          {
+
+            $courts = Court::where('id',$case->court_id)->get();
+          }
+        }
+
+       $inquest = Client::where('cl_status','For Inquest')
+                  ->get();
+
+
                return view('createschedule')->withLawyer($lawyer)
+                                            ->withlawyer2($lawyer2)
+                                            ->withstaff($staff)
                                             ->withscheduletype($scheduletype)
-                                            ->withclient($client);
+                                            ->withclient($client)
+                                            ->withinquest($inquest)
+                                           ;
     }
 
     public function scheduleregister(Request $request)
@@ -1037,10 +1069,11 @@ class RegisterController extends Controller
               
                 // ));
 
-            $sched= new Schedule;
+           
      
-       
-       
+       if ($request->schedtype == 'Hearing') 
+       {
+         $sched= new Schedule;
         $sched-> type = $request->schedtype;
         $sched-> start =$request->start;
         $sched-> end =$request->end;
@@ -1050,13 +1083,40 @@ class RegisterController extends Controller
         $sched-> controlno = $request->con;
        
         $sched->save();
+        return redirect('/schedule/show');
+       }
+       elseif($request->schedtype == 'For Inquest')
+       {
+         $sched= new Schedule;
+        $sched-> type = $request->schedtype;
+        $sched-> start =$request->start;
+        $sched-> end =$request->end;
+        $sched-> client_id =$request->inquest;
+        $sched-> employee_id = $request->lawyer;
+        $sched->save();
+       
+        $inquestsched = Schedule::where('type','For Inquest')->orderBy('created_at','desc')->first();
+       
+        $inquest = new Inquest;
+        $inquest-> location = $request->location;
+        $inquest-> natureofcalls = $request->noc;
+        $inquest-> client_id = $request->inquest;
+        $inquest-> employee_id =$request->lawyer;
+        $inquest-> lawyer = $request->secondlawyer;
+        $inquest-> assistant = $request->assistant;
+        $inquest-> schedule_id = $inquestsched->id;
+        $inquest->save();
+         return redirect('/show/inquesttable');
+       }
+       
+       
        
      
         
         
 
    
-       return redirect('/schedule/show');
+       
 
     }
      public function showcourttype()

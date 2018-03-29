@@ -14,7 +14,7 @@
         {{csrf_field()}}
         <div class="form-group">
             <label>Name</label>
-            <select name="schedtype" class="form-control " required onchange="if (this.value=='edu'){this.form['edu'].style.visibility='visible'}else {this.form['edu'].style.visibility='hidden'};">
+            <select id = "type" name="schedtype" class="form-control " required onchange="getval(this);">
                     <option value="" selected="selected"></option>
                     @foreach($scheduletype as $scheduletypes)
       <option value="{{$$scheduletypes->name}}">{{$scheduletypes->name}}</option>
@@ -54,5 +54,29 @@
         <button type="submit" class="btn btn-green"/>Submit
       </footer></center></form>
 </div>
-</section>  
+</section>
+
+<script>
+   function getval(nor)
+{
+    if(type.value == 'Hearing')
+    {
+         
+            document.getElementById('notary').style.display = 'block';
+            document.getElementById('or').style.display = 'none';
+            document.getElementById('tab').style.display = 'none';
+            document.getElementById('docu').style.display = 'none';
+
+         
+    }
+    else if(type.value == 'For Inquest')
+    {
+            document.getElementById('docu').style.display = 'block';
+            document.getElementById('or').style.display = 'none';
+            document.getElementById('tab').style.display = 'none';
+            document.getElementById('notary').style.display = 'none';
+    }
+    
+}
+   </script>  
 @stop

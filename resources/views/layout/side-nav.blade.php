@@ -69,9 +69,14 @@
                         </li>
                         
                         <li>
-                            <a href="/schedule/show">
-                                <i class="main-icon fa fa-calendar"></i> <span>Schedules</span>
+                            <a href="#">
+                                <i class="fa fa-menu-arrow pull-right"></i>
+                                <i class="main-icon fa fa-calendar"></i> <span>Schedules </span>
                             </a>
+                            <ul><!-- submenus -->
+                                <li><a href="/schedule/show">Hearing Schedule</a></li>
+                                <li><a href="/show/inquesttable">Inquest Schedule</a></li>
+                               </ul>
                         </li>
                         <li>
                         <li>

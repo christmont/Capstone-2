@@ -30,7 +30,21 @@
            <br>
         </div>
         
-        <div class="col-md-6">
+       
+   
+       @if($schedules->type == 'Hearing') 
+        
+         <div class="col-md-6">
+            <label> Client Name</label>
+          
+            @foreach($client as $clients)
+            <input type="hidden" name = "client" value="{{$clients->id}}" >
+          <input type="text" value="{{$clients->clfname}} {{$clients->clmname}} {{$clients->cllname}}" readonly class="form-control">  
+            @endforeach
+          
+        </div>
+
+         <div class="col-md-6">
             <label> Control Number</label>
           
             @foreach($client as $clients)
@@ -40,16 +54,6 @@
             @endforeach
            
            <br>
-        </div>
-        
-        <div class="col-md-6">
-            <label> Client Name</label>
-          
-            @foreach($client as $clients)
-            <input type="hidden" name = "client" value="{{$clients->id}}" >
-          <input type="text" value="{{$clients->clfname}} {{$clients->clmname}} {{$clients->cllname}}" readonly class="form-control">  
-            @endforeach
-          
         </div>
 
         <div class="col-md-6">
@@ -73,8 +77,18 @@
             @endforeach
           
         </div>
+    @elseif($schedules->type == 'For Inquest')
+             <div class="col-md-6">
+            <label> Client Name</label>
+          
+            @foreach($inquest as $inquests)
+            <input type="hidden" name = "inquest" value="{{$inquests->id}}" >
+          <input type="text" value="{{$inquests->clfname}} {{$inquests->clmname}} {{$inquests->cllname}}" readonly class="form-control">  
+            @endforeach
+          
+        </div>
         
-       
+       @endif
           <div class="col-md-6">
             <label>Schedule Type</label>
            <input type="text" value ="{{$schedules->type}}" name = "schedtype" readonly class="form-control">

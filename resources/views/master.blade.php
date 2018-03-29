@@ -23,6 +23,24 @@
         <link rel="stylesheet" type="text/css" href="{{asset('css/layout-datatables.css')}}">
          <link rel="stylesheet" type="text/css" href="{{asset('css/jquery.datetimepicker.css')}}">
          <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap-datetimepicker.css')}}">
+     <style>
+         table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+}
+
+td, th {
+    border: 3px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    text-align:center;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}    
+     </style>
     </head>
     <!--
         .boxed = boxed version

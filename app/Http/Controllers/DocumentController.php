@@ -26,7 +26,7 @@ class DocumentController extends Controller
       $docu-> claddress = $request->Address;
       $docu-> clcity = $request->city;
       $docu-> clctcno = $request->ctcno;
-      $docu-> documenttype = $request->docutype;
+      
       $docu-> clnotarydate = $date;
       $docu-> cl_status = "Walkin";
       $docu->save();

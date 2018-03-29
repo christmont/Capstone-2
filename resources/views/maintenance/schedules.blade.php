@@ -66,6 +66,7 @@
 										<th>Schedule Name</th>
 										<th>Case Title</th>
 										<th>Case Name</th>
+										<th>Court</th>
 										<th>Start date and time</th>
 										<th>End date and time</th>
 										<th>Edit</th>
@@ -73,12 +74,12 @@
 									</tr>
 								</thead>
 <tbody>
-								@foreach ($lawyer as $lawyers)
-								      @foreach($lawyers->schedules as $schedules)
+								@foreach ($schedule as $schedules)
+								    
 									<tr>
-										@if(!empty($schedules))
-										<td>{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}</td>
-										@endif
+										
+										<td>{{$schedules->employee->efname}} {{$schedules->employee->emname}} {{$schedules->employee->elname}}</td>
+										
 										@foreach($client as $clients)
 
 										<td>
@@ -96,8 +97,13 @@
 										<td>
 											{{$case->casename}}
 										</td>
+								       @endforeach
 											@endforeach
-											@endforeach
+										@foreach($courts as $court)
+										<td>
+											{{$court->name}} {{$court->branch}}
+										</td>
+										@endforeach
 										<td>
 											 {{$schedules->start}}
 										</td>
@@ -118,7 +124,7 @@
 										</td>
 
 									</tr>
-										@endforeach
+										
 									@endforeach	
 									
 								</tbody>

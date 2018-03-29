@@ -99,10 +99,7 @@ class DatabaseSeeder extends Seeder
              
              ]);
                   
-             DB::table('casetypes')->insert([
-            'name' => 'Appeal',
              
-             ]);
 
              DB::table('lawsuits')->insert([
             'name' => 'Bribery',
@@ -332,7 +329,14 @@ class DatabaseSeeder extends Seeder
             DB::table('services')->insert([
             'name' => 'Representation of quasi-judicial bodies',
              
-            ]);     
+            ]);
+
+            DB::table('services')->insert([
+            'name' => 'Inquest',
+             
+            ]);
+
+
     
          DB::table('statuses')->insert([
             'name' => 'Arraignment',
@@ -473,7 +477,7 @@ class DatabaseSeeder extends Seeder
 
 
         DB::table('scheduletypes')->insert([
-            'name' => 'Jail Visitation',
+            'name' => 'For Inquest',
              
              ]);
              

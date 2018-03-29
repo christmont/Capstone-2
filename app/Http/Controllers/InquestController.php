@@ -8,6 +8,8 @@ use App\casetobehandled;
 use App\Employee;
 use App\Schedule;
 use App\employeeclients;
+use App\Inquest;
+use Carbon\Carbon;
 
 
 
@@ -20,14 +22,16 @@ class InquestController extends Controller
       $clients = Client::where('nature_of_request','Inquest')
       				->with('casetobehandled')
       				->get();
-      $lawyer = Employee::where('position','Lawyer')->get();
-      $staff = Employee::where('position','Staff')->get();
-      foreach($lawyer as $lawyers)
+      $lawyer1 = Employee::where('position','Lawyer')->get();
+      $lawyer2 = Employee::where('position','Lawyer')->get();
+      $staff = Employee::where('position','Administrative Staff')->get();
+      foreach($lawyer1 as $lawyers)
       {
-      $schedule = Schedule::where('employee_id',$lawyer->id)->get();
+      $schedule = Schedule::where('employee_id',$lawyers->id)->get();
       }
       return view('inquest.form')->withClients($clients)
-      						 	 ->withLawyer($lawyer)
+      						 	 ->withLawyer1($lawyer1)
+                     ->withlawyer2($lawyer2)
       						     ->withStaff($staff)
       						     ->withSchedule($schedule);
       		 	 
@@ -42,8 +46,9 @@ class InquestController extends Controller
         $inquest -> location = $request->location;
         $inquest -> actiontaken = $request->actiontaken;
         $inquest -> client_id = $request->client;
-        $inquest -> lawyer = $request->lawyer;
-        $inquest -> staff = $request->staff;
+        $inquest -> employee_id = $request->lawyer1;
+        $inquest -> lawyer = $request->lawyer2;
+        $inquest -> staff = $request->assistant;
         $inquest -> schedule_id = $request->schedule;
         $inquest->save();
         return redirect('/lawyerside/show');
@@ -52,7 +57,32 @@ class InquestController extends Controller
     public function showinquesttable()
     {
         $inquest = Inquest::all();
-        return view('inquest.table')->withInquest($inquest);
+        // $lawyer1 = Employee
+        $monthnow = date('F',strtotime(Carbon::now()));
+        foreach($inquest as $inquests)
+        {
+          $firstlawyer = Employee::where('id',$inquests->employee_id)->get();
+          $secondlawyer = Employee::where('id',$inquests->lawyer)->get();
+          $assistant = Employee::where('id',$inquests->assistant)->get();
+        }
+
+        $schedule = Schedule::where('type','For Inquest')->get();
+        foreach($schedule as $schedules)
+        {
+        
+        $month = date('F',strtotime($schedules->start));
+        $date = date('j',strtotime($schedules->start));
+        $day = date('l',strtotime($schedules->start));
+        
+        $year = Carbon::now();
+        }
+        return view('inquest.inquestschedule')->withInquest($inquest)
+                                              ->withschedule($schedule)
+                                               ->withyear($year)
+                                              ->withmonthnow($monthnow)
+                                              ->withfirstlawyer($firstlawyer)
+                                              ->withsecondlawyer($secondlawyer)
+                                              ->withassistant($assistant);
     }
     public function printinquest()
     {
