@@ -17,7 +17,6 @@
 					<ol class="breadcrumb">
 						<li><a href="#">Tables</a></li>
 						<li class="active">Inquest</li>
-						
 					</ol>
 				</header>
 				<!-- /page title -->
@@ -51,6 +50,10 @@
 						<div class="panel-heading">
 							<span class="title elipsis">
 								<strong>Inquest Table</strong> <!-- panel title -->
+								<div class="pull-right">
+							<a  class="btn btn-green" href="/lawsuit/register" style="line-height: 1.5;"><i class="fa fa-plus"></i>PRINT</a>
+						</div>
+
 							</span>
 
 						
