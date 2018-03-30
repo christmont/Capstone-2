@@ -76,13 +76,13 @@
 									<tr>
 										@foreach($client as $clients)
 										<td>{{$clients->clfname}} {{$clients->clmname}} {{$clients->cllname}}</td>
-										
+										@endforeach
 										<td>{{$inquests->natureofcalls}}</td>
 										<td>{{$assistants->efname}} {{$assistants->emname}} {{$assistants->elname}}</td>
 										<td>{{date('F j Y g:i a',strtotime($schedules->start))}}  {{date('F j Y g:i a',strtotime($schedules->end))}}</td>
 										<td>{{$inquests->location}}</td>
-										
-										<td>{{$clients->casename}}</td>
+										@foreach($clients->casetobehandled as $case)
+										<td>{{$case->casename}}</td>
 										@endforeach
 										<td>{{$inquests->actiontaken}}</td>
 									</tr>
