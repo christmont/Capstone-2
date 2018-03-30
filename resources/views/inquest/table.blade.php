@@ -15,48 +15,21 @@
 						
 					</ol>
 				</header>
-				<!-- /page title -->
-
-
-
-    
-
-
-
-
-
-
-
-
-
 				<div id="content" class="padding-20">
-
-					<!-- 
-						PANEL CLASSES:
-							panel-default
-							panel-danger
-							panel-warning
-							panel-info
-							panel-success
-
-						INFO: 	panel collapse - stored on user localStorage (handled by app.js _panels() function).
-								All pannels should have an unique ID or the panel collapse status will not be stored!
-					-->
 					<div id="panel-1" class="panel panel-default">
 						<div class="panel-heading">
 							<span class="title elipsis">
-								<strong>Inquest Table</strong> <!-- panel title -->
-							</span>
-
-						
-							<!-- /right options -->
-
+								<strong>Inquest Table</strong>
+								<div class="pull-right">
+							<a  class="btn btn-primary" href="/lawsuit/register" style="line-height: 1.5;"><i class="fa fa-plus"></i>PRINT</a>
 						</div>
+							</span></div>
 						<div class="panel-body">
 							
 							<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
 								<thead>
 									<tr>
+										<th>Actions</th>
 										<th>Name of Client/s</th>
 										<th>Nature of Call/s(legal Assistance/Legal Advice)</th>
 										<th>Inquest Assistant</th>
@@ -74,6 +47,20 @@
 									@foreach($secondlawyer as $secondlawyers)
 									@foreach($assistant as $assistants)
 									<tr>
+										<td>
+											<div class="btn-group" role="group" aria-label="Basic example">
+				  							<a  class="btn btn-primary" href="{{ route('showsched',$schedules->id) }}">Reschedule</a><br><br>
+				  							@foreach($inquest as $inquests)
+				  							<a  class="btn btn-green" href="{{ route('inquestedit',$inquests->id) }}">Edit</a><br><br>
+				  							@endforeach
+ 	 										<form action="{{ route('deletesched',$schedules->id) }}" method = "post">
+												{{ csrf_field() }}
+        									{{ method_field('DELETE') }}
+											<button type ="submit" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?')" href="#">
+											Delete </button>
+											</form>
+											</div>
+										</td>
 										@foreach($client as $clients)
 										<td>{{$clients->clfname}} {{$clients->clmname}} {{$clients->cllname}}</td>
 										@endforeach
