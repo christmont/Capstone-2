@@ -70,8 +70,8 @@
 									</tr>
 								</thead>
 <tbody>
-								@foreach ($lawyer as $lawyers)
-								      @foreach($lawyers->schedules as $schedules)
+								@foreach ($schedule as $schedules)
+								      
 									<tr>
 										
 										@foreach($client as $clients)

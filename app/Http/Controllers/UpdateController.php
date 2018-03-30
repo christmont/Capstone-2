@@ -26,6 +26,7 @@ use Session;
 use App\Client;
 use App\Reason;
 use App\scheduletype;
+use App\Inquest;
 
 
 class UpdateController extends Controller
@@ -476,6 +477,27 @@ class UpdateController extends Controller
         
         //Flashy::success('Succesfully edited guest', '#');
        return redirect('/reason/show');
+    }
+    public function showinquestedit($id)
+    {
+        $inquest = Inquest::find($id);
+
+        $clients = Client::where('nature_of_request','Inquest')
+                    ->get();
+      
+      $lawyer1 = Employee::where('id',$inquest->employee_id)->get();
+      $lawyer2 = Employee::where('id',$inquest->lawyer)->get();
+      $staff = Employee::where('id',$inquest->assistant)->get();
+      
+      $schedule = Schedule::where('id',$inquest->schedule_id)->get();
+    
+        return view('inquest.form')->withinquest($inquest)
+                                   ->withclients($clients)
+                                   ->withlawyer1($lawyer1)
+                                   ->withlawyer2($lawyer2)
+                                   ->withstaff($staff)
+                                   ->withschedule($schedule);
+
     }
 
 

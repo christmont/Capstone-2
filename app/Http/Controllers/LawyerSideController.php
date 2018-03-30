@@ -18,6 +18,8 @@ use DB;
 use App\scheduletype;
 use Carbon\Carbon;
 use PDF;
+use App\Court;
+
 
 class LawyerSideController extends Controller
 {
@@ -144,31 +146,50 @@ class LawyerSideController extends Controller
     }
      public function showschedule()
     {
-       $lawyer = Employee::where('position','Lawyer')
+        $lawyer = Employee::where([['position','Lawyer'],['id',Auth::user()->id]])
                           ->with('schedules')
+
                           ->get();
+
+    
+          
+        
        
         foreach($lawyer as $lawyers)
         {
+          
+          {
+              $schedule = Schedule::where([['type','Hearing'],['employee_id',$lawyers->id]])
+                         ->with('employee')
+                          ->get();
+          }
         $employeeclients = employeeclients::where('employee_id',$lawyers->id)->get();
 
         foreach($employeeclients as $employeeclient)
         {
       
               }
-        
+          
         
   }    $client = Client::where([['nature_of_request','Mediation'],['cl_status','Approved'],['id',$employeeclient->client_id]])
                         ->orwhere([['nature_of_request','Representation of quasi-judicial bodies '],['cl_status','Approved'],['id',$employeeclient->client_id]])
                         ->orwhere([['nature_of_request','Legal Assistance '],['cl_status','Approved'],['id',$employeeclient->client_id]])
                         ->with('casetobehandled')
                         ->get();
+        foreach($client as $clients)
+        {
+          foreach($clients->casetobehandled as $case)
+          {
 
-        
+            $courts = Court::where('id',$case->court_id)->get();
+          }
+        }
+
+       
          return view('lawyer ui.schedules')->withLawyer($lawyer)
-                                            // ->withschedules($schedules)
-                                            ->withClient($client);      
-             
+                                           ->withschedule($schedule)
+                                            ->withClient($client)
+                                            ->withcourts($courts);
                                         
     }
     public function lawyershowschededit($id)

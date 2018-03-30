@@ -222,7 +222,7 @@ Route::get('/show/bycourt','ReportController@courtcase');
 Route::get('/print/bycourt','ReportController@printcasecourt');
 
 
-Route::get('/show/inquestform','InquestController@showinquestform');
+Route::get('/show/inquesteditform/{id}','UpdateController@showinquestedit')->name('inquestedit');
 Route::get('/show/inquesttable','InquestController@showinquesttable');
 Route::post('/register/inquest','InquestController@inquestreg');
 
