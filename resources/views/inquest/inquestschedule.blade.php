@@ -51,7 +51,7 @@
 							<span class="title elipsis">
 								<strong>Inquest Table</strong> <!-- panel title -->
 								<div class="pull-right">
-							<a  class="btn btn-green" href="/lawsuit/register" style="line-height: 1.5;"><i class="fa fa-plus"></i>PRINT</a>
+							<a  class="btn btn-green" href="/print/admininquest" style="line-height: 1.5;"><i class="fa fa-print"></i>PRINT</a>
 						</div>
 
 							</span>
@@ -78,31 +78,21 @@
 									</tr>
 								</thead>
 									@foreach($schedule as $schedules)
-									<tbody>
-									<tr>
-										<td>
-<<<<<<< HEAD
 
-								{{-- <div class="btn-group" role="group" aria-label="Basic example">
-=======
-								<div class="btn-group" role="group" aria-label="Basic example">
->>>>>>> 3e5307c6f9c9ced4886e3164c698660f6e04ddf7
-  							<a  class="btn btn-primary" href="{{ route('showsched',$schedules->id) }}">Reschedule</a>
-  							@foreach($inquest as $inquests)
-  							<a  class="btn btn-green" href="{{ route('inquestedit',$inquests->id) }}">Edit</a>
-  							@endforeach
- 	 									<form action="{{ route('deletesched',$schedules->id) }}" method = "post">
-												{{ csrf_field() }}
-        									{{ method_field('DELETE') }}
-											<button type ="submit" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?')" href="{{ route('deletesched',$schedules->id) }}">
-											Delete </button>
-										</form>
-<<<<<<< HEAD
-								</div> --}}
+									<tbody>
+										
+									<tr>	
+										<td>
+
+
+
 
 											<div class="btn-group" role="group" aria-label="Basic example">
 			  								<a  class="btn btn-primary" href="{{ route('showsched',$schedules->id) }}">Reschedule</a>
-			  								<a  class="btn btn-warning" href="{{ route('showsched',$schedules->id) }}">Edit</a>
+			  								
+			  								@foreach($inquest as $inquests)
+			  								<a  class="btn btn-warning" href="{{ route('inquestedit',$inquests->id) }}">Edit</a>
+											@endforeach
 			 	 									<form action="{{ route('deletesched',$schedules->id) }}" method = "post">
 															{{ csrf_field() }}
 			        									{{ method_field('DELETE') }}
@@ -111,9 +101,9 @@
 													</form>
 											</div>
 
-=======
+
 								</div>
->>>>>>> 3e5307c6f9c9ced4886e3164c698660f6e04ddf7
+
 										</td>
 										<td>{{date('j',strtotime($schedules->start))}}</td>
 										<td> {{date('l',strtotime($schedules->start))}} </td>

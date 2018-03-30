@@ -221,6 +221,8 @@ Route::get('/show/yearendreport','ReportController@yearendreport');
 Route::get('/print/yearend','ReportController@reportprint');
 Route::get('/show/bycourt','ReportController@courtcase');
 Route::get('/print/bycourt','ReportController@printcasecourt');
+Route::get('/print/admininquest','ReportController@printadmininquest');
+Route::get('/print/lawyerinquest','ReportController@printlawyerinquest');
 
 
 Route::get('/show/inquesteditform/{id}','UpdateController@showinquestedit')->name('inquestedit');
