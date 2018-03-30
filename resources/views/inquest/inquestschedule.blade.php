@@ -9,23 +9,60 @@
 @section('content')
 
 <section id="middle">
-<div id="content" class="padding-20">
-					
 
-					<div class="panel panel-default">
+
+				<!-- page title -->
+				<header id="page-header">
+					<h1>Inquest Table</h1>
+					<ol class="breadcrumb">
+						<li><a href="#">Tables</a></li>
+						<li class="active">Inquest</li>
+						
+					</ol>
+				</header>
+				<!-- /page title -->
+
+
+
+    
+
+
+
+
+
+
+
+
+
+				<div id="content" class="padding-20">
+
+					<!-- 
+						PANEL CLASSES:
+							panel-default
+							panel-danger
+							panel-warning
+							panel-info
+							panel-success
+
+						INFO: 	panel collapse - stored on user localStorage (handled by app.js _panels() function).
+								All pannels should have an unique ID or the panel collapse status will not be stored!
+					-->
+					<div id="panel-1" class="panel panel-default">
+						<div class="panel-heading">
+							<span class="title elipsis">
+								<strong>Inquest Table</strong> <!-- panel title -->
+							</span>
+
+						
+							<!-- /right options -->
+
+						</div>
 						<div class="panel-body">
-							<div class="container">
-							<div class="row" style="margin-left: 15px;margin-right: 15px;">
-								<header>
-									<h1 style="text-align: center;">INQUEST SCHEDULE</h1>
-								</header>
-								<div style="text-align: center;">
-									<h3> For the Month of {{$monthnow}} {{date('Y',strtotime($year))}} </h3>
-								</div>
-
-								<table>
+							
+							<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+								<thead>
 									<tr>
-										<th></th>
+										<th>Actions</th>
 										<th colspan="3">{{$monthnow}}</th>
 										<th>LAWYER/s & STAFF</th>
 									</tr>
@@ -36,9 +73,12 @@
 										<th>TIME</th>
 										<th> </th>
 									</tr>
+								</thead>
 									@foreach($schedule as $schedules)
+									<tbody>
 									<tr>
 										<td>
+<<<<<<< HEAD
 								<div class="btn-group" role="group" aria-label="Basic example">
   							<a  class="btn btn-primary" href="{{ route('showsched',$schedules->id) }}">Reschedule</a>
   							@foreach($inquest as $inquests)
@@ -51,6 +91,18 @@
 											Delete </button>
 										</form>
 								</div>
+=======
+											<div class="btn-group" role="group" aria-label="Basic example">
+			  								<a  class="btn btn-primary" href="{{ route('showsched',$schedules->id) }}">Reschedule</a>
+			  								<a  class="btn btn-warning" href="{{ route('showsched',$schedules->id) }}">Edit</a>
+			 	 									<form action="{{ route('deletesched',$schedules->id) }}" method = "post">
+															{{ csrf_field() }}
+			        									{{ method_field('DELETE') }}
+														<button type ="submit" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?')" href="{{ route('deletesched',$schedules->id) }}">
+														Delete </button>
+													</form>
+											</div>
+>>>>>>> 9bcddddd7e94f3333de546cdad7a9376fd42adfd
 										</td>
 										<td>{{date('j',strtotime($schedules->start))}}</td>
 										<td> {{date('l',strtotime($schedules->start))}} </td>
@@ -67,6 +119,7 @@
 									@endforeach
 									@endforeach
 									</tr>
+									</tbody>
 									@endforeach
 							
 								</table>

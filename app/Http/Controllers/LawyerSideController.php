@@ -153,7 +153,7 @@ class LawyerSideController extends Controller
 
     
           
-        
+     
        
         foreach($lawyer as $lawyers)
         {
@@ -167,11 +167,7 @@ class LawyerSideController extends Controller
 
         foreach($employeeclients as $employeeclient)
         {
-      
-              }
-          
-        
-  }    $client = Client::where([['nature_of_request','Mediation'],['cl_status','Approved'],['id',$employeeclient->client_id]])
+      $client = Client::where([['nature_of_request','Mediation'],['cl_status','Approved'],['id',$employeeclient->client_id]])
                         ->orwhere([['nature_of_request','Representation of quasi-judicial bodies '],['cl_status','Approved'],['id',$employeeclient->client_id]])
                         ->orwhere([['nature_of_request','Legal Assistance '],['cl_status','Approved'],['id',$employeeclient->client_id]])
                         ->with('casetobehandled')
@@ -184,8 +180,12 @@ class LawyerSideController extends Controller
             $courts = Court::where('id',$case->court_id)->get();
           }
         }
+        }
+          
+        
+  }    
 
-       
+       return $client;
          return view('lawyer ui.schedules')->withLawyer($lawyer)
                                            ->withschedule($schedule)
                                             ->withClient($client)
