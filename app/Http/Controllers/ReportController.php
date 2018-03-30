@@ -32,10 +32,13 @@ use App\scheduletype;
 use App\employeeclients;
 use App\Reason;
 use App\clientadverse;
+use App\Inquest;
+use Auth;
 use DB;
 use Carbon\Carbon;
 use PDF;
 use \Input as Input;
+
 
 class ReportController extends Controller
 {
@@ -514,5 +517,80 @@ class ReportController extends Controller
        ]);
         return $pdf->stream();
     }
+    public function printadmininquest()
+    {
+      $inquest = Inquest::all();
+
+        // $lawyer1 = Employee
+        $monthnow = date('F',strtotime(Carbon::now()));
+        foreach($inquest as $inquests)
+        {
+          $firstlawyer = Employee::where('id',$inquests->employee_id)->get();
+          $secondlawyer = Employee::where('id',$inquests->lawyer)->get();
+          $assistant = Employee::where('id',$inquests->assistant)->get();
+        }
+
+        $schedule = Schedule::where('type','For Inquest')->get();
+        foreach($schedule as $schedules)
+        {
+        
+        $month = date('F',strtotime($schedules->start));
+        $date = date('j',strtotime($schedules->start));
+        $day = date('l',strtotime($schedules->start));
+        
+        $year = date('Y',strtotime(Carbon::now()));
+        }
+      
+       $pdf = PDF::loadView('reports.inquestschedule', [
+                                                'monthnow'=>$monthnow,
+                                                'inquest'=>$inquest,
+                                                'firstlawyer'=>$firstlawyer,
+                                                'secondlawyer'=>$secondlawyer,
+                                                'assistant'=>$assistant,
+                                                'schedule'=>$schedule,
+                                                'year'=>$year,
+       ]);
+        return $pdf->stream();
+    }
+     public function printlawyerinquest()
+    {
+       $inquest = Inquest::select('*')
+                          ->orwhere('employee_id',Auth::user()->id)
+                          ->orwhere('lawyer',Auth::user()->id)
+                          ->get();
+        
+        foreach($inquest as $inquests)
+        {
+          $firstlawyer = Employee::where('id',$inquests->employee_id)->get();
+          $secondlawyer = Employee::where('id',$inquests->lawyer)->get();
+          $assistant = Employee::where('id',$inquests->assistant)->get();
+          $client = Client::where('id',$inquests->client_id)->with('casetobehandled')->get();
+
+        }
+
+        $schedule = Schedule::where('id',$inquests->schedule_id)->get();
+        foreach($schedule as $schedules)
+        {
+        
+        $month = date('F',strtotime($schedules->start));
+        $date = date('j',strtotime($schedules->start));
+        $day = date('l',strtotime($schedules->start));
+        
+        $year = Carbon::now();
+        }
+      
+       $pdf = PDF::loadView('reports.inquest', [
+                                                'monthnow'=>$monthnow,
+                                                'inquest'=>$inquest,
+                                                'firstlawyer'=>$firstlawyer,
+                                                'secondlawyer'=>$secondlawyer,
+                                                'assistant'=>$assistant,
+                                                'schedule'=>$schedule,
+                                                'client'=>$client,
+                                                'year'=>$year,
+       ]);
+        return $pdf->stream();
+    }
+   
    
     }

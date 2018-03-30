@@ -370,7 +370,7 @@ class UpdateController extends Controller
                         ->orwhere([['nature_of_request','Legal Assistance '],['cl_status','Approved'],['id',$schedules->client_id]])
                         ->with('casetobehandled')
                         ->get();
-         $inquest = Client::where('nature_of_request','Inquest')->get();
+         $inquest = Client::where([['nature_of_request','Inquest'],['id',$schedules->client_id]])->get();
                        
         return view('reschedule')->withClient($client)
                                  ->withscheduletype($scheduletype)
@@ -481,7 +481,7 @@ class UpdateController extends Controller
     public function showinquestedit($id)
     {
         $inquest = Inquest::find($id);
-
+        
         $clients = Client::where('nature_of_request','Inquest')
                     ->get();
       

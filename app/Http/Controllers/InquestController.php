@@ -62,6 +62,7 @@ class InquestController extends Controller
     public function showinquesttable()
     {
         $inquest = Inquest::all();
+
         // $lawyer1 = Employee
         $monthnow = date('F',strtotime(Carbon::now()));
         foreach($inquest as $inquests)
@@ -79,7 +80,7 @@ class InquestController extends Controller
         $date = date('j',strtotime($schedules->start));
         $day = date('l',strtotime($schedules->start));
         
-        $year = Carbon::now();
+        $year = date('Y',strtotime(Carbon::now()));
         }
         return view('inquest.inquestschedule')->withInquest($inquest)
                                               ->withschedule($schedule)
@@ -89,8 +90,4 @@ class InquestController extends Controller
                                               ->withsecondlawyer($secondlawyer)
                                               ->withassistant($assistant);
     }
-    public function printinquest()
-    {
-
-    }
-}
+ }
