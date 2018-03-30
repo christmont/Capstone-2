@@ -481,8 +481,8 @@ class UpdateController extends Controller
     public function showinquestedit($id)
     {
         $inquest = Inquest::find($id);
-        
-        $clients = Client::where('nature_of_request','Inquest')
+
+        $clients = Client::where([['nature_of_request','Inquest'],['id',$inquest->client_id]])
                     ->get();
       
       $lawyer1 = Employee::where('id',$inquest->employee_id)->get();

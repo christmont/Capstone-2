@@ -76,7 +76,7 @@ tr:nth-child(even) {
 		<td> {{$inquests->location}}</td>
 		@foreach($clients->casetobehandled as $case)
 		<td> {{$case->casename}}</td>
-		@endforach
+		@endforeach
 		<td>{{$inquests->actiontaken}}</td>
 	</tr>
 	
@@ -94,13 +94,14 @@ tr:nth-child(even) {
 		<h5>{{$assistants->efname}} {{$assistants->emname}} {{$assistants->elname}}</h5>
 		<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Inquest Assistant</label>
 	</div>
+	@endforeach
+@endforeach
+@endforeach
+@endforeach
+@endforeach
+@endforeach
 	</div>
-@endforeach
-@endforeach
-@endforeach
-@endforeach
-@endforeach
-@endforeach
+
 
 	</div>
 </body>

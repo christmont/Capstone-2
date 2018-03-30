@@ -580,7 +580,7 @@ class ReportController extends Controller
         }
       
        $pdf = PDF::loadView('reports.inquest', [
-                                                'monthnow'=>$monthnow,
+                                                
                                                 'inquest'=>$inquest,
                                                 'firstlawyer'=>$firstlawyer,
                                                 'secondlawyer'=>$secondlawyer,

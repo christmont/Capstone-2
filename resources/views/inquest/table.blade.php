@@ -21,7 +21,7 @@
 							<span class="title elipsis">
 								<strong>Inquest Table</strong>
 								<div class="pull-right">
-							<a  class="btn btn-primary" href="/lawsuit/register" style="line-height: 1.5;"><i class="fa fa-plus"></i>PRINT</a>
+							<a  class="btn btn-primary" href="/print/lawyerinquest" style="line-height: 1.5;"><i class="fa fa-print"></i>PRINT</a>
 						</div>
 							</span></div>
 						<div class="panel-body">
