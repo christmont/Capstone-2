@@ -3,7 +3,7 @@
 @extends('lawyer ui/lawyer header-main')
 @section('contents')
 <section id="middle">
- 
+@foreach($inquests as $inquest)
 		<header id="page-header">
 					<h1> Inquest Form</h1>
 					<ol class="breadcrumb">
@@ -83,12 +83,10 @@
 				 		<div class="input-group-addon">
 				 			<a class ="fa fa-pencil"></a>
 				 		</div>
-					@foreach($schedule as $schedules)
-					<input type="hidden" name ="sched" value="{{$schedules->id}}" class="form-control ">
-					<input type="text" value="{{date('F j Y g:i a',strtotime($schedules->start))}}  {{date('F j Y g:i a',strtotime($schedules->end))}}" class="form-control " readonly>
+					<input type="hidden" name ="sched" value="{{$schedule->id}}" class="form-control ">
+					<input type="text" value="{{date('F j Y g:i a',strtotime($schedule->start))}}  {{date('F j Y g:i a',strtotime($schedule->end))}}" class="form-control " readonly>
 				</div>
 			</div>
-					@endforeach
 			    </div>
 			    <div class="col-md-12">
 			    	<div class="form-group">
@@ -115,6 +113,6 @@
       	
 </form>
     </div>
-
+@endforeach
 </section>
 @stop
