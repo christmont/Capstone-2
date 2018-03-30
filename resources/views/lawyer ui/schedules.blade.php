@@ -70,50 +70,49 @@
 									</tr>
 								</thead>
 <tbody>
-								@foreach ($schedule as $schedules)
+								@foreach ($hearingsched as $schedules)
 								      
 									<tr>
 										
-										@foreach($client as $clients)
+										
 
 										<td>
-											{{$clients->clfname}} {{$clients->clmname}} {{$clients->cllname}}
+											{{$schedules->clfname}} {{$schedules->clmname}} {{$schedules->cllname}}
 										</td>
 									
 										<td>
 											 {{$schedules->type}}
 										</td>											
-										@foreach($clients->casetobehandled as $case)
+										
 										<td>
-											{{$case->title}}
+											{{$schedules->title}}
 										</td>
 
 										<td>
-											{{$case->casename}}
+											{{$schedules->casename}}
 										</td>
-											@endforeach
-											@endforeach
+										
 										<td>
 											 {{$schedules->start}}
 										</td>
 										<td>
 											 {{$schedules->end}}
 										</td>
-									    
+									    @foreach($schedule as $sched)
 										<td>
-											   <a class ="btn btn-warning" href="{{ route('lawyer.showeditsched',$schedules->id) }}">Reschedule</a>
+											   <a class ="btn btn-warning" href="{{ route('lawyer.showeditsched',$sched->id) }}">Reschedule</a>
 										</td>
 										<td>
-											<form action="{{ route('deletesched',$schedules->id) }}" method = "post">
+											<form action="{{ route('deletesched',$sched->id) }}" method = "post">
 												{{ csrf_field() }}
         {{ method_field('DELETE') }}
-											<button type ="submit" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?')" href="{{ route('deletesched',$schedules->id) }}"><i class="fa fa-trash"></i>
+											<button type ="submit" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?')" href="{{ route('deletesched',$sched->id) }}"><i class="fa fa-trash"></i>
 											Delete </button>
 										</form>
 										</td>
-
-									</tr>
 										@endforeach
+									</tr>
+										
 									@endforeach	
 									
 								</tbody>

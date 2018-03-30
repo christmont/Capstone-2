@@ -21,7 +21,7 @@
                             </a>
                         </li>
                          <li style="background-color: #182634">
-                             <a href="profile" style="background-color: #182634"><!-- warning - url used by default by ajax (if eneabled) -->
+                             <a href="/inquest/show" style="background-color: #182634"><!-- warning - url used by default by ajax (if eneabled) -->
                                 <i class="main-icon fa fa-hand-lizard-o"></i> <span>Inquest </span>
                             </a>
                         </li>

@@ -14,6 +14,7 @@ use App\Decision;
 use Auth;
 use App\Schedule;
 use App\Notary;
+use App\Inquest;
 use DB;
 use App\scheduletype;
 use Carbon\Carbon;
@@ -146,50 +147,63 @@ class LawyerSideController extends Controller
     }
      public function showschedule()
     {
-        $lawyer = Employee::where([['position','Lawyer'],['id',Auth::user()->id]])
-                          ->with('schedules')
+        // $lawyer = Employee::where([['position','Lawyer'],['id',Auth::user()->id]])
+  //                         ->with('schedules')
 
-                          ->get();
+  //                         ->get();
 
     
           
      
        
-        foreach($lawyer as $lawyers)
-        {
+  //       foreach($lawyer as $lawyers)
+  //       {
           
-          {
-              $schedule = Schedule::where([['type','Hearing'],['employee_id',$lawyers->id]])
-                         ->with('employee')
-                          ->get();
-          }
-        $employeeclients = employeeclients::where('employee_id',$lawyers->id)->get();
+  //         {
+  //             $schedule = Schedule::where([['type','Hearing'],['employee_id',$lawyers->id]])
+  //                        ->with('employee')
+  //                         ->get();
+  //         }
+  //       $employeeclients = employeeclients::where('employee_id',$lawyers->id)->get();
 
-        foreach($employeeclients as $employeeclient)
-        {
-      $client = Client::where([['nature_of_request','Mediation'],['cl_status','Approved'],['id',$employeeclient->client_id]])
-                        ->orwhere([['nature_of_request','Representation of quasi-judicial bodies '],['cl_status','Approved'],['id',$employeeclient->client_id]])
-                        ->orwhere([['nature_of_request','Legal Assistance '],['cl_status','Approved'],['id',$employeeclient->client_id]])
-                        ->with('casetobehandled')
-                        ->get();
-        foreach($client as $clients)
-        {
-          foreach($clients->casetobehandled as $case)
-          {
+  //       foreach($employeeclients as $employeeclient)
+  //       {
+  //     $client = Client::where([['nature_of_request','Mediation'],['cl_status','Approved'],['id',$employeeclient->client_id]])
+  //                       ->orwhere([['nature_of_request','Representation of quasi-judicial bodies '],['cl_status','Approved'],['id',$employeeclient->client_id]])
+  //                       ->orwhere([['nature_of_request','Legal Assistance '],['cl_status','Approved'],['id',$employeeclient->client_id]])
+  //                       ->with('casetobehandled')
+  //                       ->get();
+  //       foreach($client as $clients)
+  //       {
+  //         foreach($clients->casetobehandled as $case)
+  //         {
 
-            $courts = Court::where('id',$case->court_id)->get();
-          }
-        }
-        }
+  //           $courts = Court::where('id',$case->court_id)->get();
+  //         }
+  //       }
+  //       }
           
         
-  }    
-
-       return $client;
-         return view('lawyer ui.schedules')->withLawyer($lawyer)
-                                           ->withschedule($schedule)
-                                            ->withClient($client)
-                                            ->withcourts($courts);
+  // }    
+      $hearingsched = DB::table('schedules')
+                      ->where([['employees.id',Auth::user()->id],['clients.nature_of_request','Representation of quasi-judicial bodies'],['clients.cl_status','Approved'],['schedules.type','Hearing']])
+                      ->orwhere([['employees.id',Auth::user()->id],['nature_of_request','Legal Assistance'],['clients.cl_status','Approved'],['schedules.type','Hearing']])
+                      ->orwhere([['employees.id',Auth::user()->id],['nature_of_request','Mediation'],['clients.cl_status','Approved'],['schedules.type','Hearing']])
+                      ->join('employees','schedules.employee_id','=','employees.id')
+                      ->join('clients','schedules.client_id','=','clients.id')
+                      ->join('casetobehandleds','casetobehandleds.client_id','=','schedules.client_id')
+                      
+                      ->get();
+        
+    foreach($hearingsched as $hearingscheds)
+    {
+       $schedule = Schedule::where([['type','Hearing'],['employee_id',$hearingscheds->employee_id]])->get();
+    }
+      
+        
+      
+         return view('lawyer ui.schedules')->withhearingsched($hearingsched)
+                                           ->withschedule($schedule);
                                         
     }
     public function lawyershowschededit($id)
@@ -371,6 +385,40 @@ public function lawyerschededit($id, Request $request)
          
 
 
+    }
+    public function inquestshow()
+    {
+      $inquest = Inquest::select('*')
+                          ->orwhere('employee_id',Auth::user()->id)
+                          ->orwhere('lawyer',Auth::user()->id)
+                          ->get();
+        
+        foreach($inquest as $inquests)
+        {
+          $firstlawyer = Employee::where('id',$inquests->employee_id)->get();
+          $secondlawyer = Employee::where('id',$inquests->lawyer)->get();
+          $assistant = Employee::where('id',$inquests->assistant)->get();
+          $client = Client::where('id',$inquests->client_id)->with('casetobehandled')->get();
+
+        }
+
+        $schedule = Schedule::where('id',$inquests->schedule_id)->get();
+        foreach($schedule as $schedules)
+        {
+        
+        $month = date('F',strtotime($schedules->start));
+        $date = date('j',strtotime($schedules->start));
+        $day = date('l',strtotime($schedules->start));
+        
+        $year = Carbon::now();
+        }
+       
+        return view('inquest.table')->withInquest($inquest)
+                                              ->withschedule($schedule)
+                                              ->withfirstlawyer($firstlawyer)
+                                              ->withsecondlawyer($secondlawyer)
+                                              ->withassistant($assistant)
+                                              ->withclient($client);
     }
 
 }

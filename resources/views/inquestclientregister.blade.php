@@ -14,58 +14,17 @@
 				</header>
 	<div class="container-fluid">
 		<ul class="nav nav-tabs">
-			<li><a href="#nature">Nature of Request</a></li>
 			
-			<li id = "tab" style="display:none"><a href="#clientinfo">Client Info</a></li>
+			
+			<li ><a href="#clientinfo">Client Info</a></li>
 			<li id="ifMarried" style="display:none;"><a href="#clientmarital">Client Marital Info</a></li>
 			<li id="ifYes" style="display:none;" ><a href="#detention">Client Detention</a></li>
 			{{-- <li><a href="#case">Case Details</a></li>
 			<li><a href="#adverse">Case Adverse</a></li> --}}
 		</ul>
-		<form class ="horizontal" action="/client/register" method="post" enctype="multipart/form-data">
+		<form class ="horizontal" action="/inquestclient/register" method="post" enctype="multipart/form-data">
 		 {{ csrf_field() }}
-		<div id="nature" class="tab-content">
-			<div class="card1">
-
-				<div class="container">
-
-									
-					<div class="row" style="height: 490px; width: 100%">
-						{{-- 	<form class="form-horizontal" action="/client/register" method="post" enctype="multipart/form-data">
-                  {{ csrf_field() }} --}}
-
-						<div class="form-group"><br>
-							<div class="col-md-6">
-								<label>
-									Nature of Request*
-								</label>
-								<select id="nor" name="nor" class="form-control "required onchange="getval(this);">
-								<option value="" selected="selected"></option>
-								@foreach($services as $requestt)
-      							<option id="" value="{{$requestt->name}}">{{$requestt->name}}</option>
-    							@endforeach
-								{{-- <option value="others">Other</option> --}}
-								</select>
-							</div>
-						</div>
-					</div>
-					
-				</div>
-				
-
-				<footer>
-					<center>
-					        <a class="btn btn-default btnPrevious" >Back</a>
-					        <a id="notary" style="display:none" href="/show/clientnotary" class="btn btn-green">Next</a>
-					        <a id="docu" style="display:none" href="/show/docu" class="btn btn-green">Next</a>
-					        <a id="inquest" style="display:none" href="/inquestclient/register" class="btn btn-green">Next</a>
-							<a id="or" class="btn btn-green btnNext" style = "display:none;">Next</a>
-					        <br><br>
-					</center>
-				</footer>
-				 
-			</div>
-		</div>
+		
 		
 
 
@@ -182,7 +141,7 @@
 			</div>
 			<footer style="margin-bottom: 80px; text-align: center;">
 
-                             <button  style type="submit" class="btn btn-green ">Submit</button>
+                             <button  type="submit" class="btn btn-green ">Submit</button>
                              <div id = "ifMarried"  style="display:none;">
 					         <a  class="btn btn-green btnNext" >Next</a><br><br><br>
 					        </div>
@@ -373,8 +332,6 @@ var strUser = e.options[e.selectedIndex].value;
     	 	document.getElementById('or').style.display = 'none';
     	 	document.getElementById('tab').style.display = 'none';
     	 	document.getElementById('docu').style.display = 'none';
-    	 	document.getElementById('inquest').style.display = 'none';
-
 
     	 
     }
@@ -384,15 +341,13 @@ var strUser = e.options[e.selectedIndex].value;
     	 	document.getElementById('or').style.display = 'none';
     	 	document.getElementById('tab').style.display = 'none';
     	 	document.getElementById('notary').style.display = 'none';
-    	 	document.getElementById('inquest').style.display = 'none';
     }
-    else if(nor.value == 'Inquest')
+    elseif(nor.value == 'Inquest')
     {
-    	    document.getElementById('inquest').style.display = 'block';
+    	    document.getElementById('docu').style.display = 'block';
     	 	document.getElementById('or').style.display = 'none';
     	 	document.getElementById('tab').style.display = 'none';
     	 	document.getElementById('notary').style.display = 'none';
-    	 	document.getElementById('docu').style.display = 'none';
     }
     else
     {
@@ -400,7 +355,6 @@ var strUser = e.options[e.selectedIndex].value;
     	document.getElementById('tab').style.display = 'block';
     	document.getElementById('notary').style.display = 'none';
     	document.getElementById('docu').style.display = 'none';
-    	document.getElementById('inquest').style.display = 'none';
     }
 }
    </script>

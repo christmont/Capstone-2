@@ -397,7 +397,7 @@ class RegisterController extends Controller
             {
               $client->cl_status = "For Inquest";
               $client->save();
-              return redirect('/client/show');
+              return redirect('/inquestcase/register');
             }
 
        }
@@ -441,8 +441,11 @@ class RegisterController extends Controller
               
         //         ));
           $clients = Client::select('id')->orderBy('created_at','desc')->take(1)->get();
+
         foreach ($clients as $key => $client) 
-        {
+        { 
+          if($client->nature_of_request != 'For Inquest')
+          {
             $employeeclients = employeeclients::where('client_id',$client->id)->get();
               foreach($employeeclients as $employeeclient)
               {
@@ -457,7 +460,7 @@ class RegisterController extends Controller
                 foreach ($courts as $key => $court) 
                 {
               
-            
+          
           
         
             
@@ -493,7 +496,7 @@ class RegisterController extends Controller
       
              $casetobehandled-> client_id = $client->id;
              $casetobehandled-> court_id = $court->id;
-       
+        }
                 }
         }
        
@@ -992,19 +995,20 @@ class RegisterController extends Controller
                          ->with('employee')
                           ->get();
           }
-        $employeeclients = employeeclients::where('employee_id',$lawyers->id)->get();
-
-        foreach($employeeclients as $employeeclient)
-        {
-      
-              }
-          
         
-  }    $client = Client::where([['nature_of_request','Mediation'],['cl_status','Approved'],['id',$employeeclient->client_id]])
-                        ->orwhere([['nature_of_request','Representation of quasi-judicial bodies '],['cl_status','Approved'],['id',$employeeclient->client_id]])
-                        ->orwhere([['nature_of_request','Legal Assistance '],['cl_status','Approved'],['id',$employeeclient->client_id]])
+
+        foreach($schedule as $schedules)
+        {
+            $client = Client::where([['nature_of_request','Mediation'],['cl_status','Approved'],['id',$schedules->client_id]])
+                        ->orwhere([['nature_of_request','Representation of quasi-judicial bodies '],['cl_status','Approved'],['id',$schedules->client_id]])
+                        ->orwhere([['nature_of_request','Legal Assistance '],['cl_status','Approved'],['id',$schedules->client_id]])
                         ->with('casetobehandled')
                         ->get();
+        
+        }
+          
+        
+  }    
         foreach($client as $clients)
         {
           foreach($clients->casetobehandled as $case)
@@ -1014,7 +1018,7 @@ class RegisterController extends Controller
           }
         }
 
-       
+      
          return view('maintenance.schedules')->withLawyer($lawyer)
                                            ->withschedule($schedule)
                                             ->withClient($client)
@@ -1362,6 +1366,132 @@ class RegisterController extends Controller
               }
 
     }
+    public function showinquestclientregister()
+    {
+      $clients = Client::orderBy('cllname','asc')->get();
+        $services = Service::orderBy('name','asc')->get();
+        $religions = Religion::orderBy('name','asc')->get();
+        $educations = Education::orderBy('id','asc')->get();
+        $involvements = Involvement::orderBy('name','asc')->get();
+        $languages = Language::orderBy('name','asc')->get();
+        $citizenships = Citizenship::orderBy('name','asc')->get();
+         return view('inquestclientregister')->withClients($clients)
+        ->withReligions($religions)
+        ->withEducations($educations)
+        ->withInvolvements($involvements)
+        ->withLanguages($languages)
+        ->withCitizenships($citizenships)
+        ->withservices($services);
+    }
+    public function inquestclientregister(Request $request)
+    {
+
+            $client = new Client;
+    
+
+        
+
+            $client-> clfname = $request->fname;
+            $client-> clmname = $request->mname;
+            $client-> cllname = $request->lname;
+            $client-> clreligion = $request->religion;
+            $client-> clcitizenship = $request->Citizenship;
+            $client-> claddress = $request->Address;
+            $client-> clemail = $request->Email;
+            $client-> clmonthly_net_income = $request->Income;
+
+            $client-> cldetained = $request->detained;
+            $client-> cldetained_since = $request->DetainedDate;
+            $client-> clbdate = $request->Birthday;
+            $client-> clgender = $request->gender;
+            $client-> clcivil_status = $request->civilstat;
+            $client-> cleducational_attainment = $request->Educational;
+            $client-> cllanguage = $request->Language;
+            $client-> clcontact_no = $request->Contact;
+            $client-> clspouse = $request->spouse;
+            $client-> claddress_of_spouse = $request->spouse_addr;
+            $client-> clcontact_no_of_spouse = $request->spouse_con;
+            $client-> cldetained_since = $request->detainedsince;
+            $client-> clplace_of_detention = $request->detention;
+            $client-> nature_of_request = "Inquest";
+            $client->cl_status = "For Inquest";
+              $client->save();
+              return redirect('/inquestcase/register');
+           
+    }
+    public function showinquestcaseregister()
+    {
+      $clients = Client::select('id')->orderBy('id','desc')->get();
+          $employees = Employee::where('position','Interviewer')->get();
+          $criminal = Lawsuit::where('casetype_id','1')->orderBy('name','asc')->get();
+          $civil = Lawsuit::where('casetype_id','2')->orderBy('name','asc')->get();
+          $administrative = Lawsuit::where('casetype_id','4')->orderBy('name','asc')->get();
+          $labor = Lawsuit::where('casetype_id','3')->orderBy('name','asc')->get();
+
+          $category = Category::orderBy('name','asc')->get();
+          $involvements = Involvement::orderBy('name','asc')->get();
+          $casetypes = casetype::orderBy('name','asc')->get();
+         
+           
+          return view('inquestcasereg')->withClients($clients)
+          ->withcriminal($criminal)
+          ->withcivil($civil)
+          ->withadministrative($administrative)
+          ->withlabor($labor)
+          ->withCategory($category)
+          ->withInvolvements($involvements)
+          ->withEmployees($employees)
+          ->withcasetypes($casetypes);
+    }
+    public function inquestcaseregister(Request $request)
+    {
+        $casetobehandled = new casetobehandled;
+
+        $clients = Client::select('id')->orderBy('created_at','desc')->take(1)->get();
+
+        foreach ($clients as $key => $client) 
+        { 
+         
+       
+          if($request->casetype == 'Criminal')
+         {
+          
+         $casetobehandled-> casename = $request->criminal;
+         }
+        elseif($request->casetype == 'Civil')
+         {
+          
+          $casetobehandled-> casename = $request->civil ;
+         }
+        elseif($request->casetype == 'Labor')
+         {
+         
+          $casetobehandled-> casename = $request->labor ;
+         }
+         elseif($request->casetype == 'Administrative')
+         {
+          
+          $casetobehandled-> casename = $request->administrative;
+         };
+        $casetobehandled-> interviewer = $request->employee;
+         $casetobehandled-> nature_of_case =$request->casetype;
+       
+        $casetobehandled-> clcase_involvement = $request->involvement;
+        $casetobehandled-> clcomplainant_victim_of = $request->Category;
+       
+      
+             $casetobehandled-> client_id = $client->id;
+             
+        
+          }      
+        
+       
+       
+        $casetobehandled->save();
+       
+        return redirect('/adverse/register');
+    }
+
 
 
 

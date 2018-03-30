@@ -19,9 +19,7 @@ class InquestController extends Controller
 {
     public function showinquestform()
     {
-      $clients = Client::where('nature_of_request','Inquest')
-      				->with('casetobehandled')
-      				->get();
+     
       $lawyer1 = Employee::where('position','Lawyer')->get();
       $lawyer2 = Employee::where('position','Lawyer')->get();
       $staff = Employee::where('position','Administrative Staff')->get();
@@ -29,6 +27,13 @@ class InquestController extends Controller
       {
       $schedule = Schedule::where('employee_id',$lawyers->id)->get();
       }
+      foreach($schedule as $schedules)
+      {
+        $clients = Client::where([['nature_of_request','Inquest'],['id',$schedule->client_id]])
+              ->with('casetobehandled')
+              ->get();
+      }
+      
       return view('inquest.form')->withClients($clients)
       						 	 ->withLawyer1($lawyer1)
                      ->withlawyer2($lawyer2)

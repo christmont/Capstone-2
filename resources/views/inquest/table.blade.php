@@ -1,7 +1,7 @@
-@extends('master')
-@extends('layout/side-nav')
-@extends('layout/header-main')	
-@section('content')
+@extends('lawyer ui/lawyer ui')
+@extends('lawyer ui/lawyer side-nav')
+@extends('lawyer ui/lawyer header-main')
+@section('contents')
 
 <section id="middle">
 
@@ -67,15 +67,31 @@
 									</tr>
 								</thead>
 								<tbody>
+									@foreach($inquest as $inquests)
+									
+									@foreach($schedule as $schedules)
+									@foreach($firstlawyer as $firstlawyers)
+									@foreach($secondlawyer as $secondlawyers)
+									@foreach($assistant as $assistants)
 									<tr>
-										<td><br></td>
-										<td><br></td>
-										<td><br></td>
-										<td><br></td>
-										<td><br></td>
-										<td><br></td>
-										<td><br></td>
+										@foreach($client as $clients)
+										<td>{{$clients->clfname}} {{$clients->clmname}} {{$clients->cllname}}</td>
+										
+										<td>{{$inquests->natureofcalls}}</td>
+										<td>{{$assistants->efname}} {{$assistants->emname}} {{$assistants->elname}}</td>
+										<td>{{date('F j Y g:i a',strtotime($schedules->start))}}  {{date('F j Y g:i a',strtotime($schedules->end))}}</td>
+										<td>{{$inquests->location}}</td>
+										
+										<td>{{$clients->casename}}</td>
+										@endforeach
+										<td>{{$inquests->actiontaken}}</td>
 									</tr>
+									
+									@endforeach
+									@endforeach
+									@endforeach
+									@endforeach
+									@endforeach
 								
 								</tbody>
 								
