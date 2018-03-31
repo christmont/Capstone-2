@@ -26,14 +26,14 @@
 								<header style="text-align: center;">
 									<h2>REPUBLIC OF THE PHILIPPINES</h2>
 									<H2>NATIONAL CAPITAL JUDICIAL REGION</H2>
-									<H2>Regional Trial Court</H2>
-									<h2>_________ City</h2>
+									<H2>{{ucwords($client->court)}}</H2>
+									<h2>{{ucwords($client->courtcity)}} City</h2>
 								</header>
 								<div class="col-md-6 text-left">
 									<h4>IN RE: PETITION FOR NOTARIAL</h4>
 									<h4>COMMISSION FOR AND IN THE</h4>
 									<h4>CITY OF ________</h4><br>
-									<h4>_____________</h4>
+									<h4>{{ucfirst($client->clfname)}} {{ucfirst($client->clmname)}} {{ucfirst($client->cllname)}}</h4>
 									<h4>PETITIONER,</h4>
 								</div>
 								<div class="col-md-6 text-right">
@@ -56,24 +56,25 @@
 								<h5>&emsp;&emsp;&emsp;&emsp;&emsp; WHEREFORE, premises considered, it is most respectfully prayed of this Honorable Court that:</h5>
 								<p style="margin-left: 70px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;1.&nbsp; ________________________________________________;</p>
 								<p style="margin-left: 70px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;2.&nbsp; ________________________________________________;</p>
-								<p style="margin-left: 70px;"> Date ___________________, Municipality /City of________________.</p>
+								<p style="margin-left: 70px;"> Date {{$client->clnotarydate}}, Municipality /City of {{$client->clcity}}.</p>
 								<br><br>
-								<p style="text-align: center;">_______________________<br>Petitioner</p>
-								<p style="text-align: center;">Address ________________________________________________</p>
-								<p style="text-align: center;">Contact No. ________________________________________________</p>
-								<p style="text-align: center;">Email Address ________________________________________________</p>
+								<p style="text-align: center;">{{$client->clfname}} {{$client->clmname}} {{$client->cllname}}<br>Petitioner</p>
+								<p style="text-align: center;">Address {{$client->claddress}}</p>
+								<p style="text-align: center;">Contact No. {{$client->clcontact_no}}</p>
+								<p style="text-align: center;">Email Address {{$client->clemail}}</p>
+								<p style="text-align: center;">CTC No. {{$client->ctcno}}</p>
 								<br><br>
-								<h3 style="text-align: center;"><u><b>VERIFICATION and CERTIFICATION AGAINST FORUM SHOPPING</b></u></h3><br>
-								<h5>&emsp;&emsp;&emsp;&emsp;&emsp; I, ___________________, under oath, depose and state that:</h5>
+								<h3 style="text-align: center;"><u><b>VERIFICATION and CERTIFICATION </b></u></h3><br>
+								<h5>&emsp;&emsp;&emsp;&emsp;&emsp; I, {{ucfirst($client->clfname)}} {{ucfirst($client->clmname)}} {{ucfirst($client->cllname)}}, under oath, depose and state that:</h5>
 								<p style="margin-left: 70px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;1.&nbsp; ________________________________________________;</p>
 								<p style="margin-left: 70px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;2.&nbsp; ________________________________________________;</p>
 								<p style="margin-left: 70px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;3.&nbsp; ________________________________________________;</p>
 								<p style="margin-left: 70px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;4.&nbsp; ________________________________________________;</p>
 								<p style="margin-left: 70px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;5.&nbsp; ________________________________________________;</p>
-								<p style="text-align: center;">_______________________<br>(Name of Petitioner)</p>
+								<p style="text-align: center;">_______________________<br>{{ucfirst($client->clfname)}} {{ucfirst($client->clmname)}} {{ucfirst($client->cllname)}}</p>
 								<br><br>
 								<h3 style="text-align: center;"><u><b>JURAT</b></u></h3><br>
-								<h5>&emsp;&emsp;&emsp;&emsp;&emsp; SUBSCRIBED AND SWORN to before me in the _________ on this day of _________ 20___, affiant exhibiting before me her/his (Government-issued Identification Card No. ) issued on _________ in ___________.</h5><br><br>
+								<h5>&emsp;&emsp;&emsp;&emsp;&emsp; SUBSCRIBED AND SWORN to before me in the {{date('jS',strtotime($client->clnotarydate))}} on this day of {{date('M',strtotime($client->clnotarydate))}} 20{{date('y',strtotime($client->clnotarydate))}}, affiant exhibiting before me her/his CTC No. issued on {{date('F j Y',strtotime($client->ctcdate))}} in {{$client->clcity}}.</h5><br><br>
 								<p style="text-align: right;">Notary Public</p>
 								<p style="text-align: left;">Doc.  No. .........:<br>
 
@@ -81,7 +82,7 @@
 
 															Book No. .........;<br>
 
-															Series of   20__.</p>
+															Series of   20{{date('y',strtotime($client->clnotarydate))}}.</p>
 								</div>
 								</div>
 							</div>	

@@ -86,8 +86,13 @@
 										
 										
 										<td>
+											@if($client->documenttype == 'Affidavit')
 											<a  class = "btn btn-info" href="{{route('request.print',$client->id)}}">
 											Print </a>
+											@elseif($client->documenttype == 'Petition')
+											<a  class = "btn btn-info" href="{{route('petitionprint',$client->id)}}">
+											Print </a>
+											@endif
 										</td>
 										<td>
 											<a  class = "btn btn-info" href="{{route('request.view',$client->id)}}">

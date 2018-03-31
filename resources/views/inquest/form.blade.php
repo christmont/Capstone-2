@@ -13,6 +13,7 @@
 		</header>
 		<br>
        <div class="container">
+     @foreach($inquest as $inquests)
       <form name="myForm" id="exampleForm">
       	<div class="row">
 			<div class="form-group">
@@ -30,8 +31,13 @@
 				 		</div>
 						@foreach($lawyer1 as $lawyers)
 						<input type="hidden" name ="lawyer1" value = "{{$lawyers->id}}">
+<<<<<<< HEAD
 						<input type="text" name="lawyer1" value="{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}" class="form-control " readonly a class ="pull-right btn btn-warning">
 						
+=======
+						<input type="text" name="lawyer1" value="{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}" class="form-control " readonly a class ="pull-right btn btn-warning" onclick = "lawyer1()">
+						<div id="lawyer1" style="display:none">sdwasd</div>
+>>>>>>> a08fd1dbc7bb67a5d2276f286dc4a1d5994c03c5
 					</div>
 				</div>
 						@endforeach
@@ -73,7 +79,7 @@
 				 		<div class="input-group-addon">
 				 			<a class ="fa fa-pencil"></a>
 				 		</div>
-					<input type="text" name="location" value="{{$inquest->location}}" class="form-control " required readonly>
+					<input type="text" name="location" value="{{$inquests->location}}" class="form-control " required readonly>
 					</div>
 				</div>
 			    </div>
@@ -102,7 +108,7 @@
 					</div>
 				</div>
 						@endforeach
-					
+						@endforeach
 			    </div>
 			
 			</div>
@@ -116,4 +122,13 @@
     </div>
 @endforeach
 </section>
+<script type ="text/javascript">
+function lawyer1() 
+{
+   
+            document.getElementById('lawyer1').style.display = 'block';
+} 
+      
+	
+</script>
 @stop

@@ -19,15 +19,46 @@
 						<li class="active">Inquest</li>
 					</ol>
 				</header>
+				<!-- /page title -->
+
+
+
+    
+
+
+
+
+
+
+
+
+
 				<div id="content" class="padding-20">
+
+					<!-- 
+						PANEL CLASSES:
+							panel-default
+							panel-danger
+							panel-warning
+							panel-info
+							panel-success
+
+						INFO: 	panel collapse - stored on user localStorage (handled by app.js _panels() function).
+								All pannels should have an unique ID or the panel collapse status will not be stored!
+					-->
 					<div id="panel-1" class="panel panel-default">
 						<div class="panel-heading">
 							<span class="title elipsis">
 								<strong>Inquest Table</strong> <!-- panel title -->
 								<div class="pull-right">
-							<a  class="btn btn-green" href="/lawsuit/register" style="line-height: 1.5;"><i class="fa fa-plus"></i>PRINT</a>
+							<a  class="btn btn-green" href="/print/admininquest" style="line-height: 1.5;"><i class="fa fa-print"></i>PRINT</a>
 						</div>
+
 							</span>
+
+						
+							<!-- /right options -->
+
 						</div>
 						<div class="panel-body">
 							
@@ -47,9 +78,32 @@
 									</tr>
 								</thead>
 									@foreach($schedule as $schedules)
+
 									<tbody>
-									<tr>
+										
+									<tr>	
 										<td>
+<<<<<<< HEAD
+
+
+
+
+											<div class="btn-group" role="group" aria-label="Basic example">
+			  								<a  class="btn btn-primary" href="{{ route('showsched',$schedules->id) }}">Reschedule</a>
+			  								
+			  								
+			  								<a  class="btn btn-warning" href="{{ route('inquestedit',$schedules->id) }}">Edit</a>
+									
+			 	 									<form action="{{ route('deletesched',$schedules->id) }}" method = "post">
+															{{ csrf_field() }}
+			        									{{ method_field('DELETE') }}
+														<button type ="submit" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?')" href="{{ route('deletesched',$schedules->id) }}">
+														Delete </button>
+													</form>
+											</div>
+
+
+=======
 								<div class="btn-group" role="group" aria-label="Basic example">
   							<a  class="btn btn-primary" href="{{ route('showsched',$schedules->id) }}">Reschedule</a>
   							<a  class="btn btn-green" href="{{ route('inquestedit',$schedules->id) }}">Edit</a>
@@ -59,7 +113,9 @@
 											<button type ="submit" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?')" href="{{ route('deletesched',$schedules->id) }}">
 											Delete </button>
 										</form>
+>>>>>>> 2cd661e35284d1791f864096fc3f061155f7a628
 								</div>
+
 										</td>
 										<td>{{date('j',strtotime($schedules->start))}}</td>
 										<td> {{date('l',strtotime($schedules->start))}} </td>

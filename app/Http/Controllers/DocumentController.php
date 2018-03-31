@@ -6,14 +6,17 @@ use Illuminate\Http\Request;
 use App\Document;
 use App\documenttype;
 use App\Client;
+use App\Court;
 
 class DocumentController extends Controller
 {
     public function showdocuclientreg()
     {
     $type = documenttype::all();
+    $court = Court::all();
 
-      return view('docuform')->withtype($type);
+      return view('docuform')->withtype($type)
+                              ->withcourt($court);
     }
      public function docuclientreg(Request $request)
     {
@@ -26,8 +29,13 @@ class DocumentController extends Controller
       $docu-> claddress = $request->Address;
       $docu-> clcity = $request->city;
       $docu-> clctcno = $request->ctcno;
-      
+      $docu-> clemail = $request->Email;
+      $docu-> clcontact_no = $request->Contact;
+      $docu-> clspouse = $request->spouse;
       $docu-> clnotarydate = $date;
+      $docu-> documenttype = $request->document;
+      $docu-> court = $request->court;
+      $docu-> ctcdate = $request->ctcdate;
       $docu-> cl_status = "Walkin";
       $docu->save();
 
@@ -48,5 +56,40 @@ class DocumentController extends Controller
               }
 
     }
+        public function petitionprint($id)
+    {
+       $client = Client::find($id);
+
+         
+
+      
+
+ 
+      
+  
+       $papersize = array(0, 0, 360, 360);
+       $pdf = PDF::loadView('forms.petition', array(
+        'name' => $client->clfname . ' ' . $client->clmname . ' ' . $client->cllname,
+        'citizen' => $client->clcitizenship,
+        'civilstat' => $client->clcivil_status,
+        'spouse' => $client->clspouse,
+        'address' => $client->claddress,
+        'ctcno' =>$client->ctcno,
+        'email' => $client->email,
+        'cldate' => $client->clnotarydate,
+        'clcity' => $client->clcity,
+        'court' => $client->court,
+        'ctcdate'=> $client->ctcdate,
+        
+        
+
+       ));
+
+     
+
+       return $pdf->download($client->clfname . '_' . $client->cllname . '_petition.pdf');
+                                     
+    }
+
 
 }

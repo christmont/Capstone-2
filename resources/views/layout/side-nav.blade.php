@@ -104,6 +104,7 @@
                             <ul><!-- submenus -->
                                 <li><a href="/show/yearendreport">Year End Inventory of Cases</a></li>
                                  <li><a href="/show/bycourt"> Inventory of Cases per Court</a></li>
+                                 <li><a href="/show/inquesttable">Monthly Inquest Schedule</a></li>
                                </ul>
                         </li>
                               

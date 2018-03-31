@@ -480,9 +480,11 @@ class UpdateController extends Controller
     }
     public function showinquestedit($id)
     {
-        $schedule = Schedule::find($id);
 
-        $inquests = Inquest::where('schedule_id', '=', $id)->get();
+      
+       
+
+        $inquest = Inquest::where('schedule_id', '=', $id)->get();
 
         foreach($inquests as $inquest)
         {
@@ -495,6 +497,7 @@ class UpdateController extends Controller
         }
 
         return view('inquest.form')->withinquests($inquests)
+
                                    ->withclients($clients)
                                    ->withlawyer1($lawyer1)
                                    ->withlawyer2($lawyer2)
