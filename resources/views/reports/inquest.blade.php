@@ -27,12 +27,6 @@ tr:nth-child(even) {
 <body>
 	<div class="container">
 	<div class="header">
-		<h5 style="text-align: center;"><i>Republika ng Pilipinas</i></h5>
-		<h5 style="text-align: center;">TANGGAPAN NG MANANANGGOL PAMBAYAN</h5>
-		<h3 style="text-align: center;"><b>(PUBLIC ATTORNEY'S OFFICE)</b></h3>
-		<h5 style="text-align: center;"><b>QUEZON CITY DISTRICT OFFICE</b></h5>
-		<h5 style="text-align: center;"><i>6th Flr. Justice Cecilia Munoz Palma Hall, DOJ Bldg. <Br>
-		City Hall Coumpound, Diliman, 1101 Quezon City</i></h5><br><br>
 		<h3 style="text-align: center;"><b>INQUEST REPORT</b></h3>
 	</div>
 	<br><br><br>
@@ -46,21 +40,21 @@ tr:nth-child(even) {
 		<form>
 			<label> Inquest Lawyer :</label>
 			<input type="text"  value ="{{$firstlawyers->efname}} {{$firstlawyers->emname}} {{$firstlawyers->elname}}" class="form-control" readonly>
-		</form>
+		</form><br>
 		<form>
 			<label> Inquest Lawyer :</label>
 			<input type="text"  value ="{{$secondlawyers->efname}} {{$secondlawyers->emname}} {{$secondlawyers->elname}}" class="form-control" readonly>
-		</form>
+		</form><br>
 		<form>
 			<label> Inquest Assistant: </label>
 			<input type="text"  value ="{{$assistants->efname}} {{$assistants->emname}} {{$assistants->elname}}" class="form-control" readonly>
-		</form>
+		</form><br>
 		<form>
 			<label> Schedule of Duty: </label>
 			<input type="text"  value = "{{date('F j Y g:i a',strtotime($schedules->start))}} - {{date('F j Y g:i a',strtotime($schedules->end))}}" class="form-control"><br>
 		</form>
 	</div>
-	
+	<br><br>
 
 	<table>
 		<tr>
@@ -81,19 +75,23 @@ tr:nth-child(even) {
 	</tr>
 	
 	</table>
-	<br><br><br>
-	<div class="col-md-4">
+	<br><br><br>
+	<div class="container">
+		<div class="row">
+	<div class="col-sm-4">
 		<h5>{{$firstlawyers->efname}} {{$firstlawyers->emname}} {{$firstlawyers->elname}}</h5>
-		<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Inquest Lawyer</label>
-	</div>
-	<div class="col-md-4">
+		<label>Inquest Lawyer</label>
+	</div><br>
+	<div class="col-sm-4">
 		<h5>{{$secondlawyers->efname}} {{$secondlawyers->emname}} {{$secondlawyers->elname}}</h5>
-		<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Inquest Lawyer</label>
-	</div>
-	<div class="col-md-4">
+		<label>Inquest Lawyer</label>
+	</div><br>
+	<div class="col-sm-4">
 		<h5>{{$assistants->efname}} {{$assistants->emname}} {{$assistants->elname}}</h5>
-		<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Inquest Assistant</label>
+		<label>Inquest Assistant</label>
 	</div>
+	</div>
+
 	@endforeach
 @endforeach
 @endforeach

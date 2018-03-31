@@ -26,11 +26,12 @@
 					<label class="control-label">Inquest Lawyer 1 *</label>
 					<div class="input-group">
 				 		<div class="input-group-addon">
-				 			<a class ="fa fa-pencil"></a>
+				 			<button class ="fa fa-pencil"></button>
 				 		</div>
 						@foreach($lawyer1 as $lawyers)
 						<input type="hidden" name ="lawyer1" value = "{{$lawyers->id}}">
 						<input type="text" name="lawyer1" value="{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}" class="form-control " readonly a class ="pull-right btn btn-warning">
+						
 					</div>
 				</div>
 						@endforeach
