@@ -242,6 +242,7 @@ Route::post('/notary/register','RegisterController@notaryclientreg');
 
 Route::get('/show/docu','DocumentController@showdocuclientreg');
 Route::post('/docu/register','DocumentController@docuclientreg');
+Route::get('/docu/print/{id}','DocumentController@petitionprint')->name('petitionprint');
 
 
 

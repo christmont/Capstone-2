@@ -262,13 +262,18 @@ class RequestController extends Controller
  
       
   
-       $papersize = array(0, 0, 360, 360);
-       $pdf = PDF::loadView('pdf.affidavit', array(
+    $papersize = array(0, 0, 360, 360);
+       $pdf = PDF::loadView('pdf.AFFIDAVIT', array(
         'name' => $client->clfname . ' ' . $client->clmname . ' ' . $client->cllname,
         'citizen' => $client->clcitizenship,
         'civilstat' => $client->clcivil_status,
         'spouse' => $client->clspouse,
         'address' => $client->claddress,
+        'ctcno' =>$client->ctcno,
+        'email' => $client->email,
+        'cldate' => $client->cldate,
+        'clcity' => $client->clcity,
+        
         
         
 
@@ -277,7 +282,7 @@ class RequestController extends Controller
      
 
        return $pdf->download($client->clfname . '_' . $client->cllname . '_affidavit.pdf');
-        return redirect('/home');                                
+                                     
     }
     public function transfer($id)
     {

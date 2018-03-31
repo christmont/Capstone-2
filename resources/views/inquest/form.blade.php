@@ -13,6 +13,7 @@
 		</header>
 		<br>
        <div class="container">
+     @foreach($inquest as $inquests)
       <form name="myForm" id="exampleForm">
       	<div class="row">
 			<div class="form-group">
@@ -73,7 +74,7 @@
 				 		<div class="input-group-addon">
 				 			<a class ="fa fa-pencil"></a>
 				 		</div>
-					<input type="text" name="location" value="{{$inquest->location}}" class="form-control " required readonly>
+					<input type="text" name="location" value="{{$inquests->location}}" class="form-control " required readonly>
 					</div>
 				</div>
 			    </div>
@@ -104,7 +105,7 @@
 					</div>
 				</div>
 						@endforeach
-					
+						@endforeach
 			    </div>
 			
 			</div>
