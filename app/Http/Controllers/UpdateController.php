@@ -481,25 +481,10 @@ class UpdateController extends Controller
     public function showinquestedit($id)
     {
 
-        $inquest = Inquest::where('schedule_id',$id)->get();
-        foreach($inquest as $inquests)
-    {
-        $clients = Client::where([['nature_of_request','Inquest'],['id',$inquests->client_id]])
-                    ->get();
       
-      $lawyer1 = Employee::where('id',$inquests->employee_id)->get();
-      $lawyer2 = Employee::where('id',$inquests->lawyer)->get();
-      $staff = Employee::where('id',$inquests->assistant)->get();
-      
-      $schedule = Schedule::where('id',$inquests->schedule_id)->get();
-    }
-        
-    
-        return view('inquest.form')->withinquest($inquest)
-
        
 
-        $inquests = Inquest::where('schedule_id', '=', $id)->get();
+        $inquest = Inquest::where('schedule_id', '=', $id)->get();
 
         foreach($inquests as $inquest)
         {
