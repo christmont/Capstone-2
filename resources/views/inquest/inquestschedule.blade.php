@@ -83,6 +83,7 @@
 										
 									<tr>	
 										<td>
+<<<<<<< HEAD
 
 
 
@@ -102,6 +103,17 @@
 											</div>
 
 
+=======
+								<div class="btn-group" role="group" aria-label="Basic example">
+  							<a  class="btn btn-primary" href="{{ route('showsched',$schedules->id) }}">Reschedule</a>
+  							<a  class="btn btn-green" href="{{ route('inquestedit',$schedules->id) }}">Edit</a>
+ 	 									<form action="{{ route('deletesched',$schedules->id) }}" method = "post">
+												{{ csrf_field() }}
+        									{{ method_field('DELETE') }}
+											<button type ="submit" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?')" href="{{ route('deletesched',$schedules->id) }}">
+											Delete </button>
+										</form>
+>>>>>>> 2cd661e35284d1791f864096fc3f061155f7a628
 								</div>
 
 										</td>
