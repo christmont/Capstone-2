@@ -30,12 +30,10 @@
 				 			<button class ="fa fa-pencil"></button>
 				 		</div>
 						@foreach($lawyer1 as $lawyers)
-<<<<<<< HEAD
 						<input type="hidden" name ="lawyer1" value = "{{$lawyers->id}}">]
 						<input type="text" name="lawyer1" value="{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}" class="form-control " readonly a class ="pull-right btn btn-warning">
 						<input type="text" name="lawyer1" value="{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}" class="form-control " readonly a class ="pull-right btn btn-warning" onclick = "lawyer1()">
 						<div id="lawyer1" style="display:none">sdwasd</div>
-=======
 						<input type="hidden" name ="lawyer1" value = "{{$lawyers->id}}">
 
 						<input type="text" name="lawyer1" value="{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}" class="form-control " readonly a class ="pull-right btn btn-warning">
@@ -43,8 +41,6 @@
 
 						<input type="text" name="lawyer1" value="{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}" class="form-control " readonly a class ="pull-right btn btn-warning" onclick = "lawyer1()">
 						<div id="lawyer1" style="display:none">sdwasd</div>
-
->>>>>>> 4549dce50a48bed334862e5886194b7e2fc8e819
 					</div>
 				</div>
 						@endforeach
