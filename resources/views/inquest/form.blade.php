@@ -36,13 +36,7 @@
 						<input type="text" name="lawyer1" value="{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}" class="form-control " readonly a class ="pull-right btn btn-warning" onclick = "lawyer1()">
 						<div id="lawyer1" style="display:none">sdwasd</div>
 
-						<input type="hidden" name ="lawyer1" value = "{{$lawyers->id}}">
-
-						<input type="text" name="lawyer1" value="{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}" class="form-control " readonly a class ="pull-right btn btn-warning">
 						
-
-						<input type="text" name="lawyer1" value="{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}" class="form-control " readonly a class ="pull-right btn btn-warning" onclick = "lawyer1()">
-						<div id="lawyer1" style="display:none">sdwasd</div>
 
 
 					</div>

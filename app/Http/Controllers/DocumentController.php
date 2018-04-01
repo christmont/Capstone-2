@@ -7,6 +7,10 @@ use App\Document;
 use App\documenttype;
 use App\Client;
 use App\Court;
+use App\Employee;
+use App\employeeclients;
+use Carbon\Carbon;
+use PDF;
 
 class DocumentController extends Controller
 {
@@ -69,7 +73,7 @@ class DocumentController extends Controller
   
        $papersize = array(0, 0, 360, 360);
        $pdf = PDF::loadView('forms.petition', array(
-        'name' => $client->clfname . ' ' . $client->clmname . ' ' . $client->cllname,
+        'name' => ucfirst($client->clfname) . ' ' . ucfirst($client->clmname) . ' ' . ucfirst($client->cllname),
         'citizen' => $client->clcitizenship,
         'civilstat' => $client->clcivil_status,
         'spouse' => $client->clspouse,
@@ -80,6 +84,8 @@ class DocumentController extends Controller
         'clcity' => $client->clcity,
         'court' => $client->court,
         'ctcdate'=> $client->ctcdate,
+        'courtcity' =>$client->courtcity,
+        'contact' =>$client->clcontact_no,
         
         
 
