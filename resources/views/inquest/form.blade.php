@@ -30,14 +30,10 @@
 				 			<button class ="fa fa-pencil"></button>
 				 		</div>
 						@foreach($lawyer1 as $lawyers)
-						<input type="hidden" name ="lawyer1" value = "{{$lawyers->id}}">
-<<<<<<< HEAD
+						<input type="hidden" name ="lawyer1" value = "{{$lawyers->id}}">]
 						<input type="text" name="lawyer1" value="{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}" class="form-control " readonly a class ="pull-right btn btn-warning">
-						
-=======
 						<input type="text" name="lawyer1" value="{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}" class="form-control " readonly a class ="pull-right btn btn-warning" onclick = "lawyer1()">
 						<div id="lawyer1" style="display:none">sdwasd</div>
->>>>>>> a08fd1dbc7bb67a5d2276f286dc4a1d5994c03c5
 					</div>
 				</div>
 						@endforeach
