@@ -31,10 +31,9 @@
 				 		</div>
 						@foreach($lawyer1 as $lawyers)
 
-						<input type="hidden" name ="lawyer1" value = "{{$lawyers->id}}">]
+						<input type="hidden" name ="lawyer1" value = "{{$lawyers->id}}">
 						<input type="text" name="lawyer1" value="{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}" class="form-control " readonly a class ="pull-right btn btn-warning">
-						<input type="text" name="lawyer1" value="{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}" class="form-control " readonly a class ="pull-right btn btn-warning" onclick = "lawyer1()">
-						<div id="lawyer1" style="display:none">sdwasd</div>
+						
 
 				
 

@@ -26,7 +26,13 @@
 								<header style="text-align: center;">
 									<h2>REPUBLIC OF THE PHILIPPINES</h2>
 									<H2>NATIONAL CAPITAL JUDICIAL REGION</H2>
-									<H2>{{ucwords($court)}}</H2>
+									@if($court == 'MTC(Metropolitan Trial Court)')
+									<H2>METROPOLITAN TRIAL COURT</H2>
+									@elseif($court == 'RTC(Regional Trial Court)')
+									<H2>REGIONAL TRIAL COURT</H2>
+									@elseif($court == 'Sandiganbayan')
+									<H2>SANDIGANBAYAN</H2>
+									@endif
 									<h2>_________ City</h2>
 								</header>
 								<div class="col-md-6 text-left">
