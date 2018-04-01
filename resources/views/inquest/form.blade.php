@@ -3,7 +3,7 @@
 @extends('lawyer ui/lawyer header-main')
 @section('contents')
 <section id="middle">
-@foreach($inquests as $inquest)
+
 		<header id="page-header">
 					<h1> Inquest Form</h1>
 					<ol class="breadcrumb">
@@ -30,10 +30,21 @@
 				 			<button class ="fa fa-pencil"></button>
 				 		</div>
 						@foreach($lawyer1 as $lawyers)
+<<<<<<< HEAD
 						<input type="hidden" name ="lawyer1" value = "{{$lawyers->id}}">]
 						<input type="text" name="lawyer1" value="{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}" class="form-control " readonly a class ="pull-right btn btn-warning">
 						<input type="text" name="lawyer1" value="{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}" class="form-control " readonly a class ="pull-right btn btn-warning" onclick = "lawyer1()">
 						<div id="lawyer1" style="display:none">sdwasd</div>
+=======
+						<input type="hidden" name ="lawyer1" value = "{{$lawyers->id}}">
+
+						<input type="text" name="lawyer1" value="{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}" class="form-control " readonly a class ="pull-right btn btn-warning">
+						
+
+						<input type="text" name="lawyer1" value="{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}" class="form-control " readonly a class ="pull-right btn btn-warning" onclick = "lawyer1()">
+						<div id="lawyer1" style="display:none">sdwasd</div>
+
+>>>>>>> 4549dce50a48bed334862e5886194b7e2fc8e819
 					</div>
 				</div>
 						@endforeach
@@ -86,8 +97,10 @@
 				 		<div class="input-group-addon">
 				 			<a class ="fa fa-pencil"></a>
 				 		</div>
-					<input type="hidden" name ="sched" value="{{$schedule->id}}" class="form-control ">
-					<input type="text" value="{{date('F j Y g:i a',strtotime($schedule->start))}}  {{date('F j Y g:i a',strtotime($schedule->end))}}" class="form-control " readonly>
+				  @foreach($schedule as $schedules)
+					<input type="hidden" name ="sched" value="{{$schedules->id}}" class="form-control ">
+					<input type="text" value="{{date('F j Y g:i a',strtotime($schedules->start))}}  {{date('F j Y g:i a',strtotime($schedules->end))}}" class="form-control " readonly>
+				  @endforeach
 				</div>
 			</div>
 			    </div>
@@ -104,7 +117,7 @@
 					</div>
 				</div>
 						@endforeach
-						@endforeach
+						
 			    </div>
 			
 			</div>
