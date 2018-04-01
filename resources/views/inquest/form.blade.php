@@ -1,7 +1,7 @@
-@extends('lawyer ui/lawyer ui')
-@extends('lawyer ui/lawyer side-nav')
-@extends('lawyer ui/lawyer header-main')
-@section('contents')
+@extends('master')
+@extends('layout/side-nav')
+@extends('layout/header-main')  
+@section('content')
 <section id="middle">
 
 		<header id="page-header">
@@ -30,10 +30,18 @@
 				 			<button class ="fa fa-pencil"></button>
 				 		</div>
 						@foreach($lawyer1 as $lawyers)
+<<<<<<< HEAD
+=======
+
+>>>>>>> 724194aa12193a3337e329f4b1fccc6f6779d86a
 						<input type="hidden" name ="lawyer1" value = "{{$lawyers->id}}">]
 						<input type="text" name="lawyer1" value="{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}" class="form-control " readonly a class ="pull-right btn btn-warning">
 						<input type="text" name="lawyer1" value="{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}" class="form-control " readonly a class ="pull-right btn btn-warning" onclick = "lawyer1()">
 						<div id="lawyer1" style="display:none">sdwasd</div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 724194aa12193a3337e329f4b1fccc6f6779d86a
 						<input type="hidden" name ="lawyer1" value = "{{$lawyers->id}}">
 
 						<input type="text" name="lawyer1" value="{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}" class="form-control " readonly a class ="pull-right btn btn-warning">
@@ -41,6 +49,11 @@
 
 						<input type="text" name="lawyer1" value="{{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}" class="form-control " readonly a class ="pull-right btn btn-warning" onclick = "lawyer1()">
 						<div id="lawyer1" style="display:none">sdwasd</div>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 724194aa12193a3337e329f4b1fccc6f6779d86a
 					</div>
 				</div>
 						@endforeach
