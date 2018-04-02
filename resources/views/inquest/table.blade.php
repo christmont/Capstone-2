@@ -50,9 +50,9 @@
 										<td>
 											<div class="btn-group" role="group" aria-label="Basic example">
 				  							<a  class="btn btn-primary" href="{{ route('showsched',$schedules->id) }}">Reschedule</a><br><br>
-				  							@foreach($inquest as $inquests)
-				  							<a  class="btn btn-green" href="{{ route('inquestedit',$inquests->id) }}">Edit</a><br><br>
-				  							@endforeach
+				  						
+				  							<a  class="btn btn-green" href="{{ route('inquestedit',$schedules->id) }}">Edit</a><br><br>
+				  							
  	 										<form action="{{ route('deletesched',$schedules->id) }}" method = "post">
 												{{ csrf_field() }}
         									{{ method_field('DELETE') }}

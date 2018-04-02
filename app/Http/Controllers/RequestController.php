@@ -264,16 +264,19 @@ class RequestController extends Controller
   
     $papersize = array(0, 0, 360, 360);
        $pdf = PDF::loadView('pdf.AFFIDAVIT', array(
-        'name' => $client->clfname . ' ' . $client->clmname . ' ' . $client->cllname,
+        'name' => ucfirst($client->clfname) . ' ' . ucfirst($client->clmname) . ' ' . ucfirst($client->cllname),
         'citizen' => $client->clcitizenship,
         'civilstat' => $client->clcivil_status,
         'spouse' => $client->clspouse,
         'address' => $client->claddress,
         'ctcno' =>$client->ctcno,
         'email' => $client->email,
-        'cldate' => $client->cldate,
+        'cldate' => $client->clnotarydate,
         'clcity' => $client->clcity,
-        
+        'court' => $client->court,
+        'ctcdate'=> $client->ctcdate,
+        'courtcity' =>$client->courtcity,
+        'contact' =>$client->clcontact_no,        
         
         
 

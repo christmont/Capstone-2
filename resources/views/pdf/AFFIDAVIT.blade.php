@@ -926,8 +926,8 @@ EN-PH'>&nbsp;<o:p></o:p></span></p>
 normal'><span style='font-size:10.0pt;font-family:"Bookman Old Style","serif";
 mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Times New Roman";
 color:black;mso-fareast-language:EN-PH'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-IN WITNESS WHEREOF, I have hereunto affixed my signature this {{date('jS',strtotime($client->clnotarydate))}} day of <span
-class=GramE> {{date('M',strtotime($client->clnotarydate))}} ,</span> 20{{date('y',strtotime($client->clnotarydate))}} in Quezon City
+IN WITNESS WHEREOF, I have hereunto affixed my signature this {{date('jS',strtotime($cldate))}} day of <span
+class=GramE> {{date('M',strtotime($cldate))}} ,</span> 20{{date('y',strtotime($cldate))}} in Quezon City
 Philippines.</span><span style='font-size:13.5pt;font-family:"Times New Roman","serif";
 mso-fareast-font-family:"Times New Roman";color:black;mso-fareast-language:
 EN-PH'><o:p></o:p></span></p>
@@ -954,7 +954,7 @@ style='font-size:13.5pt;font-family:"Times New Roman","serif";mso-fareast-font-f
 <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
 text-align:right;line-height:normal'><span style='font-size:10.0pt;font-family:
 "Bookman Old Style","serif";mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:black;mso-fareast-language:EN-PH'>&nbsp;{{ucfirst($client->clfname)}} {{ucfirst($client->clmname)}} {{ucfirst($client->cllname)}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</span><span
+mso-bidi-font-family:"Times New Roman";color:black;mso-fareast-language:EN-PH'>&nbsp;{{$name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</span><span
 style='font-size:13.5pt;font-family:"Times New Roman","serif";mso-fareast-font-family:
 "Times New Roman";color:black;mso-fareast-language:EN-PH'><o:p></o:p></span></p>
 
@@ -977,11 +977,11 @@ EN-PH'>&nbsp;<o:p></o:p></span></p>
 normal'><span style='font-size:10.0pt;font-family:"Bookman Old Style","serif";
 mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Times New Roman";
 color:black;mso-fareast-language:EN-PH'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUBSCRIBED
-AND SWORN before me this {{date('jS',strtotime($client->clnotarydate))}} <span class=GramE>day</span> of
-{{date('M',strtotime($client->clnotarydate))}} 20{{date('y',strtotime($client->clnotarydate))}}, by
-{{ucfirst($client->clfname)}} {{ucfirst($client->clmname)}} {{ucfirst($client->cllname)}} who exhibited to me his CTC No.
+AND SWORN before me this {{date('jS',strtotime($cldate))}} <span class=GramE>day</span> of
+{{date('M',strtotime($cldate))}} 20{{date('y',strtotime($cldate))}}, by
+{{$name}} who exhibited to me his CTC No.
 ................................... <span class=GramE>issued</span> on
-{{$client->ctcno}} at ...........................................</span><span
+{{$ctcno}} at ...........................................</span><span
 style='font-size:13.5pt;font-family:"Times New Roman","serif";mso-fareast-font-family:
 "Times New Roman";color:black;mso-fareast-language:EN-PH'><o:p></o:p></span></p>
 

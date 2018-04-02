@@ -228,6 +228,7 @@ Route::get('/print/lawyerinquest','ReportController@printlawyerinquest');
 Route::get('/show/inquesteditform/{id}','UpdateController@showinquestedit')->name('inquestedit');
 Route::get('/show/inquesttable','InquestController@showinquesttable');
 Route::post('/register/inquest','InquestController@inquestreg');
+Route::put('/update/inquest/{id}','UpdateController@inquestedit')->name('updateinquest');
 Route::get('/inquestclient/register','RegisterController@showinquestclientregister');
 Route::post('/inquestclient/register','RegisterController@inquestclientregister');
 Route::get('/inquestcase/register','RegisterController@showinquestcaseregister');
@@ -243,6 +244,8 @@ Route::post('/notary/register','RegisterController@notaryclientreg');
 Route::get('/show/docu','DocumentController@showdocuclientreg');
 Route::post('/docu/register','DocumentController@docuclientreg');
 Route::get('/docu/print/{id}','DocumentController@petitionprint')->name('petitionprint');
+Route::put('/docu/finish/{id}','DocumentController@finishdocu')->name('finishdocu');
+Route::get('/finish/docu','DocumentController@showfinish');
 
 
 

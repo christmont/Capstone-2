@@ -66,7 +66,8 @@
 										<th>Full Name</th>
 										<th>Document</th>
 										<th>Print</th>
-										<th>View</th>
+									
+										<th>Delete</th>
 									</tr>
 								</thead>
 				
@@ -94,9 +95,16 @@
 											Print </a>
 											@endif
 										</td>
+									
 										<td>
-											<a  class = "btn btn-info" href="{{route('request.view',$client->id)}}">
-											View </a>
+											
+ 	 									<form action="{{ route('finishdocu',$client->id) }}" method = "post">
+												{{ csrf_field() }}
+        									{{ method_field('PUT') }}
+											<button type ="submit" class="btn btn-danger fa fa-trash "  href="{{ route('finishdocu',$client->id) }}">
+											Delete </button>
+										</form>
+											
 										</td>
 									</tr>
 								@endforeach	

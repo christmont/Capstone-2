@@ -96,6 +96,18 @@ class DocumentController extends Controller
        return $pdf->download($client->clfname . '_' . $client->cllname . '_petition.pdf');
                                      
     }
+    public function finishdocu($id)
+    {
+     $finish = Client::find($id);
+     $finish -> cl_status ="Finished";
+     $finish->save();
+    }
+    public function showfinish()
+    {
+      $finish = Client::where('cl_status','Finished')->get();
+
+      return view('lawyer ui.finished')->withfinish($finish);
+    }
 
 
 }

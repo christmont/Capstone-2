@@ -27,14 +27,25 @@
 								<thead>
 									<tr>
 										<th>Client Name</th>
-										<th>Document Date Issued</th>	
+										<th>Document Date Issued</th>
+										<th>View</th>	
 									</tr>
 								</thead>
 								<tbody>
+									@foreach($finish as $finishs)
 									<tr>
-										<td></td>
-										<td></td>
+										<td>{{ucfirst($finishs->clfname)}} {{ucfirst($finishs->clmname)}} {{ucfirst($finishs->cllname)}}</td>
+										<td>{{date('F j Y',strtotime($finishs->clnotarydate))}}</td>
+										<td>
+												<div class="btn-group" role="group" aria-label="Basic example">
+  							
+  							<a  class="btn btn-info" href="{{ route('inquestedit',$finishs->id) }}">View</a>
+ 	 								
+								</div>
+										</td>
+										
 									</tr>
+									@endforeach
 								</tbody>
 								
 							</table>
