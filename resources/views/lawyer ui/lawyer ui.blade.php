@@ -86,18 +86,18 @@
 
        
         <!-- PAGE LEVEL SCRIPT -->
-        <script type="text/javascript" src="{{URL::asset('js/scripts.js')}}"></script>
         <script type= "text/javascript" src="{{asset('js/jquery-3.3.1.min.js') }}"></script>   
+        <script type="text/javascript" src="{{URL::asset('js/scripts.js')}}"></script>
         <script type= "text/javascript" src="{{URL::asset('js/app.js') }}"></script>
+        <script type="text/javascript" src="{{URL::asset('js/bootstrap.min.js')}}"></script>
+        <!-- <script type="text/javascript" src="{{URL::asset('js/bootstrap.js')}}"></script> -->
+        <script src="{{URL:: asset('js/moment.min.js') }}"></script>
+        <script type= "text/javascript" src="{{URL::asset('js/bootstrap-datetimepicker.js') }}"></script>
          <script type= "text/javascript" src="{{URL::asset('js/jquery.datetimepicker.full.js') }}"></script>
       <script type= "text/javascript" src="{{URL::asset('js/jquery.datetimepicker.js') }}"></script>
-        <script type= "text/javascript" src="{{URL::asset('js/bootstrap-datetimepicker.js') }}"></script>
-        <script type="text/javascript" src="{{URL::asset('js/bootstrap.min.js')}}"></script>
-        <script type="text/javascript" src="{{URL::asset('js/bootstrap.js')}}"></script>
         <script type="text/javascript">
             var plugin_path = "{{URL::asset('plugins')}}/"
         </script>
-        <script src="{{URL:: asset('js/moment.min.js') }}"></script>
         <script type="text/javascript">
             loadScript(plugin_path + "datatables/js/jquery.dataTables.min.js", function(){
                 loadScript(plugin_path + "datatables/dataTables.bootstrap.js", function(){
@@ -316,5 +316,6 @@ $("#datetimepicker7").on("dp.change",function (e) {
 });
 
 // </script>
+@yield('script')
     </body>
 </html>

@@ -67,6 +67,7 @@ Route::get('/walkin/show','LawyerSideController@showwalkintable');
 Route::get('/notary/show','LawyerSideController@shownotarytable');
 Route::get('/lawyerclient/show','LawyerSideController@showreqtable');
 Route::get('/lawyerschedule/show','LawyerSideController@showschedule');
+Route::get('/getSchedules','LawyerSideController@getSchedules');
 Route::get('/lawyershow/managecase','LawyerSideController@showmanagecase');
 
 

@@ -206,6 +206,10 @@ class LawyerSideController extends Controller
                                            ->withschedule($schedule);
                                         
     }
+    public function getSchedules(Request $req){
+      $data = Schedule::where('employee_id',Auth::user()->id)->get();
+      return response()->json($data);
+    }
     public function lawyershowschededit($id)
     {
         
