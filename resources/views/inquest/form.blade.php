@@ -138,11 +138,11 @@ function add_field()
   var total_text=document.getElementsByClassName("input_text");
   total_text=total_text.length+1;
   document.getElementById("field_div").innerHTML=document.getElementById("field_div").innerHTML+
-<<<<<<< HEAD
+s
   "<p id='input_text"+total_text+"_wrapper'><input type='text' name = 'lawyer1edit' class='form-control' id='input_text"+total_text+"' placeholder='Enter Text'><input type='button' class='btn btn-warning' value='Remove' onclick=remove_field('input_text"+total_text+"');></p>";
-=======
+
   "<p id='input_text"+total_text+"_wrapper'><input type='text' class='form-control' id='input_text"+total_text+"' placeholder='Enter Text'><input type='button' class='btn btn-warning' value='Remove' onclick=remove_field('input_text"+total_text+"');></p>";
->>>>>>> 447cfd0fa8f97422f9e9439d0008b5736c53fd2d
+
 }
 function remove_field(id)
 {
@@ -155,11 +155,11 @@ function add_fields()
   var total_text=document.getElementsByClassName("input_texts");
   total_text=total_text.length+1;
   document.getElementById("field_divs").innerHTML=document.getElementById("field_divs").innerHTML+
-<<<<<<< HEAD
+
   "<p id='input_texts"+total_text+"_wrapper'><input type='text' name = 'lawyer2edit' class='form-control' id='input_texts"+total_text+"' placeholder='Enter Text'><input type='button' class='btn btn-warning' value='Remove' onclick=remove_fields('input_texts"+total_text+"');></p>";
-=======
+
   "<p id='input_texts"+total_text+"_wrapper'><input type='text' class='form-control' id='input_texts"+total_text+"' placeholder='Enter Text'><input type='button' class='btn btn-warning' value='Remove' onclick=remove_fields('input_texts"+total_text+"');></p>";
->>>>>>> 447cfd0fa8f97422f9e9439d0008b5736c53fd2d
+
 }
 function remove_fields(id)
 {
@@ -172,11 +172,11 @@ function add_fieldss()
   var total_text=document.getElementsByClassName("input_textss");
   total_text=total_text.length+1;
   document.getElementById("field_divss").innerHTML=document.getElementById("field_divss").innerHTML+
-<<<<<<< HEAD
+
   "<p id='input_textss"+total_text+"_wrapper'><input type='text' name = 'assistantedit' class='form-control' id='input_textss"+total_text+"' placeholder='Enter Text'><input type='button' class='btn btn-warning' value='Remove' onclick=remove_fieldss('input_textss"+total_text+"');></p>";
-=======
+
   "<p id='input_textss"+total_text+"_wrapper'><input type='text' class='form-control' id='input_textss"+total_text+"' placeholder='Enter Text'><input type='button' class='btn btn-warning' value='Remove' onclick=remove_fieldss('input_textss"+total_text+"');></p>";
->>>>>>> 447cfd0fa8f97422f9e9439d0008b5736c53fd2d
+
 }
 function remove_fieldss(id)
 {
@@ -189,11 +189,11 @@ function add_fieldsss()
   var total_text=document.getElementsByClassName("input_textsss");
   total_text=total_text.length+1;
   document.getElementById("field_divsss").innerHTML=document.getElementById("field_divsss").innerHTML+
-<<<<<<< HEAD
+
   "<p id='input_textsss"+total_text+"_wrapper'><input type='text' name = 'locationedit' class='form-control' id='input_textsss"+total_text+"' placeholder='Enter Text'><input type='button' class='btn btn-warning' value='Remove' onclick=remove_fieldsss('input_textsss"+total_text+"');></p>";
-=======
+
   "<p id='input_textsss"+total_text+"_wrapper'><input type='text' class='form-control' id='input_textsss"+total_text+"' placeholder='Enter Text'><input type='button' class='btn btn-warning' value='Remove' onclick=remove_fieldsss('input_textsss"+total_text+"');></p>";
->>>>>>> 447cfd0fa8f97422f9e9439d0008b5736c53fd2d
+
 }
 function remove_fieldsss(id)
 {
@@ -219,11 +219,11 @@ function add_fieldsssss()
   var total_text=document.getElementsByClassName("input_textsssss");
   total_text=total_text.length+1;
   document.getElementById("field_divsssss").innerHTML=document.getElementById("field_divsssss").innerHTML+
-<<<<<<< HEAD
+
   "<p id='input_textsssss"+total_text+"_wrapper'><input type='text' name = 'clientedit' class='form-control' id='input_textsssss"+total_text+"' placeholder='Enter Text'><input type='button' class='btn btn-warning' value='Remove' onclick=remove_fieldsssss('input_textsssss"+total_text+"');></p>";
-=======
+
   "<p id='input_textsssss"+total_text+"_wrapper'><input type='text' class='form-control' id='input_textsssss"+total_text+"' placeholder='Enter Text'><input type='button' class='btn btn-warning' value='Remove' onclick=remove_fieldsssss('input_textsssss"+total_text+"');></p>";
->>>>>>> 447cfd0fa8f97422f9e9439d0008b5736c53fd2d
+
 }
 function remove_fieldsssss(id)
 {
