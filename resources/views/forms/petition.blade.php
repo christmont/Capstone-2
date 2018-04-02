@@ -24,16 +24,16 @@
 							<div class="container">
 							<div class="row" style="margin-left: 15px;margin-right: 15px;">
 								<header style="text-align: center;">
-									<h2>REPUBLIC OF THE PHILIPPINES</h2>
-									<H2>NATIONAL CAPITAL JUDICIAL REGION</H2>
+									<h3>REPUBLIC OF THE PHILIPPINES</h3>
+									<h3>NATIONAL CAPITAL JUDICIAL REGION</h3>
 									@if($court == 'MTC(Metropolitan Trial Court)')
-									<H2>METROPOLITAN TRIAL COURT</H2>
+									<h3>METROPOLITAN TRIAL COURT</h3>
 									@elseif($court == 'RTC(Regional Trial Court)')
-									<H2>REGIONAL TRIAL COURT</H2>
+									<h3>REGIONAL TRIAL COURT</h3>
 									@elseif($court == 'Sandiganbayan')
-									<H2>SANDIGANBAYAN</H2>
+									<h3>SANDIGANBAYAN</h3>
 									@endif
-									<h2>_________ City</h2>
+									<h3>_________ City</h3>
 								</header>
 								<div class="col-md-6 text-left">
 									<h4>IN RE: PETITION FOR ______</h4>
@@ -44,43 +44,42 @@
 								</div>
 								<div class="col-md-6 text-right">
 									<br>
-									<br><br><br><br><br>
 									<h4><b>Application # ____________</b></h4>
-									<br><br>
+									<br>
 								</div>
-								<h3 style="text-align: center;"><u><b>PETITION FOR ___________</b></u></h3><br>
-								<h5>&emsp;&emsp;&emsp;&emsp;&emsp;The undersigned petitioner,{{ucfirst($name)}},unto this Honorable Court respectfully states that:</h5>
-								<p style="margin-left: 70px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;1.&nbsp; ________________________________________________;</p>
-								<p style="margin-left: 70px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;2.&nbsp; ________________________________________________;</p>
-								<p style="margin-left: 70px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;3.&nbsp; ________________________________________________;</p>
-								<p style="margin-left: 70px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;4.&nbsp; ________________________________________________;</p>
-								<p style="margin-left: 70px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;5.&nbsp; ________________________________________________;</p>
-								<p style="margin-left: 70px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;6.&nbsp; ________________________________________________;</p>
-								<p style="margin-left: 70px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;7.&nbsp; ________________________________________________;</p>
-								<br><br>
+								<h3 style="text-align: center;"><b>PETITION FOR ___________</b></h3><br>
+								<h5>The undersigned petitioner,{{ucfirst($name)}},unto this Honorable Court respectfully states that:</h5>
+								<p style="margin-left: 70px;">1.&nbsp; ________________________________________________;</p>
+								<p style="margin-left: 70px;">2.&nbsp; ________________________________________________;</p>
+								<p style="margin-left: 70px;">3.&nbsp; ________________________________________________;</p>
+								<p style="margin-left: 70px;">4.&nbsp; ________________________________________________;</p>
+								<p style="margin-left: 70px;">5.&nbsp; ________________________________________________;</p>
+								<p style="margin-left: 70px;">6.&nbsp; ________________________________________________;</p>
+								<p style="margin-left: 70px;">7.&nbsp; ________________________________________________;</p>
+								<br><br><br><br><br><br>
 								<h3 style="text-align: center;"><u><b>PRAYER</b></u></h3><br>
-								<h5>&emsp;&emsp;&emsp;&emsp;&emsp; WHEREFORE, premises considered, it is most respectfully prayed of this Honorable Court that:</h5>
-								<p style="margin-left: 70px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;1.&nbsp; ________________________________________________;</p>
-								<p style="margin-left: 70px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;2.&nbsp; ________________________________________________;</p>
+								<h5> WHEREFORE, premises considered, it is most respectfully prayed of this Honorable Court that:</h5>
+								<p style="margin-left: 70px;"> 1.&nbsp; ________________________________________________;</p>
+								<p style="margin-left: 70px;"> 2.&nbsp; ________________________________________________;</p>
 								<p style="margin-left: 70px;"> Date {{date('F j Y',strtotime($ctcdate))}}, Municipality /City of {{$clcity}}.</p>
 								<br><br>
-								<p style="text-align: center;">{{ucfirst($name)}} <br>Petitioner</p>
-								<p style="text-align: center;">Address {{$address}}</p>
-								<p style="text-align: center;">Contact No. {{$contact}}</p>
-								<p style="text-align: center;">Email Address {{$email}}</p>
-								<p style="text-align: center;">CTC No. {{$ctcno}}</p>
-								<br><br>
+								<p style="text-align: center;"><u>{{ucfirst($name)}}</u> <br>Petitioner</p>
+								<p style="text-align: center;">Address <u>{{$address}}</u></p>
+								<p style="text-align: center;">Contact No. <u>{{$contact}}</u></p>
+								<p style="text-align: center;">Email Address <u>{{$email}}</u></p>
+								<p style="text-align: center;">CTC No. <u>{{$ctcno}}</u></p>
+								<br>
 								<h3 style="text-align: center;"><u><b>VERIFICATION and CERTIFICATION </b></u></h3><br>
-								<h5>&emsp;&emsp;&emsp;&emsp;&emsp; I, {{ucfirst($name)}} , under oath, depose and state that:</h5>
-								<p style="margin-left: 70px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;1.&nbsp; ________________________________________________;</p>
-								<p style="margin-left: 70px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;2.&nbsp; ________________________________________________;</p>
-								<p style="margin-left: 70px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;3.&nbsp; ________________________________________________;</p>
-								<p style="margin-left: 70px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;4.&nbsp; ________________________________________________;</p>
-								<p style="margin-left: 70px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;5.&nbsp; ________________________________________________;</p>
-								<p style="text-align: center;">_______________________<br>{{ucfirst($name)}} </p>
+								<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I, {{ucfirst($name)}} , under oath, depose and state that:</h5>
+								<p style="margin-left: 70px;"> 1.&nbsp; I have caused the preparation of the foregoing Petition;</p>
+								<p style="margin-left: 70px;"> 2.&nbsp; The allegations therein are true and correct based on my personal knowledge and authentic records;</p>
+								<p style="margin-left: 70px;"> 3.&nbsp; To the best of my knowledge, there are no other  pending petitions of the same nature before any court, tribunal or quasi-judicial agency; and</p>
+								<p style="margin-left: 70px;"> 4.&nbsp; Should I thereafter learn of any similar case pending before any other court, tribunal or quasi-judicial agency, I shall promptly notify this court within five (5) days from discovery.</p>
 								<br><br>
+								<p style="text-align: center;">_______________________<br>{{ucfirst($name)}} </p>
+								<br><br><br><br><br><br>
 								<h3 style="text-align: center;"><u><b>JURAT</b></u></h3><br>
-								<h5>&emsp;&emsp;&emsp;&emsp;&emsp; SUBSCRIBED AND SWORN to before me in the {{date('jS',strtotime($cldate))}} on this day of {{date('M',strtotime($cldate))}} 20{{date('y',strtotime($cldate))}}, affiant exhibiting before me her/his CTC No. issued on {{date('F j Y',strtotime($ctcdate))}} in {{$clcity}}.</h5><br><br>
+								<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUBSCRIBED AND SWORN to before me in the {{date('jS',strtotime($cldate))}} on this day of {{date('M',strtotime($cldate))}} 20{{date('y',strtotime($cldate))}}, affiant exhibiting before me her/his CTC No. issued on {{date('F j Y',strtotime($ctcdate))}} in {{$clcity}}.</h5><br><br>
 								<p style="text-align: right;">Notary Public</p>
 								<p style="text-align: left;">Doc.  No. .........:<br>
 
