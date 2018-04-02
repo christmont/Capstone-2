@@ -294,5 +294,27 @@ $("#datetimepicker7").on("dp.change",function (e) {
         });
     })
 </script>
+ <script>
+    $(function(){
+        $('.tab-content').hide();
+        $('ul.nav-tabs li:first').addClass('active');
+        $('.tab-content:first').show();
+        $('ul.nav-tabs li').on('click',function(){
+            $('ul.nav-tabs li').removeClass('active');
+            $(this).addClass('active')
+            $('.tab-content').hide();
+            var activeTab = $(this).find('a').attr('href');
+            $(activeTab).show();
+            return false;
+        });
+    })
+  $('.btnNext').click(function(){
+  $('.nav-tabs > .active').next('li').find('a').trigger('click');
+});
+   $('.btnPrevious').click(function(){
+  $('.nav-tabs > .active').prev('li').find('a').trigger('click');
+});
+
+// </script>
     </body>
 </html>

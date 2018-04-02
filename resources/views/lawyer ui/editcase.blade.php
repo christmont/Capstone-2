@@ -353,15 +353,7 @@ var strUser = e.options[e.selectedIndex].value;
     }
 
    </script>
-   <script type="text/javascript">
-   	$(function(){
-   	$(".nav-tabs").tabs();
-	$("#nexttab").click(function() {
-    var selected = $(".nav-tabs").nav-tabs("option", "selected");
-    $(".nav-tabs").nav-tabs("option", "selected", selected + 1);
-	});
-	})
-   </script>
+  
 
   
 
