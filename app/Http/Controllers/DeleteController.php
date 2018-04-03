@@ -24,6 +24,7 @@ use App\requeststat;
 use App\Decision;
 use App\Reason;
 use App\scheduletype;
+use App\Inquest;
 
 class DeleteController extends Controller
 {
@@ -202,6 +203,15 @@ class DeleteController extends Controller
         
         $reqstat->delete();
         return redirect('/reqstat/show');
+    }
+    public function inquestdelete($id)
+    {
+        $inquest = Inquest::where('schedule_id',$id)->get();
+        foreach($inquest as $inquests)
+        {
+          $inquests->delete();
+        }
+        return redirect('/show/inquesttable');
     }
 
 

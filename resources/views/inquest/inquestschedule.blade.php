@@ -89,8 +89,8 @@
 
 								<div class="btn-group" role="group" aria-label="Basic example">
   							<a  class="btn btn-primary" href="{{ route('showsched',$schedules->id) }}">Reschedule</a>
-  							<a  class="btn btn-green" href="{{ route('inquestedit',$schedules->id) }}">Edit</a>
- 	 									<form action="{{ route('deletesched',$schedules->id) }}" method = "post">
+  							{{-- <a  class="btn btn-green" href="{{ route('inquestedit',$schedules->id) }}">Edit</a> --}}
+ 	 									<form action="{{ route('deleteinquest',$schedules->id) }}" method = "post">
 												{{ csrf_field() }}
         									{{ method_field('DELETE') }}
 											<button type ="submit" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?')" href="{{ route('deletesched',$schedules->id) }}">
@@ -105,6 +105,7 @@
 										<td> {{date('l',strtotime($schedules->start))}} </td>
 										
 										<td> {{date('g a',strtotime($schedules->start))}} - {{date(' ga',strtotime($schedules->end))}} </td>
+									
 									@foreach($firstlawyer as $firstlawyers)
 									@foreach($secondlawyer as $secondlawyers)
 									@foreach($assistant as $assistants)
@@ -115,6 +116,7 @@
 									@endforeach
 									@endforeach
 									@endforeach
+									
 									</tr>
 									</tbody>
 									@endforeach

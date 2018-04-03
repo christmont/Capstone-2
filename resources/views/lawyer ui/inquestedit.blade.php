@@ -14,7 +14,7 @@
 		<br>
        <div class="container">
      @foreach($inquest as $inquests)
-<form class ="horizontal" action="{{ route('updateinquest',$inquests->id) }}" method="post" enctype="multipart/form-data">
+<form class ="horizontal" action="{{ route('lawyerinquestupdate',$inquests->id) }}" method="post" enctype="multipart/form-data">
 		 {{ csrf_field() }}
       {{ method_field('PUT') }}
       	<div class="row">
@@ -86,7 +86,7 @@
 					<label>Location *</label>
 					<div class="input-group">
 				 		
-					<input type="text" name="location" value="{{$inquests->location}}" class="form-control "  >
+					<input type="text" name="location" value="{{$inquests->location}}" class="form-control " required >
 					</div>
 					<div id="field_divsss">
 				 		</div>

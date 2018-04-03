@@ -10,6 +10,7 @@ use App\Schedule;
 use App\employeeclients;
 use App\Inquest;
 use Carbon\Carbon;
+use DB;
 
 
 
@@ -61,27 +62,28 @@ class InquestController extends Controller
     }
     public function showinquesttable()
     {
-        $inquest = Inquest::all();
+        $inquest = Inquest::select('*')->with('employee')->get();
 
         // $lawyer1 = Employee
         $monthnow = date('F',strtotime(Carbon::now()));
         foreach($inquest as $inquests)
         {
-          $firstlawyer = Employee::where('id',$inquests->employee_id)->get();
+          // $firstlawyer = Employee::where('id',$inquests->employee_id)->get();
+           $firstlawyer = Employee::where('id',$inquests->employee_id)->get();
           $secondlawyer = Employee::where('id',$inquests->lawyer)->get();
           $assistant = Employee::where('id',$inquests->assistant)->get();
+          $schedule = Schedule::where([['type','For Inquest'],['id',$inquests->schedule_id]])->get();
         }
 
-        $schedule = Schedule::where('type','For Inquest')->get();
-        foreach($schedule as $schedules)
-        {
         
-        $month = date('F',strtotime($schedules->start));
-        $date = date('j',strtotime($schedules->start));
-        $day = date('l',strtotime($schedules->start));
+       
+        
+        // $month = date('F',strtotime($schedules->start));
+        // $date = date('j',strtotime($schedules->start));
+        // $day = date('l',strtotime($schedules->start));
         
         $year = date('Y',strtotime(Carbon::now()));
-        }
+        
         return view('inquest.inquestschedule')->withInquest($inquest)
                                               ->withschedule($schedule)
                                                ->withyear($year)

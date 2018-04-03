@@ -65,7 +65,7 @@ class LawyerSideController extends Controller
      public function showwalkintable()
     {
      $clients = DB::table('employeeclients')
-                      ->where([['employees.id',Auth::user()->id],['clients.nature_of_request','Legal Documentation']])
+                      ->where([['employees.id',Auth::user()->id],['clients.nature_of_request','Legal Documentation'],['clients.cl_status','Walkin']])
                       ->join('employees','employees.id','=','employeeclients.employee_id')
                       ->join('clients','clients.id','=','employeeclients.client_id')
                       ->get();  
@@ -420,5 +420,76 @@ public function lawyerschededit($id, Request $request)
                                               ->withassistant($assistant)
                                               ->withclient($client);
     }
+    public function lawyerinquestedit($id ,Request $request)
+    {
+      
+    $inquest = Inquest::where('schedule_id', '=', $id)->get();
+       
+        foreach($inquest as $inquests)
+        {
+        $inquests -> natureofcalls = $request->noc;
 
+        $inquests -> location = $request->location;
+           
+        
+       
+          
+        
+        
+       if($request->noc == 'Legal Advice')
+        {
+        $inquests-> actiontaken = "Adviced";
+        }
+        else
+        {
+        $inquests-> actiontaken = "Assisted";
+        }
+       
+        $inquests -> client_id = $request->client;
+        
+     
+          
+        
+        $inquests -> employee_id = $request->lawyer1;
+        $inquests -> lawyer = $request->lawyer2;
+        $inquests -> staff = $request->assistant;
+        $inquests -> schedule_id = $request->schedule;
+        $inquests->save();
+        return redirect('/inquest/show');
+
+        }
+    
+
+    }
+      public function lawyershowinquestedit($id)
+    {
+
+      
+       
+
+        $inquest = Inquest::where('schedule_id', '=', $id)->get();
+
+        foreach($inquest as $inquests)
+        {
+            
+
+            $schedule = Schedule::where('id',$inquests->schedule_id)->get();
+           
+        }
+       $clients = Client::where('cl_status','For Inquest')
+                  ->get();  
+
+    $lawyer1 = Employee::where('position','Lawyer')->get();
+
+      $lawyer2 = Employee::where('position','Lawyer')->get();
+      $staff = Employee::where('position','Administrative Staff')->get();
+        return view('lawyer ui.inquestedit')->withinquest($inquest)
+
+                                   ->withclients($clients)
+                                   ->withlawyer1($lawyer1)
+                                   ->withlawyer2($lawyer2)
+                                   ->withstaff($staff)
+                                   ->withschedule($schedule);
+
+    }
 }

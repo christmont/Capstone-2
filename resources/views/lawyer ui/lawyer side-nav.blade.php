@@ -5,11 +5,11 @@
                                 <i class="main-icon fa fa-home"></i> <span>Home </span>
                             </a>
                         </li>
-                        <li style="background-color: #182634">
-                             <a href="profile" style="background-color: #182634"><!-- warning - url used by default by ajax (if eneabled) -->
+                        {{-- <li style="background-color: #182634">
+                             <a href="profile" style="background-color: #182634">
                                 <i class="main-icon fa fa-user"></i> <span>Profile </span>
                             </a>
-                        </li>
+                        </li> --}}
                          <li style="background-color: #182634">
                              <a href="/notary/show" style="background-color: #182634"><!-- warning - url used by default by ajax (if eneabled) -->
                                 <i class="main-icon fa fa-files-o"></i> <span>Notary </span>
@@ -32,11 +32,11 @@
                                 <li><a href="/finish/docu">Show Finish Docu</a></li>
                                </ul>
                         </li> --}}
-                         <li style="background-color: #182634">
-                             <a href="/inquest/show" style="background-color: #182634"><!-- warning - url used by default by ajax (if eneabled) -->
+                        {{--  <li style="background-color: #182634">
+                             <a href="/inquest/show" style="background-color: #182634">
                                 <i class="main-icon fa fa-hand-lizard-o"></i> <span>Inquest </span>
                             </a>
-                        </li>
+                        </li> --}}
                        <li style="background-color: #182634">
                             <a href="#" style="background-color: #182634">
                                 <i class="fa fa-menu-arrow pull-right"></i>

@@ -207,6 +207,8 @@ Route::get('/lawyer/edit/sched/{id}','LawyerSideController@lawyershowschededit')
 Route::put('/lawyer/edit/sched/{id}','LawyerSideController@lawyerschededit')->name('lawyer.editsched');
 Route::get('/print/monthly','LawyerSideController@monthly');
 Route::get('/inquest/show','LawyerSideController@inquestshow');
+Route::get('/inquest/showedit/{id}','LawyerSideController@lawyershowinquestedit')->name('lawyerinquestedit');
+Route::put('/inquest/update/{id}','LawyerSideController@lawyerinquestedit')->name('lawyerinquestupdate');
 
 
 
@@ -227,6 +229,7 @@ Route::get('/print/lawyerinquest','ReportController@printlawyerinquest');
 
 Route::get('/show/inquesteditform/{id}','UpdateController@showinquestedit')->name('inquestedit');
 Route::get('/show/inquesttable','InquestController@showinquesttable');
+Route::delete('/delete/inquest/{id}','DeleteController@inquestdelete')->name('deleteinquest');
 Route::post('/register/inquest','InquestController@inquestreg');
 Route::put('/update/inquest/{id}','UpdateController@inquestedit')->name('updateinquest');
 Route::get('/inquestclient/register','RegisterController@showinquestclientregister');

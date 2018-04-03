@@ -67,8 +67,12 @@
                                 <li><a href="/scheduletype/show">Schedule Type</a></li>
                             </ul>
                         </li>
-                        
-                        <li>
+                        <li ><!-- dashboard -->
+                            <a class="dashboard" href="/schedule/show">
+                                <i class="main-icon fa fa-calendar"></i> <span>Schedule</span>
+                            </a>
+                        </li>
+                       {{--  <li>
                             <a href="#">
                                 <i class="fa fa-menu-arrow pull-right"></i>
                                 <i class="main-icon fa fa-calendar"></i> <span>Schedules </span>
@@ -77,7 +81,7 @@
                                 <li><a href="/schedule/show">Hearing Schedule</a></li>
                                 <li><a href="/show/inquesttable">Inquest Schedule</a></li>
                                </ul>
-                        </li>
+                        </li> --}}
                         <li>
                         <li>
                             <a href="/casehistory/show">
@@ -104,7 +108,7 @@
                             <ul><!-- submenus -->
                                 <li><a href="/show/yearendreport">Year End Inventory of Cases</a></li>
                                  <li><a href="/show/bycourt"> Inventory of Cases per Court</a></li>
-                                 <li><a href="/show/inquesttable">Monthly Inquest Schedule</a></li>
+                               {{--   <li><a href="/show/inquesttable">Monthly Inquest Schedule</a></li> --}}
                                </ul>
                         </li>
                               

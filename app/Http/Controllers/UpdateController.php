@@ -489,15 +489,18 @@ class UpdateController extends Controller
 
         foreach($inquest as $inquests)
         {
-            $clients = Client::where([['nature_of_request','Inquest'],['id',$inquests->client_id]])
-                    ->get();
+            
 
             $schedule = Schedule::where('id',$inquests->schedule_id)->get();
-            $lawyer1 = Employee::where('id',$inquests->employee_id)->get();
-            $lawyer2 = Employee::where('id',$inquests->lawyer)->get();
-            $staff = Employee::where('id',$inquests->assistant)->get();
+           
         }
-        
+       $clients = Client::where('cl_status','For Inquest')
+                  ->get();  
+
+    $lawyer1 = Employee::where('position','Lawyer')->get();
+
+      $lawyer2 = Employee::where('position','Lawyer')->get();
+      $staff = Employee::where('position','Administrative Staff')->get();
         return view('inquest.form')->withinquest($inquest)
 
                                    ->withclients($clients)
@@ -509,56 +512,49 @@ class UpdateController extends Controller
     }
     public function inquestedit($id ,Request $request)
     {
-          $clientss= Client::select(DB::raw("CONCAT('clfname','clmname','cllname') AS name "),'id')->get();
-          foreach ($clientss as $clientt)
-          {
-        $client= Client::select(DB::raw("CONCAT('clfname','clmname','cllname') AS name "),'id')->where($clientt->clfname. ''.$clientt->clmname . '' . $clientt->cllname, 'LIKE' , "%".$request->clientedit."%")->get()->pluck('name','id');
-          }
-        $lawyer1= Employee::select(DB::raw("CONCAT('efname','emname','elname') AS name "),'id')->whereRaw([['efname'.'emname'.'elname',$request->lawyer1edit],['position','Lawyer']])->get()->pluck('name','id');
-        $lawyer2= Employee::select(DB::raw("CONCAT('efname','emname','elname') AS name "),'id')->whereRaw([['efname'.'emname'.'elname',$request->lawyer2edit],['position','Lawyer']])->get()->pluck('name','id');
-        $assistant= Employee::select(DB::raw("CONCAT('efname','emname','elname') AS name "),'id')->whereRaw([['efname'.'emname'.'elname',$request->assistantedit],['position','Administrative Staff']])->get()->pluck('name','id');
-         $inquest = Inquest::where('schedule_id', '=', $id)->get();
+      
+    $inquest = Inquest::where('schedule_id', '=', $id)->get();
+    
+       foreach ($inquest as $key => $inquests) 
+       {
+            $inquests -> natureofcalls = $request->noc;
 
-         foreach($client as $clients)
-         {
-
-        $inquest -> natureofcalls = $request->natureofcalls;
-
-        if(empty($request->locationedit))
-        {
-            $inquest -> location = $request->location;
-        }
-        else
-        {
-            $inquest-> location = $request->locationedit;
-        }
+        $inquests -> location = $request->location;
+           
+        
+       
+          
+        
         
        if($request->noc == 'Legal Advice')
         {
-        $inquest-> actiontaken = "Adviced";
+        $inquests-> actiontaken = "Adviced";
         }
         else
         {
-        $inquest-> actiontaken = "Assisted";
+        $inquests-> actiontaken = "Assisted";
         }
-        if(empty($request->clientedit))
-        {
-             $inquest -> client_id = $request->client;
-        }
-        else
-        {
-            $inquest-> client_id = $clients->id;
-        }
-        $inquest -> employee_id = $request->lawyer1;
-        $inquest -> lawyer = $request->lawyer2;
-        $inquest -> staff = $request->assistant;
-        $inquest -> schedule_id = $request->schedule;
-        $inquest->save();
-        }
-    }
+       
+        $inquests -> client_id = $request->client;
+        
+     
+          
+        
+        $inquests-> employee_id = $request->lawyer1;
+        $inquests -> lawyer = $request->lawyer2;
+        $inquests -> staff = $request->staff;
+        $inquests -> schedule_id = $request->schedule;
+        $inquests->save();
+       }
+       
+       
+       
+
+        
+     return redirect('show/inquesttable');
 
 
-
+ }
 
     
 }

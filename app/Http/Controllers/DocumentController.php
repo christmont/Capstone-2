@@ -101,6 +101,8 @@ class DocumentController extends Controller
      $finish = Client::find($id);
      $finish -> cl_status ="Finished";
      $finish->save();
+     return redirect('/walkin/show');
+
     }
     public function showfinish()
     {

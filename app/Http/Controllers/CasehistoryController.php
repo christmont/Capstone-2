@@ -19,7 +19,7 @@ class CasehistoryController extends Controller
         $casehistory = casetobehandled::where('decision','!=',null)
                               ->with('client')
                               ->get();
-                              
+                             
                       foreach ($casehistory as $key => $casehist) 
                       {
                        

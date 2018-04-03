@@ -49,9 +49,9 @@
 									<tr>
 										<td>
 											<div class="btn-group" role="group" aria-label="Basic example">
-				  							<a  class="btn btn-primary" href="{{ route('showsched',$schedules->id) }}">Reschedule</a><br><br>
+				  							<a  class="btn btn-primary" href="{{ route('lawyer.showeditsched',$schedules->id) }}">Reschedule</a><br><br>
 				  						
-				  							<a  class="btn btn-green" href="{{ route('inquestedit',$schedules->id) }}">Edit</a><br><br>
+				  							{{-- <a  class="btn btn-green" href="{{ route('inquestedit',$schedules->id) }}">Edit</a><br><br> --}}
 				  							
  	 										<form action="{{ route('deletesched',$schedules->id) }}" method = "post">
 												{{ csrf_field() }}
@@ -68,9 +68,9 @@
 										<td>{{$assistants->efname}} {{$assistants->emname}} {{$assistants->elname}}</td>
 										<td>{{date('F j Y g:i a',strtotime($schedules->start))}}  {{date('F j Y g:i a',strtotime($schedules->end))}}</td>
 										<td>{{$inquests->location}}</td>
-										@foreach($clients->casetobehandled as $case)
-										<td>{{$case->casename}}</td>
-										@endforeach
+										
+										<td>{{$clients->casetobehandled->casename}}</td>
+										
 										<td>{{$inquests->actiontaken}}</td>
 									</tr>
 									

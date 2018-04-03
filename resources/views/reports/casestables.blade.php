@@ -60,7 +60,7 @@
 											
 											@elseif ($criminalreports->case_status == 'Pre-trial') 
 											
-											{{$criminalreports->pretrailDate}}
+											{{$criminalreports->pretrialDate}}
 											
 											@elseif ($criminalreports->case_status == 'Initial Trial') 
 											
