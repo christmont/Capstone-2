@@ -36,7 +36,7 @@
                             <div class="row" style="margin-left: 15px;margin-right: 15px;">
                                 <header style="text-align: center;">
                                    
-                                    <h4>(DENIAL/DISQUALIFICATION OF PAO LEGAL ASSISTANCE)</h4>
+                                    <h4>(DENIAL/DISQUALIFICATION OF LAWFIRMS LEGAL ASSISTANCE)</h4>
                                     <h4>(Pursuant to sec. 8 (c) of R.A. No. 9485. Anti-Red Tape Act of 2007)</h4>
                                 </header>
 
