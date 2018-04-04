@@ -74,7 +74,7 @@
 
 							<div class="row" style="margin-left: 15px;margin-right: 15px;">
 								<header>
-									<h3 style="text-align: center;">NATURE OF REQUEST(to be filled up by PAO personel)</h3>
+									<h3 style="text-align: center;">NATURE OF REQUEST(to be filled up by lawfirm's personel)</h3>
 								</header>
 
 								<div class="col-md-4">

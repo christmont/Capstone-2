@@ -36,10 +36,6 @@
                             <div class="row" style="margin-left: 15px;margin-right: 15px;">
                                 <img src="public/images/270790_198141883566655_7615632_n.jpg">
                                 <header style="text-align: center;">
-                                    <h4>(PUBLIC ATTORNEY'S OFFICE)</h4>
-                                    <h4>DOJ Agencies Bldg., NIA Road corner East Avenue</h4>
-                                    <h4>1104 Diliman, Quezon City</h4>
-                                    <h4>Tel. nos. 926-2878; 929-9436</h4>
                                     <br>
                                     <h4>(DENIAL/DISQUALIFICATION OF PAO LEGAL ASSISTANCE)</h4>
                                     <h4>(Pursuant to sec. 8 (c) of R.A. No. 9485. Anti-Red Tape Act of 2007)</h4>

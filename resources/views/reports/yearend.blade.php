@@ -31,9 +31,9 @@ tr:nth-child(even) {
 		<h5>Republika ng Pilipinas<br>
 			Kagawaran ng Katarungan<b></h5>
 		<h5><b>TANGGAPAN NG MANANANGGOL PAMBAYAN</b></h5>
-		<h5>[PUBLIC ATTORNEY'S OFFICE]</h5>
+		<h5>[LAWFIRM'S NAME]</h5>
 		<h5>Regional Office No. NCR<br>
-		QUEZON CITY District Office</h5>
+		(CITY NAME) District Office</h5>
 		<br>
 		<h4><b>YEAR-END INVENTORY OF CASES</b></h4>
 		<h5>For the year {{$year}}</h5><br>
