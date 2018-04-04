@@ -212,7 +212,7 @@
 											
 											@elseif ($sbcases->case_status == 'Pre-trial') 
 											
-											{{$sbcases->pretrailDate}}
+											{{$sbcases->pretrialDate}}
 											
 											@elseif ($sbcases->case_status == 'Initial Trial') 
 											

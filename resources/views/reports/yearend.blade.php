@@ -78,7 +78,7 @@ tr:nth-child(even) {
 											
 											@elseif ($criminalclient->case_status == 'Pre-trial') 
 											
-											{{$criminalclient->pretrailDate}}
+											{{$criminalclient->pretrialDate}}
 											
 											@elseif ($criminalclient->case_status == 'Initial Trial') 
 											
@@ -145,7 +145,7 @@ tr:nth-child(even) {
 											
 											@elseif ($civilclient->case_status == 'Pre-trial') 
 											
-											{{$civilclient->pretrailDate}}
+											{{$civilclient->pretrialDate}}
 											
 											@elseif ($civilclient->case_status == 'Initial Trial') 
 											
@@ -212,7 +212,7 @@ tr:nth-child(even) {
 											
 											@elseif ($laborclient->case_status == 'Pre-trial') 
 											
-											{{$laborclient->pretrailDate}}
+											{{$laborclient->pretrialDate}}
 											
 											@elseif ($laborclient->case_status == 'Initial Trial') 
 											
@@ -277,7 +277,7 @@ tr:nth-child(even) {
 											
 											@elseif ($administrativeclient->case_status == 'Pre-trial') 
 											
-											{{$administrativeclient->pretrailDate}}
+											{{$administrativeclient->pretrialDate}}
 											
 											@elseif ($administrativeclient->case_status == 'Initial Trial') 
 											

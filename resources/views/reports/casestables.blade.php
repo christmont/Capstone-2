@@ -141,7 +141,7 @@
 											
 											@elseif ($civilreports->case_status == 'Pre-trial') 
 											
-											{{$civilreports->pretrailDate}}
+											{{$civilreports->pretrialDate}}
 											
 											@elseif ($civilreports->case_status == 'Initial Trial') 
 											
@@ -220,7 +220,7 @@
 											
 											@elseif ($laborreports->case_status == 'Pre-trial') 
 											
-											{{$laborreports->pretrailDate}}
+											{{$laborreports->pretrialDate}}
 											
 											@elseif ($laborreports->case_status == 'Initial Trial') 
 											
@@ -298,7 +298,7 @@
 											
 											@elseif ($administrativereports->case_status == 'Pre-trial') 
 											
-											{{$administrativereports->pretrailDate}}
+											{{$administrativereports->pretrialDate}}
 											
 											@elseif ($administrativereports->case_status == 'Initial Trial') 
 											

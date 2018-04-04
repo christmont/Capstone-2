@@ -76,7 +76,7 @@ tr:nth-child(even) {
 											
 											@elseif ($mtccases->case_status == 'Pre-trial') 
 											
-											{{$mtccases->pretrailDate}}
+											{{$mtccases->pretrialDate}}
 											
 											@elseif ($mtccases->case_status == 'Initial Trial') 
 											
@@ -143,7 +143,7 @@ tr:nth-child(even) {
 											
 											@elseif ($rtccases->case_status == 'Pre-trial') 
 											
-											{{$rtccases->pretrailDate}}
+											{{$rtccases->pretrialDate}}
 											
 											@elseif ($rtccases->case_status == 'Initial Trial') 
 											
@@ -216,7 +216,7 @@ tr:nth-child(even) {
 											
 											@elseif ($sbcases->case_status == 'Pre-trial') 
 											
-											{{$sbcases->pretrailDate}}
+											{{$sbcases->pretrialDate}}
 											
 											@elseif ($sbcases->case_status == 'Initial Trial') 
 											
