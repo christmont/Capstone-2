@@ -25,7 +25,6 @@
 		<form class ="horizontal" action="/client/register" method="post" enctype="multipart/form-data">
 		 {{ csrf_field() }}
 		<div id="nature" class="tab-content">
-			<div class="card1">
 
 				<div class="container">
 
@@ -49,17 +48,14 @@
 							</div>
 						</div>
 					</div>
-					
-				</div>
 				
 
 				<footer>
 					<center>
-					        <a class="btn btn-default btnPrevious" >Back</a>
-					        <a id="notary" style="display:none" href="/show/clientnotary" class="btn btn-green">Next</a>
-					        <a id="docu" style="display:none" href="/show/docu" class="btn btn-green">Next</a>
-					        <a id="inquest" style="display:none" href="/inquestclient/register" class="btn btn-green">Next</a>
-							<a id="or" class="btn btn-green btnNext" style = "display:none;">Next</a>
+					        <button id="notary" style="display:none" href="/show/clientnotary" class="btn btn-green">Next</button>
+					        <button id="docu" style="display:none" href="/show/docu" class="btn btn-green">Next</button>
+					        <button id="inquest" style="display:none" href="/inquestclient/register" class="btn btn-green">Next</button>
+							<button id="or" class="btn btn-green btnNext" style = "display:none;">Next</button>
 					        <br><br>
 					</center>
 				</footer>
@@ -71,7 +67,6 @@
 
 
 		<div id="clientinfo" class="tab-content">
-			<div class="card1">
 				<div class="container">
 					<div class="row" style="height: 490px; width: 100%"><br>
 						<div class="form-group">
@@ -177,14 +172,12 @@
 						</div>
 					    </div>
 					</div>
-					
-				</div>
 			</div>
-			<footer style="margin-bottom: 80px; text-align: center;">
-
+			<footer style="margin-bottom: 10px; text-align: center;">
+							<br><br>
                              <button  style type="submit" class="btn btn-green ">Submit</button>
                              <div id = "ifMarried"  style="display:none;">
-					         <a  class="btn btn-green btnNext" >Next</a><br><br><br>
+					         <button class="btn btn-green btnNext" >Next</button><br><br><br>
 					        </div>
 				    </footer>
 		</div>
@@ -204,9 +197,9 @@
 						</div>
 					</div>
 					<footer style="margin-bottom: 80px; text-align: center;">
-					         <a class="btn btn-default btnPrevious" >Back</a>
+					         <button class="btn btn-default btnPrevious" >Back</button>
 					         <button type="submit" class="btn btn-green ">Submit</button>
-					         <a class="btn btn-green btnNext" >Next</a>
+					         <button class="btn btn-green btnNext" >Next</button>
 				    </footer>
 				</div>
 			</div>
@@ -229,7 +222,7 @@
 
 					        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
 					         <button type="submit" class="btn btn-green ">Submit</button>
-					         <a class="btn btn-green btnNext" >Next</a>
+					         <button class="btn btn-green btnNext" >Next</button>
 
 				    </footer>
 				</div>
@@ -279,8 +272,8 @@
 						</div>
 					</div>
 					<footer style="margin-bottom: 20px; text-align: center;">
-					        <a class="btn btn-default btnPrevious" >Back</a>
-					        <a class="btn btn-green btnNext" >Next</a>
+					        <button class="btn btn-default btnPrevious" >Back</button>
+					        <button class="btn btn-green btnNext" >Next</button>
 				    </footer>
 				</div>
 			</div>
@@ -321,7 +314,7 @@
 						</div>
 					</div>
 					<footer style="margin-bottom: 20px; text-align: center;">
-					        <a class="btn btn-default btnPrevious" >Back</a>
+					        <button class="btn btn-default btnPrevious" >Back</button>
 					        <button type="submit" class="btn btn-green">Submit</button>
 				    </footer>
 				</div>

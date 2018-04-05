@@ -2,9 +2,9 @@
 <!-- Mobile Button -->
 <button id="mobileMenuBtn"></button> 
                 <!-- Logo -->
-                <span class="logo pull-left">
+                <!-- <span class="logo pull-left">
                     <img src="{{ asset('images/logo_light.png') }}" alt="admin panel" height="50" width="80">
-                </span>
+                </span> -->
 
                 
 
