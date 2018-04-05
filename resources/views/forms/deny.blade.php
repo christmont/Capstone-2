@@ -34,7 +34,6 @@
                         <div class="panel-body">
 
                             <div class="row" style="margin-left: 15px;margin-right: 15px;">
-                                <img src="public/images/270790_198141883566655_7615632_n.jpg">
                                 <header style="text-align: center;">
                                     <br>
                                     <h4>(DENIAL/DISQUALIFICATION OF PAO LEGAL ASSISTANCE)</h4>
