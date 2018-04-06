@@ -28,10 +28,7 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}" style="color: #fff">
-                        {{( 'Law Firm Legal Service Management and Mobile Responsive Case Monitoring and Case Movement System') }}
-                    </a>
+                    <h1 style="color: #fff; text-align: center;">Law Firm Legal Service Management and Mobile Responsive Case Monitoring and Case Movement System</h1>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">

@@ -83,7 +83,6 @@
                                </ul>
                         </li> --}}
                         <li>
-                        <li>
                             <a href="/casehistory/show">
                                 <i class="main-icon fa fa-history"></i> <span>Case History</span>
                             </a>
@@ -110,6 +109,11 @@
                                  <li><a href="/show/bycourt"> Inventory of Cases per Court</a></li>
                                {{--   <li><a href="/show/inquesttable">Monthly Inquest Schedule</a></li> --}}
                                </ul>
+                        </li>
+                         <li>
+                            <a href="{{ asset('LSMMRCMSMS.pdf') }}">
+                                <i class="main-icon fa fa-book"></i> <span>Users Manual</span>
+                            </a>
                         </li>
                               
 </ul>
