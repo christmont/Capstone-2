@@ -3,8 +3,12 @@
 @extends('layout/header-main')
 @section('content')
 	<section id="middle">
-	<div class="container-fluid" style="padding-left: 0px;padding-right: 0px;">
-			<img src="{{ url('images/hammer_2-min.jpg') }}" style="width: 100%;">
+	<div class="container-fluid1">
+		<div class="overlay dark-3"></div>
+			<img src="{{ url('images/hammer.jpeg') }}" style="width: 100%;">
+			<div class="title">
+				<h1>Law Firm Legal Services Management and Mobile Responsive Case Movement & Schedule Monitoring System</h1>
+			</div>
 	</div>
 	</section>
 @stop
