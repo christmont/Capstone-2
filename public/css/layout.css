@@ -2642,3 +2642,19 @@ ul.easypiecharts li span.stat-title {
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a{
     background-color: #204920;	
 }
+.title{
+  position: absolute;
+    top: 8px;
+}
+.title h1{
+    color: black;
+    padding-top: 500px;
+    font-family: "Arial Black", Gadget, sans-serif;
+}
+.container-fluid1{
+	position: relative;
+    text-align: center;
+    color: white;
+    padding-left: 0px;
+    padding-right: 0px;
+}

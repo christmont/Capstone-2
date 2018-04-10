@@ -52,6 +52,7 @@
 
 				<footer>
 					<center>
+
 						<div id="notary" style="display:none" class="col-md-4">
 				         
               				<a href="/show/clientnotary">
@@ -87,6 +88,11 @@
 					    
 
 					        {{-- <button id="inquest" style="display:none" href="/inquestclient/register" class="btn btn-green">Next</button> --}}
+
+					        <button id="notary" style="display:none" href="/show/clientnotary" class="btn btn-green">Next</button>
+					        <button id="docu" style="display:none" href="/show/docu" class="btn btn-green">Next</button>
+					        <button id="inquest" style="display:none" href="/inquestclient/register" class="btn btn-green">Next</button>
+
 							<button id="or" class="btn btn-green btnNext" style = "display:none;">Next</button>
 					        <br><br>
 					</center>
