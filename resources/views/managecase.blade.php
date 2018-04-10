@@ -59,11 +59,11 @@
 									</tr>
 								</thead>
 								<tbody>
-								@foreach($cases as $case)
+								@foreach($allcases as $case)
 									<tr>
 										
 										<td>
-											 {{$case->client->clfname}} {{$case->client->clmname}} {{$case->client->cllname}}
+											 {{$case->clfname}} {{$case->clmname}} {{$case->cllname}}
 										</td>
 									
 										<td>

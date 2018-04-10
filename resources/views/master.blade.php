@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-        <title>Public Attorney's Office</title>
+        <title>Law Firm Legal Case</title>
         <meta name="description" content="" />
         <meta name="Author" content="Dorin Grigoras [www.stepofweb.com]" />
 

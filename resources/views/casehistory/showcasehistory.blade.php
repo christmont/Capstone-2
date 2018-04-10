@@ -86,20 +86,26 @@
 										<td>
 											 {{$client->casename}} 
 										</td>
-										 @foreach($lawyer as $lawyers) 
+										  
 										<td>
-											Atty. {{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}
+											Atty. {{$client->efname}} {{$client->emname}} {{$client->elname}}
 										</td>
-										 @endforeach
-							   @foreach($court as $courts)    
+										 
+							    
 										<td>
-											 {{$courts->name}}
+											@if($client->court_id == '1')
+											 Metropolitan Trial Court
+											@elseif($client->court_id == '2')
+											 Regional Trial Court
+											@elseif($client->court_id == '3')
+											 Sandiganbayan
+											@endif
 										</td>
 											
 										<td>
 											 {{$client->decision}} 
 										</td>
-							   @endforeach
+							   
 										<td>
 											  	<a class="btn btn-primary"  href="{{route('casehistory.view',$client->id)}}">
 											  	<i class="fa fa-eye"></i> </a>

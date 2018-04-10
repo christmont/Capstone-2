@@ -36,12 +36,12 @@
 				</div>
 				<div class="col-md-6">
 					<label>Case Name *</label>
-					<select id = "criminal" style = "display:none" name="criminal" class="form-control " >
+					<select id = "criminal"  name="criminal" class="form-control " >
 					<option value="" selected="selected"></option>
 
 					@foreach($criminal as $criminals)
 					
-                 <option value="{{$criminals->name}}">{{$criminals->name}}</option>
+                	<option value="{{$criminals->name}}">{{$criminals->name}}</option>
                   
 
     				@endforeach

@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ ( 'Legal Service Management and Mobile Responsive Case Monitoring and Case Movement System') }}</title>
+    <title>{{ ( 'Law Firm Legal Service Management and Mobile Responsive Case Monitoring and Case Movement System') }}</title>
 
     <!-- Styles -->
      <script type= "text/javascript" src="{{asset('js/jquery-3.3.1.min.js') }}"></script> 
@@ -16,7 +16,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default navbar-static-top" style="background-color: #68b169">
             <div class="container">
                 <div class="navbar-header">
 
@@ -28,10 +28,7 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{( 'Legal Service Management and Mobile Responsive Case Monitoring and Case Movement System') }}
-                    </a>
+                    <h1 style="color: #fff; text-align: center;">Law Firm Legal Service Management and Mobile Responsive Case Monitoring and Case Movement System</h1>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">

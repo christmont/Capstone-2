@@ -14,24 +14,29 @@ use App\employeeclients;
 use App\Employee;
 use App\Decision;
 use Carbon\Carbon;
+use DB;
 class ManageCaseController extends Controller
 {
     public function showmanagecase()
     {
-      $allcases = Client::where('cl_status','Approved')
-      ->with('casetobehandled')
-      ->get();
-
+      // $allcases = Client::where('cl_status','Approved')
+      // ->with('casetobehandled')
+      // ->get();
+      $allcases = DB::table('clients')
+                  ->select('clients.*','casetobehandleds.*')
+                  ->where([['cl_status','Approved'],['decision','=',null]])
+                  ->join('casetobehandleds','casetobehandleds.client_id','=','clients.id')
+                  ->get();
      
       
-      $cases = casetobehandled::where('decision','=',null)->with('client')->get();
+      // $cases = casetobehandled::where('decision','=',null)->with('client')->get();
     
-      $client = Client::all();
+      // $client = Client::all();
       
     
-      return view('managecase') ->withcases($cases)
+      return view('managecase') 
                                 ->withallcases($allcases)
-                                ->withclient($client);
+                                ;
                               
     
   }
