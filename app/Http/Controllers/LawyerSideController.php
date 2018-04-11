@@ -85,7 +85,6 @@ class LawyerSideController extends Controller
                       ->get();
 
 
-     
         
      
           return view('lawyer ui.client_table')->withClient($client);
@@ -94,12 +93,16 @@ class LawyerSideController extends Controller
        public function lawyerclientview($id)
     {
         $clients = Client::find($id);
+
          $cases = casetobehandled::where('client_id',$clients->id)->get();
+
           $clientadverses = clientadverse::where('client_id',$clients->id)->get();
+
             foreach($clientadverses as $clientadverse)
             {
               $adverses = Adverse::where('id',$clientadverse->adverse_id)->get();
             }
+
         return view('lawyer ui.viewer')->withClient($clients)
                              ->withCases($cases)
                              ->withAdverses($adverses);
@@ -194,16 +197,13 @@ class LawyerSideController extends Controller
                       ->join('casetobehandleds','casetobehandleds.client_id','=','schedules.client_id')
                       
                       ->get();
-        
-    foreach($hearingsched as $hearingscheds)
-    {
-       $schedule = Schedule::where([['type','Hearing'],['employee_id',$hearingscheds->employee_id]])->get();
-    }
+                     
+  
       
         
       
          return view('lawyer ui.schedules')->withhearingsched($hearingsched)
-                                           ->withschedule($schedule);
+                                           ;
                                         
     }
     public function lawyershowschededit($id)

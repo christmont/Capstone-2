@@ -34,7 +34,7 @@
 			
 								<tbody>
 									@foreach($criminalreport as $key => $criminalreports)
-									 @foreach($criminalcourts as $criminalcourt)
+									
 									<tr>
 									
 										
@@ -45,7 +45,7 @@
 										<td>{{$criminalreports->clfname}} {{$criminalreports->clmname}} {{$criminalreports->cllname}}</td>
 										<td>{{$criminalreports->clgender}}</td>
 										<td>{{$criminalreports->title}}</td>
-										<td>{{$criminalcourt->name}}</td>
+										<td>{{$criminalreports->name}}</td>
 										<td>{{$criminalreports->caseno}}</td>
 										<td>{{$criminalreports->casename}}</td>
 										<td>{{$criminalreports->case_status}}</td>
@@ -85,7 +85,7 @@
 									
 								     
 									</tr>
-								     @endforeach
+								    
 								      @endforeach
 								</tbody>
 							</table>
@@ -113,7 +113,7 @@
 									</tr>
 								</thead>
 				@foreach($civilreport as $key =>  $civilreports)
-									 @foreach($civilcourts as $civilcourt)
+									
 
 								<tbody>
 									<tr>
@@ -126,7 +126,7 @@
 										<td>{{$civilreports->clfname}} {{$civilreports->clmname}} {{$civilreports->cllname}}</td>
 										<td>{{$civilreports->clgender}}</td>
 										<td>{{$civilreports->title}}</td>
-										<td>{{$civilcourt->name}}</td>
+										<td>{{$civilreports->name}}</td>
 										<td>{{$civilreports->caseno}}</td>
 										<td>{{$civilreports->casename}}</td>
 										<td>{{$civilreports->case_status}}</td>
@@ -164,7 +164,7 @@
 										<td>{{$civilreports->decision}}</td>
 									    
 									
-								     @endforeach
+								     
 								      @endforeach
 									</tr>
 								
@@ -193,7 +193,7 @@
 									</tr>
 								</thead>
 				@foreach($laborreport as $key => $laborreports)
-									 @foreach($laborcourts as $laborcourt)
+									
 								<tbody>
 									<tr>
 									
@@ -205,7 +205,7 @@
 										<td>{{$laborreports->clfname}} {{$laborreports->clmname}} {{$laborreports->cllname}}</td>
 										<td>{{$laborreports->clgender}}</td>
 										<td>{{$laborreports->title}}</td>
-										<td>{{$laborcourt->name}}</td>
+										<td>{{$laborreports->name}}</td>
 										<td>{{$laborreports->caseno}}</td>
 										<td>{{$laborreports->casename}}</td>
 										<td>{{$laborreports->case_status}}</td>
@@ -245,7 +245,7 @@
 									
 								    
 									</tr>
-								 @endforeach
+								
 								      @endforeach
 								</tbody>
 							</table>
@@ -274,7 +274,7 @@
 				
 								<tbody>
 									@foreach($administrativereport as $key => $administrativereports)
-									 @foreach($administrativecourts as $administrativecourt)
+									
 										
 									<tr>
 									
@@ -283,7 +283,7 @@
 										<td>{{$administrativereports->clfname}} {{$administrativereports->clmname}} {{$administrativereports->cllname}}</td>
 										<td>{{$administrativereports->clgender}}</td>
 										<td>{{$administrativereports->title}}</td>
-										<td>{{$administrativecourt->name}}</td>
+										<td>{{$administrativereports->name}}</td>
 										<td>{{$administrativereports->caseno}}</td>
 										<td>{{$administrativereports->casename}}</td>
 										<td>{{$administrativereports->case_status}}</td>
@@ -321,7 +321,7 @@
 										<td>{{$administrativereports->decision}}</td>
 									    
 									</tr>
-								     @endforeach
+								     
 								      @endforeach
 									     
 							</table>

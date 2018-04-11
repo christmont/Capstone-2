@@ -55,7 +55,7 @@ tr:nth-child(even) {
 			<th>DECISION</th>
 		</tr>
 		@foreach($criminalclients as $key => $criminalclient)
-		 @foreach($criminalcourts as $criminalcourt )
+		 
 		<tr>
             
 			<td>{{$key +1}}</td>
@@ -63,7 +63,7 @@ tr:nth-child(even) {
 			<td>{{$criminalclient->clfname}} {{$criminalclient->clmname}} {{$criminalclient->cllname}}</td>
 			<td>{{$criminalclient->clgender}}</td>
 			<td>{{$criminalclient->title}}</td>
-			<td> {{$criminalcourt->name}}</td>
+			<td> {{$criminalclient->name}}</td>
 			<td>{{$criminalclient->caseno}}</td>
 			<td>{{$criminalclient->casename}}</td>
 			<td>{{$criminalclient->case_status}}</td>
@@ -101,7 +101,7 @@ tr:nth-child(even) {
 			<td>{{$criminalclient->decision}}</td>
 
 		</tr>
-		@endforeach
+		
 		 @endforeach
 		
 	</table>
@@ -122,7 +122,7 @@ tr:nth-child(even) {
 			<th>DECISION</th>
 		</tr>
 		@foreach($civilclients as $key => $civilclient)
-		 @foreach($civilcourts as $civilcourt )
+		 
 		<tr>
             
 			<td>{{$key +1}}</td>
@@ -130,7 +130,7 @@ tr:nth-child(even) {
 			<td>{{$civilclient->clfname}} {{$civilclient->clmname}} {{$civilclient->cllname}}</td>
 			<td>{{$civilclient->clgender}}</td>
 			<td>{{$civilclient->title}}</td>
-			<td> {{$civilcourt->name}}</td>
+			<td> {{$civilclient->name}}</td>
 			<td>{{$civilclient->caseno}}</td>
 			<td>{{$civilclient->casename}}</td>
 			<td>{{$civilclient->case_status}}</td>
@@ -167,7 +167,7 @@ tr:nth-child(even) {
 			</td>
 			<td>{{$civilclient->decision}}</td>
 		</tr>
-		@endforeach
+		
 		 @endforeach
 		
 		
@@ -189,7 +189,7 @@ tr:nth-child(even) {
 
 		</tr>
 		@foreach($laborclients as $key => $laborclient)
-		 @foreach($laborcourts as $laborcourt )
+		 
 		<tr>
             
 			<td>{{$key +1}}</td>
@@ -197,7 +197,7 @@ tr:nth-child(even) {
 			<td>{{$laborclient->clfname}} {{$laborclient->clmname}} {{$laborclient->cllname}}</td>
 			<td>{{$laborclient->clgender}}</td>
 			<td>{{$laborclient->title}}</td>
-			<td> {{$laborcourt->name}}</td>
+			<td> {{$laborclient->name}}</td>
 			<td>{{$laborclient->caseno}}</td>
 			<td>{{$laborclient->casename}}</td>
 			<td>{{$laborclient->case_status}}</td>
@@ -234,7 +234,7 @@ tr:nth-child(even) {
 			</td>
 			<td>{{$laborclient->decision}}</td>
 		</tr>
-		@endforeach
+		
 		 @endforeach
 		
 	</table><br>
@@ -255,14 +255,14 @@ tr:nth-child(even) {
 			<th>DECISION</th>
 		</tr>
 		@foreach($administrativeclients as $key=> $administrativeclient)
-		 @foreach($administrativecourts as $administrativecourt )
+		 
 		<tr>
             <td>{{$key +1}}</td>
 			<td>{{$administrativeclient->control_number}}</td>
 			<td>{{$administrativeclient->clfname}} {{$administrativeclient->clmname}} {{$administrativeclient->cllname}}</td>
 			<td>{{$administrativeclient->clgender}}</td>
 			<td>{{$administrativeclient->title}}</td>
-			<td> {{$administrativecourt->name}}</td>
+			<td> {{$administrativeclient->name}}</td>
 			<td>{{$administrativeclient->caseno}}</td>
 			<td>{{$administrativeclient->casename}}</td>
 			<td>{{$administrativeclient->case_status}}</td>
@@ -297,9 +297,9 @@ tr:nth-child(even) {
 											
 											@endif
 			</td>
-			<td>{{$criminalclient->decision}}</td>
+			<td>{{$administrativeclient->decision}}</td>
 		</tr>
-		@endforeach
+		
 		 @endforeach
 		
 	</table ><br><br>

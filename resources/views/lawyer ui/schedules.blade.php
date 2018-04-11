@@ -98,19 +98,19 @@
 										<td>
 											 {{$schedules->end}}
 										</td>
-									    @foreach($schedule as $sched)
+									   
 										<td>
-											   <a class ="btn btn-warning" href="{{ route('lawyer.showeditsched',$sched->id) }}">Reschedule</a>
+											   <a class ="btn btn-warning" href="{{ route('lawyer.showeditsched',$schedules->id) }}">Reschedule</a>
 										</td>
 										<td>
-											<form action="{{ route('deletesched',$sched->id) }}" method = "post">
+											<form action="{{ route('deletesched',$schedules->id) }}" method = "post">
 												{{ csrf_field() }}
         {{ method_field('DELETE') }}
-											<button type ="submit" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?')" href="{{ route('deletesched',$sched->id) }}"><i class="fa fa-trash"></i>
+											<button type ="submit" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?')" href="{{ route('deletesched',$schedules->id) }}"><i class="fa fa-trash"></i>
 											Delete </button>
 										</form>
 										</td>
-										@endforeach
+										
 									</tr>
 										
 									@endforeach	
