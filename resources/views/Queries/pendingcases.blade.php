@@ -5,8 +5,6 @@
 
 <section id="middle">
 
-
-				<!-- page title -->
 				<header id="page-header">
 					<h1> Pending Cases</h1>
 					<ol class="breadcrumb">
@@ -14,25 +12,15 @@
 						<li class="active"> Pending</li>
 					</ol>
 				</header>
-				<!-- /page title -->
+
 
 				<div id="content" class="padding-20">
 
-					<!-- 
-						PANEL CLASSES:
-							panel-default
-							panel-danger
-							panel-warning
-							panel-info
-							panel-success
-
-						INFO: 	panel collapse - stored on user localStorage (handled by app.js _panels() function).
-								All pannels should have an unique ID or the panel collapse status will not be stored!
-					-->
+					
 					<div id="panel-1" class="panel panel-default">
 						<div class="panel-heading">
 							<span class="title elipsis">
-								<strong>Cases </strong> <!-- panel title -->
+								<strong>Cases </strong> 
 							</span>
 
 							<!-- right options -->

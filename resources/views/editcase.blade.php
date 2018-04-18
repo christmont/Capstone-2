@@ -334,10 +334,7 @@ var strUser = e.options[e.selectedIndex].value;
             document.getElementById('ifMarried').style.display = 'none';
         }
     }
-
-   
-
-   </script>
+</script>
    <script type ="text/javascript">
 	    window.onload = function() {
         document.getElementById('ifMarried').style.display = 'none';
@@ -362,8 +359,5 @@ var strUser = e.options[e.selectedIndex].value;
 	});
 	})
    </script>
-
-  
-
 </section>
 @stop

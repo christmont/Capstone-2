@@ -149,10 +149,7 @@
    </script>
    <script type="text/javascript">
 $(document).ready(function(){
-    // Show the Modal on load
-  
-    
-    // Hide the Modal
+
     $("#myBtn").click(function(){
         $("#bs-example-modal-full").modal("hide");
     });

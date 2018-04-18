@@ -139,7 +139,7 @@
     </div>
 @endforeach
 </section>
-	<script>
+	<script type="text/javascript">
 function add_field()
 {
   var total_text=document.getElementsByClassName("input_text");
@@ -156,7 +156,7 @@ function remove_field(id)
   document.getElementById(id+"_wrapper").innerHTML="";
 }
 </script>
-<script>
+<script type="text/javascript">
 function add_fields()
 {
   var total_text=document.getElementsByClassName("input_texts");
@@ -173,7 +173,7 @@ function remove_fields(id)
   document.getElementById(id+"_wrapper").innerHTML="";
 }
 </script>
-<script>
+<script type="text/javascript">
 function add_fieldss()
 {
   var total_text=document.getElementsByClassName("input_textss");
@@ -190,7 +190,7 @@ function remove_fieldss(id)
   document.getElementById(id+"_wrapper").innerHTML="";
 }
 </script>
-<script>
+<script type="text/javascript">
 function add_fieldsss()
 {
   var total_text=document.getElementsByClassName("input_textsss");
@@ -207,7 +207,7 @@ function remove_fieldsss(id)
   document.getElementById(id+"_wrapper").innerHTML="";
 }
 </script>
-<script>
+<script type="text/javascript">
 function add_fieldssss()
 {
   var total_text=document.getElementsByClassName("input_textssss");
@@ -220,7 +220,7 @@ function remove_fieldssss(id)
   document.getElementById(id+"_wrapper").innerHTML="";
 }
 </script>
-<script>
+<script type="text/javascript">
 function add_fieldsssss()
 {
   var total_text=document.getElementsByClassName("input_textsssss");

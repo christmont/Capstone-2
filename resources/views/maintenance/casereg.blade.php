@@ -130,7 +130,7 @@
     </div>
   </div>
 </div>
-<script>
+<script type="text/javascript">
    function getval(ct)
 {
     

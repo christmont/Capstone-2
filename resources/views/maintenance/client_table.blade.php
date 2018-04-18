@@ -155,7 +155,8 @@
         }
     });
 });
-   <script>
+   </script>
+   <script type="text/javascript">
 $(document).ready(function(){
     // Show the Modal on load
   
@@ -180,9 +181,6 @@ $('#submit').click(function() {
     });
 });
 });
-</script>
-
-</script>
-						
+</script>					
 </section>		
 @stop

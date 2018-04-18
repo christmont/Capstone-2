@@ -287,7 +287,7 @@ $("#datetimepicker7").on("dp.change",function (e) {
 
 </script>
 
-// <script>
+<script type="text/javascript">
     $(function(){
         $('.tab-content').hide();
         $('ul.nav-tabs li:first').addClass('active');
@@ -307,8 +307,7 @@ $("#datetimepicker7").on("dp.change",function (e) {
    $('.btnPrevious').click(function(){
   $('.nav-tabs > .active').prev('li').find('a').trigger('click');
 });
-
-// </script>
+</script>
 <script type="text/javascript">
     $(function(){
     $(".nav-tabs").tabs();
@@ -317,7 +316,7 @@ $("#datetimepicker7").on("dp.change",function (e) {
     $(".nav-tabs").nav-tabs("option", "selected", selected + 1);
     });
     })
-   </script>
+</script>
    <script type="text/javascript">
     window.onload = function() {
         document.getElementById('ifYes').style.display = 'none';
@@ -354,7 +353,7 @@ var strUser = e.options[e.selectedIndex].value;
    
 
    </script>
-       <script>
+       <script type="text/javascript">
 $(document).ready(function () {
   $('#increment').click(function(){
       var width = $("#container_width");

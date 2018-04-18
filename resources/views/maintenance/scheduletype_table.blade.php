@@ -174,7 +174,7 @@
 					<!-- /PANEL -->
 
 				</div>
-<script>
+<script type="text/javascript">
     $('.delete-user').click(function(e){
         e.preventDefault() // Don't post the form, unless confirmed
         if (confirm('Are you sure?')) {

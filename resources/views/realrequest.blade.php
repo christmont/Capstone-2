@@ -9,13 +9,11 @@
 					<ol class="breadcrumb">
 						<li><a href="#">Add</a></li>
 						<li class="active">New Requests</li>
-						
 					</ol>
 				</header>
 	<div class="container-fluid">
 		<ul class="nav nav-tabs">
 			<li><a href="#nature">Nature of Request</a></li>
-			
 			<li id = "tab" style="display:none"><a href="#clientinfo">Client Info</a></li>
 			<li id="ifMarried" style="display:none;"><a href="#clientmarital">Client Marital Info</a></li>
 			<li id="ifYes" style="display:none;" ><a href="#detention">Client Detention</a></li>
@@ -25,10 +23,7 @@
 		<form class ="horizontal" action="/client/register" method="post" enctype="multipart/form-data">
 		 {{ csrf_field() }}
 		<div id="nature" class="tab-content">
-
 				<div class="container">
-
-									
 					<div class="row" style="height: 490px; width: 100%">
 						{{-- 	<form class="form-horizontal" action="/client/register" method="post" enctype="multipart/form-data">
                   {{ csrf_field() }} --}}
@@ -48,51 +43,36 @@
 							</div>
 						</div>
 					</div>
-				
-
 				<footer>
 					<center>
-
 						<div id="notary" style="display:none" class="col-md-4">
-				         
               				<a href="/show/clientnotary">
               			<span class="fa-stack fa-3x">
               			<i class="fa fa-circle fa-stack-1x text-success"></i>
               			<i class="fa fa-arrow-right fa-stack-1x fa-inverse"></i>
           				</span>
           	  				</a>
-            
 				        </div>
-
 				        <div id="docu" style="display:none" class="col-md-4">
-				         
               				<a href="/show/docu">
               			<span class="fa-stack fa-3x">
               			<i class="fa fa-circle fa-stack-1x text-success"></i>
               			<i class="fa fa-arrow-right fa-stack-1x fa-inverse"></i>
           				</span>
           	  				</a>
-            
 				        </div>
-
 				        <div id="or" style="display:none" class="col-md-4">
-				         
               				<a  class=" btnNext" >
               			<span class="fa-stack fa-3x">
               			<i class="fa fa-circle fa-stack-1x text-success"></i>
               			<i class="fa fa-arrow-right fa-stack-1x fa-inverse"></i>
           				</span>
           	  				</a>
-            
 				        </div>
-					    
-
 					        {{-- <button id="inquest" style="display:none" href="/inquestclient/register" class="btn btn-green">Next</button> --}}
-
 					        <button id="notary" style="display:none" href="/show/clientnotary" class="btn btn-green">Next</button>
 					        <button id="docu" style="display:none" href="/show/docu" class="btn btn-green">Next</button>
 					        <button id="inquest" style="display:none" href="/inquestclient/register" class="btn btn-green">Next</button>
-
 							<button id="or" class="btn btn-green btnNext" style = "display:none;">Next</button>
 					        <br><br>
 					</center>
@@ -100,10 +80,6 @@
 				 
 			</div>
 		</div>
-		
-
-
-
 		<div id="clientinfo" class="tab-content">
 				<div class="container">
 					<div class="row" style="height: 490px; width: 100%"><br>
@@ -248,8 +224,6 @@
 					<div class="row" style="height: 490px; width: 100%">
 						<div class="form-group"><br>
 							<div class="col-md-6">	
-								
-		    				
 			        			Detained Since<input type="date" name="detainedsince" value="" class="form-control ">
 			        			Place of Detention<input type="text" name="detention" value="" class="form-control ">
 		    				</div>
@@ -257,11 +231,9 @@
 						</div>
 					</div>
 					<footer style="margin-bottom: 80px; text-align: center;">
-
 					        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
 					         <button type="submit" class="btn btn-green ">Submit</button>
 					         <button class="btn btn-green btnNext" >Next</button>
-
 				    </footer>
 				</div>
 			</div>
@@ -316,7 +288,6 @@
 				</div>
 			</div>
 		</div>
-
 		<div id="adverse" class="tab-content">
 			<div class="card1">
 				<div class="container">
@@ -357,7 +328,8 @@
 				    </footer>
 				</div>
 			</div>
-		</div> --}} 	</div>
+		</div> --}} 	
+	</div>
 	<script type="text/javascript">
     window.onload = function() {
         document.getElementById('ifYes').style.display = 'none';
@@ -371,9 +343,7 @@
             document.getElementById('ifYes').style.display = 'none';
         }
     }
-
 </script>
-
 <script type="text/javascript">
 var e = document.getElementById("ddlViewBy");
 var strUser = e.options[e.selectedIndex].value;
@@ -390,24 +360,17 @@ var strUser = e.options[e.selectedIndex].value;
             document.getElementById('ifMarried').style.display = 'none';
         }
     }
-
-   
-
    </script>
-   <script>
+   <script type="text/javascript">
    function getval(nor)
 {
     if(nor.value == 'Administration of oath')
     {
-    	 
     	 	document.getElementById('notary').style.display = 'block';
     	 	document.getElementById('or').style.display = 'none';
     	 	document.getElementById('tab').style.display = 'none';
     	 	document.getElementById('docu').style.display = 'none';
     	 	document.getElementById('inquest').style.display = 'none';
-
-
-    	 
     }
     else if(nor.value == 'Legal Documentation')
     {
@@ -459,8 +422,5 @@ var strUser = e.options[e.selectedIndex].value;
 	});
 	})
    </script>
-
-   </script>>
-
 </section>
 @stop

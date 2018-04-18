@@ -33,31 +33,31 @@ class CasehistoryController extends Controller
 
 
 
-        // $casehistory = casetobehandled::where('decision','!=',null)
-        //                       ->with('client')
-        //                       ->get();
+/*        $casehistory = casetobehandled::where('decision','!=',null)
+                              ->with('client')
+                              ->get();
                              
-        //               foreach ($casehistory as $key => $casehist) 
-        //               {
+                      foreach ($casehistory as $key => $casehist) 
+                      {
                        
                       
                   
                       
                 
     					  	
-    				// 	  		$court = Court::where('id',$casehist->court_id)->get();
-        //             $employeeclient = employeeclients::where('client_id',$casehist->id)->get();
+    					  		$court = Court::where('id',$casehist->court_id)->get();
+                    $employeeclient = employeeclients::where('client_id',$casehist->id)->get();
 
 
     					  	
     				
-    				//   			foreach ($employeeclient as $key => $employeeclients) 
-        //                         {
-        //                             $lawyer = Employee::where([['position','Lawyer'],['id',$employeeclients->employee_id]])->get();
+    				  			foreach ($employeeclient as $key => $employeeclients) 
+                                {
+                                    $lawyer = Employee::where([['position','Lawyer'],['id',$employeeclients->employee_id]])->get();
                                     
-        //                         }
+                                }
                   
-    				//           }
+    				          }*/
     		return view('casehistory.showcasehistory')->withcasehistory($casehistory)
     												                     ;
     }

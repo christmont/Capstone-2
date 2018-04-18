@@ -189,10 +189,6 @@
 									@foreach($sbcase as $key => $sbcases)
 									
 									<tr>
-									
-										
-									
-									
 										<td>{{$key +1}}</td>
 										<td>{{$sbcases->control_number}}</td>
 										<td>{{$sbcases->clfname}} {{$sbcases->clmname}} {{$sbcases->cllname}}</td>

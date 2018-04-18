@@ -2,9 +2,6 @@
 @extends('lawyer ui/lawyer side-nav')
 @extends('lawyer ui/lawyer header-main')
 @section('contents')
-
-
-
 <section id="middle">
 
 <div class="container">
@@ -17,7 +14,6 @@
 				    <input type="submit" value="Upload" name="submit">
 					<input type="hidden" value="{{ csrf_token() }}" name="_token">
 				</form>
-
 			</div>
 		</div>
 		</section>

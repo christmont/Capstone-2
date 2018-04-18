@@ -134,16 +134,11 @@
 {
     if(client.value !== null)
     {
-         
-            document.getElementById('controlno').style.display = 'block';
-            
-
-         
+            document.getElementById('controlno').style.display = 'block';    
     }
     else
     {
         document.getElementById('controlno').style.display = 'none';
-        
     }
 }
    </script>

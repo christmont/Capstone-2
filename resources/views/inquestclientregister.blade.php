@@ -24,11 +24,6 @@
 		</ul>
 		<form class ="horizontal" action="/inquestclient/register" method="post" enctype="multipart/form-data">
 		 {{ csrf_field() }}
-		
-		
-
-
-
 		<div id="clientinfo" class="tab-content">
 			<div class="card1">
 				<div class="container">
@@ -322,7 +317,7 @@ var strUser = e.options[e.selectedIndex].value;
    
 
    </script>
-   <script>
+   <script type="text/javascript">
    function getval(nor)
 {
     if(nor.value == 'Administration of oath')
@@ -382,8 +377,5 @@ var strUser = e.options[e.selectedIndex].value;
 	});
 	})
    </script>
-
-   </script>>
-
 </section>
 @stop
