@@ -241,6 +241,7 @@ Route::get('show/lawyercases','QueriesController@lawyercase');
 Route::get('show/mostcasetype','QueriesController@mostcasetype');
 Route::get('show/pendingcase','QueriesController@pendingcase');
 
+
 Route::get('/show/clientnotary','RegisterController@shownotaryclientreg');
 Route::post('/notary/register','RegisterController@notaryclientreg');
 
