@@ -2650,6 +2650,13 @@ ul.easypiecharts li span.stat-title {
     color: #204920;
     padding-top: 570px;
     font-family: "Arial Black", Gadget, sans-serif;
+    animation-name: example;
+    animation-duration: 4s;
+    position: relative;
+}
+@keyframes example {
+    0%   {top:0px; top:570px;}
+    100%  {top:0px; bottom:570px;}
 }
 .container-fluid1{
 	position: relative;
