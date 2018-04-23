@@ -8,7 +8,7 @@
 
 				<!-- page title -->
 				<header id="page-header">
-					<h1>Legal Documentation TABLE</h1>
+					<h1>Legal Documentation</h1>
 					<ol class="breadcrumb">
 						<li><a href="#">Tables</a></li>
 						<li class="active">Request tables</li>
@@ -162,7 +162,8 @@
         }
     });
 });
-   <script>
+   </script>
+<script type="text/javascript">
 $(document).ready(function(){
     // Show the Modal on load
   
@@ -187,9 +188,6 @@ $('#submit').click(function() {
     });
 });
 });
-</script>
-
-</script>
-						
+</script>				
 </section>		
 @stop

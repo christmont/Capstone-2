@@ -154,7 +154,7 @@
 										</td>
 
 									</tr>
-</form>
+									</form>
 									@endforeach	
 								</tbody>
 							</table>

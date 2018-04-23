@@ -245,10 +245,8 @@ $("#datetimepicker7").on("dp.change",function (e) {
   $('#datetimepicker6').data("DateTimePicker").setMaxDate(e.date.add(1, 'D')); 
 });
     });
-
 </script>
-
-// <script>
+<script type="text/javascript">
     $(function(){
         $('.tab-content').hide();
         $('ul.nav-tabs li:first').addClass('active');
@@ -268,7 +266,6 @@ $("#datetimepicker7").on("dp.change",function (e) {
    $('.btnPrevious').click(function(){
   $('.nav-tabs > .active').prev('li').find('a').trigger('click');
 });
-
-// </script>
+ </script>
     </body>
 </html>

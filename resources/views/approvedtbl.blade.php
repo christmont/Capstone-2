@@ -15,33 +15,7 @@
 						
 					</ol>
 				</header>
-				<!-- /page title -->
-
-
-
-    
-
-
-
-
-
-
-
-
-
 				<div id="content" class="padding-20">
-
-					<!-- 
-						PANEL CLASSES:
-							panel-default
-							panel-danger
-							panel-warning
-							panel-info
-							panel-success
-
-						INFO: 	panel collapse - stored on user localStorage (handled by app.js _panels() function).
-								All pannels should have an unique ID or the panel collapse status will not be stored!
-					-->
 					<div id="panel-1" class="panel panel-default">
 						<div class="panel-heading">
 							<span class="title elipsis">
@@ -112,11 +86,6 @@
 							</table>
 
 						</div>
-						<!-- /panel content -->
-
-						<!-- panel footer -->
-						
-
 					</div>
 					<!-- /PANEL -->
 
@@ -161,7 +130,8 @@
         }
     });
 });
-   <script>
+</script>
+<script type="text/javascript">
 $(document).ready(function(){
     // Show the Modal on load
   
@@ -186,9 +156,6 @@ $('#submit').click(function() {
     });
 });
 });
-</script>
-
-</script>
-						
+</script>				
 </section>		
 @stop

@@ -68,7 +68,7 @@
 										<th>Delete</th>
 									</tr>
 								</thead>
-<tbody>
+								<tbody>
 								@foreach ($courts as $cou)
 									<tr>
 										<td>

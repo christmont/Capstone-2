@@ -4,9 +4,6 @@
 @section('content')
 
 <section id="middle">
-
-
-				<!-- page title -->
 <header id="page-header">
 	<h1>Schedule</h1>
 </header>
@@ -132,7 +129,7 @@
     </footer>
 </form>
 </div>
- <script>
+ <script type="text/javascript">
    function getval(client)
 {
     if(client.value !== null)
@@ -151,7 +148,7 @@
 }
 
    </script>
-   <script>
+   <script type="text/javascript">
    function getvalue(type)
 {
     if(type.value == 'Hearing')

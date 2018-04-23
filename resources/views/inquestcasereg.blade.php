@@ -4,13 +4,6 @@
 @section('content')
 
 <section id="middle">
-
-
-
-
-
-
-      <!-- Modal Header -->
       <div class="modal-header">
         
         <h4 class="modal-title" id="myModalLabel">Add Case</h4>
@@ -130,7 +123,7 @@
     </div>
   </div>
 </div>
-<script>
+<script type="text/javascript">
    function getval(ct)
 {
     

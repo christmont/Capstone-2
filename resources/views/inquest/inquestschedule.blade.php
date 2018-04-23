@@ -19,20 +19,6 @@
 						<li class="active">Inquest</li>
 					</ol>
 				</header>
-				<!-- /page title -->
-
-
-
-    
-
-
-
-
-
-
-
-
-
 				<div id="content" class="padding-20">
 
 					<!-- 

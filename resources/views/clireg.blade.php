@@ -66,10 +66,7 @@
 	</div>
 </div>
 </div>
-
-
-
-		<div id="clientinfo" class="tab-content">
+<div id="clientinfo" class="tab-content">
 			<div class="card1">
 				<div class="container">
 					<div class="row" style="height: 490px; width: 100%"><br>
@@ -361,10 +358,7 @@ var strUser = e.options[e.selectedIndex].value;
             document.getElementById('ifMarried').style.display = 'none';
         }
     }
-
-   
-
-   </script>
+</script>
    <script type ="text/javascript">
 	    window.onload = function() {
         document.getElementById('ifMarried').style.display = 'none';
@@ -389,8 +383,5 @@ var strUser = e.options[e.selectedIndex].value;
 	});
 	})
    </script>
-
-   </script>>
-
 </section>
 @stop

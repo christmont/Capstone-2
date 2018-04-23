@@ -20,10 +20,6 @@
 				
 			</div>
 		</div>
-
- 
-
-      <!-- Modal Footer -->
       <footer>
         
         <button type="submit" class="btn btn-green">Submit</button>

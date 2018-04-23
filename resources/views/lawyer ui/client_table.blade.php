@@ -146,12 +146,10 @@
         }
     });
 });
-   <script>
+   </script>
+   <script type="text/javascript">
 $(document).ready(function(){
-    // Show the Modal on load
-  
-    
-    // Hide the Modal
+
     $("#myBtn").click(function(){
         $("#bs-example-modal-full").modal("hide");
     });
@@ -173,7 +171,6 @@ $('#submit').click(function() {
 });
 </script>
 
-</script>
 						
 </section>		
 @stop

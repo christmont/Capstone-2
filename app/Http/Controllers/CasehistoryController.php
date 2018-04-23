@@ -36,7 +36,11 @@ class CasehistoryController extends Controller
 
 
 
+<<<<<<< HEAD
         $casehistory = casetobehandled::where('decision','!=',null)
+=======
+/*        $casehistory = casetobehandled::where('decision','!=',null)
+>>>>>>> 024ea1a94b6b321a247e43a54305b07285388152
                               ->with('client')
                               ->get();
                              
@@ -60,7 +64,11 @@ class CasehistoryController extends Controller
                                     
                                 }
                   
+<<<<<<< HEAD
     				          }
+=======
+    				          }*/
+>>>>>>> 024ea1a94b6b321a247e43a54305b07285388152
     		return view('casehistory.showcasehistory')->withcasehistory($casehistory)
     											      ->withcourt($court)
                                                       ->withlawyer($lawyer)               ;

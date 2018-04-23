@@ -10,8 +10,6 @@
 						<li><a href="#case">Case to be Handled</a></li>
 						<li><a href="#adverse">Adverse</a></li>
 					</ul>
-
-					
 						<div id="client" class="tab-content">
 							<div class="card1">
 							<div class="container-fluid"><br>
