@@ -24,7 +24,7 @@
 
       <!-- Modal Footer -->
       <footer>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
+        
         <button type="submit" class="btn btn-green">Submit</button>
       </footer>
 

@@ -6,7 +6,7 @@
 <div class="container">
       <!-- Modal Header -->
       <header>
-        <h4">Add Religion</h4>
+        <h4>Add Religion</h4>
       </header>
 
       <!-- Modal Body -->

@@ -50,7 +50,7 @@
     </div>
     <center>
     <footer><br><br><br><br><br><br><br><br>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
+        
         <button type="submit" class="btn btn-green"/>Submit
       </footer></center></form>
 </div>

@@ -86,22 +86,22 @@
 										<td>
 											 {{$client->casename}} 
 										</td>
-										  
+										 @foreach($lawyer as $lawyers) 
 										<td>
-											Atty. {{$client->efname}} {{$client->emname}} {{$client->elname}}
+											Atty. {{$lawyers->efname}} {{$lawyers->emname}} {{$lawyers->elname}}
 										</td>
-										 
-							    
+										 @endforeach
+							    @foreach($court as $courts)
 										<td>
-											@if($client->court_id == '1')
+											@if($courts->id == '1')
 											 Metropolitan Trial Court
-											@elseif($client->court_id == '2')
+											@elseif($courts->id == '2')
 											 Regional Trial Court
-											@elseif($client->court_id == '3')
+											@elseif($courts->id == '3')
 											 Sandiganbayan
 											@endif
 										</td>
-											
+								@endforeach			
 										<td>
 											 {{$client->decision}} 
 										</td>

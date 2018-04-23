@@ -59,11 +59,9 @@
 				
 			<footer style="margin-bottom: 80px; text-align: center;">
 
-					         <a class="btn btn-default btnPrevious" >Back</a>
+					       
                              <button type="submit" class="btn btn-green ">Submit</button>
-                             <div id = "ifMarried"  style="display:none;">
-					         <a  class="btn btn-green btnNext" >Next</a><br><br><br>
-					        </div>
+                             
 				    </footer>
 					</div>
 				</div>
